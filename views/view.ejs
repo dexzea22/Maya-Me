@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmation and Order Information</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Confirmation and Order Information</h1>
+    <div class="order-info">
+      <p><strong>User ID:</strong> <%= confirmOrderInfo.userId %></p>
+      <p><strong>Last Name:</strong> <%= confirmOrderInfo.lastname %></p>
+      <p><strong>First Name:</strong> <%= confirmOrderInfo.firstname %></p>
+      <p><strong>Middle Name:</strong> <%= confirmOrderInfo.middlename %></p>
+      <p><strong>Birthdate:</strong> <%= confirmOrderInfo.birthdate.toISOString().substring(0, 10) %></p>
+      <p><strong>Gender:</strong> <%= confirmOrderInfo.gender %></p>
+      <p><strong>Delivery Address:</strong> <%= confirmOrderInfo.deliveryAddress %></p>
+      <p><strong>Food Choices:</strong></p>
+      <ul>
+        <% confirmOrderInfo.foodChoice.forEach(function(food) { %>
+          <li><%= food %></li>
+        <% }); %>
+      </ul>
+      <p><strong>Special Requests:</strong> <%= confirmOrderInfo.specialRequests %></p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

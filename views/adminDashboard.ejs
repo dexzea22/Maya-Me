@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard Update</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .sidenav {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #ffc107;
+        overflow-x: hidden;
+        padding-top: 20px;
+        transition: 0.5s;
+      }
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 16px;
+        color: #f8f9fa;
+        display: block;
+      }
+      .sidenav a:hover {
+        color: #007bff;
+      }
+      .main-content {
+        margin-left: 250px;
+        padding: 20px;
+      }
+      .chart-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .chart-wrapper {
+        margin: auto;
+        width: 40%;
+      }
+      #donutChartWrapper {
+        flex: 0 0 30%; /* Adjust the width of the donut chart wrapper */
+      }
+      #pieChartWrapper {
+        flex: 0 0 30%; /* Adjust the width of the donut chart wrapper */
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="sidenav">
+        <a href="/adminDashboard">Dashboard</a>
+        <a href="/adminUserTable">User Table</a>
+        <a href="/logs">Logs</a>
+        <a href="/studentinfo">Form</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+      </div>
+
+      <div class="main-content">
+        <h1 class="mb-4">Admin Dashboard</h1>
+        <iframe
+          style="
+            margin-right: 5%;
+            background: #ffffff;
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
+          "
+          width="440"
+          height="400"
+          src="https://charts.mongodb.com/charts-project-0-ldxpe/embed/charts?id=64a7cac6-f0f8-4568-85de-148796c1c6f1&maxDataAge=1800&theme=light&autoRefresh=true"
+        ></iframe>
+        <iframe
+          style="
+            background: #ffffff;
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
+          "
+          width="1020"
+          height="480"
+          src="https://charts.mongodb.com/charts-project-0-ldxpe/embed/charts?id=64a858ee-810f-4501-82f0-3e040f517891&maxDataAge=1800&theme=light&autoRefresh=true"
+        ></iframe>
+        <div class="chart-container">
+          <div class="chart-wrapper">
+            <canvas id="barChart"></canvas>
+          </div>
+          <div class="chart-wrapper" id="pieChartWrapper">
+            <canvas id="pieChart"></canvas>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="lineChart"></canvas>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="stackedBarChart"></canvas>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="scatterPlot"></canvas>
+          </div>
+          <div class="chart-wrapper" id="donutChartWrapper">
+            <canvas id="donutChart"></canvas>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="areaChart"></canvas>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="radarChart"></canvas>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="funnelChart"></canvas>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="heatmapChart"></canvas>
+          </div>
+        </div>
+
+        <script>
+          // Assuming you have retrieved the food choices data from the form submissions
+          // Replace the foodChoicesData array with the actual data fetched from the form submissions
+
+          // Create the bar chart
+          const barChartCtx = document
+            .getElementById("barChart")
+            .getContext("2d");
+          new Chart(barChartCtx, {
+            type: "bar",
+            data: {
+              labels: ["Burger", "Pizza", "Pasta", "Salad", "Sushi"],
+              datasets: [
+                {
+                  label: "Food Choices",
+                  data: [25, 35, 20, 10, 15],
+                  backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56",
+                    "#4BC0C0",
+                    "#9966FF",
+                  ],
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Count",
+                  },
+                },
+              },
+            },
+          });
+
+          // Create the pie chart
+          const pieChartCtx = document
+            .getElementById("pieChart")
+            .getContext("2d");
+          new Chart(pieChartCtx, {
+            type: "pie",
+            data: {
+              labels: ["Burger", "Pizza", "Pasta", "Salad", "Sushi"],
+              datasets: [
+                {
+                  label: "Food Choices",
+                  data: [25, 35, 20, 10, 15],
+                  backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56",
+                    "#4BC0C0",
+                    "#9966FF",
+                  ],
+                  borderWidth: 1,
+                },
+              ],
+            },
+          });
+
+          // Assuming you have retrieved the data for form submissions and orders from your system
+          // Replace the formSubmissionsData and ordersData arrays with the actual data fetched from your system
+
+          // Create an array of dates for the x-axis labels (e.g., monthly or weekly timestamps)
+          const dates = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+          // Form submissions data
+          const formSubmissionsData = [10, 20, 30, 25, 35, 40];
+
+          // Orders data
+          const ordersData = [15, 25, 20, 30, 45, 35];
+
+          // Create the line chart
+          const lineChartCtx = document
+            .getElementById("lineChart")
+            .getContext("2d");
+          new Chart(lineChartCtx, {
+            type: "line",
+            data: {
+              labels: dates,
+              datasets: [
+                {
+                  label: "Form Submissions",
+                  data: formSubmissionsData,
+                  borderColor: "#FF6384",
+                  borderWidth: 2,
+                  fill: false,
+                },
+                {
+                  label: "Orders",
+                  data: ordersData,
+                  borderColor: "#36A2EB",
+                  borderWidth: 2,
+                  fill: false,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Count",
+                  },
+                },
+                x: {
+                  title: {
+                    display: true,
+                    text: "Months",
+                  },
+                },
+              },
+            },
+          });
+
+          // Create the donut chart
+          const donutChartCtx = document
+            .getElementById("donutChart")
+            .getContext("2d");
+          new Chart(donutChartCtx, {
+            type: "doughnut",
+            data: {
+              labels: ["Burger", "Pizza", "Pasta", "Salad", "Sushi"],
+              datasets: [
+                {
+                  label: "Food Choices",
+                  data: [25, 35, 20, 10, 15],
+                  backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56",
+                    "#4BC0C0",
+                    "#9966FF",
+                  ],
+                  borderWidth: 1,
+                },
+              ],
+            },
+          });
+
+          // Create the stacked bar chart
+          const stackedBarChartCtx = document
+            .getElementById("stackedBarChart")
+            .getContext("2d");
+          new Chart(stackedBarChartCtx, {
+            type: "bar",
+            data: {
+              labels: ["Group 1", "Group 2", "Group 3"],
+              datasets: [
+                {
+                  label: "Burger",
+                  data: [10, 20, 30],
+                  backgroundColor: "#FF6384",
+                },
+                {
+                  label: "Pizza",
+                  data: [15, 25, 35],
+                  backgroundColor: "#36A2EB",
+                },
+                {
+                  label: "Pasta",
+                  data: [5, 10, 15],
+                  backgroundColor: "#FFCE56",
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Count",
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  position: "bottom",
+                },
+                title: {
+                  display: true,
+                  text: "Distribution of Food Choices across Age Groups",
+                },
+              },
+            },
+          });
+
+          // Create the scatter plot
+          const scatterPlotCtx = document
+            .getElementById("scatterPlot")
+            .getContext("2d");
+          new Chart(scatterPlotCtx, {
+            type: "scatter",
+            data: {
+              datasets: [
+                {
+                  label: "Scatter Plot",
+                  data: [
+                    { x: 20, y: 30 },
+                    { x: 25, y: 35 },
+                    { x: 30, y: 20 },
+                    { x: 35, y: 15 },
+                    { x: 40, y: 25 },
+                  ],
+                  backgroundColor: "#FF6384",
+                  pointRadius: 6,
+                  pointHoverRadius: 8,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                x: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Age",
+                  },
+                },
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Food Choices",
+                  },
+                },
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Relationship between Age and Preferred Food Choices",
+                },
+              },
+            },
+          });
+
+          // Create the area chart
+          const areaChartCtx = document
+            .getElementById("areaChart")
+            .getContext("2d");
+          new Chart(areaChartCtx, {
+            type: "line",
+            data: {
+              labels: dates,
+              datasets: [
+                {
+                  label: "Cumulative Orders",
+                  data: ordersData,
+                  borderColor: "#4BC0C0",
+                  backgroundColor: "rgba(75, 192, 192, 0.3)",
+                  borderWidth: 2,
+                  fill: true,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: "Cumulative Orders",
+                  },
+                },
+                x: {
+                  title: {
+                    display: true,
+                    text: "Months",
+                  },
+                },
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Cumulative Number of Orders over Time",
+                },
+              },
+            },
+          });
+
+          // Create the radar chart
+          const radarChartCtx = document
+            .getElementById("radarChart")
+            .getContext("2d");
+          new Chart(radarChartCtx, {
+            type: "radar",
+            data: {
+              labels: ["Burger", "Pizza", "Pasta", "Salad", "Sushi"],
+              datasets: [
+                {
+                  label: "Gender 1",
+                  data: [3, 4, 5, 2, 1],
+                  backgroundColor: "rgba(255, 99, 132, 0.3)",
+                  borderColor: "#FF6384",
+                  borderWidth: 2,
+                },
+                {
+                  label: "Gender 2",
+                  data: [2, 3, 1, 4, 5],
+                  backgroundColor: "rgba(54, 162, 235, 0.3)",
+                  borderColor: "#36A2EB",
+                  borderWidth: 2,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                r: {
+                  beginAtZero: true,
+                },
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Distribution of Food Choices among User Demographics",
+                },
+              },
+            },
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

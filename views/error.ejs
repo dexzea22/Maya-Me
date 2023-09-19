@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Web App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .jumbotron {
+        background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/08/Food-Wallpapers-HD-For-Desktop.jpg");
+        width: 100%;
+        height: auto;
+        padding-bottom: 25%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+      }
+      .food-card {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .card {
+        width: calc(33.33% - 20px);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .card img {
+        width: 100%;
+        border-radius: 5px;
+      }
+      .card h3 {
+        margin: 10px 0;
+      }
+      .card p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">My Web App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+        <!-- End Navigation Bar -->
+      </div>
+    </nav>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Welcome Maya and Me</h1>
+        <p class="lead">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          euismod bibendum laoreet.
+        </p>
+        <a href="/login" class="btn btn-primary btn-lg">Login Now</a>
+      </div>
+    </div>
+    <!-- End Jumbotron -->
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-box">
+              <i class="fas fa-pencil-ruler"></i>
+              <h3>Easy to Use</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                euismod bibendum laoreet.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <i class="fas fa-mobile-alt"></i>
+              <h3>Mobile-Friendly</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                euismod bibendum laoreet.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <i class="fas fa-lock"></i>
+              <h3>Secure</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                euismod bibendum laoreet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-food">
+      <div class="food-card">
+        <div class="card">
+          <img src="food1.jpg" alt="Food 1" />
+          <h3>Delicious Pizza</h3>
+          <p>A mouthwatering pizza topped with fresh ingredients.</p>
+          <p>Price: P10.99</p>
+        </div>
+
+        <div class="card">
+          <img src="food2.jpg" alt="Food 2" />
+          <h3>Tasty Burger</h3>
+          <p>A juicy burger with all your favorite toppings.</p>
+          <p>Price: P8.99</p>
+        </div>
+
+        <div class="card">
+          <img src="food3.jpg" alt="Food 3" />
+          <h3>Scrumptious Pasta</h3>
+          <p>Classic pasta dish with a rich and flavorful sauce.</p>
+          <p>Price: P12.99</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
