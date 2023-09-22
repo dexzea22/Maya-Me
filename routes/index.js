@@ -20,7 +20,7 @@ app.use(session({
 // Middleware to check if user is authenticated
 function authenticate(req, res, next) {
   if (!req.session.userId) {
-    res.redirect('/login');
+    return res.redirect('/login');
   } else {
     next();
   }
@@ -35,22 +35,16 @@ async function restrictAccess(userType, req, res, next) {
       });
 
       if (user.usertype !== userType) {
-        if (user.usertype === 'Admin') {
-          res.redirect('/adminDashboard');
-        } else if (user.usertype === 'Manager') {
-          res.redirect('/managerDashboard');
-        } else {
-          res.redirect('/studentDashboard');
-        }
+        return res.redirect('/login'); // Redirect unauthorized users to login
       } else {
         next();
       }
     } catch (err) {
-      console.log(err);
-      res.status(500).send('Internal server error');
+      console.error(err);
+      return res.status(500).send('Internal server error');
     }
   } else {
-    res.redirect('/login');
+    return res.redirect('/login');
   }
 }
 
@@ -58,13 +52,13 @@ async function restrictAccess(userType, req, res, next) {
 router.get('/login', async function(req, res, next) {
   var users = await prisma.User.findMany();
   if (req.session.userId) {
-    res.redirect('/studentDashboard');
+    return res.redirect('/UserDashboard');
   } else {
     res.render('index', { title: 'Express', users: users });
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', async function(req, res, next) {
   const { email, password } = req.body;
 
   // check if user already has an active session
@@ -74,11 +68,11 @@ router.post('/login', async (req, res) => {
     });
 
     if (user.usertype === 'Admin') {
-      res.redirect('/adminDashboard');
+      return res.redirect('/adminDashboard');
     } else if (user.usertype === 'Manager') {
-      res.redirect('/managerDashboard');
+      return res.redirect('/managerDashboard');
     } else {
-      res.redirect('/studentDashboard');
+      return res.redirect('/UserDashboard');
     }
   } else {
     try {
@@ -87,7 +81,7 @@ router.post('/login', async (req, res) => {
       });
 
       if (!user) {
-        res.render('index', { errorMessage: 'Incorrect Email / Password.' });
+        return res.render('index', { errorMessage: 'Incorrect Email / Password.' });
       } else {
         const match = await bcrypt.compare(password, user.password);
         if (match) {
@@ -97,20 +91,20 @@ router.post('/login', async (req, res) => {
 
           // check user role and redirect to appropriate page
           if (user.usertype === 'Admin') {
-            res.redirect('/adminDashboard');
+            return res.redirect('/adminDashboard');
           } else if (user.usertype === 'Manager') {
-            res.redirect('/managerDashboard');
+            return res.redirect('/managerDashboard');
           } else {
-            res.redirect('/studentDashboard');
+            return res.redirect('/UserDashboard');
           }
         } else {
-          res.render('index', { errorMessage: 'Incorrect Password.' });
+          return res.render('index', { errorMessage: 'Incorrect Password.' });
         }
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       console.log(req.session.userId);
-      res.render('index', { errorMessage: `Something went wrong: ${err.message}` });
+      return res.render('index', { errorMessage: `Something went wrong: ${err.message}` });
     }
   }
 });
@@ -118,60 +112,35 @@ router.post('/login', async (req, res) => {
 router.get('/logout', async (req, res) => {
   try {
     req.session.destroy();
-    res.redirect('/login');
+    return res.redirect('/login');
   } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal server error');
+    console.error(err);
+    return res.status(500).send('Internal server error');
   }
 });
 
-// Protected routes
-router.use('/adminDashboard', authenticate, restrictAccess.bind(null, 'Admin'));
-router.get('/adminDashboard', async (req, res) => {
+/* Protected routes */
+router.get('/adminDashboard', authenticate, restrictAccess.bind(null, 'Admin'), async (req, res) => {
   try {
     const users = await prisma.User.findMany();
-    res.render('adminDashboard', { title: 'Admin Page', users: users });
+    return res.render('adminDashboard', { title: 'Admin Page', users: users });
   } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal server error');
+    console.error(err);
+    return res.status(500).send('Internal server error');
   }
 });
 
-router.use('/adminUserTable', authenticate, restrictAccess.bind(null, 'Admin'));
-router.get('/adminUserTable', async (req, res) => {
+router.get('/managerDashboard', authenticate, restrictAccess.bind(null, 'Manager'), async (req, res) => {
   try {
     const users = await prisma.User.findMany();
-    res.render('adminUserTable', { title: 'Admin Page', users: users });
+    return res.render('managerDashboard', { title: 'Manager Page', users: users });
   } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal server error');
+    console.error(err);
+    return res.status(500).send('Internal server error');
   }
 });
 
-router.use('/managerDashboard', authenticate, restrictAccess.bind(null, 'Manager'));
-router.get('/managerDashboard', async (req, res) => {
-  try {
-    const users = await prisma.User.findMany();
-    res.render('managerDashboard', { title: 'Manager Page', users: users });
-  } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal server error');
-  }
-});
-
-router.use('/managerUserTable', authenticate, restrictAccess.bind(null, 'Manager'));
-router.get('/managerUserTable', async (req, res) => {
-  try {
-    const users = await prisma.User.findMany();
-    res.render('managerUserTable', { title: 'Manager Page', users: users });
-  } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal server error');
-  }
-});
-
-router.use('/studentDashboard', authenticate, restrictAccess.bind(null, 'User'));
-router.get('/studentDashboard', async (req, res) => {
+router.get('/UserDashboard', authenticate, restrictAccess.bind(null, 'User'), async (req, res) => {
   try {
     const userId = req.session.userId;
     const user = await prisma.User.findUnique({
@@ -182,21 +151,21 @@ router.get('/studentDashboard', async (req, res) => {
       return res.status(404).send('User not found');
     }
 
-    res.render('studentDashboard', { title: 'User Page', user: user });
+    return res.render('UserDashboard', { title: 'User Page', user: user });
   } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal server error');
+    console.error(err);
+    return res.status(500).send('Internal server error');
   }
 });
 
 router.get('/logs', authenticate, restrictAccess.bind(null, 'Admin'), (req, res) => {
   prisma.log.findMany()
     .then((logs) => {
-      res.render('logs', { logs });
+      return res.render('logs', { logs });
     })
     .catch((error) => {
       console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      return res.status(500).json({ error: 'Internal Server Error' });
     });
 });
 
@@ -218,6 +187,7 @@ router.post('/logAction', async (req, res) => {
     return res.status(500).json({ success: false, message: 'Internal server error.' });
   }
 });
+
 router.post('/setDeleteEmail', (req, res) => {
   const { email } = req.body;
   req.session.deleteEmail = email;
@@ -254,7 +224,7 @@ router.post('/deleteUser', async (req, res) => {
     }
 
     // Log the delete action before performing the deletion
-    await prisma.Log.create({
+    await prisma.log.create({
       data: {
         action: 'Delete',
         email: deleteEmail,
@@ -280,5 +250,7 @@ router.post('/deleteUser', async (req, res) => {
     return res.status(500).json({ success: false, message: 'Internal server error.' });
   }
 });
+
 app.use('/', router);
+
 module.exports = app;

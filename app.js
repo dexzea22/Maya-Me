@@ -11,7 +11,6 @@ var confirmoderinfoRouter = require('./routes/confirmoderinfo');
 var userinfoRouter = require('./routes/userinfo');
 var ordersRouter = require('./routes/orders');
 
-
 var app = express();
 
 app.use(session({
@@ -53,7 +52,8 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
 
-  if (req.session.userId) {
+  // Check if the user is already on the root path to avoid redirect loop
+  if (req.session.userId && req.path !== '/') {
     return res.redirect('/');
   }
 
