@@ -1,163 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>My Web App</title>
+    <title>Maya & Me</title>
+    <link rel="website icon" type="png" href="images/maya.png">
+    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
+rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      .jumbotron {
-        background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/08/Food-Wallpapers-HD-For-Desktop.jpg");
-        width: 100%;
-        height: auto;
-        padding-bottom: 25%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        color: white;
-      }
-      .food-card {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-      .card {
-        width: calc(33.33% - 20px);
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      .card img {
-        width: 100%;
-        border-radius: 5px;
-      }
-      .card h3 {
-        margin: 10px 0;
-      }
-      .card p {
-        margin: 5px 0;
-      }
-    </style>
+    <link rel="stylesheet" href="stylesheets/index.css">
   </head>
   <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">My Web App</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
-        </div>
+    <div class="topnav">
+      <a href="/error"><img src="images/logo.png" height="60px" width="60px"></a>
+      <a href="/error"><img src="images/mayame.png" height="60px" width="190px"></a>
+      <div class="menu">
+      <a class="nav" href="#home">Home</a>
+      <a class="nav" href="#news">News</a>
+      <a class="nav" href="#contact">Contact</a>
+      <a class="nav" href="#about">About</a>
+    </div>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+      <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+  
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+
+      </script>
+    </div>
         <!-- End Navigation Bar -->
-      </div>
+      
     </nav>
     <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Welcome Maya and Me</h1>
-        <p class="lead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          euismod bibendum laoreet.
-        </p>
-        <a href="/login" class="btn btn-primary btn-lg">Login Now</a>
+    <div class="jumbotron">
+      <div class="slideshow-container">
+          <!-- Slides will be added here dynamically -->
       </div>
-    </div>
-    <!-- End Jumbotron -->
+      
+  </div>
+  <div class="men-cont">
+  <div>
+    <img class="logo" src="images/logo.png" alt="" style="margin-left:10%;">
+    <button>menu</button>
+    <button>party trays</button>
+    <button>solo meal</button>
+    <button>chik'n wings</button>
+      <!-- Features Section -->
+   <div class="lbl">
+    <label for="">Featured Products</label>
+   </div>
+  </div>
 
-    <!-- Features Section -->
-    <section id="features">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="feature-box">
-              <i class="fas fa-pencil-ruler"></i>
-              <h3>Easy to Use</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="feature-box">
-              <i class="fas fa-mobile-alt"></i>
-              <h3>Mobile-Friendly</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="feature-box">
-              <i class="fas fa-lock"></i>
-              <h3>Secure</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- End Jumbotron -->
+    <script>
+      const imagePaths = [
+  'f2.jpg',
+  'f1.jpg',
+  'f3.jpg',
+  'f4.jpg',
+  // Add more image file paths as needed
+];
+
+const slideshowContainer = document.querySelector('.slideshow-container');
+let currentIndex = 0;
+
+function updateBackgroundImage() {
+  if (currentIndex >= imagePaths.length) {
+    currentIndex = 0;
+  }
+  const imagePath = imagePaths[currentIndex];
+  const imageUrl = `url('images/${imagePath}')`;
+  document.querySelector('.jumbotron').style.backgroundImage = imageUrl;
+  document.querySelector('.jumbotron').style.backgroundSize = '100% 100%'; // or 'contain' or custom size
+
+  currentIndex++;
+}
+
+// Update the background image every 3 seconds (5000 milliseconds)
+setInterval(updateBackgroundImage, 3000);
+
+    </script>
+  
 
     <section class="feature-food">
       <div class="food-card">
         <div class="card">
-          <img src="food1.jpg" alt="Food 1" />
+          <img src="images/f1.jpg" alt="Food 1" />
           <h3>Delicious Pizza</h3>
           <p>A mouthwatering pizza topped with fresh ingredients.</p>
           <p>Price: P10.99</p>
         </div>
 
         <div class="card">
-          <img src="food2.jpg" alt="Food 2" />
+          <img src="images/f2.jpg" alt="Food 2" />
           <h3>Tasty Burger</h3>
           <p>A juicy burger with all your favorite toppings.</p>
           <p>Price: P8.99</p>
         </div>
 
         <div class="card">
-          <img src="food3.jpg" alt="Food 3" />
+          <img src="images/f3.jpg" alt="Food 3" />
           <h3>Scrumptious Pasta</h3>
           <p>Classic pasta dish with a rich and flavorful sauce.</p>
           <p>Price: P12.99</p>
         </div>
       </div>
     </section>
+  </div>
   </body>
+  <div class="cntr">
+
+    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+      <!-- Grid container -->
+      <div class="p-5">
+      
+      <!--Grid row-->
+      
+      <div class="row mt-4">
+        <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">About company</h5>
+    
+        <label>
+          Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
+        </label>
+    
+        <div class="mt-4">
+          <!-- Facebook -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
+          <!-- Dribbble -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
+          <!-- Twitter -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
+          <!-- Google + -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
+          <!-- Linkedin -->
+        </div>
+        </div>
+        <!--Grid column-->
+    <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
+    
+        <ul class="fa-ul" style="margin-left: 1.65em;">
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">New York, NY 10012, US</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234 567 88</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 01 234 567 89</span>
+          </li>
+        </ul>
+        </div>
+        <!--Grid column-->
+    
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">Opening hours</h5>
+    
+        <table class="table text-center text-white">
+          <tbody class="font-weight-normal">
+          <tr>
+            <td>Mon - Thu:</td>
+            <td>8am - 9pm</td>
+          </tr>
+          <tr>
+            <td>Fri - Sat:</td>
+            <td>8am - 1am</td>
+          </tr>
+          <tr>
+            <td>Sunday:</td>
+            <td>9am - 10pm</td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <label class="text-white" >Maya&Me Services</label>
+      </div>
+      <!-- Copyright -->
+    </footer>
 </html>
