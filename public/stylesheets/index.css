@@ -16,7 +16,37 @@ body{
     height: 100%;
   }
   
-  
+  /* Show menu on smaller screens */
+@media (max-width: 768px) {
+  .menu {
+  display: none;
+  flex-direction: column;
+  background-color: #333;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  }
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    }
+  .menu.show {
+  display: flex;
+  background-color: rgba(53, 46, 46, 0.204);
+  margin-top: 29px;
+  }
+  .menu-toggle {
+  display: block;
+  max-width: 100%;
+  float: right;
+  margin: 25px 15px 0 0;
+  }
+  }
+ 
   .food-card {
     display: flex;
     justify-content: space-between;
@@ -26,19 +56,30 @@ body{
     width: calc(33.33% - 20px);
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
+  }
+  .card-map{
+    width: calc(100%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
+    background-color: white;
+    height: 450px;
   }
   .card img {
     width: 100%;
     border-radius: 5px;
   }
   .card h3 {
+    padding: 10px;
     margin: 10px 0;
   }
   .card p {
-    margin: 5px 0;
+    padding: 10px;
+
   }
 .topnav {
     overflow: hidden;
@@ -46,17 +87,32 @@ body{
     }
     
     .topnav a {
-    float: left;
-    color: #C69B68;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+      float: left;
+      color: #C69B68;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      position: relative; /* Add this line */
+    }
+    .nav:hover{
+      color: #000000;
+    }
+    .topnav .nav::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #000000;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
     }
     
-    .topnav a:hover {
-    
-    color: black;
+    .topnav a:hover::before {
+      width: 100%;
+      visibility: visible;
     }
     .nav{
     margin-right: 50px;
@@ -72,11 +128,136 @@ body{
     font-size: 50px;
     font-weight: bold;
     color: #C69B68;
-    margin-left: 15%;
 }
     .ftr{
       font-size: 1vw;
       color: #FFF3EB;
+      font-weight: bold;
     }
-   
-    
+    .cont {
+      display: flex;
+      align-items: center;
+      background-image: url('images/f1.jpg'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center center; 
+    }
+  
+.log{
+padding: 50px 0 50px 10%;
+}
+.fbtn{
+  background-color:#C69B68;
+  border: none;
+  border-radius: 5px;
+  width:12%;
+  margin-left:50px;
+  padding: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease; 
+  position: relative;
+
+}
+.fbtn:hover{
+  background-color:rgb(243, 185, 113);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5,1fr); 
+  gap:none;
+}
+
+/* Individual image styles */
+.gallery img {
+  max-width: 90%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+  align-items: center;
+  margin: auto;
+  width: 950px;
+}
+
+/* Hover effect on images */
+.gallery img:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Lightbox styles (hidden by default) */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+
+}
+
+/* Lightbox image styles */
+.lightbox img {
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  margin-top: 2%;
+}
+.fbtn:active,
+.fbtn:focus {
+  border: none;  /* This removes the border when clicked or focused */
+}
+.mySlides {
+  display:none;
+
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.bar p {
+  margin: 0;
+}
+.bar .label {
+  width: 100px;
+}
+.bar .bar-container {
+  width: 230px;
+  background-color: #cfcccc;
+  border-radius: 5px;
+}
+.bar .bar-value {
+  height: 24px;
+  background-color:rgb(244, 159, 54);
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  font-weight:400;
+}
+.order-button {
+  display: block;
+  width: 40%;
+  background-color:#C69B68;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  float: right;
+  margin:0 15px 15px 0;
+}
+.order-button:hover{
+  background-color:rgb(243, 185, 113);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}

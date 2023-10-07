@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <!-- Bootstrap CSS -->
     <link
 rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
@@ -19,10 +20,10 @@ rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/boots
   <body>
     <!-- Navigation Bar -->
     <div class="topnav">
-      <a href="/error"><img src="images/logo.png" height="60px" width="60px"></a>
-      <a href="/error"><img src="images/mayame.png" height="60px" width="190px"></a>
+      <a href="/index"><img href="/index" src="images/logo.png" height="60px" width="60px"></a>
+      <a href="/index"><img href="/index" src="images/mayame.png" height="60px" width="190px"></a>
       <div class="menu">
-      <a class="nav" href="#home">Home</a>
+      <a class="nav" href="/index">Home</a>
       <a class="nav" href="#news">News</a>
       <a class="nav" href="#contact">Contact</a>
       <a class="nav" href="#about">About</a>
@@ -33,15 +34,6 @@ rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/boots
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
-      <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menu');
-  
-  menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  });
-
-      </script>
     </div>
         <!-- End Navigation Bar -->
       
@@ -49,83 +41,116 @@ rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/boots
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="slideshow-container">
-          <!-- Slides will be added here dynamically -->
-      </div>
-      
-  </div>
-  <div class="men-cont">
-  <div>
-    <img class="logo" src="images/logo.png" alt="" style="margin-left:10%;">
-    <button>menu</button>
-    <button>party trays</button>
-    <button>solo meal</button>
-    <button>chik'n wings</button>
+
+        <!-- Slides will be added here dynamically -->
+
+      </div> 
+
+    </div>
+    
+  <div class="cont">
+  <div class="log">
+    <img class="logo" src="images/logo.png" alt="">
+    <a class="fbtn" href="/menu">Food Menu</a>
+    <a class="fbtn" href="/trays">Party Trays</a>
+    <a class="fbtn" href="/meals">Solo Meals</a>
+    <a class="fbtn" href="/wings">Chik'n Wings</a>
       <!-- Features Section -->
-   <div class="lbl">
+  </div>
+  </div>
+  <div class="container">
+  <div class="lbl">
     <label for="">Featured Products</label>
    </div>
-  </div>
-
     <!-- End Jumbotron -->
-    <script>
-      const imagePaths = [
-  'f2.jpg',
-  'f1.jpg',
-  'f3.jpg',
-  'f4.jpg',
-  // Add more image file paths as needed
-];
-
-const slideshowContainer = document.querySelector('.slideshow-container');
-let currentIndex = 0;
-
-function updateBackgroundImage() {
-  if (currentIndex >= imagePaths.length) {
-    currentIndex = 0;
-  }
-  const imagePath = imagePaths[currentIndex];
-  const imageUrl = `url('images/${imagePath}')`;
-  document.querySelector('.jumbotron').style.backgroundImage = imageUrl;
-  document.querySelector('.jumbotron').style.backgroundSize = '100% 100%'; // or 'contain' or custom size
-
-  currentIndex++;
-}
-
-// Update the background image every 3 seconds (5000 milliseconds)
-setInterval(updateBackgroundImage, 3000);
-
-    </script>
-  
-
     <section class="feature-food">
       <div class="food-card">
         <div class="card">
           <img src="images/f1.jpg" alt="Food 1" />
-          <h3>Delicious Pizza</h3>
-          <p>A mouthwatering pizza topped with fresh ingredients.</p>
-          <p>Price: P10.99</p>
+          <h3>Chicken Roll</h3>
+          <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
+          <div class="bar">
+            <p class="label">Rating:</p>
+            <div class="bar-container">
+              <div class="bar-value" style="width: 80%;">&emsp13;8/10</div>
+            </div>
+          </div>
+          <div>
+            <p>Price: P8.99</p>
+            <a href="#" class="order-button">Order Now</a>
+          </div>
         </div>
 
         <div class="card">
-          <img src="images/f2.jpg" alt="Food 2" />
-          <h3>Tasty Burger</h3>
-          <p>A juicy burger with all your favorite toppings.</p>
+          <img src="images/f5.jpg" alt="Food 2" />
+          <h3>Buttered Shrimp</h3>
+          <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
+          <div class="bar">
+            <p class="label">Rating:</p>
+            <div class="bar-container">
+              <div class="bar-value" style="width: 90%;">&emsp13;9/10</div>
+            </div>
+          </div>
+          <div>
           <p>Price: P8.99</p>
+          <a href="#" class="order-button">Order Now</a>
+        </div>
         </div>
 
-        <div class="card">
-          <img src="images/f3.jpg" alt="Food 3" />
-          <h3>Scrumptious Pasta</h3>
-          <p>Classic pasta dish with a rich and flavorful sauce.</p>
-          <p>Price: P12.99</p>
-        </div>
+          <div class="card">
+            <img src="images/f6.jpg" alt="Food 3" />
+            <h3>Scrumptious Carbonara</h3>
+            <p>This unique twist on the classic Italian carbonara recipe incorporates local flavors and ingredients, resulting in a comforting and indulgent culinary experience.</p>
+            <div class="bar">
+              <p class="label">Rating:</p>
+              <div class="bar-container">
+                <div class="bar-value" style="width: 90%;">&emsp13;9/10</div>
+              </div>
+            </div>
+            <div>
+              <p>Price: P8.99</p>
+              <a href="#" class="order-button">Order Now</a>
+            </div>
+          </div>
       </div>
     </section>
   </div>
+  <div class="lbl" style="margin:3% 0 0 1%;">
+    <label for="">Menu and Prices</label>
+   </div>
+<div>
+  <div class="gallery">
+    <img src="images/m1.jpg" alt="Image 1">
+    <img src="images/m4.jpg" alt="Image 1">
+    <img src="images/m2.jpg" alt="Image 1">
+    <img src="images/m5.jpg" alt="Image 1">
+    <img src="images/m3.jpg" alt="Image 1">
+    <!-- Add more images as needed -->
+  </div>
+
+  <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" id="lightbox-image">
+  </div>
+</div>
+  <div class="container">
+    <div class="lbl" style="margin-top: 5%;">
+      <label for="">Store Location</label>
+     </div>
+    <div class="card-map">   
+        <div>
+          <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
+        </div>
+          <div style="float: left; margin:  0 0 0 6%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+           </div>
+    </div>
+  </div>
+  
   </body>
   <div class="cntr">
 
-    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+    <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
       <!-- Grid container -->
       <div class="p-5">
       
@@ -161,17 +186,15 @@ setInterval(updateBackgroundImage, 3000);
     
         <ul class="fa-ul" style="margin-left: 1.65em;">
           <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">New York, NY 10012, US</span>
+          <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
           </li>
           <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
+          <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">mayaandme74@gmail.com</span>
           </li>
           <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234 567 88</span>
+          <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">09186506362</span>
           </li>
-          <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 01 234 567 89</span>
-          </li>
+       
         </ul>
         </div>
         <!--Grid column-->
@@ -204,10 +227,69 @@ setInterval(updateBackgroundImage, 3000);
       <!-- Grid container -->
     
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
       © 2023 Copyright:
-      <label class="text-white" >Maya&Me Services</label>
+      <label >Maya&Me Services</label>
       </div>
       <!-- Copyright -->
     </footer>
+    </div>
+    <script>
+
+const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+  
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+
+      const imagePaths = [
+  'f2.jpg',
+  'f1.jpg',
+  'f3.jpg',
+  'f4.jpg',
+  // Add more image file paths as needed
+];
+
+const slideshowContainer = document.querySelector('.slideshow-container');
+let currentIndex = 0;
+slideshowContainer.style.width = '50%'; // Adjust the width as needed
+slideshowContainer.style.height = '50%'; // Adjust the height as needed
+
+function updateBackgroundImage() {
+  if (currentIndex >= imagePaths.length) {
+    currentIndex = 0;
+  }
+  const imagePath = imagePaths[currentIndex];
+  const imageUrl = `url('images/${imagePath}')`;
+  document.querySelector('.jumbotron').style.backgroundImage = imageUrl;
+  document.querySelector('.jumbotron').style.backgroundSize = '100% 100%'; // or 'contain' or custom size
+  document.querySelector('.jumbotron').style.backgroundRepeat = 'no-repeat';
+  document.querySelector('.jumbotron').style.backgroundPosition =  'center';
+
+  currentIndex++;
+}
+
+// Update the background image every 3 seconds (3000 milliseconds)
+setInterval(updateBackgroundImage, 3000);
+
+ // JavaScript for the lightbox functionality
+    const gallery = document.querySelector('.gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+
+    // Add click event listeners to each image
+    gallery.querySelectorAll('img').forEach((img, index) => {
+      img.addEventListener('click', () => {
+        lightboxImage.src = img.src;
+        lightbox.style.display = 'block';
+      });
+    });
+
+    // Close the lightbox when clicking outside the image
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+    </script>
+  
 </html>
