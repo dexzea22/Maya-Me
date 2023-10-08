@@ -2,40 +2,46 @@ body{
   background-color: #FFF3EB;
 }
 .topnav {
-overflow: hidden;
-background-color: rgba(53, 46, 46, 0.117);
-}
-
-.topnav a {
-float: left;
-color: #C69B68;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
-}
-
-.topnav a:hover {
-
-color: black;
-}
-.nav{
-margin-right: 50px;
-margin-top: 18px;
-font-weight: bold;
-}
-.topnav {
-color: white;
-}
-.sticky {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-text-shadow: #000000 1px 2px;
-background-color: #ffffffae; /* Set your background color here */
-z-index: 100; /* Ensure it appears above other page content */
-}
+  overflow: hidden;
+  background-color: rgba(53, 46, 46, 0.117);
+  }
+  
+  .topnav a {
+    float: left;
+    color: #C69B68;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    position: relative; /* Add this line */
+  }
+  .nav:hover{
+    color: #000000;
+  }
+  .topnav .nav::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .topnav a:hover::before {
+    width: 100%;
+    visibility: visible;
+  }
+  .nav{
+  margin-right: 50px;
+  margin-top: 18px;
+  font-weight: bold;
+  }
+  .topnav {
+  color: white;
+  }
 
 /* Style the table */
 .view {
@@ -109,23 +115,14 @@ margin-top: 14%;
 margin-left: 6%;
 }
 }
-.menyu{
-  margin-left: 18px;
-  border-radius: 6px;
-  opacity: 90%;
-}
+
 .banner-promo {
   position: absolute;
   color: #C69B68;
-  top: 4%;
-  left: 2%;
+  top:8.5%;
+  left: 5%;
   font-weight: 900;
   
-}
-
-
-.dashboard-title {
-  padding: 0 1rem;
 }
 
 .dashboard-menu {
@@ -137,24 +134,41 @@ margin-left: 6%;
   font-weight: bold;
 }
 
-.dashboard-menu > a {
+.dashboard-menu a {
   text-decoration: none;
   text-align: center;
   border-radius: 20px;
   min-width: 120px;
   padding: 0.5rem 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--darkBlack);
   background-color: var(--ligthGrey);
 }
+.dashboard-menu a {
+  text-decoration: none; /* Remove default underline */
+  position: relative; /* Create a positioning context for the pseudo-element */
+}
+.dashboard-menu a:hover{
+  color: #000000;
+}
+.dashboard-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px; /* Height of the underline */
+  background-color: #000000; /* Color of the underline */
+  transition: width 0.3s ease-in-out; /* Animation transition properties */
+}
 
-.dashboard-menu > a:hover {
-  background-color: var(--red);
-  color: var(--ligthGrey);
+.dashboard-menu a:hover::after {
+  width: 100%; /* Expand the underline on hover */
 }
 
 .dashboard-content {
   display: grid;
+  margin-top: 3%;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
   padding: 0.5rem 1rem 1rem 1rem;
