@@ -1,9 +1,13 @@
 var createError = require('http-errors');
-var express = require('express');
+const express = require('express');
 const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const port = 8000;
+const app = express();
+
+
 
 var loginRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
@@ -11,8 +15,25 @@ var confirmoderinfoRouter = require('./routes/confirmoderinfo');
 var userinfoRouter = require('./routes/userinfo');
 var ordersRouter = require('./routes/orders');
 
-var app = express();
-
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+// Serve the "Meals" page
+app.get('/menu', (req, res) => {
+  res.render('menu'); // Render the "meals.ejs" template
+});
+// Serve the "Meals" page
+app.get('/trays', (req, res) => {
+  res.render('trays'); // Render the "meals.ejs" template
+});
+// Serve the "Meals" page
+app.get('/meals', (req, res) => {
+  res.render('meals'); // Render the "meals.ejs" template
+});
+// Serve the "Meals" page
+app.get('/wings', (req, res) => {
+  res.render('wings'); // Render the "meals.ejs" template
+});
 app.use(session({
   secret: 'secret-key',
   resave: false,

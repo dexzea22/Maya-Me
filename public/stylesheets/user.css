@@ -1,0 +1,330 @@
+body{
+  background-color: #FFF3EB;
+}
+.topnav {
+  overflow: hidden;
+  background-color: rgba(53, 46, 46, 0.117);
+  }
+  
+  .topnav a {
+    float: left;
+    color: #C69B68;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    position: relative; /* Add this line */
+  }
+  .nav:hover{
+    color: #000000;
+  }
+  .topnav .nav::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .topnav a:hover::before {
+    width: 100%;
+    visibility: visible;
+  }
+  .nav{
+  margin-right: 50px;
+  margin-top: 18px;
+  font-weight: bold;
+  }
+  .topnav {
+  color: white;
+  }
+
+/* Style the table */
+.view {
+  background-color: antiquewhite;
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+th,
+td {
+  text-align: center;
+  padding: 8px;
+}
+.action-th {
+  text-align: center;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+/* Style the action buttons */
+.view-btn {
+  background-color: #007bff;
+  color: white;
+  margin-right: 8px;
+}
+.update-btn {
+  background-color: #ffc107;
+  color: white;
+  margin-right: 8px;
+}
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  margin-right: 8px;
+}
+.btn-group {
+  float: center;
+}
+/* dashboard */
+.dashboard {
+  height: 100%;
+  width: 100%;
+}
+
+.dashboard-banner {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  padding: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.dashboard-banner > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+@media (max-width: 900px) {
+.logo {
+width: 60%;
+height: 60%;
+margin-top: 14%;
+margin-left: 6%;
+}
+}
+
+.banner-promo {
+  position: absolute;
+  color: #C69B68;
+  top:8.5%;
+  left: 5%;
+  font-weight: 900;
+  
+}
+
+.dashboard-menu {
+  display: flex;
+  gap: 10px;
+  padding: 0.3rem 1rem;
+  overflow-x: auto;
+  color: #C69B68;
+  font-weight: bold;
+}
+
+.dashboard-menu a {
+  text-decoration: none;
+  text-align: center;
+  border-radius: 20px;
+  min-width: 120px;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--darkBlack);
+  background-color: var(--ligthGrey);
+}
+.dashboard-menu a {
+  text-decoration: none; /* Remove default underline */
+  position: relative; /* Create a positioning context for the pseudo-element */
+}
+.dashboard-menu a:hover{
+  color: #000000;
+}
+.dashboard-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px; /* Height of the underline */
+  background-color: #000000; /* Color of the underline */
+  transition: width 0.3s ease-in-out; /* Animation transition properties */
+}
+
+.dashboard-menu a:hover::after {
+  width: 100%; /* Expand the underline on hover */
+}
+
+.dashboard-content {
+  display: grid;
+  margin-top: 3%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+.dashboard-card {
+  background-color: var(--mainColor);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 15px;
+  position: relative;
+  max-width:500px;
+  cursor: pointer;
+  max-height: 500px; /* Set the desired height for the search result container */
+  overflow-y: auto; /* Enable vertical scrolling if the content exceeds the container height */
+}
+
+.dashboard-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-detail {
+  padding: 10px;
+}
+
+.card-detail > h4 > span {
+  float: right;
+}
+
+.card-time {
+  color: var(--darkGray);
+  font-size: 0.8rem;
+  padding-top: 10px;
+}
+
+.dashboard-order {
+  width: 340px;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--mainColor);
+  z-index: 3;
+}
+
+.dashboard-order > h3 {
+  padding: 10px 0;
+}
+.dashboard-card button{
+  background-color: #ffc107;
+  color: white;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+.dashboard-card button:hover{
+  background-color: blanchedalmond;
+  color: black;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+
+/* cart modal */
+/* Style for the cart modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height: auto;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.menu-toggle {
+display: none; /* Hide on larger screens */
+cursor: pointer;
+
+}
+.bar {
+width: 30px;
+height: 3px;
+background-color: white;
+margin: 5px 0;
+}
+/* Show menu on smaller screens */
+@media (max-width: 768px) {
+.menu {
+display: none;
+flex-direction: column;
+background-color: #333;
+position: absolute;
+top: 60px;
+left: 0;
+width: 100%;
+z-index: 1;
+}
+
+.menu.show {
+display: flex;
+background-color: rgba(53, 46, 46, 0.204);
+margin-top: 29px;
+}
+.menu-toggle {
+display: block;
+max-width: 100%;
+float: right;
+margin: 25px 15px 0 0;
+}
+}
+
+.rounded-t-5 {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .rounded-tr-lg-0 {
+    border-top-right-radius: 0;
+  }
+
+  .rounded-bl-lg-5 {
+    border-bottom-left-radius: 0.5rem;
+  }
+}
+

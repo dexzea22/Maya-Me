@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylesheets/menu.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
+        <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
+  
+        <div class="menu">
+        <a class="nav" href="#home">Home</a>
+        <a class="nav" href="#news">News</a>
+        <a class="nav" href="#contact">Contact</a>
+        <a class="nav" href="#about">About</a>
+        <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+      <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+      <div class="dashboard">
+        <div class="dashboard-banner">
+          <img src="images/long.jpg" alt=""/>
+          <div class="banner-promo">
+              <span><img class="logo" src="images/maya.png" alt="" height="330px"></span>  
+        </div>
+        <div class="cont">
+          <div class="log">
+            <a class="fbtn active" href="/menu">Food Menu</a>
+            <a class="fbtn" href="/trays">Party Trays</a>
+            <a class="fbtn" href="/meals">Solo Meals</a>
+            <a class="fbtn" href="/wings">Chik'n Wings</a>
+          </div>
+          </div>
+        </div>
+ <!-- main dashboard -->
+ <div class="dashboard-content">
+  <div class="dashboard-card">
+    <img class="card-image" src="images/afritada.jpg" alt="" />
+    <div class="card-detail">
+        <h4>Afritada (Food Tray)</h4>
+        <p>A classic Filipino dish featuring tender chicken in a rich tomato-based sauce with a secret spice blend. It's complemented by colorful vegetables like bell peppers, potatoes, and carrots, offering an authentic taste of Filipino home cooking. Ideal for lunch or dinner, it's a heartwarming and satisfying choice.</p>
+        <div class="gallery">
+          <label>
+            <img src="images/Safrtda.jpg" alt="Image 1"><br>
+            <input type="radio" name="imageSelection">
+            S (₱570) (10-12 pax)
+          </label>
+          <label>
+            <img src="images/m4.jpg" alt="Image 2"><br>
+            <input type="radio" name="imageSelection">
+            M (₱1,350) (25-30 pax)
+          </label>
+          <label>
+            <img src="images/m2.jpg" alt="Image 3"><br>
+            <input type="radio" name="imageSelection">
+            L (₱2,600) (45-50 pax)
+          </label>
+        </div>
+         <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+        <p class="card-time">
+            <span class="fas fa-clock"></span>15-30 mins
+        </p>
+        <button class="cbtn" onclick="Login()">Order</button>
+    </div>
+</div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/bac.jpg" alt="" />
+  <div class="card-detail">
+      <h4>Bacon (Rice Meal)</h4>
+      <p>lorem ipsum dolor sit</p>
+      <div class="gallery">
+        <label>
+          <img src="images/Safrtda.jpg" alt="Image 1"><br>
+          <input type="radio" name="imageSelection">
+          S 
+        </label>
+        <label>
+          <img src="images/m4.jpg" alt="Image 2"><br>
+          <input type="radio" name="imageSelection">
+          M
+        </label>
+        <label>
+          <img src="images/m2.jpg" alt="Image 3"><br>
+          <input type="radio" name="imageSelection">
+          L
+        </label>
+      </div>
+      <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+      <p class="card-time">
+          <span class="fas fa-clock"></span>15-30 mins
+      </p>
+      <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+</div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/bcd.jpg" alt="" />
+  <div class="card-detail">
+  <h4>Baked Cream Dory w/ Potatoes (Food Tray)</h4>
+  <p>lorem ipsum dolor sit</p>
+  <div class="gallery">
+    <label>
+      <img src="images/Safrtda.jpg" alt="Image 1"><br>
+      <input type="radio" name="imageSelection">
+      S
+    </label>
+    <label>
+      <img src="images/m4.jpg" alt="Image 2"><br>
+      <input type="radio" name="imageSelection">
+      M
+    </label>
+    <label>
+      <img src="images/m2.jpg" alt="Image 3"><br>
+      <input type="radio" name="imageSelection">
+      L
+    </label>
+  </div>
+     <!-- Lightbox (hidden by default) -->
+     <div class="lightbox" id="lightbox">
+      <img src="" alt="Enlarged Image" class="lightbox-image">
+    </div>
+  <p class="card-time">
+    <span class="fas fa-clock"></span>15-30 mins
+  </p>
+  <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/caldereta.jpg" alt="" />
+  <div class="card-detail">
+      <h4>Beef Caldereta (Food Tray)</h4>
+      <p>lorem ipsum dolor sit</p>
+      <div class="gallery">
+        <label>
+          <img src="images/Safrtda.jpg" alt="Image 1"><br>
+          <input type="radio" name="imageSelection">
+          S 
+        </label>
+        <label>
+          <img src="images/m4.jpg" alt="Image 2"><br>
+          <input type="radio" name="imageSelection">
+          M
+        </label>
+        <label>
+          <img src="images/m2.jpg" alt="Image 3"><br>
+          <input type="radio" name="imageSelection">
+          L
+        </label>
+      </div>
+         <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+      <p class="card-time">
+          <span class="fas fa-clock"></span>15-30 mins
+      </p>
+      <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+</div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/bm.jpg" alt="" />
+  <div class="card-detail">
+    <h4>Beef Mechado (Food Tray)</h4>
+    <p>lorem ipsum dolor sit</p>
+    <div class="gallery">
+      <label>
+        <img src="images/Safrtda.jpg" alt="Image 1"><br>
+        <input type="radio" name="imageSelection">
+        S
+      </label>
+      <label>
+        <img src="images/m4.jpg" alt="Image 2"><br>
+        <input type="radio" name="imageSelection">
+        M
+      </label>
+      <label>
+        <img src="images/m2.jpg" alt="Image 3"><br>
+        <input type="radio" name="imageSelection">
+        L
+      </label>
+    </div>
+       <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+    <p class="card-time">
+        <span class="fas fa-clock"></span>15-30 mins
+    </p>
+    <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/tap.jpg" alt="" />
+  <div class="card-detail">
+      <h4>Beef Tapa (Rice Meal)</h4>
+      <p>lorem ipsum dolor sit</p>
+      <div class="gallery">
+        <label>
+          <img src="images/Safrtda.jpg" alt="Image 1"><br>
+          <input type="radio" name="imageSelection">
+          S 
+        </label>
+        <label>
+          <img src="images/m4.jpg" alt="Image 2"><br>
+          <input type="radio" name="imageSelection">
+          M
+        </label>
+        <label>
+          <img src="images/m2.jpg" alt="Image 3"><br>
+          <input type="radio" name="imageSelection">
+          L
+        </label>
+      </div>
+         <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+      <p class="card-time">
+          <span class="fas fa-clock"></span>15-30 mins
+      </p>
+      <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+</div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/bwb.jpg" alt="" />
+  <div class="card-detail">
+      <h4>Beef W/ Broccoli (Food Tray)</h4>
+      <p>lorem ipsum dolor sit</p>
+      <div class="gallery">
+        <label>
+          <img src="images/Safrtda.jpg" alt="Image 1"><br>
+          <input type="radio" name="imageSelection">
+          S
+        </label>
+        <label>
+          <img src="images/m4.jpg" alt="Image 2"><br>
+          <input type="radio" name="imageSelection">
+          M
+        </label>
+        <label>
+          <img src="images/m2.jpg" alt="Image 3"><br>
+          <input type="radio" name="imageSelection">
+          L
+        </label>
+      </div>
+         <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+      <p class="card-time">
+          <span class="fas fa-clock"></span>15-30 mins
+      </p>
+      <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+<div class="dashboard-card">
+<img class="card-image" src="images/bs.jpg" alt="" />
+<div class="card-detail">
+<h4>Beef Salpicao (Food Tray)</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+    <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+<div class="dashboard-card">
+<img class="card-image" src="images/bcc.jpg" alt="" />
+<div class="card-detail">
+<h4>Buttered Carrots w/ Chicharo (Food Tray)</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+  <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/bpm.jpg" alt="" />
+  <div class="card-detail">
+  <h4>Buttered Potato Marbles (Short Order)</h4>
+  <p>lorem ipsum dolor sit</p>
+  <div class="gallery">
+    <label>
+      <img src="images/Safrtda.jpg" alt="Image 1"><br>
+      <input type="radio" name="imageSelection">
+      S
+    </label>
+    <label>
+      <img src="images/m4.jpg" alt="Image 2"><br>
+      <input type="radio" name="imageSelection">
+      M
+    </label>
+    <label>
+      <img src="images/m2.jpg" alt="Image 3"><br>
+      <input type="radio" name="imageSelection">
+      L
+    </label>
+  </div>
+     <!-- Lightbox (hidden by default) -->
+     <div class="lightbox" id="lightbox">
+      <img src="" alt="Enlarged Image" class="lightbox-image">
+    </div>
+  <p class="card-time">
+    <span class="fas fa-clock"></span>15-30 mins
+  </p>
+  <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/cg.jpg" alt="" />
+  <div class="card-detail">
+  <h4>Canton Guisado (Short Order)</h4>
+  <p>lorem ipsum dolor sit</p>
+  <div class="gallery">
+    <label>
+      <img src="images/Safrtda.jpg" alt="Image 1"><br>
+      <input type="radio" name="imageSelection">
+      S
+    </label>
+    <label>
+      <img src="images/m4.jpg" alt="Image 2"><br>
+      <input type="radio" name="imageSelection">
+      M
+    </label>
+    <label>
+      <img src="images/m2.jpg" alt="Image 3"><br>
+      <input type="radio" name="imageSelection">
+      L
+    </label>
+  </div>
+     <!-- Lightbox (hidden by default) -->
+     <div class="lightbox" id="lightbox">
+      <img src="" alt="Enlarged Image" class="lightbox-image">
+    </div>
+  <p class="card-time">
+    <span class="fas fa-clock"></span>15-30 mins
+  </p>
+  <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+<div class="dashboard-card">
+<img class="card-image" src="images/pc.jpg" alt="" />
+<div class="card-detail">
+<h4>Caldereta (Food Tray)</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+  <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/chmi.jpg" alt="" />
+  <div class="card-detail">
+  <h4>Chami (Short Order)</h4>
+  <p>lorem ipsum dolor sit</p>
+  <div class="gallery">
+    <label>
+      <img src="images/Safrtda.jpg" alt="Image 1"><br>
+      <input type="radio" name="imageSelection">
+      S
+    </label>
+    <label>
+      <img src="images/m4.jpg" alt="Image 2"><br>
+      <input type="radio" name="imageSelection">
+      M
+    </label>
+    <label>
+      <img src="images/m2.jpg" alt="Image 3"><br>
+      <input type="radio" name="imageSelection">
+      L
+    </label>
+  </div>
+     <!-- Lightbox (hidden by default) -->
+     <div class="lightbox" id="lightbox">
+      <img src="" alt="Enlarged Image" class="lightbox-image">
+    </div>
+  <p class="card-time">
+    <span class="fas fa-clock"></span>15-30 mins
+  </p>
+  <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/cgp.jpg" alt="" />
+  <div class="card-detail">
+  <h4>Cheesy Garlic Parmesan (Glazed Chicken)</h4>
+  <p>lorem ipsum dolor sit</p>
+  <div class="gallery">
+    <label>
+      <img src="images/Safrtda.jpg" alt="Image 1"><br>
+      <input type="radio" name="imageSelection">
+      S
+    </label>
+    <label>
+      <img src="images/m4.jpg" alt="Image 2"><br>
+      <input type="radio" name="imageSelection">
+      M
+    </label>
+    <label>
+      <img src="images/m2.jpg" alt="Image 3"><br>
+      <input type="radio" name="imageSelection">
+      L
+    </label>
+  </div>
+     <!-- Lightbox (hidden by default) -->
+     <div class="lightbox" id="lightbox">
+      <img src="" alt="Enlarged Image" class="lightbox-image">
+    </div>
+  <p class="card-time">
+    <span class="fas fa-clock"></span>15-30 mins
+  </p>
+  <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+<div class="dashboard-card">
+<img class="card-image" src="images/cak.jpg" alt="" />
+<div class="card-detail">
+<h4>Chicken Ala King (Food Tray)</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+  <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+<div class="dashboard-card">
+<img class="card-image" src="images/ce.jpg" alt="" />
+<div class="card-detail">
+<h4>Chicken Embotido (Food Tray)</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+  <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+<div class="dashboard-card">
+<img class="card-image" src="images/cr.jpg" alt="" />
+<div class="card-detail">
+<h4>Chicken Roll (Rice Meal)</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+  <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+<div class="dashboard-card">
+  <img class="card-image" src="images/emb.jpg" alt="" />
+  <div class="card-detail">
+  <h4>Embutido (Food Tray)</h4>
+  <p>lorem ipsum dolor sit</p>
+  <div class="gallery">
+    <label>
+      <img src="images/Safrtda.jpg" alt="Image 1"><br>
+      <input type="radio" name="imageSelection">
+      S
+    </label>
+    <label>
+      <img src="images/m4.jpg" alt="Image 2"><br>
+      <input type="radio" name="imageSelection">
+      M
+    </label>
+    <label>
+      <img src="images/m2.jpg" alt="Image 3"><br>
+      <input type="radio" name="imageSelection">
+      L
+    </label>
+  </div>
+     <!-- Lightbox (hidden by default) -->
+     <div class="lightbox" id="lightbox">
+      <img src="" alt="Enlarged Image" class="lightbox-image">
+    </div>
+  <p class="card-time">
+    <span class="fas fa-clock"></span>15-30 mins
+  </p>
+  <button class="cbtn" onclick="Login()">Order</button>
+  </div>
+  </div>
+  <div class="dashboard-card">
+    <img class="card-image" src="images/flu.jpg" alt="" />
+    <div class="card-detail">
+    <h4>Fresh Lumpiang Ubod<br>(Food Tray)</h4>
+    <p>lorem ipsum dolor sit</p>
+    <div class="gallery">
+      <label>
+        <img src="images/Safrtda.jpg" alt="Image 1"><br>
+        <input type="radio" name="imageSelection">
+        S
+      </label>
+      <label>
+        <img src="images/m4.jpg" alt="Image 2"><br>
+        <input type="radio" name="imageSelection">
+        M
+      </label>
+      <label>
+        <img src="images/m2.jpg" alt="Image 3"><br>
+        <input type="radio" name="imageSelection">
+        L
+      </label>
+    </div>
+       <!-- Lightbox (hidden by default) -->
+       <div class="lightbox" id="lightbox">
+        <img src="" alt="Enlarged Image" class="lightbox-image">
+      </div>
+    <p class="card-time">
+      <span class="fas fa-clock"></span>15-30 mins
+    </p>
+    <button class="cbtn" onclick="Login()">Order</button>
+    </div>
+    </div>
+    <div class="dashboard-card">
+      <img class="card-image" src="images/fcf.jpg" alt="" />
+      <div class="card-detail">
+      <h4>Fried Chicken Fingers<br>(Food Tray)</h4>
+      <p>lorem ipsum dolor sit</p>
+      <div class="gallery">
+        <label>
+          <img src="images/Safrtda.jpg" alt="Image 1"><br>
+          <input type="radio" name="imageSelection">
+          S
+        </label>
+        <label>
+          <img src="images/m4.jpg" alt="Image 2"><br>
+          <input type="radio" name="imageSelection">
+          M
+        </label>
+        <label>
+          <img src="images/m2.jpg" alt="Image 3"><br>
+          <input type="radio" name="imageSelection">
+          L
+        </label>
+      </div>
+         <!-- Lightbox (hidden by default) -->
+         <div class="lightbox" id="lightbox">
+          <img src="" alt="Enlarged Image" class="lightbox-image">
+        </div>
+      <p class="card-time">
+        <span class="fas fa-clock"></span>15-30 mins
+      </p>
+      <button class="cbtn" onclick="Login()">Order</button>
+      </div>
+      </div>
+<div class="dashboard-card">
+<img class="card-image" src="https://www.foodies.ph/_recipeimage/235340/spicy-bopis.jpg" alt="" />
+<div class="card-detail">
+<h4>Bopis</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+  <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+<div class="dashboard-card">
+<img class="card-image" src="https://assets.unileversolutions.com/v1/79598556.jpg?im=AspectCrop=(1440,600);Resize=(1440,600)" alt="" />
+<div class="card-detail">
+<h4>BBQ</h4>
+<p>lorem ipsum dolor sit</p>
+<div class="gallery">
+  <label>
+    <img src="images/Safrtda.jpg" alt="Image 1"><br>
+    <input type="radio" name="imageSelection">
+    S
+  </label>
+  <label>
+    <img src="images/m4.jpg" alt="Image 2"><br>
+    <input type="radio" name="imageSelection">
+    M
+  </label>
+  <label>
+    <img src="images/m2.jpg" alt="Image 3"><br>
+    <input type="radio" name="imageSelection">
+    L
+  </label>
+</div>
+   <!-- Lightbox (hidden by default) -->
+   <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" class="lightbox-image">
+  </div>
+<p class="card-time">
+  <span class="fas fa-clock"></span>15-30 mins
+</p>
+<button class="cbtn" onclick="Login()">Order</button>
+</div>
+</div>
+</div>
+<script src="scripts/menu.js"></script> 
+     
+</body>
+</html>

@@ -1,174 +1,220 @@
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-    }
+  <html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="website icon" type="png" href="images/maya.png">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylesheets/login.css">
+  </head>
+  <!-- GAWA NI JERICO MAHINAY POGI-->
+  <body>
+    <div class="topnav">
     
-body {
-  
-  background-image: url("https://caspiannews.com/media/caspian_news/all_original_photos/1528831479_7183783_1528831390_5761793SFF-Foto-2018-001web2.jpg");
-  background-repeat: no-repeat;
-  width: 100%;
-  max-height: 100%;
-}
+      <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
+      <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
 
-.login-form {
-  background: #f0d771;
-  width: 500px;
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: 4px;
-}
-    
-.login-form h1 {
-  padding: 35px 35px 0 35px;
-  font-weight: bold;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  font-style: normal;
-}
+      <div class="menu">
+      <a class="nav" href="#home">Home</a>
+      <a class="nav" href="#news">News</a>
+      <a class="nav" href="#contact">Contact</a>
+      <a class="nav" href="#about">About</a>
+      <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+      <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+    </div>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+      <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
 
-    
-    .login-form .content {
-      padding: 35px;
-      text-align: center;
-    }
-    
-    .login-form .input-field {
-      padding: 12px 5px;
-    }
-    
-    .error {
-      text-align: center;
-    }
-    
-    .login-form .input-field input {
-      font-size: 16px;
-      display: block;
-      font-family: 'Rubik', sans-serif;
-      width: 100%;
-      padding: 10px 1px;
-      border: 0;
-      border-bottom: 1px solid #747474;
-      outline: none;
-      -webkit-transition: all .2s;
-      transition: all .2s;
-    }
-    
-    .login-form .input-field input::-webkit-input-placeholder {
-      text-transform: uppercase;
-    }
-    
-    .login-form .input-field input::-moz-placeholder {
-      text-transform: uppercase;
-    }
-    
-    .login-form .input-field input:-ms-input-placeholder {
-      text-transform: uppercase;
-    }
-    
-    .login-form .input-field input::-ms-input-placeholder {
-      text-transform: uppercase;
-    }
-    
-    .login-form .input-field input::placeholder {
-      text-transform: uppercase;
-    }
-    
-    .login-form .input-field input:focus {
-      border-color: #222;
-    }
-    
-    .login-form p {
-      font-size: small;
-      text-decoration: none;
-      color: #1d1d1d;
-      letter-spacing: 0.2px;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    
-    .login-form a.link {
-      text-decoration: none;
-      color: #4d0dc4;
-      letter-spacing: 0.2px;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    
-    .login-form .action {
-      display: flex;
-      flex-direction: row;
-    }
-    
-    .login-form .action button {
-  width: 100%;
-  border: none;
-  padding: 18px;
-  font-family: 'Rubik', sans-serif;
-  cursor: pointer;
-  text-transform: uppercase;
-  background: #fa958c;
-  color: #fff;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 0;
-  letter-spacing: 0.2px;
-  outline: 0;
-  transition: all .3s;
-}
-
-.login-form .action button:hover {
-  background: #0056b3;
-}
-
-.login-form .action button:nth-child(2) {
-  background: #e8e9ec;
-  color: #777;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 4px;
-}
-
-.login-form .action button:nth-child(2):hover {
-  background: #d8d8d8;
-}
-
-  </style>
-</head>
-<body>
-
-<div class="login-form1">
-  <div class="login-form">
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  }); 
+      </script>
+    </div>
+    <div class="login-form">
+  <div class="img">
+      <img class="logo" src="images/logo.png" alt="" style="margin-left:60px;">
+      <div>
+        <p style="margin-top: 45px;">We Deliver Good Food</p>
+      </div>  
+    </div>
     <form action="/login" method="post">
-      <h1>Login</h1>
-      <div class="error">
-        <% if (typeof errorMessage !== 'undefined') { %>
-          <p style="color: red;"><%= errorMessage %></p>
-        <% } %>
-      </div>
-      <div class="content">
-        <div class="input-field">
-          <input type="email" placeholder="Email" id="email" name="email">
+    <section class="form text-center text-lg-start">
+      <div class="card">
+        <div class="row g-0 d-flex align-items-center">
+          <div class="col-lg-4 d-none d-lg-flex">
+            <img src="images/food.jpg"
+              class="img-fluid w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+          </div>
+          <div class="col-lg-8">
+            <div class="card-body py-5 px-md-5">
+              <div style="text-align: center; margin-top:0;">
+                <label class="lbl">LOGIN</label>
+              </div>
+        <div class="error">
+          <% if (typeof errorMessage !== 'undefined') { %>
+            <p style="color: red; font-size: 20px;"><%= errorMessage %></p>
+            <% } %>
+    
+            <% if (typeof message !== 'undefined') { %>
+            <p style="color: rgb(0, 255, 0); font-size: 20px;"><%= message %></p>
+            <% } %>
+          </div>
+              
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" placeholder="Enter Email . . . . ." id="email" name="email" class="formc" required/>
+                </div>
+    
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" placeholder="Enter Password . . . . ." id="password" name="password" class="formc" required>
+                  <span toggle="#password" id="togglePassword" class="fa-fw fa-eye far toggle-password"></span>
+                </div>
+                <script>
+                  const togglePassword = document.querySelector('#togglePassword');
+                  const password = document.querySelector('#password');
+            
+                  togglePassword.addEventListener('click', function (e) {
+                  // toggle the type attribute
+                  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                  password.setAttribute('type', type);
+                  // toggle the eye slash icon
+                  this.classList.toggle('fa-eye-slash');
+                    });
+                  </script>
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+    
+                  <div>
+                    <!-- Simple link -->
+                    <a href="#!">Forgot password?</a>
+                  </div>
+                  <div class="d-flex justify-content-center mb-5">
+                    <label class="lbl" style="font-size: 25px;">Login With</label>
+                  </div>
+                  <div class=" d-flex justify-content-center">
+                    <a href="https://web.facebook.com/?stype=lo&jlou=AfcxTnUCxIi8nXM6IO9oNTcMCV-_OYgvzhLqB5LWIRGYfli4bpVxr-c-BaSYgFP2XIOF0W6yadcvsVXMDWTgHbp8c-wb4rZNRf_raKqaItIhEQ&smuh=44978&lh=Ac9-55MNYkUPHVy7yOs"> <i class="fa-brands fa-facebook fa-2xl"></i></a><label class="lbl"  style="margin: 0 20px 0 20px;font-size: 20px;">or</label>
+                    <a href=""><i class="fa-brands fa-google fa-2xl"></i></a>
+                </div>
+                </div>
+    
+                <!-- Submit button -->
+          <div class="action" accesskey="">
+          <button class="btns">Login</button>
         </div>
-        <div class="input-field">
-          <input type="password" placeholder="Password" id="password" name="password">
+                <div>
+                  <!-- Simple link -->
+                <label>Don't Have An Account?</label> <a href="/register"> Register here!</a>
+                </div>
+    
+              </form>
+    
+            </div>
+          </div>
         </div>
-        <a href="#" class="link">Forgot Your Password?</a>
       </div>
-      <div class="action">
-        <button type="button" onclick="location.href='/register'">Register</button>
-        <button>Sign In</button>
+  
+
+  <!-- Remove the container if you want to extend the Footer to full width. -->
+  <div class="cntr">
+
+    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+      <!-- Grid container -->
+      <div class="p-5">
+      
+      <!--Grid row-->
+      
+      <div class="row mt-4">
+        <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">About company</h5>
+    
+        <label>
+          Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
+        </label>
+    
+        <div class="mt-4">
+          <!-- Facebook -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
+          <!-- Dribbble -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
+          <!-- Twitter -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
+          <!-- Google + -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
+          <!-- Linkedin -->
+        </div>
+        </div>
+        <!--Grid column-->
+    <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
+    
+        <ul class="fa-ul" style="margin-left: 1.65em;">
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">New York, NY 10012, US</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234 567 88</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 01 234 567 89</span>
+          </li>
+        </ul>
+        </div>
+        <!--Grid column-->
+    
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">Opening hours</h5>
+    
+        <table class="table text-center text-white">
+          <tbody class="font-weight-normal">
+          <tr>
+            <td>Mon - Thu:</td>
+            <td>8am - 9pm</td>
+          </tr>
+          <tr>
+            <td>Fri - Sat:</td>
+            <td>8am - 1am</td>
+          </tr>
+          <tr>
+            <td>Sunday:</td>
+            <td>9am - 10pm</td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+        <!--Grid column-->
       </div>
-    </form>
-  </div>
-</body>
-</html>
+      <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <label class="text-white" >Maya&Me Services</label>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    
+    </div>
+    <!-- End of .container -->
+  </body>
+  </html>
