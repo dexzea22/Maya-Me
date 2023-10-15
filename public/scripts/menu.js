@@ -25,3 +25,8 @@ galleries.forEach((gallery, index) => {
     }
   });
 });
+
+function Login() {
+  // You can set the login page URL here
+  window.location.href = "/login"; // Replace "login.html" with the actual URL of your login page
+}
