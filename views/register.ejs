@@ -166,6 +166,35 @@ menuToggle.addEventListener('click', () => {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
+        <div class="input-field">
+          <input type="password" placeholder="Password" id="password" name="password">
+        </div>
+        <input type="checkbox" onclick="myFunction()">Show Password
+            <script>
+            function myFunction() {
+              var x = document.getElementById("password");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            }
+            </script>
+        <div class="input-field">
+          <!-- <label for="usertype">Choose User Type:</label> -->
+          <select name="usertype" hidden>
+            <!-- <option value="Admin">Admin</option>
+            <option value="Manager">Manager</option> -->
+            <option value="User">User</option>
+          </select>
+        </div>
+        <p>Already have an Account? <a href="/login" class="link">Login Here</a></p>
+      </div>
+      <div class="action">
+        <button>Register</button>
+=======
+>>>>>>> 901735fb324cd4fffe7a67cfa2ae0af6beeac3e7
       </div>
     </form>
   </div>
