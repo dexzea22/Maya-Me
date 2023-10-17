@@ -1,163 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>My Web App</title>
+    <title>Maya & Me</title>
+    <link rel="website icon" type="png" href="images/maya.png">
+    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <!-- Bootstrap CSS -->
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
+rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      .jumbotron {
-        background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/08/Food-Wallpapers-HD-For-Desktop.jpg");
-        width: 100%;
-        height: auto;
-        padding-bottom: 25%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        color: white;
-      }
-      .food-card {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-      .card {
-        width: calc(33.33% - 20px);
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      .card img {
-        width: 100%;
-        border-radius: 5px;
-      }
-      .card h3 {
-        margin: 10px 0;
-      }
-      .card p {
-        margin: 5px 0;
-      }
-    </style>
+    <link rel="stylesheet" href="stylesheets/index.css">
   </head>
   <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">My Web App</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
-        </div>
+    <div class="topnav">
+      <a href="/index"><img href="/index" src="images/logo.png" height="60px" width="60px"></a>
+      <a href="/index"><img href="/index" src="images/mayame.png" height="60px" width="190px"></a>
+      <div class="menu">
+      <a class="nav" href="/index">Home</a>
+      <a class="nav" href="#news">News</a>
+      <a class="nav" href="#contact">Contact</a>
+      <a class="nav" href="#about">About</a>
+      <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+      <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+    </div>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    </div>
         <!-- End Navigation Bar -->
-      </div>
+      
     </nav>
     <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Welcome Maya and Me</h1>
-        <p class="lead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          euismod bibendum laoreet.
-        </p>
-        <a href="/login" class="btn btn-primary btn-lg">Login Now</a>
+    <div class="jumbotron">
+      <div class="slideshow-container">
+
+        <!-- Slides will be added here dynamically -->
       </div>
     </div>
+  <div class="cont">
+  <div class="log">
+    <img class="logo" src="images/logo.png" alt="">
+    <a class="fbtn" href="/menu">Food Menu</a>
+    <a class="fbtn" href="/trays">Party Trays</a>
+    <a class="fbtn" href="/meals">Solo Meals</a>
+    <a class="fbtn" href="/wings">Chik'n Wings</a>
+  </div>
+  </div>
+   <!-- Features Section -->
+  <div class="container">
+  <div class="lbl">
+    <label for="">Featured Products</label>
+   </div>
     <!-- End Jumbotron -->
-
-    <!-- Features Section -->
-    <section id="features">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="feature-box">
-              <i class="fas fa-pencil-ruler"></i>
-              <h3>Easy to Use</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="feature-box">
-              <i class="fas fa-mobile-alt"></i>
-              <h3>Mobile-Friendly</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="feature-box">
-              <i class="fas fa-lock"></i>
-              <h3>Secure</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="feature-food">
       <div class="food-card">
         <div class="card">
-          <img src="food1.jpg" alt="Food 1" />
-          <h3>Delicious Pizza</h3>
-          <p>A mouthwatering pizza topped with fresh ingredients.</p>
-          <p>Price: P10.99</p>
+          <img src="images/f1.jpg" alt="Food 1" />
+          <h3>Chicken Roll</h3>
+          <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
+          <div class="bar">
+            <p class="label">Rating:</p>
+            <div class="bar-container">
+              <div class="bar-value" style="width: 80%;">&emsp13;8/10</div>
+            </div>
+          </div>
+          <div>
+            <p>Price: P8.99</p>
+            <a href="/login" class="order-button">Order Now</a>
+          </div>
         </div>
 
         <div class="card">
-          <img src="food2.jpg" alt="Food 2" />
-          <h3>Tasty Burger</h3>
-          <p>A juicy burger with all your favorite toppings.</p>
+          <img src="images/f5.jpg" alt="Food 2" />
+          <h3>Buttered Shrimp</h3>
+          <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
+          <div class="bar">
+            <p class="label">Rating:</p>
+            <div class="bar-container">
+              <div class="bar-value" style="width: 90%;">&emsp13;9/10</div>
+            </div>
+          </div>
+          <div>
           <p>Price: P8.99</p>
+          <a href="/login" class="order-button">Order Now</a>
+        </div>
         </div>
 
-        <div class="card">
-          <img src="food3.jpg" alt="Food 3" />
-          <h3>Scrumptious Pasta</h3>
-          <p>Classic pasta dish with a rich and flavorful sauce.</p>
-          <p>Price: P12.99</p>
-        </div>
+          <div class="card">
+            <img src="images/f6.jpg" alt="Food 3" />
+            <h3>Scrumptious Carbonara</h3>
+            <p>This unique twist on the classic Italian carbonara recipe incorporates local flavors and ingredients, resulting in a comforting and indulgent culinary experience.</p>
+            <div class="bar">
+              <p class="label">Rating:</p>
+              <div class="bar-container">
+                <div class="bar-value" style="width: 90%;">&emsp13;9/10</div>
+              </div>
+            </div>
+            <div>
+              <p>Price: P8.99</p>
+              <a href="/login" class="order-button">Order Now</a>
+            </div>
+          </div>
       </div>
     </section>
+  </div>
+  <div class="lbl" style="margin:3% 0 0 1%;">
+    <label for="">Menu and Prices</label>
+   </div>
+<div>
+  <div class="gallery">
+    <img src="images/m1.jpg" alt="Image 1">
+    <img src="images/m4.jpg" alt="Image 1">
+    <img src="images/m2.jpg" alt="Image 1">
+    <img src="images/m5.jpg" alt="Image 1">
+    <img src="images/m3.jpg" alt="Image 1">
+    <!-- Add more images as needed -->
+  </div>
+
+  <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" id="lightbox-image">
+  </div>
+</div>
+  <div class="container">
+    <div class="lbl" style="margin-top: 5%;">
+      <label for="">Store Location</label>
+     </div>
+    <div class="card-map">   
+        <div>
+          <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
+        </div>
+          <div style="float: left; margin:  0 0 0 6%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+           </div>
+    </div>
+  </div>
+  <script src="scripts/index.js"></script>
   </body>
+  <div class="cntr">
+
+    <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
+      <!-- Grid container -->
+      <div class="p-5">
+      
+      <!--Grid row-->
+      
+      <div class="row mt-4">
+        <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">About company</h5>
+    
+        <label>
+          Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
+        </label>
+    
+        <div class="mt-4">
+          <!-- Facebook -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
+          <!-- Dribbble -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
+          <!-- Twitter -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
+          <!-- Google + -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
+          <!-- Linkedin -->
+        </div>
+        </div>
+        <!--Grid column-->
+    <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
+    
+        <ul class="fa-ul" style="margin-left: 1.65em;">
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">mayaandme74@gmail.com</span>
+          </li>
+          <li class="mb-3">
+          <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">09186506362</span>
+          </li>
+       
+        </ul>
+        </div>
+        <!--Grid column-->
+    
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">Opening hours</h5>
+    
+        <table class="table text-center text-white">
+          <tbody class="font-weight-normal">
+          <tr>
+            <td>Mon - Thu:</td>
+            <td>8am - 9pm</td>
+          </tr>
+          <tr>
+            <td>Fri - Sat:</td>
+            <td>8am - 1am</td>
+          </tr>
+          <tr>
+            <td>Sunday:</td>
+            <td>9am - 10pm</td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
+      © 2023 Copyright:
+      <label >Maya&Me Services</label>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    </div>
 </html>

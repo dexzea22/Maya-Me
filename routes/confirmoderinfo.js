@@ -37,7 +37,7 @@ router.post('/confirmoderinfo', async function(req, res) {
       }
     });
 
-    res.redirect('/studentDashboard');
+    res.redirect('/UserDashboard');
   } catch (error) {
     console.error(error);
     res.render('confirmoderinfo', { title: 'Confirm Order Information', error: error.message });
@@ -109,7 +109,7 @@ router.post('/editconfirmoderinfo', async function(req, res) {
       }
     });
 
-    res.redirect('/studentDashboard');
+    res.redirect('/UserDashboard');
   } catch (error) {
     console.error(error);
     res.render('editconfirmoderinfo', { title: 'Edit Confirm Order Information', error: error.message });

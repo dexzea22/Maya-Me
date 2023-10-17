@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    }
+  .error {
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+      } 
+  body {
+      background: #FFF3EB;
+    }
+    .topnav {
+      overflow: hidden;
+      background-color: rgba(53, 46, 46, 0.117);
+      }
+      
+      .topnav a {
+        float: left;
+        color: #C69B68;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        position: relative; /* Add this line */
+      }
+      .nav:hover{
+        color: #000000;
+      }
+      .topnav .nav::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: #000000;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .topnav a:hover::before {
+        width: 100%;
+        visibility: visible;
+      }
+      .nav{
+      margin-right: 50px;
+      margin-top: 18px;
+      font-weight: bold;
+      }
+      .topnav {
+      color: white;
+      }
+  .menu-toggle {
+    display: none; /* Hide on larger screens */
+    cursor: pointer;
+    
+  }
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+  }
+  
+  /* Show menu on smaller screens */
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  
+    .menu.show {
+      display: flex;
+      background-color: rgba(53, 46, 46, 0.204);
+      margin-top: 29px;
+    }
+    .menu-toggle {
+      display: block;
+      max-width: 100%;
+      float: right;
+      margin: 25px 15px 0 0;
+    }
+  }
+  
+  .rounded-t-5 {
+          border-top-left-radius: .25rem;
+          border-top-right-radius: .25rem;
+        }
+    
+        @media (min-width: 992px) {
+          .rounded-tr-lg-0 {
+            border-top-right-radius: 0;
+          }
+    
+          .rounded-bl-lg-5 {
+            border-bottom-left-radius: .25rem;
+          }
+        }
+        .card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+  top: 13px;
+  }
+  .container{
+    margin-top: 85px;
+  }
+  .form-control::placeholder{
+      color: #C69B68;
+      font-weight: 600;
+  }
+  .form-control{
+  
+    box-shadow: inset 0 5px 5px rgba(165, 162, 162, 0.5);
+  }
+  .btns{
+      background-color:#C69B68;
+      color: #fff; 
+      border: none;
+  }
+  .img-fluid{
+    height: 696px;
+  }
+  .ftr{
+      font-size: 1vw;
+      color: #FFF3EB;
+  }
+  .cntr{
+    margin-top: 100px;
+  }
+  input[type="password"] {
+    padding-right: 40px; /* To make room for the icon */
+  }
+  .eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
