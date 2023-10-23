@@ -1,23 +1,24 @@
 
 const menuToggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menu');
+const menu = document.querySelector('.menu');
   
   menuToggle.addEventListener('click', () => {
     menu.classList.toggle('show');
   });
 
       const imagePaths = [
-  'f2.jpg',
-  'f1.jpg',
-  'f3.jpg',
-  'f4.jpg',
+  'mong.jpg',
+  'bpm.jpg',
+  'bs.jpg',
+  'cream.jpeg',
+  'emb.jpg',
+  'fishveg.jpg',
   // Add more image file paths as needed
 ];
 
 const slideshowContainer = document.querySelector('.slideshow-container');
 let currentIndex = 0;
-slideshowContainer.style.width = '50%'; // Adjust the width as needed
-slideshowContainer.style.height = '50%'; // Adjust the height as needed
+
 
 function updateBackgroundImage() {
   if (currentIndex >= imagePaths.length) {
@@ -53,3 +54,23 @@ setInterval(updateBackgroundImage, 3000);
     lightbox.addEventListener('click', () => {
       lightbox.style.display = 'none';
     });
+ // JavaScript function to create a star rating
+ function createStarRating(containerId, rating) {
+  const container = document.getElementById(containerId);
+  
+  // Clear any existing content in the container
+  container.innerHTML = '';
+  
+  // Create a loop to generate the stars
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement('span');
+    star.classList.add('star', i <= rating ? 'filled' : 'empty');
+    star.innerHTML = '★'; // You can use a star icon here if available
+    container.appendChild(star);
+  }
+}
+
+// Call the function with the desired rating (e.g., 4 out of 5 stars)
+createStarRating('star-rating', 4);
+createStarRating('star-rating2', 4);
+createStarRating('star-rating3', 5);

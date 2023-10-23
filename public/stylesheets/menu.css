@@ -165,7 +165,7 @@ body{
         .log{
           margin: auto;
           margin-top: 4%;
-          max-width: 44%;
+          max-width: 35%;
           }
           .fbtn{
             background-color:#C69B68;
@@ -225,7 +225,6 @@ body{
           .card-time {
             color: var(--darkGray);
             font-size: 0.8rem;
-            padding-top: 10px;
           }
           
           .dashboard-order {
@@ -302,6 +301,26 @@ body{
             max-height: 90%;
             margin: auto;
             margin-top: 2%;
+          }
+          .rat {
+            display: flex;
+            align-items: center;
+          }
+          .rat p {
+            margin: 0;
+          }
+          .star-rating {
+            display: inline-block;
+          }
+          
+          .star {
+            color: #f8d72f; /* Color of filled stars */
+            font-size: 24px; /* Adjust the size as needed */
+          
+          }
+          
+          .star.empty {
+            color: #ccc; /* Color of empty stars */
           }
           
           

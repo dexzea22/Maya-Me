@@ -3,6 +3,7 @@ body{
 }
 .jumbotron {
     width: 100%;
+    margin: auto;
     height: 875px;
     padding-bottom: 25%;
     background-size: cover;
@@ -137,7 +138,7 @@ body{
 
   
 .log{
-padding: 50px 0 50px 15%;
+padding: 60px 0 50px 20%;
 }
 
 @media (max-width: 768px) {
@@ -220,25 +221,22 @@ padding: 50px 0 50px 15%;
 .bar {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 .bar p {
   margin: 0;
 }
-.bar .label {
-  width: 100px;
+.star-rating {
+  display: inline-block;
 }
-.bar .bar-container {
-  width: 230px;
-  background-color: #cfcccc;
-  border-radius: 5px;
+
+.star {
+  color: #f8d72f; /* Color of filled stars */
+  font-size: 24px; /* Adjust the size as needed */
+
 }
-.bar .bar-value {
-  height: 24px;
-  background-color:rgb(244, 159, 54);
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
-  font-weight:400;
+
+.star.empty {
+  color: #ccc; /* Color of empty stars */
 }
 .order-button {
   display: block;
@@ -259,4 +257,10 @@ padding: 50px 0 50px 15%;
   background-color:rgb(243, 185, 113);
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+
+#mySlideshow {
+  width: 500px; /* Set your desired width */
+  height: 200px; /* Set your desired height */
+ /* Establishes a positioning context for child elements */
 }
