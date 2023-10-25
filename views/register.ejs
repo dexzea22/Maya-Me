@@ -57,146 +57,62 @@ menuToggle.addEventListener('click', () => {
                         <p style="color: red;"><%= errorMessage %></p>
                       <% } %>
                     </div>
-                    <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <div class="form-outline">
-                          <input type="text" id="fname" placeholder="Firstname . . ." class="form-control form-control-lg" />
-                        </div>
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <div class="form-outline">
-                          <input type="text" id="lname" placeholder="Lastname . . ." class="form-control form-control-lg" />
-                        </div>
-                      </div>
-                    </div>
-    
-                  <div class="row">
-                    <div class="col-md-15 mb-3">
-                       <div class="form-outline">
-                        <input type="text" id="email" placeholder="Email Address . . ." class="form-control form-control-lg" required />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <div class="form-outline mb-4 position-relative">
-                        <input type="password" id="password" placeholder="Password . . ." class="form-control form-control-lg" />
-                        <span toggle="#password" id="togglePassword" class="fa-fw fa-eye far toggle-password position-absolute end-0 top-50 translate-middle-y me-2"></span>
-                      </div>
-                      <script>
-                        const togglePassword = document.querySelector('#togglePassword');
-                        const password = document.querySelector('#password');
-                  
-                        togglePassword.addEventListener('click', function (e) {
-                        // toggle the type attribute
-                        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-                        password.setAttribute('type', type);
-                        // toggle the eye slash icon
-                        this.classList.toggle('fa-eye-slash');
-                          });
-                         </script>
-                    <script>
-                      const passwordField = document.querySelector('#password');
-                      const confirmPasswordField = document.querySelector('#confirmPassword');
-                      const confirmPasswordMessage = document.querySelector('#confirmPasswordMessage');
-                    
-                      confirmPasswordField.addEventListener('input', function (e) {
-                        const password = passwordField.value;
-                        const confirmPassword = this.value;
-                    
-                        if (password === confirmPassword) {
-                          confirmPasswordMessage.textContent = 'Passwords match!';
-                          confirmPasswordMessage.style.color = 'green';
-                        } else {
-                          confirmPasswordMessage.textContent = 'Passwords do not match';
-                          confirmPasswordMessage.style.color = 'red';
-                        }
-                      });
-                    </script>
-                    
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="form-outline mb-4">
-                        <input type="password" id="confirmPassword" placeholder="Confirm Password . . ." class="form-control form-control-lg" />
-                      </div>
-                      </div>
-                    </div>
-                    <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-    
-                      <h6 class="mb-0 me-3">Gender: </h6>
-    
-                      <div class="form-check form-check-inline mb-0 me-3">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                          value="option1" />
-                        <label class="form-check-label" for="femaleGender">Female</label>
-                      </div>
-    
-                      <div class="form-check form-check-inline mb-0 me-3">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                          value="option2" />
-                        <label class="form-check-label" for="maleGender">Male</label>
-                      </div>
-    
-                      <div class="form-check form-check-inline mb-0">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                          value="option3" />
-                        <label class="form-check-label" for="otherGender">Other</label>
-                      </div>
-    
-                    </div>
-    
-                    <div class="form-outline mb-3">
-                      <input type="text" id="form3Example9" placeholder="Address . . ." class="form-control form-control-lg" />
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6 mb-3 mb-4">
-                      <input type="date" id="bday" class="date form-control form-control-lg" />
-                    </div>
-                    <div class="col-md-6 mb-3 mb-4">
-                      <input type="tel" id="phone" placeholder="Phone number +63" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                    <div class="action d-flex justify-content-center pt-3">
-                      <button class="btn btns btn-lg ms-2">Register</button>
-                    </div>
-    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-<<<<<<< HEAD
-        <div class="input-field">
-          <input type="password" placeholder="Password" id="password" name="password">
-        </div>
-        <input type="checkbox" onclick="myFunction()">Show Password
-            <script>
-            function myFunction() {
-              var x = document.getElementById("password");
-              if (x.type === "password") {
-                x.type = "text";
-              } else {
-                x.type = "password";
-              }
-            }
-            </script>
-        <div class="input-field">
-          <!-- <label for="usertype">Choose User Type:</label> -->
-          <select name="usertype" hidden>
-            <!-- <option value="Admin">Admin</option>
-            <option value="Manager">Manager</option> -->
-            <option value="User">User</option>
-          </select>
-        </div>
-        <p>Already have an Account? <a href="/login" class="link">Login Here</a></p>
+                    <!-- First Name -->
+      <input type="text" id="firstName" name="firstName" placeholder="Firstname . . ." class="form-control form-control-lg" />
+
+      <!-- Last Name -->
+      <input type="text" id="lastName " name="lastName" placeholder="Lastname . . ." class="form-control form-control-lg" />
+
+      <!-- Email -->
+      <input type="text" id="email" name="email" placeholder="Email Address . . ." class="form-control form-control-lg" required />
+
+      <!-- Password -->
+      <input type="password" id="password" name="password" placeholder="Password . . ." class="form-control form-control-lg" />
+
+      <!-- Confirm Password -->
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password . . ." class="form-control form-control-lg" />
+
+      <!-- Gender -->
+      <div class="form-check form-check-inline mb-0 me-3">
+        <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="Female" />
+        <label class="form-check-label" for="femaleGender">Female</label>
       </div>
-      <div class="action">
-        <button>Register</button>
-=======
->>>>>>> 901735fb324cd4fffe7a67cfa2ae0af6beeac3e7
+
+      <div class="form-check form-check-inline mb-0 me-3">
+        <input class="form-check-input" type="radio" name="gender" id="maleGender" value="Male" />
+        <label class="form-check-label" for="maleGender">Male</label>
+      </div>
+
+      <div class="form-check form-check-inline mb-0">
+        <input class="form-check-input" type="radio" name="gender" id="otherGender" value="Other" />
+        <label class="form-check-label" for="otherGender">Other</label>
+      </div>
+
+      <!-- Address -->
+      <input type="text" id="address" name="address" placeholder="Address . . ." class="form-control form-control-lg" />
+
+      <!-- Date of Birth -->
+      <input type="date" id="dateOfBirth" name="dateOfBirth" class="date form-control form-control-lg" />
+
+      <!-- Phone Number -->
+      <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone number +63" class="form-control form-control-lg" />
+
+      <!-- User Type -->
+      <div class="input-field">
+        <label for="usertype">Choose User Type:</label>
+        <select name="usertype">
+          <option value="Admin">Admin</option>
+          <option value="Manager">Manager</option>
+          <option value="User">User</option>
+        </select>
+      </div>
+
+      <!-- Register Button -->
+      <div class="action d-flex justify-content-center pt-3">
+        <button class="btn btns btn-lg ms-2">Register</button>
       </div>
     </form>
+</div>
   </div>
   <!-- Remove the container if you want to extend the Footer to full width. -->
 <div class="cntr">
