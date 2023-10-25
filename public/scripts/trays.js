@@ -1,4 +1,3 @@
-
 const menuToggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.menu');
   
@@ -47,45 +46,37 @@ function Login() {
 }
 
 // Call the function with the desired rating (e.g., 4 out of 5 stars)
-createStarRating('star-rating4', 4);
-createStarRating('star-rating5', 3);
-createStarRating('star-rating6', 4);
-createStarRating('star-rating7', 5);
-createStarRating('star-rating8', 2);
-createStarRating('star-rating9', 4);
-createStarRating('star-rating10', 5);
-createStarRating('star-rating11', 4);
-createStarRating('star-rating12', 3);
-createStarRating('star-rating13', 5);
-createStarRating('star-rating14', 4);
-createStarRating('star-rating15', 5);
-createStarRating('star-rating16', 4);
-createStarRating('star-rating17', 4);
-createStarRating('star-rating18', 3);
-createStarRating('star-rating19', 5);
-createStarRating('star-rating20', 4);
-createStarRating('star-rating21', 5);
-createStarRating('star-rating22', 4);
-createStarRating('star-rating23', 5);
-createStarRating('star-rating24', 5);
-createStarRating('star-rating25', 4);
-createStarRating('star-rating26', 2);
-createStarRating('star-rating27', 4);
-createStarRating('star-rating28', 3);
-createStarRating('star-rating29', 5);
-createStarRating('star-rating30', 4);
-createStarRating('star-rating31', 2);
-createStarRating('star-rating32', 3);
-createStarRating('star-rating33', 5);
-createStarRating('star-rating34', 4);
-createStarRating('star-rating35', 4);
-createStarRating('star-rating36', 5);
-createStarRating('star-rating37', 2);
-createStarRating('star-rating38', 3);
-createStarRating('star-rating39', 4);
-createStarRating('star-rating40', 3);
-createStarRating('star-rating41', 5);
-
+createStarRating('star', 4);
+createStarRating('star1', 4);
+createStarRating('star2', 5);
+createStarRating('star3', 2);
+createStarRating('star4', 5);
+createStarRating('starbs', 4);
+createStarRating('star5', 3);
+createStarRating('star6', 5);
+createStarRating('starc', 5);
+createStarRating('star7', 4);
+createStarRating('starce', 3);
+createStarRating('star8', 4);
+createStarRating('star9', 5);
+createStarRating('star10', 4);
+createStarRating('star11', 5);
+createStarRating('star12', 5);
+createStarRating('star13', 4);
+createStarRating('star14', 3);
+createStarRating('star15', 4);
+createStarRating('star16', 3);
+createStarRating('star17', 4);
+createStarRating('star18', 3);
+createStarRating('star19', 5);
+createStarRating('star20', 4);
+createStarRating('star21', 4);
+createStarRating('star22', 5);
+createStarRating('star23', 4);
+createStarRating('star24', 3);
+createStarRating('star25', 4);
+createStarRating('star26', 3);
+createStarRating('star27', 5);
 
 
 
