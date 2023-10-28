@@ -140,23 +140,6 @@ router.get('/managerDashboard', authenticate, restrictAccess.bind(null, 'Manager
   }
 });
 
-router.get('/UserDashboard', authenticate, restrictAccess.bind(null, 'User'), async (req, res) => {
-  try {
-    const userId = req.session.userId;
-    const user = await prisma.User.findUnique({
-      where: { id: userId },
-    });
-
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
-
-    return res.render('UserDashboard', { title: 'User Page', user: user });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).send('Internal server error');
-  }
-});
 
 router.get('/logs', authenticate, restrictAccess.bind(null, 'Admin'), (req, res) => {
   prisma.log.findMany()
@@ -250,6 +233,38 @@ router.post('/deleteUser', async (req, res) => {
     return res.status(500).json({ success: false, message: 'Internal server error.' });
   }
 });
+
+router.get('/UserDashboard', authenticate, restrictAccess.bind(null, 'User'), async (req, res) => {
+  try {
+    const userId = req.session.userId;
+    const user = await prisma.User.findUnique({
+      where: { id: userId }
+    });
+
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    let welcomeMessage = "Welcome!";
+    if (user && user.firstName && user.lastName) {
+      welcomeMessage = "Welcome " + user.firstName + " " + user.lastName + "!";
+    }
+    
+    return res.render('UserDashboard', { 
+      title: 'User Page', 
+      user: user,
+      welcomeMessage: welcomeMessage // This line sends the message to your front-end
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('Internal server error');
+  }
+});
+
+
+
+
+
 
 app.use('/', router);
 

@@ -16,13 +16,20 @@
   
       <a href="/login"><img src="images/logo.png" height="60px" width="60px"></a>
       
-  
       <div class="menu">
-      <a class="nav" href="/UserDashboard">Home</a>
-      <a class="nav" href="/confirmoderinfo">Orders</a>
-      <a href="/logout" class="nav" style="float:right;">Logout</a>
-      <a class="nav" onclick="openCartModal()" style="cursor:pointer; float: right; margin:1.2% 15px 0 0;"><i class="fas fa-shopping-cart"></i> </a>
+        <a class="nav" href="/UserDashboard">Home</a>
+        <a class="nav" href="/confirmoderinfo">Orders</a>
+        
+        <span class="nav welcome-message">
+          <%= welcomeMessage %>
+        </span>
+        
+        <a href="/logout" class="nav" style="float:right;">Logout</a>
+        <a class="nav" onclick="openCartModal()" style="cursor:pointer; float:right; margin:1.2% 15px 0 0;"><i class="fas fa-shopping-cart"></i></a>
     </div>
+    
+
+  
     <div class="menu-toggle">
       <div class="bar"></div>
       <div class="bar"></div>

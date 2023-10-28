@@ -81,4 +81,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// error handler
+app.use(function(err, req, res, next) {
+  // Check here to see if you're unintentionally catching a legitimate request
+  console.error(err);
+
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  res.status(err.status || 500);
+  res.render('error');
+});
+
 module.exports = app;
