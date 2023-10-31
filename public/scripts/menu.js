@@ -86,6 +86,83 @@ createStarRating('star-rating39', 4);
 createStarRating('star-rating40', 3);
 createStarRating('star-rating41', 5);
 
+var cartItems = [];
+
+  function addToCart(itemName, itemPrice) {
+    var item = {
+      name: itemName,
+      price: itemPrice,
+    };
+    cartItems.push(item);
+    updateCart();
+  }
+
+  function updateCart() {
+    var cartList = document.getElementById("modal-cart-items");
+    var totalAmount = document.getElementById("total-amount");
+    cartList.innerHTML = "";
+
+    var totalPrice = 0;
+
+    for (var i = 0; i < cartItems.length; i++) {
+      var li = document.createElement("li");
+      li.appendChild(
+        document.createTextNode(
+          cartItems[i].name + " (Php " + cartItems[i].price + ")"
+        )
+      );
+      cartList.appendChild(li);
+
+      totalPrice += cartItems[i].price;
+    }
+
+    totalAmount.textContent = totalPrice;
+  }
+
+  function placeOrder() {
+    var modal = document.getElementById("cart-modal");
+    modal.style.display = "none";
+
+    // Send a POST request to the server with the cart items
+    fetch("/orders/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products: cartItems }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Order placed:", data);
+        cartItems = []; // Clear the cart after placing the order
+        updateCart();
+        alert("Order placed successfully!");
+      })
+      .catch((error) => {
+        console.error("Error placing order:", error);
+        alert("Error placing order. Please try again.");
+      });
+  }
+
+  function openCartModal() {
+    var modal = document.getElementById("cart-modal");
+    modal.style.display = "block";
+  }
+
+  function closeCartModal() {
+    var modal = document.getElementById("cart-modal");
+    modal.style.display = "none";
+  }
+
+  window.addEventListener("click", function (event) {
+    var modal = document.getElementById("cart-modal");
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    if (event.target === modal || event.target === closeBtn) {
+      modal.style.display = "none";
+    }
+  });
+
 
 
 
