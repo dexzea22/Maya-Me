@@ -259,12 +259,35 @@ body{
             border: none;
             border-radius: 5px;
           }
+        .lbl{
+    font-family: Caveat, open-sans; 
+    font-size: 60px;
+    font-weight: bold;
+    color: #C69B68;
+}
+    .ftr{
+      font-size: 1vw;
+      color: #FFF3EB;
+      font-weight: bold;
+    }
+        .card-map{
+          width: calc(100%);
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 25px;
+          margin-bottom: 20px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
+          background-color: white;
+          height: 450px;
+        }
           .gallery {
             display: grid;
             grid-template-columns: repeat(3,1fr); 
             gap:10px;
           }
-          
+          .dashboard-card:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          }
           /* Individual image styles */
           .gallery img {
             max-width: 75%;
