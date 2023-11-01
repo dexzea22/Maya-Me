@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id               String            @id @default(auto()) @map("_id") @db.ObjectId
+  id               String            @id @map("_id") @db.ObjectId
   email            String            @unique
   password         String?
   usertype         String?
@@ -20,10 +20,11 @@ model User {
   phoneNumber      String?
   confirmOrderInfo ConfirmOrderInfo?
   orders           Order[]
+  dietaryPreference DietaryPreference?
 }
 
 model ConfirmOrderInfo {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  id              String    @id @map("_id") @db.ObjectId
   userId          String    @unique
   firstname       String?
   middlename      String?
@@ -38,7 +39,7 @@ model ConfirmOrderInfo {
 }
 
 model Order {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  id        String    @id @map("_id") @db.ObjectId
   userId    String
   products  Json
   createdAt DateTime  @default(now())
@@ -47,8 +48,23 @@ model Order {
 }
 
 model Log {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  id         String   @id @map("_id") @db.ObjectId
   action     String
   email      String
   timestamp  DateTime @default(now())
+}
+
+model DietaryPreference {
+  id                 String      @id @map("_id") @db.ObjectId
+  userId             String      @unique
+  vegetarian         Boolean     @default(false)
+  vegan              Boolean     @default(false)
+  omnivore           Boolean     @default(false)
+  halal              Boolean     @default(false)
+  kosher             Boolean     @default(false)
+  glutenFree         Boolean     @default(false)
+  lactoseFree        Boolean     @default(false)
+  nutAllergy         Boolean     @default(false)
+  otherRestrictions  String?     // optional string for other restrictions
+  user               User        @relation(fields: [userId], references: [id])
 }
