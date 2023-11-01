@@ -201,7 +201,7 @@ body{
             padding: 0.5rem 1rem 1rem 1rem;
           }
           .dashboard-card {
-            background-color: var(--mainColor);
+            background-color:rgba(255, 255, 255, 0.497);
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             border-radius: 15px;
             position: relative;
@@ -259,6 +259,7 @@ body{
             border: none;
             border-radius: 5px;
           }
+         
         .lbl{
     font-family: Caveat, open-sans; 
     font-size: 60px;

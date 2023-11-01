@@ -1,6 +1,4 @@
-body{
-  background-color: #FFF3EB;
-}
+
 .topnav {
   overflow: hidden;
   background-color: rgba(53, 46, 46, 0.117);
@@ -80,6 +78,10 @@ body{
   margin-right: 50px;
   margin-top: 18px;
   font-weight: bold;
+  }
+  .navc{
+    color: #C69B68;
+
   }
   .topnav {
   color: white;
@@ -216,7 +218,7 @@ margin-left: 6%;
   padding: 0.5rem 1rem 1rem 1rem;
 }
 .dashboard-card {
-  background-color: var(--mainColor);
+  background-color:rgba(255, 255, 255, 0.497);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 15px;
   position: relative;
@@ -224,6 +226,22 @@ margin-left: 6%;
   cursor: pointer;
   max-height:  800px; /* Set the desired height for the search result container */
   overflow-y: auto; /* Enable vertical scrolling if the content exceeds the container height */
+}
+.card-map{
+  width: calc(100%);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
+  background-color: white;
+  height: 450px;
+}
+.lbl{
+  font-family: Caveat, open-sans; 
+  font-size: 60px;
+  font-weight: bold;
+  color: #C69B68;
 }
 .rat {
   display: flex;
@@ -327,7 +345,6 @@ margin-left: 6%;
 .menu-toggle {
 display: none; /* Hide on larger screens */
 cursor: pointer;
-
 }
 .bar {
 width: 30px;
