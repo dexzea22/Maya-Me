@@ -70,4 +70,47 @@ router.post('/edit/:id', (req, res) => {
     });
 });
 
+
+
+router.post('/submitDietaryPreferences', async (req, res) => {
+  const {
+      vegetarian,
+      vegan,
+      omnivore,
+      glutenFree,
+      nutAllergy,
+      otherRestrictions,
+      halal,
+      kosher,
+      lactoseFree
+  } = req.body;
+
+  try {
+    const userId = req.body.userId; // Assuming you're sending it from frontend
+
+      // Use Prisma to save the data
+      const createdPreference = await prisma.dietaryPreference.create({
+
+          data: {
+              vegetarian,
+              vegan,
+              omnivore,
+              halal,
+              kosher,
+              glutenFree,
+              lactoseFree,
+              nutAllergy,
+              otherRestrictions
+          }
+      });
+
+      res.json({ success: true, createdPreference });
+  } catch (error) {
+      console.error("Error saving preferences:", error);
+      res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
+
+
+
 module.exports = router;
