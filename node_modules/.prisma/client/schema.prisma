@@ -55,7 +55,7 @@ model Log {
 }
 
 model DietaryPreference {
-  id                 String      @id @map("_id") @db.ObjectId
+  id                 String      @id @default(auto()) @map("_id") @db.ObjectId
   userId             String      @unique
   vegetarian         Boolean     @default(false)
   vegan              Boolean     @default(false)
