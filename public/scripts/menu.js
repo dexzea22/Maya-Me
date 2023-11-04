@@ -5,7 +5,36 @@ const menuToggle = document.querySelector('.menu-toggle');
   menuToggle.addEventListener('click', () => {
     menu.classList.toggle('show');
   });
+  const imagePaths = [
+    'mong.jpg',
+    'bpm.jpg',
+    'bs.jpg',
+    'cream.jpeg',
+    'emb.jpg',
+    'fishveg.jpg',
+    // Add more image file paths as needed
+  ];
   
+  const slideshowContainer = document.querySelector('.slideshow-container');
+  let currentIndex = 0;
+  
+  
+  function updateBackgroundImage() {
+    if (currentIndex >= imagePaths.length) {
+      currentIndex = 0;
+    }
+    const imagePath = imagePaths[currentIndex];
+    const imageUrl = `url('images/${imagePath}')`;
+    document.querySelector('.jumbotron').style.backgroundImage = imageUrl;
+    document.querySelector('.jumbotron').style.backgroundSize = '100% 100%'; // or 'contain' or custom size
+    document.querySelector('.jumbotron').style.backgroundRepeat = 'no-repeat';
+    document.querySelector('.jumbotron').style.backgroundPosition =  'center';
+  
+    currentIndex++;
+  }
+  
+  // Update the background image every 3 seconds (3000 milliseconds)
+  setInterval(updateBackgroundImage, 3000);
 // JavaScript for the lightbox functionality
 const galleries = document.querySelectorAll('.gallery');
 const lightboxes = document.querySelectorAll('.lightbox');
@@ -87,6 +116,100 @@ createStarRating('star-rating40', 3);
 createStarRating('star-rating41', 5);
 
 var cartItems = [];
+
+  function addToCart(itemName, itemPrice) {
+    var item = {
+      name: itemName,
+      price: itemPrice,
+    };
+    cartItems.push(item);
+    updateCart();
+  }
+
+  function updateCart() {
+    var cartList = document.getElementById("modal-cart-items");
+    var totalAmount = document.getElementById("total-amount");
+    cartList.innerHTML = "";
+
+    var totalPrice = 0;
+
+    for (var i = 0; i < cartItems.length; i++) {
+      var li = document.createElement("li");
+      li.appendChild(
+        document.createTextNode(
+          cartItems[i].name + " (Php " + cartItems[i].price + ")"
+        )
+      );
+      cartList.appendChild(li);
+
+      totalPrice += cartItems[i].price;
+    }
+
+    totalAmount.textContent = totalPrice;
+  }
+
+  function placeOrder() {
+    var modal = document.getElementById("cart-modal");
+    modal.style.display = "none";
+
+    // Send a POST request to the server with the cart items
+    fetch("/orders/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products: cartItems }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Order placed:", data);
+        cartItems = []; // Clear the cart after placing the order
+        updateCart();
+        alert("Order placed successfully!");
+      })
+      .catch((error) => {
+        console.error("Error placing order:", error);
+        alert("Error placing order. Please try again.");
+      });
+  }
+
+  function openCartModal() {
+    var modal = document.getElementById("cart-modal");
+    modal.style.display = "block";
+  }
+
+  function closeCartModal() {
+    var modal = document.getElementById("cart-modal");
+    modal.style.display = "none";
+  }
+
+  window.addEventListener("click", function (event) {
+    var modal = document.getElementById("cart-modal");
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    if (event.target === modal || event.target === closeBtn) {
+      modal.style.display = "none";
+    }
+  });
+  $('#openDietaryModal').click(function () {
+    $('#dietaryPreferencesModal').modal('show');
+  });
+
+
+
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+
+  window.onscroll = function () {
+    if (window.pageYOffset > 0) {
+      document.querySelector('.topnav').classList.add('sticky');
+    } else {
+      document.querySelector('.topnav').classList.remove('sticky');
+    }
+  };
+
+  var cartItems = [];
 
   function addToCart(itemName, itemPrice) {
     var item = {

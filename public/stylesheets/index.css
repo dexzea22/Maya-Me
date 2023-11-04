@@ -123,10 +123,31 @@ body{
     .topnav {
     color: white;
     }
- 
+    .banner-promo {
+      position: absolute;
+      color: #C69B68;
+      top:8.5%;
+      left: 5%;
+      font-weight: 900;
+    }
+    .dashboard-banner {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      padding: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    
+    .dashboard-banner > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+    }
 .lbl{
     font-family: Caveat, open-sans; 
-    font-size: 60px;
+    font-size: 85px;
     font-weight: bold;
     color: #C69B68;
 }
@@ -138,7 +159,7 @@ body{
 
   
 .log{
-padding: 60px 0 50px 20%;
+padding: 0 0 0 20%;
 }
 
 @media (max-width: 768px) {

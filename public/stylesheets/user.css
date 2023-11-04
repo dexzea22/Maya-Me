@@ -159,7 +159,13 @@ margin-top: 14%;
 margin-left: 6%;
 }
 }
-
+.banner-promo {
+  position: absolute;
+  color: #C69B68;
+  top:8.5%;
+  left: 5%;
+  font-weight: 900;
+}
 .banner-promo {
   position: absolute;
   color: #C69B68;
@@ -237,6 +243,35 @@ margin-left: 6%;
   background-color: white;
   height: 450px;
 }
+@media (max-width: 768px) {
+  .logo {
+    max-width: 50%; /* Adjust the logo size for smaller screens */
+  }}
+  .fbtn:active,
+.fbtn:focus {
+  border: none;  /* This removes the border when clicked or focused */
+}
+.fbtn{
+  background-color:#C69B68;
+  border: none;
+  border-radius: 5px;
+  width:12%;
+  margin-left:50px;
+  padding: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease; 
+  position: relative;
+
+}
+.fbtn:hover{
+  background-color:rgb(243, 185, 113);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
 .lbl{
   font-family: Caveat, open-sans; 
   font-size: 60px;
