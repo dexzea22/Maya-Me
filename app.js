@@ -19,21 +19,20 @@ const dietaryRouter = require('./routes/dietaryPreferences');
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-// Serve the "Meals" page
+// Serve the "Menu" page
 app.get('/menu', (req, res) => {
-  res.render('menu'); // Render the "meals.ejs" template
+  res.render('menu'); // Render the "menu.ejs" template
 });
-// Serve the "Meals" page
+// Serve the "Trays" page
 app.get('/trays', (req, res) => {
-  res.render('trays'); // Render the "meals.ejs" template
+  res.render('trays'); // Render the "trays.ejs" template
 });
 // Serve the "Meals" page
 app.get('/meals', (req, res) => {
   res.render('meals'); // Render the "meals.ejs" template
 });
-// Serve the "Meals" page
-app.get('/wings', (req, res) => {
-  res.render('wings'); // Render the "meals.ejs" template
+app.get('/userMenu', (req, res) => {
+  res.render('userMenu'); // Render a view named "new-page.ejs"
 });
 app.use(session({
   secret: 'secret-key',
@@ -60,6 +59,7 @@ app.use('/', confirmoderinfoRouter);
 app.use('/', userinfoRouter);
 app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

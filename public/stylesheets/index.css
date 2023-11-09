@@ -1,11 +1,11 @@
 body{
       background-color: #FFF3EB;
 }
+
 .jumbotron {
     width: 100%;
     margin: auto;
     height: 875px;
-    padding-bottom: 25%;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -37,8 +37,8 @@ body{
     }
   .menu.show {
   display: flex;
-  background-color: rgba(53, 46, 46, 0.204);
-  margin-top: 29px;
+  background-color:rgb(245, 234, 220);
+  margin-top: 28px;
   }
   .menu-toggle {
   display: block;
@@ -150,6 +150,9 @@ body{
     font-size: 85px;
     font-weight: bold;
     color: #C69B68;
+    margin-top:50px;
+    position: relative;
+    z-index: 1;
 }
     .ftr{
       font-size: 1vw;
@@ -161,7 +164,11 @@ body{
 .log{
 padding: 0 0 0 20%;
 }
-
+@media (max-width: 50%) {
+  .log {
+    max-width: 50%; /* Adjust the logo size for smaller screens */
+  }
+}
 @media (max-width: 768px) {
   .logo {
     max-width: 50%; /* Adjust the logo size for smaller screens */
@@ -180,7 +187,6 @@ padding: 0 0 0 20%;
   color: white;
   transition: all 0.3s ease; 
   position: relative;
-
 }
 .fbtn:hover{
   background-color:rgb(243, 185, 113);
@@ -251,18 +257,20 @@ padding: 0 0 0 20%;
 }
 
 .star {
-  color: #f8d72f; /* Color of filled stars */
-  font-size: 24px; /* Adjust the size as needed */
+  color: #f8d72f;
+  font-size: 24px; 
 
 }
 
 .star.empty {
-  color: #ccc; /* Color of empty stars */
+  color: #ccc; 
 }
 .order-button {
+  position: relative; 
+  z-index: 2; 
   display: block;
   width: 40%;
-  background-color:#C69B68;
+  background-color: #C69B68;
   color: #fff;
   text-align: center;
   padding: 10px;
@@ -272,14 +280,44 @@ padding: 0 0 0 20%;
   font-weight: bold;
   text-decoration: none;
   float: right;
-  margin:0 15px 15px 0;
+  margin: 0 15px 15px 0;
 }
-.order-button:hover{
-  background-color:rgb(243, 185, 113);
+.fp{
+  position: relative; 
+  z-index: 2; 
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+.flm {
+  position: absolute;
+  margin-top: 510px;
+  z-index: 1; 
+}
+
+.order-button:hover {
+  background-color: rgb(243, 185, 113);
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
-
+.cbtn{
+  padding: 9px;
+  width: 23%;
+  background-color: #C69B68;
+  color: white;
+  margin: 0 3% 5% 0;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  font-weight: bold;
+  position: relative; 
+  z-index: 2;
+}
+.cbtn:hover{
+  background-color: rgb(243, 185, 113);
+  color: black;
+  margin: 0 3% 5% 0;
+  border: none;
+  border-radius: 5px;
+}
 #mySlideshow {
   width: 500px; /* Set your desired width */
   height: 200px; /* Set your desired height */

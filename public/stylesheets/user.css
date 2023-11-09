@@ -274,9 +274,18 @@ margin-left: 6%;
 
 .lbl{
   font-family: Caveat, open-sans; 
-  font-size: 60px;
+  font-size: 85px;
   font-weight: bold;
+
+  margin-top:50px;
+  position: relative;
+  z-index: 1;
+}
+.fp{
   color: #C69B68;
+  position: relative; 
+  z-index: 2; 
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 .rat {
   display: flex;

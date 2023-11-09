@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>Maya & Me</title>
     <link rel="website icon" type="png" href="images/maya.png">
     <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
@@ -61,12 +62,14 @@
    <div>
   <div class="container">
   <div class="lbl">
-    <label for="" >Featured Products</label>
+    <label class="fp" for="">Featured Products</label>
+    <img style="margin: -280px 0 0 -100px; z-index: 1;" src="images/gltr.png" alt="">
    </div>
     <!-- End Jumbotron -->
     <section class="feature-food">
       <div class="food-card">
         <div class="card">
+          <img class="flm" src="images/flm.png" alt="">
           <img src="images/f1.jpg" alt="Food 1" />
           <h3>Chicken Roll</h3>
           <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
@@ -79,10 +82,11 @@
           <div>
             <p>Price: P8.99</p>
             <a href="/login" class="order-button">Order Now</a>
+            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
           </div>
         </div>
-
         <div class="card">
+          <img class="flm" src="images/flm.png" alt="">
           <img src="images/f5.jpg" alt="Food 2" />
           <h3>Fried Fish Filet</h3>
           <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
@@ -95,29 +99,34 @@
           <div>
             <p>Price: P8.99</p>
             <a href="/login" class="order-button">Order Now</a>
+            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
           </div>
         </div>
-          <div class="card">
-            <img src="images/f6.jpg" alt="Food 3" />
-            <h3>Scrumptious Carbonara</h3>
-            <p>This unique twist on the classic Italian carbonara recipe incorporates local flavors and ingredients, resulting in a comforting and indulgent culinary experience.</p>
-            <div class="bar">
+        <div class="card">
+          <img class="flm" src="images/flm.png" alt="">
+          <img src="images/f6.jpg" alt="Food 3" />
+          <h3>Scrumptious Carbonara</h3>
+          <p>This unique twist on the classic Italian carbonara recipe incorporates local flavors and ingredients, resulting in a comforting and indulgent culinary experience.</p>
+          <div class="bar">
               <p>Rating:</p>
               <div class="star-rating" id="star-rating3">
-                <!-- Star icons will be added here using JavaScript -->
+                  <!-- Star icons will be added here using JavaScript -->
               </div>
-            </div>
-            <div>
+          </div>
+          <div>
               <p>Price: P8.99</p>
               <a href="/login" class="order-button">Order Now</a>
-            </div>
+              <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
           </div>
+      </div>
+      
       </div>
     </section>
   </div>
 </div>
   <div class="lbl" style="margin:3% 0 0 1%;">
-    <label for="">Menu and Prices</label>
+    <label class="fp" for="">Menu and Prices</label>
+    <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
    </div>
 <div>
   <div class="gallery">
@@ -136,7 +145,8 @@
 </div>
   <div class="container">
     <div class="lbl" style="margin-top: 5%;">
-      <label for="">Store Location</label>
+      <label class="fp" for="">Store Location</label>
+      <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
      </div>
     <div class="card-map">   
         <div>
