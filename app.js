@@ -34,6 +34,13 @@ app.get('/meals', (req, res) => {
 app.get('/userMenu', (req, res) => {
   res.render('userMenu'); // Render a view named "new-page.ejs"
 });
+app.get('/userTrays', (req, res) => {
+  res.render('userTrays'); // Render a view named "new-page.ejs"
+});
+app.get('/userMeals', (req, res) => {
+  res.render('userMeals'); // Render a view named "new-page.ejs"
+});
+
 app.use(session({
   secret: 'secret-key',
   resave: false,
