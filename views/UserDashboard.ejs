@@ -86,8 +86,8 @@
           <div>
             <p>Price: P8.99</p>
      <button class="cbtn" onclick="Login()">Order</button>
-     <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
-          </div>
+     <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+    </div>
         </div>
         <div class="card">
           <img style="position: absolute;margin-top: 479px;z-index: 1;" src="images/flm.png" alt="">
@@ -103,8 +103,8 @@
           <div>
             <p>Price: P8.99</p>
       <button class="cbtn" onclick="Login()">Order</button>
-      <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
-          </div>
+      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+    </div>
         </div>
         <div class="card">
           <img style="position: absolute;margin-top: 479px;z-index: 1;" src="images/flm.png" alt="">
@@ -120,14 +120,34 @@
           <div>
               <p>Price: P8.99</p>
       <button class="cbtn" onclick="Login()">Order</button>
-      <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
+      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
           </div>
       </div>
       
       </div>
     </section>
   </div>
-
+  <script>
+    function addToCartAndShowAlert(productName, price) {
+      // Call your existing addToCart function here
+      addToCart(productName, price);
+  
+      // Show SweetAlert after adding to the cart
+      Swal.fire({
+        title: 'Added to Cart!',
+        text: `${productName} added to your cart.`,
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+      });
+    }
+  
+    // Your existing addToCart function
+    function addToCart(productName, price) {
+      // Add your existing addToCart logic here
+      // For example, update the cart items, UI, etc.
+      console.log(`${productName} added to cart.`);
+    }
+  </script>
   <div class="lbl" style="margin:3% 0 0 1%;">
     <label class="fp" for="">Menu and Prices</label>
     <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
@@ -161,18 +181,18 @@
            </div>
     </div>
   </div>
-    <div id="cart-modal" class="modal">
-      <div class="modal-content">
-      <span class="close" onclick="closeCartModal()">&times;</span>
+    <div id="cart-mod" class="mod">
+      <div class="mod-cont">
+      <span class="clse" onclick="closeCartModal()">&times;</span>
       <h2>Cart</h2>
-      <ul id="modal-cart-items"></ul>
+      <ul id="mod-cart-items"></ul>
       <div class="total-amount">Total: Php <span id="total-amount">0</span></div>
       <button onclick="placeOrder()">Place Order</button>
       </div>  
       </div>
-     
-  </div>
   <script src="scripts/menu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
   </body>
   <div class="cntr">
 
