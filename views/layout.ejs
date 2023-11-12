@@ -1,7 +1,44 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... Your existing head content ... -->
+</head>
+<body style="background-image: url('/images/standard-bg.png'); background-size: cover; background-repeat: no-repeat;">
+    <header>
+        <!-- Navigation Bar -->
+        <div class="topnav">
+            <!-- Logo and Home Link -->
+            <a href="/index"><img src="/images/logo.png" height="60px" width="60px"></a>
+            <!-- Navigation Menu -->
+            <div class="menu">
+                <a class="nav" href="/home">Home</a>
+                <a class="nav" href="/news">News</a>
+                <a class="nav" href="/contact">Contact</a>
+                <a class="nav" href="/about">About</a>
+                <!-- Profile and Logout Links for Logged-in Users -->
+                <% if (typeof loggedIn !== 'undefined' && loggedIn) { %>
+                    <a class="nav" href="/user/profile">Profile</a>
+                    <a href="/logout" class="nav" style="float:right;">Logout</a>
+                <% } else { %>
+                    <a href="/login" class="nav" style="float:right;">Login</a>
+                <% } %>
+            </div>
+            <!-- Mobile Menu Toggle (if you have one) -->
+            <!-- ... -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Body content inserted here -->
+        <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <!-- ... Your existing footer content ... -->
+    </footer>
+
+    <!-- Scripts -->
+    <!-- ... Your existing script references ... -->
+</body>
+</html>

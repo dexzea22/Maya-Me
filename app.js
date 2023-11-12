@@ -4,9 +4,10 @@ const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const port = 8000;
+
 const app = express();
 
+const port = process.env.PORT || 8000;
 
 
 var loginRouter = require('./routes/index');
@@ -15,6 +16,7 @@ var confirmoderinfoRouter = require('./routes/confirmoderinfo');
 var userinfoRouter = require('./routes/userinfo');
 var ordersRouter = require('./routes/orders');
 const dietaryRouter = require('./routes/dietaryPreferences');
+const profileRouter = require('./routes/profile');
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
@@ -59,6 +61,7 @@ app.use('/', confirmoderinfoRouter);
 app.use('/', userinfoRouter);
 app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
+app.use('/profile', profileRouter);
 
 
 // catch 404 and forward to error handler

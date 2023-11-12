@@ -1,147 +1,135 @@
-
 <style>
-  label,h2{
+  label,
+  h2 {
     color: black;
   }
 </style>
 <!-- Dietary Preferences Modal -->
 <div id="dietaryPreferencesModal" class="modal">
-    <div class="modal-content">
-      <span class="close-button" onclick="closeDietaryModal()">&times;</span>
-      <h2>Dietary Preferences</h2>
-  
-      <!-- Start of the Dietary Preferences Form -->
-      <div class="container">
-        <form
-          id="dietaryForm"
-          action="/submit-dietary-preferences"
-          method="POST"
-          onsubmit="return handleSubmit();"
-        >
-          <!-- Diet Type -->
-          <div>
-            <label for="vegetarian">Vegetarian</label>
-            <input
-              type="checkbox"
-              id="vegetarian"
-              name="vegetarian"
-              value="true"
-            />
-  
-            <label for="vegan">Vegan</label>
-            <input type="checkbox" id="vegan" name="vegan" value="true" />
-  
-            <label for="omnivore">Omnivore</label>
-            <input type="checkbox" id="omnivore" name="omnivore" value="true" />
-  
-            <label for="halal">Halal</label>
-            <input type="checkbox" id="halal" name="halal" value="true" />
-  
-            <label for="kosher">Kosher</label>
-            <input type="checkbox" id="kosher" name="kosher" value="true" />
-  
-            <label for="lactoseFree">Lactose-Free</label>
-            <input
-              type="checkbox"
-              id="lactoseFree"
-              name="lactoseFree"
-              value="true"
-            />
-          </div>
-  
-          <!-- Allergies -->
-          <div>
-            <p>Allergies:</p>
-            <label for="glutenFree">Gluten-Free</label>
-            <input
-              type="checkbox"
-              id="glutenFree"
-              name="glutenFree"
-              value="true"
-            />
-  
-            <label for="nutAllergy">Nut Allergy</label>
-            <input
-              type="checkbox"
-              id="nutAllergy"
-              name="nutAllergy"
-              value="true"
-            />
-          </div>
-  
-          <!-- Other Dietary Restrictions -->
-          <div>
-            <label for="otherRestrictions">Other Restrictions:</label>
-            <textarea
-              id="otherRestrictions"
-              name="otherRestrictions"
-              rows="4"
-              cols="50"
-            ></textarea>
-          </div>
-  
-          <input type="submit" value="Submit" />
-        </form>
-        <div id="confirmationMessage" style="display: none">
-          Your dietary preferences have been submitted!
+  <div class="modal-content">
+    <span class="close-button" onclick="closeDietaryModal()">&times;</span>
+    <h2>Dietary Preferences</h2>
+
+    <!-- Start of the Dietary Preferences Form -->
+    <div class="container">
+      <form
+        id="dietaryForm"
+        action="/submit-dietary-preferences"
+        method="POST"
+        onsubmit="return handleSubmit(event);"
+      >
+        <!-- Diet Type -->
+        <div>
+          <label for="vegetarian">Vegetarian</label>
+          <input type="checkbox" id="vegetarian" name="vegetarian" value="true" />
+
+          <label for="vegan">Vegan</label>
+          <input type="checkbox" id="vegan" name="vegan" value="true" />
+
+          <label for="omnivore">Omnivore</label>
+          <input type="checkbox" id="omnivore" name="omnivore" value="true" />
+
+          <label for="halal">Halal</label>
+          <input type="checkbox" id="halal" name="halal" value="true" />
+
+          <label for="kosher">Kosher</label>
+          <input type="checkbox" id="kosher" name="kosher" value="true" />
+
+          <label for="lactoseFree">Lactose-Free</label>
+          <input type="checkbox" id="lactoseFree" name="lactoseFree" value="true" />
         </div>
-      </div>
-      <!-- End of the Dietary Preferences Form -->
+
+        <!-- Allergies -->
+        <div>
+          <p>Allergies:</p>
+          <label for="glutenFree">Gluten-Free</label>
+          <input type="checkbox" id="glutenFree" name="glutenFree" value="true" />
+
+          <label for="nutAllergy">Nut Allergy</label>
+          <input type="checkbox" id="nutAllergy" name="nutAllergy" value="true" />
+        </div>
+
+        <!-- Other Dietary Restrictions -->
+        <div>
+          <label for="otherRestrictions">Other Restrictions:</label>
+          <textarea id="otherRestrictions" name="otherRestrictions" rows="4" cols="50"></textarea>
+        </div>
+
+        <input type="submit" value="Submit" />
+      </form>
+      <!-- Removed the confirmationMessage div -->
+      <!-- Add this div to display errors -->
+      <div id="errorDisplay" style="color: red; display: none;"></div>
     </div>
+    <!-- End of the Dietary Preferences Form -->
   </div>
-  
-  <script>
-    var modal = document.getElementById("dietaryPreferencesModal");
-    var btn = document.getElementById("dietaryPreferencesNav");
-  
-    function openDietaryModal() {
-      modal.style.display = "block";
-    }
-  
-    // When the user clicks on the button, open the modal
-    btn.onclick = function () {
-      modal.style.display = "block";
-    };
-  
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  
-    function closeDietaryModal() {
+</div>
+
+<script>
+  var modal = document.getElementById("dietaryPreferencesModal");
+  var btn = document.getElementById("dietaryPreferencesNav");
+
+  function openDietaryModal() {
+    modal.style.display = "block";
+  }
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
       modal.style.display = "none";
     }
-  
-    async function handleSubmit() {
-      // Stop the form from submitting to the server which causes a page refresh
-      event.preventDefault();
-  
-      // Fetch form to be submitted
-      const form = document.getElementById("dietaryForm");
-  
-      // Using FormData to get all the values from the form
-      const formData = new FormData(form);
-  
-      // Using the Fetch API to submit the form data to the server
-      fetch("/submit-dietary-preferences", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            document.getElementById("confirmationMessage").style.display =
-              "block";
-          } else {
-            document.getElementById("errorDisplay").textContent = data.error;
-          }
-        })
-        .catch((error) => {
-          document.getElementById("errorDisplay").textContent =
-            "An error occurred.";
-          console.error("Fetch error:", error);
-        });
+  };
+
+  function closeDietaryModal() {
+    modal.style.display = "none";
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const errorDisplay = document.getElementById("errorDisplay");
+
+    // Reset the error display
+    errorDisplay.style.display = "none";
+    errorDisplay.textContent = "";
+
+    const form = document.getElementById("dietaryForm");
+
+    const dietaryPreferences = {
+      vegetarian: form['vegetarian'].checked,
+      vegan: form['vegan'].checked,
+      omnivore: form['omnivore'].checked,
+      halal: form['halal'].checked,
+      kosher: form['kosher'].checked,
+      lactoseFree: form['lactoseFree'].checked,
+      glutenFree: form['glutenFree'].checked,
+      nutAllergy: form['nutAllergy'].checked,
+      otherRestrictions: form['otherRestrictions'].value.trim()
+    };
+
+    try {
+      const response = await fetch('/submit-dietary-preferences', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dietaryPreferences),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert('Your dietary preferences have been submitted successfully!');
+      } else {
+        throw new Error(data.message || 'An error occurred.');
+      }
+    } catch (error) {
+      errorDisplay.textContent = error.message;
+      errorDisplay.style.display = "block";
     }
-  </script>
+  }
+</script>
