@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Maya&Me</title>
+  <link rel="website icon" type="png" href="images/maya.png">
     <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="stylesheets/menu.css">
-    <title>Food Menu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="stylesheets/menu.css">
 </head>
 <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
   <div class="topnav">
-        <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
-        <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
+        <a href="/UserDashboard"><img src="images/logo.png" height="60px" width="60px"></a>
+        <a href="/UserDashboard"><img src="images/mayame.png" height="60px" width="190px"></a>
   
         <div class="menu">
-        <a class="nav" href="#home">Home</a>
-        <a class="nav" href="#news">News</a>
-        <a class="nav" href="#contact">Contact</a>
-        <a class="nav" href="#about">About</a>
-        <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
-      <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
-      </div>
+          <a class="nav" href="/UserDashboard">Home</a>
+          <a class="nav" href="/confirmoderinfo">Orders</a>
+          <a href="/logout" class="nav" style="float:right;">Logout</a>
+          <a class="nav" onclick="openCartModal()"
+          style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;color: #C69B68;"><i
+          class="fas fa-shopping-cart fa-2x"></i></a>     
+          <%- include('dietaryPreferences.ejs') %>
+          <!-- <a class="nav" id="openDietaryModal" href="#">Dietary Preferences</a> -->
+          <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
+          
+        </div>
       <div class="menu-toggle">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -41,9 +49,9 @@
         </div>
         <div class="cont">
           <div class="log">
-            <a class="fbtn active" href="/menu">Food Menu</a>
-            <a class="fbtn" href="/trays">Party Trays</a>
-            <a class="fbtn" href="/meals">Solo Meals</a>
+            <a class="fbtn active" href="/userMenu">Food Menu</a>
+            <a class="fbtn" href="/userTrays">Party Trays</a>
+            <a class="fbtn" href="/userMeals">Solo Meals</a>
           </div>
           </div>
         </div>
@@ -83,8 +91,9 @@
         <p class="card-time">
             <span class="fas fa-clock"></span>15-30 mins
         </p>
-          <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
 </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/bac.jpg" alt="" />
@@ -100,8 +109,10 @@
           <span class="fas fa-clock"></span>15-30 mins
       </p>
       <div>
-        <button class="cbtn" onclick="Login()" >Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button> </div> </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div> 
+</div>
 </div>
     <div class="dashboard-card">
       <img class="card-image" src="images/bcd.jpg" alt="" />
@@ -137,8 +148,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
   </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/caldereta.jpg" alt="" />
@@ -174,8 +186,9 @@
       <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+    <button class="cbtn">Order</button>
+    <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
 </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/bm.jpg" alt="" />
@@ -211,8 +224,9 @@
     <p class="card-time">
         <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+    <button class="cbtn">Order</button>
+    <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/tap.jpg" alt="" />
@@ -227,8 +241,9 @@
       <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+      <button class="cbtn">Order</button>
+      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+    </div>
 </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/bwb.jpg" alt="" />
@@ -264,8 +279,8 @@
       <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
+      <button class="cbtn">Order</button>
+      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
 </div>
   </div>
 <div class="dashboard-card">
@@ -302,8 +317,9 @@
 <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn">Order</button>
+<button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
 </div>
 <div class="dashboard-card">
 <img class="card-image" src="images/bcc.jpg" alt="" />
@@ -339,8 +355,9 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn">Order</button>
+<button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
 </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/bpm.jpg" alt="" />
@@ -376,8 +393,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/cg.jpg" alt="" />
@@ -392,8 +410,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
 <div class="dashboard-card">
 <img class="card-image" src="images/pc.jpg" alt="" />
@@ -429,8 +448,9 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn">Order</button>
+<button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
 </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/chmi.jpg" alt="" />
@@ -449,8 +469,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>>
+  </div>
   </div>
   <div class="dashboard-card">
   <img class="card-image" src="images/cak.jpg" alt="" />
@@ -486,8 +507,8 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
   </div>
   </div>
   <div class="dashboard-card">
@@ -524,8 +545,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
 <div class="dashboard-card">
 <img class="card-image" src="images/cr.jpg" alt="" />
@@ -540,8 +562,9 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn">Order</button>
+<button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
 </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/f1.jpg" alt="" />
@@ -577,8 +600,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/cbm.jpg" alt="" />
@@ -614,8 +638,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
 <div class="dashboard-card">
   <img class="card-image" src="images/emb.jpg" alt="" />
@@ -651,8 +676,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
   <div class="dashboard-card">
     <img class="card-image" src="images/flu.jpg" alt="" />
@@ -688,8 +714,9 @@
     <p class="card-time">
       <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+    </div>
     </div>
     <div class="dashboard-card">
       <img class="card-image" src="images/fcf.jpg" alt="" />
@@ -725,8 +752,9 @@
       <p class="card-time">
         <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>      </div>
+      <button class="cbtn">Order</button>
+      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+      </div>
       </div>
 <div class="dashboard-card">
 <img class="card-image" src="images/f5.jpg" alt="" />
@@ -762,8 +790,9 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn">Order</button>
+<button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
 </div>
 <div class="dashboard-card">
 <img class="card-image" src="images/gc.jpg" alt="" />
@@ -785,8 +814,8 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+<button class="cbtn">Order</button>
+<button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
 </div>
 </div>
 <div class="dashboard-card">
@@ -809,8 +838,9 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn">Order</button>
+  <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  </div>
   </div>
   <div class="dashboard-card">
     <img class="card-image" src="images/hmdo.jpg" alt="" />
@@ -846,8 +876,8 @@
     <p class="card-time">
       <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    
+  <button class="cbtn">Order</button>
+  <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>   
 </div>
     </div>
   <div class="dashboard-card">
@@ -863,8 +893,9 @@
     <p class="card-time">
       <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    </div>
+    <button class="cbtn">Order</button>
+    <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+    </div>
     </div>
     <div class="dashboard-card">
       <img class="card-image" src="images/kk.jpg" alt="" />
@@ -900,8 +931,9 @@
       <p class="card-time">
         <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>      </div>
+      <button class="cbtn">Order</button>
+      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+      </div>
       </div>
       <div class="dashboard-card">
         <img class="card-image" src="images/kbs.jpg" alt="" />
@@ -937,8 +969,8 @@
         <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
         </p>
-          <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>        
+        <button class="cbtn">Order</button>
+        <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>      
       </div>
         </div>
         <div class="dashboard-card">
@@ -954,8 +986,9 @@
           <p class="card-time">
             <span class="fas fa-clock"></span>15-30 mins
           </p>
-            <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>          </div>
+          <button class="cbtn">Order</button>
+          <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+          </div>
           </div>
           <div class="dashboard-card">
             <img class="card-image" src="images/mn.jpg" alt="" />
@@ -991,8 +1024,9 @@
             <p class="card-time">
               <span class="fas fa-clock"></span>15-30 mins
             </p>
-              <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>            </div>
+            <button class="cbtn">Order</button>
+            <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+           </div>
             </div>
             <div class="dashboard-card">
               <img class="card-image" src="images/cream.jpeg" alt="" />
@@ -1028,8 +1062,9 @@
               <p class="card-time">
                 <span class="fas fa-clock"></span>15-30 mins
               </p>
-                <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>              </div>
+              <button class="cbtn">Order</button>
+              <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+             </div>
               </div>
               <div class="dashboard-card">
                 <img class="card-image" src="images/mong.jpg" alt="" />
@@ -1065,8 +1100,8 @@
                 <p class="card-time">
                   <span class="fas fa-clock"></span>15-30 mins
                 </p>
-                  <button class="cbtn" onclick="Login()">Order</button>
-                  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                
+                <button class="cbtn">Order</button>
+                <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>               
                 </div>
                 </div>
                 <div class="dashboard-card">
@@ -1103,8 +1138,8 @@
                   <p class="card-time">
                     <span class="fas fa-clock"></span>15-30 mins
                   </p>
-                    <button class="cbtn" onclick="Login()">Order</button>
-                    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                 
+                  <button class="cbtn">Order</button>
+                  <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                 
                   </div>
                   </div>
                   <div class="dashboard-card">
@@ -1141,8 +1176,8 @@
                     <p class="card-time">
                       <span class="fas fa-clock"></span>15-30 mins
                     </p>
-                      <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                    
+                    <button class="cbtn">Order</button>
+                    <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                    
                     </div>
                     </div>
                     <div class="dashboard-card">
@@ -1179,8 +1214,9 @@
                       <p class="card-time">
                         <span class="fas fa-clock"></span>15-30 mins
                       </p>
-                        <button class="cbtn" onclick="Login()">Order</button>
-                        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                      </div>
+                      <button class="cbtn">Order</button>
+                      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+                      </div>
                       </div>
                       <div class="dashboard-card">
                         <img class="card-image" src="images/sisig.jpg" alt="" />
@@ -1216,8 +1252,9 @@
                         <p class="card-time">
                           <span class="fas fa-clock"></span>15-30 mins
                         </p>
-                      <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                        </div>
+                        <button class="cbtn">Order</button>
+                        <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+                      </div>
                       </div>
                       <div class="dashboard-card">
                         <img class="card-image" src="images/ssf.jpg" alt="" />
@@ -1253,8 +1290,9 @@
                         <p class="card-time">
                           <span class="fas fa-clock"></span>15-30 mins
                         </p>
-                          <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                        </div>
+                        <button class="cbtn">Order</button>
+                        <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
                         </div>
                         <div class="dashboard-card">
                           <img class="card-image" src="images/ssp.jpg" alt="" />
@@ -1290,14 +1328,24 @@
                           <p class="card-time">
                             <span class="fas fa-clock"></span>15-30 mins
                           </p>
-                      <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                          
+                          <button class="cbtn">Order</button>
+                          <button onclick="addToCart('Amazing Pizza', 30)" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                     
                           </div>
                           </div>
+                          <div id="cart-mod" class="mod">
+                            <div class="mod-cont">
+                            <span class="clse" onclick="closeCartModal()">&times;</span>
+                            <h2>Cart</h2>
+                            <ul id="mod-cart-items"></ul>
+                            <div class="total-amount">Total: Php <span id="total-amount">0</span></div>
+                            <button onclick="placeOrder()">Place Order</button>
+                            </div>  
+                            </div>
 </div>  
 <div class="container">
   <div class="lbl" style="margin-top: 5%;">
-    <label for="">Store Location</label>
+    <label class="fp" for="">Store Location</label>
+    <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
    </div>
   <div class="card-map">   
       <div>
@@ -1308,6 +1356,27 @@
          </div>
   </div>
 </div>
+<script>
+  function addToCartAndShowAlert(productName, price) {
+    // Call your existing addToCart function here
+    addToCart(productName, price);
+
+    // Show SweetAlert after adding to the cart
+    Swal.fire({
+      title: 'Added to Cart!',
+      text: `${productName} added to your cart.`,
+      icon: 'success',
+      confirmButtonColor: '#3085d6',
+    });
+  }
+
+  // Your existing addToCart function
+  function addToCart(productName, price) {
+    // Add your existing addToCart logic here
+    // For example, update the cart items, UI, etc.
+    console.log(`${productName} added to cart.`);
+  }
+</script>
 <script src="scripts/menu.js"></script>
 </body>
 <div class="cntr">
@@ -1324,7 +1393,7 @@
       <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
       <h5 class="text-uppercase mb-4">About company</h5>
   
-      <label>
+      <label style="color: white;">
         Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
       </label>
   
@@ -1391,7 +1460,7 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
     © 2023 Copyright:
-    <label >Maya&Me Services</label>
+    <label style="color: #C69B68;">Maya&Me Services</label>
     </div>
     <!-- Copyright -->
   </footer>

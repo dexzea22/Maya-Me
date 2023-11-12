@@ -226,7 +226,35 @@ body{
             color: var(--darkGray);
             font-size: 0.8rem;
           }
-          
+          .card {
+    width: calc(33.33% - 20px);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
+  }
+  .card-map{
+    width: calc(100%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
+    background-color: white;
+    height: 450px;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  .card h3 {
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .card p {
+    padding: 10px;
+
+  }
           .dashboard-order {
             width: 340px;
             min-height: 100%;
@@ -259,28 +287,132 @@ body{
             border: none;
             border-radius: 5px;
           }
-         
-        .lbl{
-    font-family: Caveat, open-sans; 
-    font-size: 60px;
-    font-weight: bold;
-    color: #C69B68;
+
+
+
+/* cart modal */
+/* Style for the cart modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height: auto;
+}
+
+
+/* Styles for the modal container with id "cart-modal" */
+#cart-mod {
+  display: none; /* Hide the modal by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for the modal content */
+.mod-cont {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+/* Styles for the close button with class "close" */
+.clse {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Styles for the heading within the modal */
+h2 {
+  color: #333;
+}
+
+/* Styles for the unordered list with id "modal-cart-items" */
+#mod-cart-items {
+  list-style-type: none;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* Styles for the total amount section */
+.total-amount {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Styles for the button with onclick event "placeOrder()" */
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  width: 300px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+}
+.food-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.fp{
+  color:#C69B68 ;
+  position: relative; 
+  z-index: 2; 
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+.flm {
+  position: absolute;
+  margin-top: 510px;
+  z-index: 1; 
+}
+.lbl{
+  font-family: Caveat, open-sans; 
+  font-size: 85px;
+  font-weight: bold;
+  color: #C69B68;
+  margin-top:50px;
+  position: relative;
+  z-index: 1;
 }
     .ftr{
       font-size: 1vw;
       color: #FFF3EB;
       font-weight: bold;
     }
-        .card-map{
-          width: calc(100%);
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          padding: 25px;
-          margin-bottom: 20px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
-          background-color: white;
-          height: 450px;
-        }
+    
+    .flm {
+      position: absolute;
+      margin-top: 510px;
+      z-index: 1; 
+    }
           .gallery {
             display: grid;
             grid-template-columns: repeat(3,1fr); 
