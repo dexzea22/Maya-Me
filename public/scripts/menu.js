@@ -114,15 +114,37 @@ createStarRating('star-rating39', 4);
 createStarRating('star-rating40', 3);
 createStarRating('star-rating41', 5);
 
-var cartItems = [];
 
-function addToCart(itemName, itemPrice) {
-  var item = {
-    name: itemName,
-    price: itemPrice,
-  };
-  cartItems.push(item);
-  updateCart();
+var cartItems = getCartItemsFromStorage() || [];
+
+function addToCart(itemName) {
+  var selectedSize = document.querySelector('input[name="size"]:checked');
+
+  if (selectedSize) {
+    var selectedSizeValue = selectedSize.value;
+    var [size, price] = selectedSizeValue.split('-');
+
+    var item = {
+      name: itemName,
+      size: size,
+      price: parseFloat(price), // Parse the price as a float or integer
+    };
+
+    cartItems.push(item);
+    updateCart();
+    saveCartItemsToStorage(cartItems);
+
+    // Show SweetAlert notification
+    Swal.fire({
+      icon: 'success',
+      title: 'Item Added to Cart',
+      text: `${itemName} ${size} has been added to your cart.`,
+      showConfirmButton: false,
+      timer: 1500  // Auto-close the alert after 1.5 seconds
+    });
+  } else {
+    alert('Please select a size before adding to the cart.');
+  }
 }
 
 function updateCart() {
@@ -137,10 +159,12 @@ function updateCart() {
 
     // Add numbering to the items
     var itemNumber = i + 1;
+
+    // Display the item name, size, and price separately
     li.appendChild(
       document.createTextNode(
         itemNumber + ". " +
-        cartItems[i].name + " (Php " + cartItems[i].price + ")"
+        cartItems[i].name + " - Size: " + cartItems[i].size + " - Price: ₱ " + cartItems[i].price
       )
     );
 
@@ -149,8 +173,36 @@ function updateCart() {
     totalPrice += cartItems[i].price;
   }
 
-  totalAmount.textContent = totalPrice;
+  totalAmount.textContent = "Total: ₱ " + totalPrice;
 }
+
+
+function saveCartItemsToStorage(items) {
+  localStorage.setItem("cartItems", JSON.stringify(items));
+}
+
+function getCartItemsFromStorage() {
+  var storedItems = localStorage.getItem("cartItems");
+  return storedItems ? JSON.parse(storedItems) : null;
+}
+
+function displayStoredItems() {
+  var storedItems = getCartItemsFromStorage();
+
+  if (storedItems) {
+    cartItems = storedItems; // Update the global cartItems array
+
+    // Now you can use the updated cartItems array to display the items
+    updateCart();
+  }
+}
+
+// Call the displayStoredItems function when the page loads
+displayStoredItems();
+
+window.onload = function () {
+  displayStoredItems();
+};
 
 function placeOrder() {
   var modal = document.getElementById("cart-mod");
@@ -169,6 +221,7 @@ function placeOrder() {
       console.log("Order placed:", data);
       cartItems = []; // Clear the cart after placing the order
       updateCart();
+      saveCartItemsToStorage(cartItems);
       alert("Order placed successfully!");
     })
     .catch((error) => {
@@ -176,23 +229,6 @@ function placeOrder() {
       alert("Error placing order. Please try again.");
     });
 }
-
-$('#openDietaryModal').click(function () {
-  $('#dietaryPreferencesModal').modal('show');
-});
-
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('show');
-});
-
-window.onscroll = function () {
-  if (window.pageYOffset > 0) {
-    document.querySelector('.topnav').classList.add('sticky');
-  } else {
-    document.querySelector('.topnav').classList.remove('sticky');
-  }
-};
-
 
 function openCartModal() {
   var modal = document.getElementById("cart-mod");
@@ -206,7 +242,7 @@ function closeCartModal() {
 
 window.addEventListener("click", function (event) {
   var modal = document.getElementById("cart-mod");
-  var closeBtn = document.getElementsById("cls")[0];
+  var closeBtn = document.getElementById("clse");
 
   if (event.target === modal || event.target === closeBtn) {
     modal.style.display = "none";
@@ -216,6 +252,7 @@ window.addEventListener("click", function (event) {
 $('#openDietaryModal').click(function () {
   $('#dietaryPreferencesModal').modal('show');
 });
+
 
 
 
