@@ -92,7 +92,7 @@
                 <span class="fas fa-clock"></span>15-30 mins
             </p>
             <button class="cbtn">Order</button>
-            <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+            <button onclick="addToCartAndShowAlert('Afritada', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
         </div>
     </div>
     <div class="dashboard-card">
@@ -1210,8 +1210,8 @@
                                 </div>
                                 <div id="cart-mod" class="mod">
                                     <div class="mod-cont">
-                                    <span class="clse" onclick="closeCartModal()">&times;</span>
-                                    <h2>Cart</h2>
+                                    <span class="clse" id="cls" onclick="closeCartModal()">&times;</span>
+                                    <h2 style="margin-top: 20px;">Cart</h2>
                                     <ul id="mod-cart-items"></ul>
                                     <div class="total-amount">Total: Php <span id="total-amount">0</span></div>
                                     <button onclick="placeOrder()">Place Order</button>
