@@ -206,6 +206,13 @@ window.onload = function () {
 
 function placeOrder() {
   var modal = document.getElementById("cart-mod");
+
+  // Check if the cart is empty
+  if (cartItems.length === 0) {
+    alert("Your cart is empty. Add items before placing an order.");
+    return;
+  }
+
   modal.style.display = "none";
 
   // Send a POST request to the server with the cart items
