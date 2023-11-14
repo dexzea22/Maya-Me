@@ -114,7 +114,7 @@ createStarRating('star-rating39', 4);
 createStarRating('star-rating40', 3);
 createStarRating('star-rating41', 5);
 
-var cartItems = [];
+var cartItems = []; // Initialize an empty cart array
 
 function addToCart(itemName, itemPrice) {
   var item = {
@@ -154,6 +154,13 @@ function updateCart() {
 
 function placeOrder() {
   var modal = document.getElementById("cart-mod");
+
+  // Check if the cart is empty
+  if (cartItems.length === 0) {
+    alert("Your cart is empty. Add items before placing an order.");
+    return;
+  }
+
   modal.style.display = "none";
 
   // Send a POST request to the server with the cart items
