@@ -15,8 +15,8 @@ var registerRouter = require('./routes/register');
 var confirmoderinfoRouter = require('./routes/confirmoderinfo');
 var userinfoRouter = require('./routes/userinfo');
 var ordersRouter = require('./routes/orders');
-const dietaryRouter = require('./routes/dietaryPreferences');
-const profileRouter = require('./routes/profile');
+var dietaryRouter = require('./routes/dietaryPreferences');
+var profileRouter = require('./routes/profile');
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
