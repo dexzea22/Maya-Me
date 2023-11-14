@@ -209,20 +209,7 @@
   </div>
 </section>
 </div>
-<script>
-function addToCartAndShowAlert(productName, price) {
-  // Call your existing addToCart function here
-  addToCart(productName, price);
 
-  // Show SweetAlert after adding to the cart
-  Swal.fire({
-    title: 'Added to Cart!',
-    text: `${productName} added to your cart.`,
-    icon: 'success',
-    confirmButtonColor: '#3085d6',
-  });
-}
-=======
     <div id="cart-mod" class="mod">
       <div class="mod-cont">
       <span class="clse" onclick="closeCartModal()">&times;</span>
@@ -234,15 +221,7 @@ function addToCartAndShowAlert(productName, price) {
       </div>
   
   <div class="cntr">
->>>>>>> Stashed changes
 
-// Your existing addToCart function
-function addToCart(productName, price) {
-  // Add your existing addToCart logic here
-  // For example, update the cart items, UI, etc.
-  console.log(`${productName} added to cart.`);
-}
-</script>
 <div class="lbl" style="margin:3% 0 0 1%;">
 <label class="fp" for="">Menu and Prices</label>
 <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
