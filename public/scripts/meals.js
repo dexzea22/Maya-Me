@@ -80,8 +80,8 @@ function updateCart() {
     // Display the item name, size, and price separately
     li.appendChild(
       document.createTextNode(
-        itemNumber + ". " +
-        cartItems[i].name + " - Size: " + cartItems[i].size + " - Price: ₱ " + cartItems[i].price
+        itemNumber + "." +
+        cartItems[i].name + " : " + cartItems[i].size + " Price: ₱" + cartItems[i].price
       )
     );
 
@@ -90,7 +90,7 @@ function updateCart() {
     totalPrice += cartItems[i].price;
   }
 
-  totalAmount.textContent = "Total: ₱ " + totalPrice;
+  totalAmount.textContent = "Total: ₱" + totalPrice;
 }
 
 

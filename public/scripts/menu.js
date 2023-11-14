@@ -56,7 +56,7 @@ galleries.forEach((gallery, index) => {
 
 function Login() {
   // You can set the login page URL here
-  window.location.href = "/login"; // Replace "login.html" with the actual URL of your login page
+  window.location.href = "/login"; // Replace "login.ejs" with the actual URL of your login page
 }
  // JavaScript function to create a star rating
  function createStarRating(containerId, rating) {
@@ -163,8 +163,8 @@ function updateCart() {
     // Display the item name, size, and price separately
     li.appendChild(
       document.createTextNode(
-        itemNumber + ". " +
-        cartItems[i].name + " - Size: " + cartItems[i].size + " - Price: ₱ " + cartItems[i].price
+        itemNumber + "." +
+        cartItems[i].name + " : " + cartItems[i].size + " Price: ₱" + cartItems[i].price
       )
     );
 
@@ -173,7 +173,7 @@ function updateCart() {
     totalPrice += cartItems[i].price;
   }
 
-  totalAmount.textContent = "Total: ₱ " + totalPrice;
+  totalAmount.textContent = "Total: ₱" + totalPrice;
 }
 
 
