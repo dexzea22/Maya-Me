@@ -16,12 +16,11 @@ var confirmoderinfoRouter = require('./routes/confirmoderinfo');
 var userinfoRouter = require('./routes/userinfo');
 var ordersRouter = require('./routes/orders');
 var dietaryRouter = require('./routes/dietaryPreferences');
-var profileRouter = require('./routes/profile');
+const profileRouter = require('./routes/profile');
 
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+
+
 // Serve the "Menu" page
 app.get('/menu', (req, res) => {
   res.render('menu'); // Render the "menu.ejs" template
@@ -76,39 +75,25 @@ app.use('/profile', profileRouter);
 
 
 
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // Set locals, providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // Render the error page
   res.status(err.status || 500);
-
-  // Check if the user is already on the root path to avoid redirect loop
-  if (req.session.userId && req.path !== '/') {
-    return res.redirect('/');
-  }
-
   res.render('error');
 });
 
-
-// error handler
-app.use(function(err, req, res, next) {
-  // Check here to see if you're unintentionally catching a legitimate request
-  console.error(err);
-
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  res.status(err.status || 500);
-  res.render('error');
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 module.exports = app;
