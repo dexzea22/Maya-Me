@@ -18,6 +18,7 @@ var ordersRouter = require('./routes/orders');
 var dietaryRouter = require('./routes/dietaryPreferences');
 var profileRouter = require('./routes/profile');
 
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
@@ -69,6 +70,7 @@ app.use('/', userinfoRouter);
 app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
 app.use('/profile', profileRouter);
+
 
 
 // catch 404 and forward to error handler

@@ -1,60 +1,75 @@
 const express = require('express');
+const router = express.Router();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
-const router = express.Router();
 const bcrypt = require('bcrypt');
-const saltRounds = 10; // for bcrypt password hashing
 
-// Middleware to ensure user is logged in
-function ensureAuthenticated(req, res, next) {
-  if (req.session.userId) {
-    return next();
-  } else {
-    res.redirect('/login');
+// Handle GET request for the profile page
+router.get('/', async (req, res) => { // Removed '/profile' since this is already being used in app.use('/profile', profileRouter);
+  if (!req.session.userId) {
+    return res.redirect('/login'); // Redirect to login if not authenticated
   }
-}
 
-router.get('/profile', ensureAuthenticated, async (req, res) => {
-  // Fetch the user's profile using their session userId
-  const user = await prisma.user.findUnique({
-    where: { id: req.session.userId },
-  });
-  res.render('profile', { user });
+  try {
+    // Fetch user details from database using session userId
+    const user = await prisma.user.findUnique({
+      where: { id: req.session.userId },
+    });
+    if (!user) {
+      // If no user found, destroy the session and redirect to login
+      req.session.destroy();
+      return res.redirect('/login');
+    }
+    
+    // Pass the user data to the profile view
+    res.render('profile', { title: 'Profile', userData: user });
+  } catch (error) {
+    res.status(500).send({ message: 'An error occurred while fetching the profile data', error });
+  }
 });
 
-router.post('/profile', ensureAuthenticated, async (req, res) => {
-  // Process the profile update here
-  // ... (profile update logic)
-});
+// Handle POST request for updating user profile
+router.post('/', async (req, res) => { // Removed '/profile' for the same reason as above
+  const { firstName, lastName, phoneNumber, currentPassword, newPassword } = req.body;
+  
+  if (!req.session.userId) {
+    return res.status(401).send({ message: 'User is not logged in.' });
+  }
+  
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.session.userId },
+    });
 
-router.post('/change-password', ensureAuthenticated, async (req, res) => {
-  const { oldPassword, newPassword } = req.body;
-  // Fetch the current user from the database
-  const user = await prisma.user.findUnique({
-    where: { id: req.session.userId },
-  });
-  // Check if the old password is correct
-  const isMatch = await bcrypt.compare(oldPassword, user.password);
-  if (isMatch) {
-    // Hash the new password
-    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
-    // Update the user's password
+    if (!user) {
+      return res.status(404).send({ message: 'User not found.' });
+    }
+
+    // Check if the current password matches
+    if (currentPassword && !await bcrypt.compare(currentPassword, user.password)) {
+      return res.status(401).send({ message: 'Current password is incorrect' });
+    }
+
+    // Update password if newPassword is provided and currentPassword is correct
+    let updateData = {
+      firstName: firstName || user.firstName, // Fallback to current name if not provided
+      lastName: lastName || user.lastName,
+      phoneNumber: phoneNumber || user.phoneNumber,
+    };
+
+    if (newPassword) {
+      updateData.password = await bcrypt.hash(newPassword, 10);
+    }
+
     await prisma.user.update({
       where: { id: req.session.userId },
-      data: { password: hashedPassword },
+      data: updateData,
     });
-    res.send("Password updated successfully.");
-  } else {
-    res.status(400).send("Incorrect current password.");
-  }
-});
 
-router.get('/logout', (req, res) => {
-  // Destroy the session and logout the user
-  req.session.destroy((err) => {
-    if (err) throw err;
-    res.redirect('/login'); // Redirect to login page after logout
-  });
+    res.send({ message: 'Profile updated successfully' });
+  } catch (error) {
+    res.status(500).send({ message: 'An error occurred while updating the profile', error: error.message });
+  }
 });
 
 module.exports = router;
