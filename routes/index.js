@@ -246,8 +246,8 @@ router.get('/UserDashboard', authenticate, restrictAccess.bind(null, 'User'), as
     }
 
     let welcomeMessage = "Welcome!";
-    if (user && user.firstName && user.lastName) {
-      welcomeMessage = "Welcome " + user.firstName + " " + user.lastName + "!";
+    if (user && user.firstName) {
+      welcomeMessage = "Welcome " + user.firstName + "!";
     }
     
     return res.render('UserDashboard', { 
@@ -261,10 +261,25 @@ router.get('/UserDashboard', authenticate, restrictAccess.bind(null, 'User'), as
   }
 });
 
-
-
-
-
+// Add this inside your index.js routes file
+router.get('/profile', authenticate, async (req, res) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.session.userId }
+    });
+    if (user) {
+      res.render('profile', {
+        title: 'Your Profile',
+        user: user
+      });
+    } else {
+      res.status(404).send('User not found');
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('An error occurred on the server');
+  }
+});
 
 app.use('/', router);
 
