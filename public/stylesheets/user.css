@@ -255,12 +255,21 @@ margin-left: 6%;
 }
 
 .clse {
+<<<<<<< HEAD
+  position: relative;
+  margin: -30px -10px 0 0;
+  font-size: 30px;
+  cursor: pointer;
+color: #000;
+float: right;
+=======
   margin: -25px -10px 0 0;
   float: right;
   cursor: pointer;
   position: relative;
   font-size: 30px;
   color: #000; /* Set the color to your preference */
+>>>>>>> 24ea4f57645c2bc91f5b70879dabcc0d036eee29
 }
 /* Styles for the heading within the modal */
 h2 {

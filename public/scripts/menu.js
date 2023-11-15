@@ -305,7 +305,7 @@ function closeCartModal() {
 
 window.addEventListener("click", function (event) {
   var modal = document.getElementById("cart-mod");
-  var closeBtn = document.getElementById("clse");
+  var closeBtn = document.getElementsByClassName("clse")[0];
 
   if (event.target === modal || event.target === closeBtn) {
     modal.style.display = "none";
@@ -319,9 +319,12 @@ $('#openDietaryModal').click(function () {
 
 
 
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 24ea4f57645c2bc91f5b70879dabcc0d036eee29
 
 
   
