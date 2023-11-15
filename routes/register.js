@@ -49,7 +49,8 @@ router.post('/register', async (req, res) => {
       address: address,
       dateOfBirth: new Date(dateOfBirth), // Assumed to be in a format that can be directly used to create a Date object
       phoneNumber: phoneNumber,
-      usertype: usertype
+      usertype: usertype,
+      id: String
     }
   });
 

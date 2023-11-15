@@ -189,7 +189,7 @@ function closeCartModal() {
 
 window.addEventListener("click", function (event) {
   var modal = document.getElementById("cart-mod");
-  var closeBtn = document.getElementsByClassName("close")[0];
+  var closeBtn = document.getElementsByClassName("clse")[0];
 
   if (event.target === modal || event.target === closeBtn) {
     modal.style.display = "none";
@@ -204,154 +204,8 @@ menuToggle.addEventListener('click', () => {
   menu.classList.toggle('show');
 });
 
-window.onscroll = function () {
-  if (window.pageYOffset > 0) {
-    document.querySelector('.topnav').classList.add('sticky');
-  } else {
-    document.querySelector('.topnav').classList.remove('sticky');
-  }
-};
-var cartItems = [];
 
-function addToCart(itemName, itemPrice) {
-  var item = {
-    name: itemName,
-    price: itemPrice,
-  };
-  cartItems.push(item);
-  updateCart();
-}
 
-function updateCart() {
-  var cartList = document.getElementById("mod-cart-items");
-  var totalAmount = document.getElementById("total-amount");
-  cartList.innerHTML = "";
-
-  var totalPrice = 0;
-
-  for (var i = 0; i < cartItems.length; i++) {
-    var li = document.createElement("li");
-
-    // Add numbering to the items
-    var itemNumber = i + 1;
-    li.appendChild(
-      document.createTextNode(
-        itemNumber + ". " +
-        cartItems[i].name + " (Php " + cartItems[i].price + ")"
-      )
-    );
-
-    cartList.appendChild(li);
-
-    totalPrice += cartItems[i].price;
-  }
-
-  totalAmount.textContent = totalPrice;
-}
-
-function placeOrder() {
-  var modal = document.getElementById("cart-mod");
-  modal.style.display = "none";
-
-  // Send a POST request to the server with the cart items
-  fetch("/orders/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ products: cartItems }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Order placed:", data);
-      cartItems = []; // Clear the cart after placing the order
-      updateCart();
-      alert("Order placed successfully!");
-    })
-    .catch((error) => {
-      console.error("Error placing order:", error);
-      alert("Error placing order. Please try again.");
-    });
-}
-
-function openCartModal() {
-  var modal = document.getElementById("cart-mod");
-  modal.style.display = "block";
-}
-
-function closeCartModal() {
-  var modal = document.getElementById("cart-mod");
-  modal.style.display = "none";
-}
-
-window.addEventListener("click", function (event) {
-  var modal = document.getElementById("cart-mod");
-  var closeBtn = document.getElementsByClassName("close")[0];
-
-  if (event.target === modal || event.target === closeBtn) {
-    modal.style.display = "none";
-  }
-});
-
-$('#openDietaryModal').click(function () {
-  $('#dietaryPreferencesModal').modal('show');
-});
-
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('show');
-});
-
-window.onscroll = function () {
-  if (window.pageYOffset > 0) {
-    document.querySelector('.topnav').classList.add('sticky');
-  } else {
-    document.querySelector('.topnav').classList.remove('sticky');
-  }
-};
-
-  function placeOrder() {
-    var modal = document.getElementById("cart-mod");
-    modal.style.display = "none";
-
-    // Send a POST request to the server with the cart items
-    fetch("/orders/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ products: cartItems }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Order placed:", data);
-        cartItems = []; // Clear the cart after placing the order
-        updateCart();
-        alert("Order placed successfully!");
-      })
-      .catch((error) => {
-        console.error("Error placing order:", error);
-        alert("Error placing order. Please try again.");
-      });
-  }
-
-  function openCartModal() {
-    var modal = document.getElementById("cart-mod");
-    modal.style.display = "block";
-  }
-
-  function closeCartModal() {
-    var modal = document.getElementById("cart-mod");
-    modal.style.display = "none";
-  }
-
-  window.addEventListener("click", function (event) {
-    var modal = document.getElementById("cart-mod");
-    var closeBtn = document.getElementsByClassName("clse")[0];
-
-    if (event.target === modal || event.target === closeBtn) {
-      modal.style.display = "none";
-    }
-  });
 
   
 
