@@ -342,11 +342,19 @@ body{
 /* Styles for the close button with class "close" */
 .clse {
   position: relative;
+<<<<<<< HEAD
   margin: -30px -10px 0 0;
   font-size: 30px;
   cursor: pointer;
 color: #000;
 float: right;
+=======
+  float: right;
+  margin: -25px -10px 0 0;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000
+>>>>>>> 24ea4f57645c2bc91f5b70879dabcc0d036eee29
 }
 
 /* Styles for the heading within the modal */

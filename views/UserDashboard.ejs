@@ -1,186 +1,215 @@
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Maya&Me</title>
-    <link rel="website icon" type="png" href="images/maya.png">
-    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="stylesheets/user.css">
-    <link rel="stylesheet" href="stylesheets/index.css">
-    </head>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Maya&Me</title>
+<link rel="website icon" type="png" href="images/maya.png">
+<link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="stylesheets/user.css">
+<link rel="stylesheet" href="stylesheets/index.css">
+</head>
 
-    <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
-    <div class="topnav">
+<body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
 
-    <a href="/UserDashBoard"><img src="images/logo.png" height="60px" width="60px"></a>
-    <a href="/UserDashBoard"><img href="/index" src="images/mayame.png" height="60px" width="190px"></a>
+  <div class="topnav">
+    <a href="/UserDashboard"><img src="images/logo.png" height="60px" width="60px"></a>
+    <a href="/UserDashboard"><img src="images/mayame.png" height="60px" width="190px"></a>
     <div class="menu">
-    <a class="nav" href="/UserDashboard">Home</a>
-    <a class="nav" href="/confirmoderinfo">Orders</a>
-    <a href="/logout" class="nav" style="float:right;">Logout</a>
-    <a class="nav" onclick="openCartModal()"
-    style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;color: #C69B68;"><i
-    class="fas fa-shopping-cart fa-2x"></i></a>
-    <%- include('dietaryPreferences.ejs') %>
-    <!-- <a class="nav" id="openDietaryModal" href="#">Dietary Preferences</a> -->
-    <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
-    <span class="nav welcome-message"
-    style="font-size: 20px; cursor:pointer; float: right; margin:1.8% 15px 0 14px;color: #C69B68;">
-    <%= welcomeMessage %>
-    </span>
-    </div>
-
-    <!-- Mobile Menu Toggle -->
-    <div class="menu-toggle">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    </div>
-    </div>
-    <div class="jumbotron">
-      <div class="slideshow-container">
-
-        <!-- Slides will be added here dynamically -->
-      </div>
-    </div>
-    <img src="images/nav-bg.png" style="width: 100%; height: 190PX;"  alt="">
-  <div class="cont">
-  <div class="log">
-    <img class="logo" src="images/logo.png" alt="">
-    <a class="fbtn" href="/userMenu">Food Menu</a>
-    <a class="fbtn" href="/userTrays">Party Trays</a>
-    <a class="fbtn" href="/userMeals">Solo Meals</a>
-  </div>
-  <img  src="images/nav-bg-footer.png" style="width: 100%; height: 180px;" alt="">
-  </div>
-   <!-- Features Section -->
-  <div class="container">
-  <div class="lbl">
-    <label class="fp" for="">Featured Products</label>
-    <img style="margin: -280px 0 0 -100px; z-index: 1;" src="images/gltr.png" alt="">
-   </div>
-    <!-- End Jumbotron -->
-    <section class="feature-food">
-      <div class="food-card">
-        <div class="card">
-          <img style="position: absolute;margin-top: 479px;z-index: 1;" src="images/flm.png" alt="">
-          <img src="images/f1.jpg" alt="Food 1" />
-          <h3>Chicken Roll</h3>
-          <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
-          <div class="bar">
-            <p>Rating:</p>
-            <div class="star-rating" id="star-rating">
-              <!-- Star icons will be added here using JavaScript -->
-            </div>
-          </div>
-          <div>
-            <p>Price: P8.99</p>
-     <button class="cbtn" onclick="Login()">Order</button>
-     <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
-    </div>
-        </div>
-        <div class="card">
-          <img style="position: absolute;margin-top: 479px;z-index: 1;" src="images/flm.png" alt="">
-          <img src="images/f5.jpg" alt="Food 2" />
-          <h3>Fried Fish Filet</h3>
-          <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
-          <div class="bar">
-            <p>Rating:</p>
-            <div class="star-rating" id="star-rating2">
-              <!-- Star icons will be added here using JavaScript -->
-            </div>
-          </div>
-          <div>
-            <p>Price: P8.99</p>
-      <button class="cbtn" onclick="Login()">Order</button>
-      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
-    </div>
-        </div>
-        <div class="card">
-          <img style="position: absolute;margin-top: 479px;z-index: 1;" src="images/flm.png" alt="">
-          <img src="images/f6.jpg" alt="Food 3" />
-          <h3>Scrumptious Carbonara</h3>
-          <p>This unique twist on the classic Italian carbonara recipe incorporates local flavors and ingredients, resulting in a comforting and indulgent culinary experience.</p>
-          <div class="bar">
-              <p>Rating:</p>
-              <div class="star-rating" id="star-rating3">
-                  <!-- Star icons will be added here using JavaScript -->
-              </div>
-          </div>
-          <div>
-              <p>Price: P8.99</p>
-      <button class="cbtn" onclick="Login()">Order</button>
-      <button onclick="addToCartAndShowAlert('Amazing Pizza', 30)" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
-          </div>
-      </div>
-      
-      </div>
-    </section>
-  </div>
-  <script>
-    function addToCartAndShowAlert(productName, price) {
-      // Call your existing addToCart function here
-      addToCart(productName, price);
+      <a class="nav" href="/UserDashboard">Home</a>
+      <a class="nav" href="/confirmoderinfo">Orders</a>
   
-      // Show SweetAlert after adding to the cart
-      Swal.fire({
-        title: 'Added to Cart!',
-        text: `${productName} added to your cart.`,
-        icon: 'success',
-        confirmButtonColor: '#3085d6',
-      });
-    }
+      <!-- The button or icon for opening the profile modal -->
+      <div class="nav profile-icon" onclick="openProfileModal()" style="font-size: 20px; cursor:pointer; float: right; margin:1.8% 15px 0 14px;color: #C69B68;">
+        <i class="fas fa-user-circle fa-2x"></i>
+      </div>
   
-    // Your existing addToCart function
-    function addToCart(productName, price) {
-      // Add your existing addToCart logic here
-      // For example, update the cart items, UI, etc.
-      console.log(`${productName} added to cart.`);
-    }
-  </script>
-  <div class="lbl" style="margin:3% 0 0 1%;">
-    <label class="fp" for="">Menu and Prices</label>
-    <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
-   </div>
-<div>
-  <div class="gallery">
-    <img src="images/m1.jpg" alt="Image 1">
-    <img src="images/m4.jpg" alt="Image 1">
-    <img src="images/m2.jpg" alt="Image 1">
-    <img src="images/m5.jpg" alt="Image 1">
-    <img src="images/m3.jpg" alt="Image 1">
-    <!-- Add more images as needed -->
+      <!-- Profile Modal -->
+      <div id="profileModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeProfileModal()">&times;</span>
+          <a href="/profile">My Profile</a>
+          <a href="/confirmoderinfo">Orders</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+  
+      <a class="nav" onclick="openCartModal()" style="font-size: 14px; cursor:pointer;color: #C69B68; float: right; margin-right: 5%;"><i class="fas fa-shopping-cart fa-2x"></i></a>
+      <%- include('dietaryPreferences.ejs') %>
+      <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
+      <span class="nav welcome-message" style="font-size: 20px; cursor:pointer; float: right; margin:1.8% 15px 0 0;color: #C69B68;"><%= welcomeMessage %></span>
+    </div>
   </div>
+  <!-- Add your JavaScript for modal and other script tags at the end of the body or in external JS files -->
+  
 
-  <!-- Lightbox (hidden by default) -->
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Enlarged Image" id="lightbox-image">
+
+<!-- Mobile Menu Toggle -->
+<div class="menu-toggle">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+</div>
+<div class="jumbotron">
+  <div class="slideshow-container">
+
+    <!-- Slides will be added here dynamically -->
   </div>
 </div>
-  <div class="container">
-    <div class="lbl" style="margin-top: 5%;">
-      <label class="fp" for="">Store Location</label>
-      <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
-     </div>
-    <div class="card-map">   
-        <div>
-          <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
+<img src="images/nav-bg.png" style="width: 100%; height: 190PX;"  alt="">
+<div class="cont">
+<div class="log">
+<img class="logo" src="images/logo.png" alt="">
+<a class="fbtn" href="/userMenu">Food Menu</a>
+<a class="fbtn" href="/userTrays">Party Trays</a>
+<a class="fbtn" href="/userMeals">Solo Meals</a>
+</div>
+<img  src="images/nav-bg-footer.png" style="width: 100%; height: 180px;" alt="">
+</div>
+<!-- Features Section -->
+<div class="container">
+<div class="lbl">
+<label class="fp" for="">Featured Products</label>
+<img style="margin: -280px 0 0 -100px; z-index: 1;" src="images/gltr.png" alt="">
+</div>
+<!-- End Jumbotron -->
+<section class="feature-food">
+  <div class="food-card">
+    <div class="card">
+      <img style="position: absolute;margin-top: 649px;z-index: 1;" src="images/flm.png" alt="">
+      <img src="images/f1.jpg" alt="Food 1" />
+      <h3>Chicken Roll (Tray)</h3>
+      <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
+      <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
+        <label>
+          <img src="images/scr.jpg" alt="Image 1">
+          <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+          S (₱400) (10-12 pax)
+        </label>
+        <label>
+          <img src="images/mcr.jpg" style="height: 118px;" alt="Image 2">
+          <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+          M (₱1,000) (25-30 pax)
+        </label>
+        <label>
+          <img src="images/lcr.jpg" style="height: 118px;" alt="Image 3">
+          <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+          L (₱1,500) (45-50 pax)
+        </label>
+      </div>
+       <!-- Lightbox (hidden by default) -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Enlarged Image" class="lightbox-image">
+</div>
+      <div class="bar">
+        <p>Rating:</p>
+        <div class="star-rating" id="star-rating">
+          <!-- Star icons will be added here using JavaScript -->
         </div>
-          <div style="float: left; margin:  0 0 0 6%;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-           </div>
+      </div>
+      <p class="card-time">
+        <span class="fas fa-clock"></span>15-30 mins
+    </p>
+      <div>
+         <button class="cbtn">Order</button>
+ <button onclick="addToCart('Chicken Roll')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
     </div>
+    <div class="card">
+      <img style="position: absolute;margin-top: 649px;z-index: 1;" src="images/flm.png" alt="">
+      <img src="images/f5.jpg" alt="Food 2" />
+      <h3>Fried Fish Filet (Tray)</h3>
+      <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
+      <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
+        <label>
+          <img src="images/sff.jpg" alt="Image 1">
+          <input type="radio" name="size" value="Small(10 to 12 pax)-300">
+          S (₱300) (10-12 pax)
+        </label>
+        <label>
+          <img src="images/mff.jpg" style="height: 118px;" alt="Image 2">
+          <input type="radio" name="size" value="Medium(25 to 30 pax)-900">
+          M (₱900) (25-30 pax)
+        </label>
+        <label>
+          <img src="images/lff.jpg" style="height: 118px;" alt="Image 3">
+          <input type="radio" name="size" value="Large(45 to 50 pax)-1400">
+          L (₱1,400) (45-50 pax)
+        </label>
+      </div>
+       <!-- Lightbox (hidden by default) -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Enlarged Image" class="lightbox-image">
+</div>
+      <div class="bar">
+        <p>Rating:</p>
+        <div class="star-rating" id="star-rating2">
+          <!-- Star icons will be added here using JavaScript -->
+        </div>
+      </div>
+      <p class="card-time">
+        <span class="fas fa-clock"></span>15-30 mins
+    </p>
+      <div>
+          <button class="cbtn" onclick="Login()">Order</button>
+  <button onclick="addToCart('Fried Fish Fillet')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+</div>
+    </div>
+    <div class="card">
+      <img style="position: absolute;margin-top: 649px;z-index: 1;" src="images/flm.png" alt="">
+      <img src="images/sisig.jpg" alt="Food 3" style="height: 262px;" />
+      <h3>Sisig (Tray)</h3>
+      <p>Sizzle into satisfaction with our mouthwatering Pork Sisig! Experience a symphony of flavors as tender pork pieces are expertly seasoned and crisped to perfection.</p>
+      <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
+        <label>
+          <img src="images/sssg.jpg" alt="Image 1">
+          <input type="radio" name="size" value="Small(10 to 12 pax)-600">
+          S (₱600) (10-12 pax)
+        </label>
+        <label>
+          <img src="images/mssg.jpg" style="height: 118px;" alt="Image 2">
+          <input type="radio" name="size" value="Medium(25 to 30 pax)-1450">
+          M (₱1,450) (25-30 pax)
+        </label>
+        <label>
+          <img src="images/lssg.jpg" style="height: 118px;" alt="Image 3">
+          <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
+          L (₱2,800) (45-50 pax)
+        </label>
+      </div>
+       <!-- Lightbox (hidden by default) -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Enlarged Image" class="lightbox-image">
+</div>
+      <div class="bar">
+          <p>Rating:</p>
+          <div class="star-rating" id="star-rating3">
+              <!-- Star icons will be added here using JavaScript -->
+          </div>
+      </div>
+      <p class="card-time">
+        <span class="fas fa-clock"></span>15-30 mins
+    </p>
+      <div>
+            <button class="cbtn" >Order</button>
+  <button onclick="addToCart('Amazing Pizza')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+      </div>
   </div>
+  
+  </div>
+</section>
+</div>
+
     <div id="cart-mod" class="mod">
       <div class="mod-cont">
       <span class="clse" onclick="closeCartModal()">&times;</span>
@@ -190,94 +219,172 @@
       <button onclick="placeOrder()">Place Order</button>
       </div>  
       </div>
-  <script src="scripts/menu.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-  </body>
+  
   <div class="cntr">
 
-    <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
-      <!-- Grid container -->
-      <div class="p-5">
-      
-      <!--Grid row-->
-      
-      <div class="row mt-4">
-        <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">About company</h5>
-    
-        <label style="color: white;">
-          Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
-        </label>
-    
-        <div class="mt-4">
-          <!-- Facebook -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
-          <!-- Dribbble -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
-          <!-- Twitter -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
-          <!-- Google + -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
-          <!-- Linkedin -->
-        </div>
-        </div>
-        <!--Grid column-->
-    <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
-    
-        <ul class="fa-ul" style="margin-left: 1.65em;">
-          <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
-          </li>
-          <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">mayaandme74@gmail.com</span>
-          </li>
-          <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">09186506362</span>
-          </li>
-       
-        </ul>
-        </div>
-        <!--Grid column-->
-    
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">Opening hours</h5>
-    
-        <table class="table text-center text-white">
-          <tbody class="font-weight-normal">
-          <tr>
-            <td>Mon - Thu:</td>
-            <td>8am - 9pm</td>
-          </tr>
-          <tr style="background-color: #C69B68;">
-            <td>Fri - Sat:</td>
-            <td>8am - 1am</td>
-          </tr>
-          <tr>
-            <td>Sunday:</td>
-            <td>9am - 10pm</td>
-          </tr>
-          </tbody>
-        </table>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-      </div>
-      <!-- Grid container -->
-    
-      <!-- Copyright -->
-      <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
-      © 2023 Copyright:
-      <label style="color: #C69B68;">Maya&Me Services</label>
-      </div>
-      <!-- Copyright -->
-    </footer>
+<div class="lbl" style="margin:3% 0 0 1%;">
+<label class="fp" for="">Menu and Prices</label>
+<img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
+</div>
+<div>
+<div class="gallery">
+<img src="images/m1.jpg" alt="Image 1">
+<img src="images/m4.jpg" alt="Image 1">
+<img src="images/m2.jpg" alt="Image 1">
+<img src="images/m5.jpg" alt="Image 1">
+<img src="images/m3.jpg" alt="Image 1">
+<!-- Add more images as needed -->
+</div>
+
+<!-- Lightbox (hidden by default) -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Enlarged Image" class="lightbox-image">
+</div>
+</div>
+<div class="container">
+<div class="lbl" style="margin-top: 5%;">
+  <label class="fp" for="">Store Location</label>
+  <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
+ </div>
+<div class="card-map">   
+    <div>
+      <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
     </div>
-    </html>
+      <div style="float: left; margin:  0 0 0 6%;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+       </div>
+</div>
+</div>
+<div id="cart-mod" class="mod">
+  <div class="mod-cont">
+  <span class="clse" onclick="closeCartModal()">&times;</span>
+  <h2>Cart</h2>
+  <ul id="mod-cart-items"></ul>
+  <div class="total-amount">Total: Php <span id="total-amount">0</span></div>
+  <button onclick="placeOrder()">Place Order</button>
+  </div>  
+  </div>
+
+<div class="cntr">
+
+<footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
+  <!-- Grid container -->
+  <div class="p-5">
+  
+  <!--Grid row-->
+  
+  <div class="row mt-4">
+    <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+    <!--Grid column-->
+    <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+    <h5 class="text-uppercase mb-4">About company</h5>
+
+    <label style="color: white;">
+      Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
+    </label>
+
+    <div class="mt-4">
+      <!-- Facebook -->
+      <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
+      <!-- Dribbble -->
+      <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
+      <!-- Twitter -->
+      <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
+      <!-- Google + -->
+      <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
+      <!-- Linkedin -->
+    </div>
+    </div>
+    <!--Grid column-->
+<div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+    <!--Grid column-->
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+    <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
+
+    <ul class="fa-ul" style="margin-left: 1.65em;">
+      <li class="mb-3">
+      <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
+      </li>
+      <li class="mb-3">
+      <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">mayaandme74@gmail.com</span>
+      </li>
+      <li class="mb-3">
+      <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">09186506362</span>
+      </li>
+   
+    </ul>
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+    <h5 class="text-uppercase mb-4">Opening hours</h5>
+
+    <table class="table text-center text-white">
+      <tbody class="font-weight-normal">
+      <tr>
+        <td>Mon - Thu:</td>
+        <td>8am - 9pm</td>
+      </tr>
+      <tr style="background-color: #C69B68;">
+        <td>Fri - Sat:</td>
+        <td>8am - 1am</td>
+      </tr>
+      <tr>
+        <td>Sunday:</td>
+        <td>9am - 10pm</td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <!--Grid column-->
+  </div>
+  <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
+  © 2023 Copyright:
+  <label style="color: #C69B68;">Maya&Me Services</label>
+  </div>
+  <!-- Copyright -->
+</footer>
+</div>
+
+
+<script>
+  // Function to open the profile modal
+  function openProfileModal() {
+    document.getElementById('profileModal').style.display = 'block';
+  }
+
+  // Function to close the profile modal
+  function closeProfileModal() {
+    document.getElementById('profileModal').style.display = 'none';
+  }
+
+  // Event listener for opening the modal
+  document.querySelector('.fa-user-circle').addEventListener('click', function(event) {
+    openProfileModal();
+    event.stopPropagation(); // Prevent the modal from closing immediately
+  });
+
+  // Event listener for closing the modal when clicking anywhere outside of the modal content
+  window.addEventListener('click', function(event) {
+    var modal = document.getElementById('profileModal');
+    if (event.target == modal) {
+      closeProfileModal();
+    }
+  });
+
+  // Your existing window.onclick event can remain as is or be adjusted as needed.
+</script>
+
+<!-- ...rest of your body content... -->
+
+<script src="scripts/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  
+</body>
+</html>

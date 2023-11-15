@@ -261,11 +261,5 @@ router.get('/UserDashboard', authenticate, restrictAccess.bind(null, 'User'), as
   }
 });
 
-
-
-
-
-
 app.use('/', router);
-
 module.exports = app;

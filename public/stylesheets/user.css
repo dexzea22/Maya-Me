@@ -3,49 +3,7 @@
   overflow: hidden;
   background-color: rgba(53, 46, 46, 0.117);
   }
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3,1fr); 
-    gap:10px;
-  }
   
-  /* Individual image styles */
-  .gallery img {
-    max-width: 75%;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.2s;
-    align-items: center;
-    margin: auto;
-    width: 950px;
-  }
-  
-  /* Hover effect on images */
-  .gallery img:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
-  }
-  
-  /* Lightbox styles (hidden by default) */
-  .lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-  
-  }
-  
-  /* Lightbox image styles */
-  .lightbox img {
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    margin: auto;
-    margin-top: 2%;
-  }
   .topnav a {
     float: left;
     color: #C69B68;
@@ -293,18 +251,26 @@ margin-left: 6%;
   max-width: 500px;
   margin: auto;
   margin-top: 100px;
+  z-index: 999;
 }
 
-/* Styles for the close button with class "close" */
 .clse {
+<<<<<<< HEAD
   position: relative;
   margin: -30px -10px 0 0;
   font-size: 30px;
   cursor: pointer;
 color: #000;
 float: right;
+=======
+  margin: -25px -10px 0 0;
+  float: right;
+  cursor: pointer;
+  position: relative;
+  font-size: 30px;
+  color: #000; /* Set the color to your preference */
+>>>>>>> 24ea4f57645c2bc91f5b70879dabcc0d036eee29
 }
-
 /* Styles for the heading within the modal */
 h2 {
   color: #333;
@@ -558,3 +524,37 @@ margin: 25px 15px 0 0;
   border-radius: 5px;
 }
 
+/* Profile Modal (Centered in the viewport) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 10000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
