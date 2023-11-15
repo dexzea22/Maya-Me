@@ -50,6 +50,56 @@
         ><img src="images/mayame.png" height="60px" width="190px"
       /></a>
 
+<<<<<<< HEAD
+
+    <div class="menu">
+    <a class="nav" href="/login">Home</a>
+    <a class="nav" href="#news">News</a>
+    <a class="nav" href="#contact">Contact</a>
+    <a class="nav" href="#about">About</a>
+    <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+    <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+  </div>
+  <div class="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  </div>
+  <div class="login-form">
+    <form action="/register" method="post" name="register">
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col">
+            <div class="card card-registration my-4">
+              <div class="row g-0">
+                <div class="col-xl-6 d-none d-xl-block">
+                  <img src="images/reg.jpg" alt="Sample photo" class="img-fluid"
+                    style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                </div>
+                <div class="col-xl-6">
+                  <div class="card-body p-md-5 text-black">
+                    <h3 class="mb-5 text-uppercase" style="text-align: center; font-weight: bold; color: #C69B68; font-size: 50px;">Register Now!</h3>
+                    <div class="error">
+                      <% if (typeof errorMessage !== 'undefined') { %>
+                        <p style="color: red;"><%= errorMessage %></p>
+                      <% } %>
+                    </div>
+
+      <!-- First Name / Last Name -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="form-outline">
+            <input type="text" id="firstName" name="firstName" placeholder="Firstname . . ." class="form-control form-control-lg" />
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="form-outline">
+            <input type="text" id="lastName" name="lastName" placeholder="Lastname . . ." class="form-control form-control-lg" />
+          </div>
+        </div>
+=======
       <div class="menu">
         <a class="nav" href="/login">Home</a>
         <a class="nav" href="#news">News</a>
@@ -69,6 +119,7 @@
           "
           ><i class="fas fa-shopping-cart fa-2x"></i>
         </a>
+>>>>>>> 24ea4f57645c2bc91f5b70879dabcc0d036eee29
       </div>
       <div class="menu-toggle">
         <div class="bar"></div>
@@ -288,6 +339,19 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
+      <!-- Password -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="form-outline position-relative">
+            <input style="font-size: 15px;" type="password" id="password" name="password" placeholder="Password . . ." class="form-control form-control-lg" />
+            <span toggle="#password" id="togglePassword" class="fa-fw fa-eye far toggle-password position-absolute end-0 top-50 translate-middle-y me-2"></span>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="form-outline">
+            <input style="font-size: 15px;" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password . . ." class="form-control form-control-lg" />
+=======
       </form>
     </div>
     <script src="scripts/register.js"></script>
@@ -353,6 +417,7 @@
                 ><span class="ms-2">09186506362</span>
               </li>
             </ul>
+>>>>>>> 24ea4f57645c2bc91f5b70879dabcc0d036eee29
           </div>
           <!--Grid column-->
 
