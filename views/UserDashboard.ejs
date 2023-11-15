@@ -85,7 +85,7 @@
 <!-- End Jumbotron -->
 <section class="feature-food">
   <div class="food-card">
-    <div class="card">
+    <div class="card" id="chkr">
       <img style="position: absolute;margin-top: 649px;z-index: 1;" src="images/flm.png" alt="">
       <img src="images/f1.jpg" alt="Food 1" />
       <h3>Chicken Roll (Tray)</h3>
@@ -122,10 +122,10 @@
     </p>
       <div>
          <button class="cbtn">Order</button>
- <button onclick="addToCart('Chicken Roll')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+ <button onclick="addToCart('Chicken Roll(Tray)','chkr')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
 </div>
     </div>
-    <div class="card">
+    <div class="card" id="ff">
       <img style="position: absolute;margin-top: 649px;z-index: 1;" src="images/flm.png" alt="">
       <img src="images/f5.jpg" alt="Food 2" />
       <h3>Fried Fish Filet (Tray)</h3>
@@ -162,10 +162,10 @@
     </p>
       <div>
           <button class="cbtn" onclick="Login()">Order</button>
-  <button onclick="addToCart('Fried Fish Fillet')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  <button onclick="addToCart('Fried Fish Fillet(Tray)','ff')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
 </div>
     </div>
-    <div class="card">
+    <div class="card" id="ssg">
       <img style="position: absolute;margin-top: 649px;z-index: 1;" src="images/flm.png" alt="">
       <img src="images/sisig.jpg" alt="Food 3" style="height: 262px;" />
       <h3>Sisig (Tray)</h3>
@@ -202,7 +202,7 @@
     </p>
       <div>
             <button class="cbtn" >Order</button>
-  <button onclick="addToCart('Amazing Pizza')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+  <button onclick="addToCart('Sisig(Tray)','ssg')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
       </div>
   </div>
   
