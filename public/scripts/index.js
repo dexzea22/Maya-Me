@@ -77,6 +77,7 @@ createStarRating('star-rating', 4);
 createStarRating('star-rating2', 4);
 createStarRating('star-rating3', 5);
 
+
 var cartItems = getCartItemsFromStorage() || [];
 
 function addToCart(itemName, cardId) {
@@ -106,13 +107,15 @@ function addToCart(itemName, cardId) {
       showConfirmButton: true,
     });
   } else {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Oops...',
-      text: 'Please select a size before adding to the cart.',
-      showConfirmButton: false,
-      timer: 2000,
-    });  }
+// Replace the alert with SweetAlert
+Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'Please select a size before adding to the cart.',
+  showConfirmButton: false,
+  timer: 2000,
+});
+  }
 }
 
 function updateCartDisplay() {
@@ -159,6 +162,9 @@ function createDeleteButton(index) {
   // Set the icon class
   icon.classList.add("fas", "fa-trash");
 
+  // Style the icon to be red
+  icon.style.color = "red";
+
   // Append the icon to the delete button
   deleteButton.appendChild(icon);
 
@@ -173,6 +179,7 @@ function createDeleteButton(index) {
 
   return deleteButton;
 }
+
 
 
 // Function to delete a specific item from the cart
@@ -210,8 +217,14 @@ function placeOrder() {
 
   // Check if the cart is empty
   if (cartItems.length === 0) {
-    alert("Your cart is empty. Add items before placing an order.");
-    return;
+    Swal.fire({
+      icon: 'warning',
+      title: 'Empty Cart',
+      text: 'Add items to your cart before placing an order.',
+      showConfirmButton:false,
+      timer: 1500,
+    });
+        return;
   }
 
   modal.style.display = "none";
@@ -230,8 +243,13 @@ function placeOrder() {
       cartItems = []; // Clear the cart after placing the order
       updateCartDisplay();
       saveCartItemsToStorage(cartItems);
-      alert("Order placed successfully!");
-    })
+      Swal.fire({
+        icon: 'success',
+        title: 'Order Placed Successfully!',
+        showConfirmButton: false,
+        timer: 1500  // Auto-close the alert after 1.5 seconds
+      });
+          })
     .catch((error) => {
       console.error("Error placing order:", error);
       alert("Error placing order. Please try again later.");

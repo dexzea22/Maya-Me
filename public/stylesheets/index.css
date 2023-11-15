@@ -301,7 +301,21 @@ padding: 0 0 0 20%;
   margin-top: 506px;
   z-index: 1; 
 }
-
+.plc{
+  margin: auto;
+  max-width:66%;
+}
+.total-amount {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: end;
+}
+#mod-cart-items {
+  list-style-type: none;
+  padding: 0;
+  text-decoration: underline;
+  text-align: left;
+}
 .order-button:hover {
   background-color: rgb(243, 185, 113);
   color: rgb(0, 0, 0);
