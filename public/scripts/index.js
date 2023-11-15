@@ -79,37 +79,43 @@ createStarRating('star-rating3', 5);
 
 var cartItems = getCartItemsFromStorage() || [];
 
-function addToCart(itemName) {
-  var selectedSize = document.querySelector('input[name="size"]:checked');
+function addToCart(itemName, cardId) {
+  var selectedSize = document.querySelector(`#${cardId} input[name="size"]:checked`);
 
   if (selectedSize) {
     var selectedSizeValue = selectedSize.value;
     var [size, price] = selectedSizeValue.split('-');
 
+    var numericPrice = parseFloat(price);
+    
     var item = {
       name: itemName,
       size: size,
-      price: parseFloat(price), // Parse the price as a float or integer
+      price: numericPrice, // Keep the numeric value
     };
 
     cartItems.push(item);
-    updateCart();
+    updateCartDisplay();
     saveCartItemsToStorage(cartItems);
 
-    // Show SweetAlert notification
+    // Show SweetAlert notification using the unique lightbox ID
     Swal.fire({
       icon: 'success',
       title: 'Item Added to Cart',
       text: `${itemName} ${size} has been added to your cart.`,
-      showConfirmButton: false,
-      timer: 1500  // Auto-close the alert after 1.5 seconds
+      showConfirmButton: true,
     });
   } else {
-    alert('Please select a size before adding to the cart.');
-  }
+    Swal.fire({
+      icon: 'warning',
+      title: 'Oops...',
+      text: 'Please select a size before adding to the cart.',
+      showConfirmButton: false,
+      timer: 2000,
+    });  }
 }
 
-function updateCart() {
+function updateCartDisplay() {
   var cartList = document.getElementById("mod-cart-items");
   var totalAmount = document.getElementById("total-amount");
   cartList.innerHTML = "";
@@ -122,20 +128,58 @@ function updateCart() {
     // Add numbering to the items
     var itemNumber = i + 1;
 
-    // Display the item name, size, and price separately
+    // Format the price when displaying
+    var formattedPrice = cartItems[i].price.toLocaleString();
+
+    // Display the item name, size, and formatted price
     li.appendChild(
       document.createTextNode(
         itemNumber + "." +
-        cartItems[i].name + " : " + cartItems[i].size + " Price: ₱" + cartItems[i].price
+        cartItems[i].name + " : " + cartItems[i].size + " Price: ₱" + formattedPrice
       )
     );
+
+    // Add a delete button for each item
+    var deleteButton = createDeleteButton(i);
+    li.appendChild(deleteButton);
 
     cartList.appendChild(li);
 
     totalPrice += cartItems[i].price;
   }
 
-  totalAmount.textContent = "Total: ₱" + totalPrice;
+  totalAmount.textContent = "Total: ₱" + totalPrice.toLocaleString();
+}
+
+// Function to create a delete button for a specific item
+function createDeleteButton(index) {
+  var deleteButton = document.createElement("icon");
+  var icon = document.createElement("i");
+
+  // Set the icon class
+  icon.classList.add("fas", "fa-trash");
+
+  // Append the icon to the delete button
+  deleteButton.appendChild(icon);
+
+  // Add classes and styles to position the button
+  deleteButton.classList.add("delete-icon");
+  deleteButton.style.float = "right";  // Float the button to the right
+
+  // Add a click event to delete the item when the delete button is clicked
+  deleteButton.addEventListener("click", function () {
+    deleteCartItem(index);
+  });
+
+  return deleteButton;
+}
+
+
+// Function to delete a specific item from the cart
+function deleteCartItem(index) {
+  cartItems.splice(index, 1);
+  updateCartDisplay();
+  saveCartItemsToStorage(cartItems);
 }
 
 
@@ -145,22 +189,17 @@ function saveCartItemsToStorage(items) {
 
 function getCartItemsFromStorage() {
   var storedItems = localStorage.getItem("cartItems");
-  return storedItems ? JSON.parse(storedItems) : null;
+  return storedItems ? JSON.parse(storedItems) : [];
 }
 
 function displayStoredItems() {
   var storedItems = getCartItemsFromStorage();
 
-  if (storedItems) {
+  if (storedItems.length > 0) {
     cartItems = storedItems; // Update the global cartItems array
-
-    // Now you can use the updated cartItems array to display the items
-    updateCart();
+    updateCartDisplay();
   }
 }
-
-// Call the displayStoredItems function when the page loads
-displayStoredItems();
 
 window.onload = function () {
   displayStoredItems();
@@ -189,13 +228,13 @@ function placeOrder() {
     .then((data) => {
       console.log("Order placed:", data);
       cartItems = []; // Clear the cart after placing the order
-      updateCart();
+      updateCartDisplay();
       saveCartItemsToStorage(cartItems);
       alert("Order placed successfully!");
     })
     .catch((error) => {
       console.error("Error placing order:", error);
-      alert("Error placing order. Please try again.");
+      alert("Error placing order. Please try again later.");
     });
 }
 
@@ -221,8 +260,3 @@ window.addEventListener("click", function (event) {
 $('#openDietaryModal').click(function () {
   $('#dietaryPreferencesModal').modal('show');
 });
-
-function Login() {
-  // You can set the login page URL here
-  window.location.href = "/login"; // Replace "login.ejs" with the actual URL of your login page
-}
