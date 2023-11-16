@@ -106,17 +106,18 @@ function addToCart(itemName, cardId) {
       icon: 'success',
       title: 'Item Added to Cart',
       text: `${itemName} ${size} has been added to your cart.`,
-      showConfirmButton: false,
-      timer: 1500
+      showConfirmButton: true,
     });
   } else {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Oops...',
-      text: 'Please select a size before adding to the cart.',
-      showConfirmButton: false,
-      timer: 2000,
-    });  }
+// Replace the alert with SweetAlert
+Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'Please select a size before adding to the cart.',
+  showConfirmButton: false,
+  timer: 2000,
+});
+  }
 }
 
 function updateCartDisplay() {
@@ -143,6 +144,10 @@ function updateCartDisplay() {
       )
     );
 
+    // Add a delete button for each item
+    var deleteButton = createDeleteButton(i);
+    li.appendChild(deleteButton);
+
     cartList.appendChild(li);
 
     totalPrice += cartItems[i].price;
@@ -150,6 +155,42 @@ function updateCartDisplay() {
 
   totalAmount.textContent = "Total: ₱" + totalPrice.toLocaleString();
 }
+
+// Function to create a delete button for a specific item
+function createDeleteButton(index) {
+  var deleteButton = document.createElement("icon");
+  var icon = document.createElement("i");
+
+  // Set the icon class
+  icon.classList.add("fas", "fa-trash");
+
+  // Style the icon to be red
+  icon.style.color = "red";
+
+  // Append the icon to the delete button
+  deleteButton.appendChild(icon);
+
+  // Add classes and styles to position the button
+  deleteButton.classList.add("delete-icon");
+  deleteButton.style.float = "right";  // Float the button to the right
+
+  // Add a click event to delete the item when the delete button is clicked
+  deleteButton.addEventListener("click", function () {
+    deleteCartItem(index);
+  });
+
+  return deleteButton;
+}
+
+
+
+// Function to delete a specific item from the cart
+function deleteCartItem(index) {
+  cartItems.splice(index, 1);
+  updateCartDisplay();
+  saveCartItemsToStorage(cartItems);
+}
+
 
 function saveCartItemsToStorage(items) {
   localStorage.setItem("cartItems", JSON.stringify(items));
@@ -178,8 +219,14 @@ function placeOrder() {
 
   // Check if the cart is empty
   if (cartItems.length === 0) {
-    alert("Your cart is empty. Add items before placing an order.");
-    return;
+    Swal.fire({
+      icon: 'warning',
+      title: 'Empty Cart',
+      text: 'Add items to your cart before placing an order.',
+      showConfirmButton:false,
+      timer: 1500,
+    });
+        return;
   }
 
   modal.style.display = "none";
@@ -198,8 +245,13 @@ function placeOrder() {
       cartItems = []; // Clear the cart after placing the order
       updateCartDisplay();
       saveCartItemsToStorage(cartItems);
-      alert("Order placed successfully!");
-    })
+      Swal.fire({
+        icon: 'success',
+        title: 'Order Placed Successfully!',
+        showConfirmButton: false,
+        timer: 1500  // Auto-close the alert after 1.5 seconds
+      });
+          })
     .catch((error) => {
       console.error("Error placing order:", error);
       alert("Error placing order. Please try again later.");

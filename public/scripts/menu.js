@@ -319,12 +319,9 @@ $('#openDietaryModal').click(function () {
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> 24ea4f57645c2bc91f5b70879dabcc0d036eee29
 
 
   
