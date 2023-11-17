@@ -40,7 +40,7 @@ const lightboxes = document.querySelectorAll('.lightbox');
 const lightboxImages = document.querySelectorAll('.lightbox-image');
 
 galleries.forEach((gallery, index) => {
-  gallery.querySelectorAll('img').forEach((img, imgIndex) => {
+  gallery.querySelectorAll('img').forEach((img) => {
     img.addEventListener('click', () => {
       lightboxImages[index].src = img.src;
       lightboxes[index].style.display = 'block';
@@ -97,8 +97,8 @@ createStarRating('star-rating22', 4);
 createStarRating('star-rating23', 5);
 createStarRating('star-rating24', 5);
 createStarRating('star-rating25', 4);
-createStarRating('star-rating26', 2);
-createStarRating('star-rating27', 4);
+createStarRating('star-rating26', 4);
+createStarRating('star-rating27', 3);
 createStarRating('star-rating28', 3);
 createStarRating('star-rating29', 5);
 createStarRating('star-rating30', 4);
@@ -113,7 +113,8 @@ createStarRating('star-rating38', 3);
 createStarRating('star-rating39', 4);
 createStarRating('star-rating40', 3);
 createStarRating('star-rating41', 5);
-
+createStarRating('star-rating42', 4);
+createStarRating('star-rating43', 5);
 
 var cartItems = getCartItemsFromStorage() || [];
 
@@ -315,6 +316,7 @@ window.addEventListener("click", function (event) {
 $('#openDietaryModal').click(function () {
   $('#dietaryPreferencesModal').modal('show');
 });
+
 
 
 

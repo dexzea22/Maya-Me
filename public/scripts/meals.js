@@ -31,7 +31,8 @@ createStarRating('starmls1', 4);
 createStarRating('starmls2', 5);
 createStarRating('starmls3', 5);
 createStarRating('starmls4', 3);
-
+createStarRating('starmls5', 4);
+createStarRating('starmls6', 5);
 var cartItems = getCartItemsFromStorage() || [];
 
 function addToCart(itemName, cardId) {

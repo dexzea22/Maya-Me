@@ -150,3 +150,9 @@
     transform: translateY(-50%);
     cursor: pointer;
   }
+  #toggleCpassword {
+    background-color: transparent !important;
+}
+#togglePassword {
+  background-color: transparent !important;
+}
