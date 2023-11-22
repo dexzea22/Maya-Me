@@ -19,6 +19,7 @@ var ordersRouter = require('./routes/orders');
 var dietaryRouter = require('./routes/dietaryPreferences');
 const profileRouter = require('./routes/profile');
 
+
 //paypal
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
@@ -47,11 +48,11 @@ app.get('/userTrays', (req, res) => {
 app.get('/userMeals', (req, res) => {
   res.render('userMeals'); // Render a view named "new-page.ejs"
 });
-// app.get('/profile', (req, res) => {
-//   res.render('profile'); // Render a view named "new-page.ejs"
-// });
-app.get('/', (req, res)=> {
-  res.sendFile(__dirname + "/payment.ejs")
+app.get('/aboutUs', (req, res) => {
+  res.render('aboutUs'); // Render a view named "new-page.ejs"
+});
+app.get('/cart', (req, res) => {
+  res.render('cart'); // Render a view named "new-page.ejs"
 });
 
 app.use(session({
@@ -67,6 +68,7 @@ app.use(session({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -80,6 +82,7 @@ app.use('/', userinfoRouter);
 app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
 app.use('/profile', profileRouter);
+
 
 
 

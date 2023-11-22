@@ -4,19 +4,7 @@ const menu = document.querySelector('.menu');
   menuToggle.addEventListener('click', () => {
     menu.classList.toggle('show');
   });
-  const imagePaths = [
-    'mong.jpg',
-    'bpm.jpg',
-    'bs.jpg',
-    'cream.jpeg',
-    'emb.jpg',
-    'fishveg.jpg',
-    // Add more image file paths as needed
-  ];
-  
-  const slideshowContainer = document.querySelector('.slideshow-container');
-  let currentIndex = 0;
-  
+
   
   function updateBackgroundImage() {
     if (currentIndex >= imagePaths.length) {
@@ -40,7 +28,7 @@ const lightboxes = document.querySelectorAll('.lightbox');
 const lightboxImages = document.querySelectorAll('.lightbox-image');
 
 galleries.forEach((gallery, index) => {
-  gallery.querySelectorAll('img').forEach((img, imgIndex) => {
+  gallery.querySelectorAll('img').forEach((img) => {
     img.addEventListener('click', () => {
       lightboxImages[index].src = img.src;
       lightboxes[index].style.display = 'block';
@@ -73,7 +61,6 @@ function Login() {
     container.appendChild(star);
   }
 }
-
 // Call the function with the desired rating (e.g., 4 out of 5 stars)
 createStarRating('star-rating4', 4);
 createStarRating('star-rating5', 3);
@@ -97,8 +84,8 @@ createStarRating('star-rating22', 4);
 createStarRating('star-rating23', 5);
 createStarRating('star-rating24', 5);
 createStarRating('star-rating25', 4);
-createStarRating('star-rating26', 2);
-createStarRating('star-rating27', 4);
+createStarRating('star-rating26', 4);
+createStarRating('star-rating27', 3);
 createStarRating('star-rating28', 3);
 createStarRating('star-rating29', 5);
 createStarRating('star-rating30', 4);
@@ -113,228 +100,40 @@ createStarRating('star-rating38', 3);
 createStarRating('star-rating39', 4);
 createStarRating('star-rating40', 3);
 createStarRating('star-rating41', 5);
-
-
-var cartItems = getCartItemsFromStorage() || [];
-
-function addToCart(itemName, cardId) {
-  var selectedSize = document.querySelector(`#${cardId} input[name="size"]:checked`);
-
-  if (selectedSize) {
-    var selectedSizeValue = selectedSize.value;
-    var [size, price] = selectedSizeValue.split('-');
-
-    var numericPrice = parseFloat(price);
-    
-    var item = {
-      name: itemName,
-      size: size,
-      price: numericPrice, // Keep the numeric value
-    };
-
-    cartItems.push(item);
-    updateCartDisplay();
-    saveCartItemsToStorage(cartItems);
-
-    // Show SweetAlert notification using the unique lightbox ID
-    Swal.fire({
-      icon: 'success',
-      title: 'Item Added to Cart',
-      text: `${itemName} ${size} has been added to your cart.`,
-      showConfirmButton: true,
-    });
-  } else {
-// Replace the alert with SweetAlert
-Swal.fire({
-  icon: 'warning',
-  title: 'Oops...',
-  text: 'Please select a size before adding to the cart.',
-  showConfirmButton: false,
-  timer: 2000,
-});
-  }
-}
-
-function updateCartDisplay() {
-  var cartList = document.getElementById("mod-cart-items");
-  var totalAmount = document.getElementById("total-amount");
-  cartList.innerHTML = "";
-
-  var totalPrice = 0;
-
-  for (var i = 0; i < cartItems.length; i++) {
-    var li = document.createElement("li");
-
-    // Add numbering to the items
-    var itemNumber = i + 1;
-
-    // Format the price when displaying
-    var formattedPrice = cartItems[i].price.toLocaleString();
-
-    // Display the item name, size, and formatted price
-    li.appendChild(
-      document.createTextNode(
-        itemNumber + "." +
-        cartItems[i].name + " : " + cartItems[i].size + " Price: ₱" + formattedPrice
-      )
-    );
-
-    // Add a delete button for each item
-    var deleteButton = createDeleteButton(i);
-    li.appendChild(deleteButton);
-
-    cartList.appendChild(li);
-
-    totalPrice += cartItems[i].price;
-  }
-
-  totalAmount.textContent = "Total: ₱" + totalPrice.toLocaleString();
-}
-
-// Function to create a delete button for a specific item
-function createDeleteButton(index) {
-  var deleteButton = document.createElement("icon");
-  var icon = document.createElement("i");
-
-  // Set the icon class
-  icon.classList.add("fas", "fa-trash");
-
-  // Style the icon to be red
-  icon.style.color = "red";
-
-  // Append the icon to the delete button
-  deleteButton.appendChild(icon);
-
-  // Add classes and styles to position the button
-  deleteButton.classList.add("delete-icon");
-  deleteButton.style.float = "right";  // Float the button to the right
-
-  // Add a click event to delete the item when the delete button is clicked
-  deleteButton.addEventListener("click", function () {
-    deleteCartItem(index);
-  });
-
-  return deleteButton;
-}
-
-
-
-// Function to delete a specific item from the cart
-function deleteCartItem(index) {
-  cartItems.splice(index, 1);
-  updateCartDisplay();
-  saveCartItemsToStorage(cartItems);
-}
-
-
-function saveCartItemsToStorage(items) {
-  localStorage.setItem("cartItems", JSON.stringify(items));
-}
-
-function getCartItemsFromStorage() {
-  var storedItems = localStorage.getItem("cartItems");
-  return storedItems ? JSON.parse(storedItems) : [];
-}
-
-function displayStoredItems() {
-  var storedItems = getCartItemsFromStorage();
-
-  if (storedItems.length > 0) {
-    cartItems = storedItems; // Update the global cartItems array
-    updateCartDisplay();
-  }
-}
-
-window.onload = function () {
-  displayStoredItems();
-};
-
-function placeOrder() {
-  var modal = document.getElementById("cart-mod");
-
-  // Check if the cart is empty
-  if (cartItems.length === 0) {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Empty Cart',
-      text: 'Add items to your cart before placing an order.',
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    return;
-  }
-
-  // Show a confirmation modal
-  Swal.fire({
-    title: 'Confirm Order',
-    text: 'Are you sure you want to place this order?',
-    icon: 'info',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, place order!',
-    cancelButtonText: 'Cancel',
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // If the user confirms, proceed to the payment modal
-      modal.style.display = "none";
-
-      // Send a POST request to the server with the cart items
-      fetch("/orders/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ products: cartItems }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Order placed:", data);
-
-          // Initialize and show the PayPal payment modal
-          openPaymentModal();
-        })
-        .catch((error) => {
-          console.error("Error placing order:", error);
-          alert("Error placing order. Please try again later.");
-        });
-    }
-  });
-}
-
+createStarRating('star-rating42', 4);
+createStarRating('star-rating43', 5);
 
 function openCartModal() {
-  var modal = document.getElementById("cart-mod");
-  modal.style.display = "block";
+  window.location.href = '/cart';
 }
 
-function closeCartModal() {
-  var modal = document.getElementById("cart-mod");
-  modal.style.display = "none";
-}
-
-window.addEventListener("click", function (event) {
-  var modal = document.getElementById("cart-mod");
-  var closeBtn = document.getElementsByClassName("clse")[0];
-
-  if (event.target === modal || event.target === closeBtn) {
-    modal.style.display = "none";
-  }
-});
 
 $('#openDietaryModal').click(function () {
   $('#dietaryPreferencesModal').modal('show');
 });
+// Function to open the profile modal
+function openProfileModal() {
+  document.getElementById('profileModal').style.display = 'block';
+}
 
+// Function to close the profile modal
+function closeProfileModal() {
+  document.getElementById('profileModal').style.display = 'none';
+}
 
+// Event listener for opening the modal
+document.querySelector('.fa-user-circle').addEventListener('click', function(event) {
+  openProfileModal();
+  event.stopPropagation(); // Prevent the modal from closing immediately
+});
 
-
-
-
-
-
-
-  
+// Event listener for closing the modal when clicking anywhere outside of the modal content
+window.addEventListener('click', function(event) {
+  var modal = document.getElementById('profileModal');
+  if (event.target == modal) {
+    closeProfileModal();
+  }
+});
 
 
 

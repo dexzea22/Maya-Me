@@ -1,0 +1,298 @@
+.topnav {
+    overflow: hidden;
+    background-color: rgba(53, 46, 46, 0.117);
+    }
+    
+    .topnav a {
+      float: left;
+      color: #C69B68;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      position: relative; /* Add this line */
+    }
+
+    .topnav .nav::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #000000;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .topnav a:hover::before {
+      width: 100%;
+      visibility: visible;
+    }
+    .nav{
+    margin-right: 50px;
+    margin-top: 18px;
+    font-weight: bold;
+    }
+    .navc{
+      color: #C69B68;
+  
+    }
+    .topnav {
+    color: white;
+    }
+    .menu-toggle {
+        display: none; /* Hide on larger screens */
+        cursor: pointer;
+        }
+        .bar {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        }
+        /* Show menu on smaller screens */
+        @media (max-width: 768px) {
+        .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        }
+        
+        .menu.show {
+        display: flex;
+        background-color: rgba(53, 46, 46, 0.204);
+        margin-top: 29px;
+        }
+        .menu-toggle {
+        display: block;
+        max-width: 100%;
+        float: right;
+        margin: 25px 15px 0 0;
+        }
+        }
+        /* Profile Modal (Centered in the viewport) */
+.pmod {
+    margin: auto;
+    display: none; 
+    position: fixed; 
+    z-index: 10000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-contents {
+    background-color: #fefefe;
+    margin: 4.5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 10%;
+    height:220px;
+    border-radius: 5px;
+    float: right;
+  }
+  .modal-contents a.prof {
+    text-decoration: none;
+    color:#C69B68; /* Set the default text color */
+    position: relative;
+  
+  }
+  
+  .modal-contents a.prof::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the underline */
+    bottom: 0;
+    left: 0;
+    background-color: transparent; /* Set the initial color of the underline */
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+  }
+  
+  .modal-contents a.prof:hover::before {
+    transform: scaleX(1); /* Expand the underline to full width on hover */
+    background-color: black; /* Change the color of the underline on hover */
+  }
+  .dashboard-banner {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    padding: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    }
+    
+    .dashboard-banner > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    }
+    .banner-promo {
+    position: absolute;
+    color: #C69B68;
+    top:8.5%;
+    left: 5%;
+    font-weight: 900;
+    }
+    .card{
+        margin: auto;
+        max-width: 1200px;
+        width: 100%;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 1rem;
+        border: transparent;
+        margin-bottom: 100px;
+        margin-top: 100px;
+    }
+    .inc{
+        font-size: 16px;
+        font-weight: bold;
+        color:rgb(0, 0, 0);
+        background-color:none;
+        width: 20px;
+        height: 20px;
+        float: right;
+        padding: 0px 19px 20px 10px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    @media(max-width:767px){
+        .card{
+            margin: 3vh auto;
+        }
+    }
+    .cart{
+        background-color: #fff;
+        padding: 4vh 5vh;
+        border-bottom-left-radius: 1rem;
+        border-top-left-radius: 1rem;
+    }
+    @media(max-width:767px){
+        .cart{
+            padding: 4vh;
+            border-bottom-left-radius: unset;
+            border-top-right-radius: 1rem;
+        }
+    }
+    .summary{
+        background-color: #ddd;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        padding: 4vh;
+        color: rgb(65, 65, 65);
+    }
+    @media(max-width:767px){
+        .summary{
+        border-top-right-radius: unset;
+        border-bottom-left-radius: 1rem;
+        }
+    }
+    .summary .col-2{
+        padding: 0;
+    }
+    .summary .col-10
+    {
+        padding: 0;
+    }.row{
+        margin: 0;
+    }
+    .title b{
+        font-size: 1.5rem;
+    }
+    .main{
+        margin: 0;
+        padding: 2vh 0;
+        width: 100%;
+    }
+    .col-2, .col{
+        padding: 0 1vh;
+    }
+    a{
+        padding: 0 1vh;
+    }
+    .clos{
+        margin-left: auto;
+        font-size: 0.7rem;
+    }
+   
+    .back-to-shop{
+        margin-top: 3.5rem;
+        font-weight: bold;
+        color: #000;
+    }
+    h5{
+        margin-top: 4vh;
+    }
+    hr{
+        margin-top: 1.25rem;
+    }
+    form{
+        padding: 2vh 0;
+    }
+    select{
+        border: 1px solid rgba(0, 0, 0, 0.137);
+        padding: 1.5vh 1vh;
+        margin-bottom: 4vh;
+        outline: none;
+        width: 100%;
+        background-color: rgb(247, 247, 247);
+    }
+    input{
+        border: 1px solid rgba(0, 0, 0, 0.137);
+        padding: 1vh;
+        margin-bottom: 4vh;
+        outline: none;
+        width: 100%;
+        background-color: rgb(247, 247, 247);
+    }
+    input:focus::-webkit-input-placeholder
+    {
+          color:transparent;
+    }
+    .btn{
+        background-color: #000;
+        border-color: #000;
+        color: white;
+        width: 100%;
+        font-size: 0.7rem;
+        margin-top: 4vh;
+        padding: 1vh;
+        border-radius: 0;
+    }
+    .btn:focus{
+        box-shadow: none;
+        outline: none;
+        box-shadow: none;
+        color: white;
+        -webkit-box-shadow: none;
+        transition: none; 
+    }
+    .btn:hover{
+        color: white;
+    }
+    a{
+        color: black; 
+    }
+    a:hover{
+        color: black;
+        text-decoration: none;
+    }
+     #code{
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: center;
+    }
+      
