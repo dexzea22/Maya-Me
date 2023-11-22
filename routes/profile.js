@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 
 // POST request handler for updating the user profile
 router.post('/', async (req, res) => {
-  const { firstName, lastName, phoneNumber, currentPassword, newPassword } = req.body;
+  const { firstName, lastName,address, phoneNumber, currentPassword, newPassword } = req.body;
 
   if (!req.session.userId) {
     return res.status(401).send('User is not logged in.');
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
       return res.status(404).send('User not found.');
     }
 
-    let updateData = { firstName, lastName, phoneNumber };
+    let updateData = { firstName, lastName,address, phoneNumber };
 
     // Check if the current password is provided for password update
     if (currentPassword && newPassword) {

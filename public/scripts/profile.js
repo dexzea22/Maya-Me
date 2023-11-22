@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         firstName: profileForm['firstName'].value,
         lastName: profileForm['lastName'].value,
         phoneNumber: profileForm['phoneNumber'].value,
+        address: profileForm['address'].value,
         currentPassword: profileForm['currentPassword'].value,
         newPassword: profileForm['newPassword'].value,
       };
