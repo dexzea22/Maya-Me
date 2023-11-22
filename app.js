@@ -4,6 +4,7 @@ const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const paypal = require('paypal-rest-sdk');
 
 const app = express();
 
@@ -18,8 +19,12 @@ var ordersRouter = require('./routes/orders');
 var dietaryRouter = require('./routes/dietaryPreferences');
 const profileRouter = require('./routes/profile');
 
-
-
+//paypal
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o',
+  'client_secret': 'EDx9Opa_MXiYn_Gi5ndrNPORMpStswHgSlc4gfCWs87JUSS1HamXSr169xX9Tg-80jkaVXZvyH8IHIob'
+});
 
 // Serve the "Menu" page
 app.get('/menu', (req, res) => {
@@ -45,6 +50,9 @@ app.get('/userMeals', (req, res) => {
 // app.get('/profile', (req, res) => {
 //   res.render('profile'); // Render a view named "new-page.ejs"
 // });
+app.get('/', (req, res)=> {
+  res.sendFile(__dirname + "/payment.ejs")
+});
 
 app.use(session({
   secret: 'secret-key',

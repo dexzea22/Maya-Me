@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment</title>
+    <!-- Include your stylesheets, SweetAlert, and any other dependencies -->
+    <link rel="stylesheet" href="path/to/your/styles.css" />
+    <!-- Include the PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o&currency=PHP"></script>
+  </head>
+  <body>
+    <!-- Your payment modal content -->
+    <div id="payment-mod" class="mod">
+      <div class="mod-cont">
+        <span class="clse" onclick="closePaymentModal()">&times;</span>
+        <h2 class="crt">Payment</h2>
+        <div id="paypal-button"></div>
+      </div>
+    </div>
+
+    <!-- Include your other scripts, such as SweetAlert and menu.js -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="scripts/menu.js"></script>
+    <!-- Include your payment.js -->
+    <script src="scripts/payment.js"></script>
+  </body>
+</html>

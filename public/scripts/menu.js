@@ -258,40 +258,50 @@ function placeOrder() {
       icon: 'warning',
       title: 'Empty Cart',
       text: 'Add items to your cart before placing an order.',
-      showConfirmButton:false,
+      showConfirmButton: false,
       timer: 1500,
     });
-        return;
+    return;
   }
 
-  modal.style.display = "none";
+  // Show a confirmation modal
+  Swal.fire({
+    title: 'Confirm Order',
+    text: 'Are you sure you want to place this order?',
+    icon: 'info',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, place order!',
+    cancelButtonText: 'Cancel',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // If the user confirms, proceed to the payment modal
+      modal.style.display = "none";
 
-  // Send a POST request to the server with the cart items
-  fetch("/orders/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ products: cartItems }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Order placed:", data);
-      cartItems = []; // Clear the cart after placing the order
-      updateCartDisplay();
-      saveCartItemsToStorage(cartItems);
-      Swal.fire({
-        icon: 'success',
-        title: 'Order Placed Successfully!',
-        showConfirmButton: false,
-        timer: 1500  // Auto-close the alert after 1.5 seconds
-      });
-          })
-    .catch((error) => {
-      console.error("Error placing order:", error);
-      alert("Error placing order. Please try again later.");
-    });
+      // Send a POST request to the server with the cart items
+      fetch("/orders/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ products: cartItems }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Order placed:", data);
+
+          // Initialize and show the PayPal payment modal
+          openPaymentModal();
+        })
+        .catch((error) => {
+          console.error("Error placing order:", error);
+          alert("Error placing order. Please try again later.");
+        });
+    }
+  });
 }
+
 
 function openCartModal() {
   var modal = document.getElementById("cart-mod");

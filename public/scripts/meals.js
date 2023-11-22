@@ -232,3 +232,13 @@ window.addEventListener("click", function (event) {
 $('#openDietaryModal').click(function () {
   $('#dietaryPreferencesModal').modal('show');
 });
+
+function calculateTotalPrice() {
+  var totalPrice = 0;
+
+  for (var i = 0; i < cartItems.length; i++) {
+    totalPrice += cartItems[i].price;
+  }
+
+  return totalPrice;
+}
