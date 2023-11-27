@@ -1,17 +1,20 @@
 .topnav {
-    overflow: hidden;
-    background-color: rgba(53, 46, 46, 0.117);
-    }
-    
-    .topnav a {
-      float: left;
-      color: #C69B68;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 20px;
-      position: relative; /* Add this line */
-    }
+  overflow: hidden; 
+  background-color: rgb(239, 232, 202);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.topnav a {
+  float: left;
+  color:#976b35;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 23px;
+  position: relative; /* Add this line */
+}
 
     .topnav .nav::before {
       content: "";
@@ -48,22 +51,27 @@
         .bar {
         width: 30px;
         height: 3px;
-        background-color: white;
+        background-color:#C69B68;
         margin: 5px 0;
         }
-        /* Show menu on smaller screens */
+        /* Show on smaller screens */
         @media (max-width: 768px) {
         .menu {
         display: none;
         flex-direction: column;
-        background-color: #333;
+        background-color: #858585;
         position: absolute;
         top: 60px;
         left: 0;
         width: 100%;
         z-index: 1;
         }
-        
+        .topnav.sticky {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
+        }
         .menu.show {
         display: flex;
         background-color: rgba(53, 46, 46, 0.204);
@@ -89,7 +97,14 @@
     overflow: auto; 
     background-color: rgba(0,0,0,0.4);
   }
-  
+  #cart-counter {
+    color: #000000;
+    padding: 4px 8px;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
   .modal-contents {
     background-color: #fefefe;
     margin: 4.5% auto;
@@ -132,7 +147,13 @@
     border-radius: 30px;
     cursor: pointer;
     }
-    
+    .imgs{
+        height: 40px;
+        width: 60px;
+        border-radius: 5px;
+        margin:6px 5px 0 0;
+
+    }
     .dashboard-banner > img {
     width: 100%;
     height: 100%;
@@ -148,7 +169,7 @@
     }
     .card{
         margin: auto;
-        max-width: 1200px;
+        max-width: 1350px;
         width: 100%;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 1rem;
@@ -168,24 +189,14 @@
         margin-left: 10px;
         cursor: pointer;
     }
-    @media(max-width:767px){
-        .card{
-            margin: 3vh auto;
-        }
-    }
+
     .cart{
         background-color: #fff;
         padding: 4vh 5vh;
         border-bottom-left-radius: 1rem;
         border-top-left-radius: 1rem;
     }
-    @media(max-width:767px){
-        .cart{
-            padding: 4vh;
-            border-bottom-left-radius: unset;
-            border-top-right-radius: 1rem;
-        }
-    }
+
     .summary{
         background-color: #ddd;
         border-top-right-radius: 1rem;
@@ -197,6 +208,14 @@
         .summary{
         border-top-right-radius: unset;
         border-bottom-left-radius: 1rem;
+        }
+        .cart{
+            padding: 4vh;
+            border-bottom-left-radius: unset;
+            border-top-right-radius: 1rem;
+        }
+        .card{
+            margin: 3vh auto;
         }
     }
     .summary .col-2{
@@ -226,7 +245,19 @@
         margin-left: auto;
         font-size: 0.7rem;
     }
-   
+    .close-button {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close-button:hover,
+    .close-button:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
     .back-to-shop{
         margin-top: 3.5rem;
         font-weight: bold;
@@ -241,15 +272,8 @@
     form{
         padding: 2vh 0;
     }
-    select{
-        border: 1px solid rgba(0, 0, 0, 0.137);
-        padding: 1.5vh 1vh;
-        margin-bottom: 4vh;
-        outline: none;
-        width: 100%;
-        background-color: rgb(247, 247, 247);
-    }
-    input{
+    
+    .inpts{
         border: 1px solid rgba(0, 0, 0, 0.137);
         padding: 1vh;
         margin-bottom: 4vh;
@@ -257,7 +281,7 @@
         width: 100%;
         background-color: rgb(247, 247, 247);
     }
-    input:focus::-webkit-input-placeholder
+    .inpts:focus::-webkit-input-placeholder
     {
           color:transparent;
     }
@@ -295,4 +319,78 @@
         background-position-x: 95%;
         background-position-y: center;
     }
-      
+    .inpts{
+        box-shadow: inset 0 5px 5px rgba(165, 162, 162, 0.5);
+        border-radius: 5px;
+      }
+    
+
+      .mod-content {
+        background-color: #fefefe;
+        margin: 6% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 35%;
+        height: auto;
+        border-radius:5px;
+      }
+.fbtn{
+    margin: 0 10px 0 10px;
+    background-color:#C69B68;
+    border: none;
+    border-radius: 5px;
+    width:12%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease; 
+    position: relative;
+    text-decoration: none;
+    }
+    .log {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1186px; /* Adjust the max-width as needed */
+        width: 100%;
+      }
+
+    @media (max-width: 600px) {
+      .log {
+        flex-direction: row;
+        align-items: center;
+      }
+      .logo {
+        height: 200px; 
+        width: 200px; 
+        margin-left: 85px;
+        margin-top:70px ;
+      }
+      .fbtn {
+        margin-bottom: 115px;
+        width: 97px;
+        font-size: 11px;
+      }
+    }
+    .fbtn:hover{
+    background-color:rgb(243, 185, 113);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    }   
+    .fbtn {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: white;
+      background-color:#C69B68;
+      border-radius: 5px;
+    }
+    .cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        }
+
+
+  

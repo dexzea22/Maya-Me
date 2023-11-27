@@ -103,9 +103,6 @@ createStarRating('star-rating41', 5);
 createStarRating('star-rating42', 4);
 createStarRating('star-rating43', 5);
 
-function openCartModal() {
-  window.location.href = '/cart';
-}
 
 
 $('#openDietaryModal').click(function () {
@@ -134,7 +131,6 @@ window.addEventListener('click', function(event) {
     closeProfileModal();
   }
 });
-
 
 
 

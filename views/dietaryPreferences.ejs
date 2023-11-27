@@ -10,28 +10,6 @@
   h2 {
     color: black;
   }
-   /* Style for the modal */
-   .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Style for the modal content */
-  .mod-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 80%;
-  }
 
   /* Style for the form */
   #dietaryForm {
@@ -138,54 +116,65 @@
     }
   
     async function handleSubmit(event) {
-      event.preventDefault();
-      const errorDisplay = document.getElementById("errorDisplay");
-  
-      // Reset the error display
-      errorDisplay.style.display = "none";
-      errorDisplay.textContent = "";
-  
-      const form = document.getElementById("dietaryForm");
-  
-      const dietaryPreferences = {
-        vegetarian: form['vegetarian'].checked,
-        vegan: form['vegan'].checked,
-        omnivore: form['omnivore'].checked,
-        halal: form['halal'].checked,
-        kosher: form['kosher'].checked,
-        lactoseFree: form['lactoseFree'].checked,
-        glutenFree: form['glutenFree'].checked,
-        nutAllergy: form['nutAllergy'].checked,
-        otherRestrictions: form['otherRestrictions'].value.trim()
-      };
-  
-      try {
-        const response = await fetch('/submit-dietary-preferences', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dietaryPreferences),
-        });
-  
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-  
-        const data = await response.json();
-  
-        if (data.success) {
-          Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'Your dietary preferences have been submitted successfully!',
-      showConfirmButton:true,
-    });        } else {
-          throw new Error(data.message || 'An error occurred.');
-        }
-      } catch (error) {
-        errorDisplay.textContent = error.message;
-        errorDisplay.style.display = "block";
-      }
+  event.preventDefault();
+  const errorDisplay = document.getElementById("errorDisplay");
+
+  // Reset the error display
+  errorDisplay.style.display = "none";
+  errorDisplay.textContent = "";
+
+  const form = document.getElementById("dietaryForm");
+
+  const dietaryPreferences = {
+    vegetarian: form['vegetarian'].checked,
+    vegan: form['vegan'].checked,
+    omnivore: form['omnivore'].checked,
+    halal: form['halal'].checked,
+    kosher: form['kosher'].checked,
+    lactoseFree: form['lactoseFree'].checked,
+    glutenFree: form['glutenFree'].checked,
+    nutAllergy: form['nutAllergy'].checked,
+    otherRestrictions: form['otherRestrictions'].value.trim()
+  };
+
+  // Check if at least one dietary choice is selected
+  const isAnyChoiceSelected = Object.values(dietaryPreferences).some(choice => choice);
+
+  if (!isAnyChoiceSelected) {
+    errorDisplay.textContent = "Please select at least one dietary preference.";
+    errorDisplay.style.display = "block";
+    return; // Don't proceed with the submission
+  }
+
+  try {
+    const response = await fetch('/submit-dietary-preferences', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dietaryPreferences),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+    const data = await response.json();
+
+    if (data.success) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Your dietary preferences have been submitted successfully!',
+        showConfirmButton: true,
+      });
+    } else {
+      throw new Error(data.message || 'An error occurred.');
+    }
+  } catch (error) {
+    errorDisplay.textContent = error.message;
+    errorDisplay.style.display = "block";
+  }
+}
+
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>

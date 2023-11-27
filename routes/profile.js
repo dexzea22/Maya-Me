@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     if (!user) {
       req.session.destroy(() => {
         res.clearCookie('connect.sid'); // The name 'connect.sid' is the default session cookie name. Change if different.
-        res.redirect('/login');
+        res.redirect('/login',);
       });
     } else {
       // Render the profile page and pass the user data to the template
