@@ -17,6 +17,7 @@ var userinfoRouter = require('./routes/userinfo');
 var ordersRouter = require('./routes/orders');
 var dietaryRouter = require('./routes/dietaryPreferences');
 const profileRouter = require('./routes/profile');
+const recommendationsRoute = require('./routes/recommendations');
 
 
 
@@ -72,7 +73,7 @@ app.use('/', userinfoRouter);
 app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
 app.use('/profile', profileRouter);
-
+app.use('/', recommendationsRoute);
 
 
 // Catch 404 and forward to error handler
