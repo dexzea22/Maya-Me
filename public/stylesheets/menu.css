@@ -1,19 +1,19 @@
-body{
-background-color: #FFF3EB;
-}
 .topnav {
-overflow: hidden;
-background-color: rgba(53, 46, 46, 0.117);
+  overflow: hidden; 
+  background-color: rgb(239, 232, 202);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
-
 .topnav a {
-float: left;
-color: #C69B68;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 20px;
-position: relative; /* Add this line */
+  float: left;
+  color:#976b35;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 23px;
+  position: relative; /* Add this line */
 }
 .nav:hover{
 color: #000000;
@@ -50,7 +50,7 @@ cursor: pointer;
 .bar {
 width: 30px;
 height: 3px;
-background-color: white;
+background-color: rgb(0, 0, 0);
 margin: 5px 0;
 }
 /* Show menu on smaller screens */
@@ -79,6 +79,14 @@ margin: 25px 15px 0 0;
 }
 }
 
+#cart-counter {
+  color: #000000;
+  padding: 4px 8px;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .rounded-t-5 {
 border-top-left-radius: 0.5rem;
 border-top-right-radius: 0.5rem;
@@ -161,18 +169,25 @@ transition: width 0.3s ease-in-out; /* Animation transition properties */
 .dashboard-menu a:hover::after {
 width: 100%; /* Expand the underline on hover */
 }
-.log{
-margin: auto;
-margin-top: 4%;
-max-width: 35%;
+.cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  }
+.log {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1186px; /* Adjust the max-width as needed */
+  width: 100%;
 }
 .fbtn{
+margin: 0 10px 0 10px;
 background-color:#C69B68;
 border: none;
 border-radius: 5px;
 width:12%;
-margin-left:50px;
-padding: 20px;
 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-size: 20px;
 font-weight: bold;
@@ -180,7 +195,19 @@ color: white;
 transition: all 0.3s ease; 
 position: relative;
 text-decoration: none;
+}
 
+@media (max-width: 600px) {
+  .log {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .fbtn {
+    margin-bottom: 100px;
+    width: 97px;
+    font-size: 11px;
+  }
 }
 .fbtn:hover{
 background-color:rgb(243, 185, 113);
@@ -192,6 +219,14 @@ background-color:rgb(243, 185, 113);
 color: rgb(0, 0, 0);
 text-decoration: none;
 }
+.fbtn {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  background-color:#C69B68;
+  border-radius: 5px;
+}
+
 .dashboard-content {
 display: grid;
 margin-top: 8%;
@@ -287,20 +322,7 @@ border: none;
 border-radius: 5px;
 }
 
-/* cart modal */
-/* Style for the cart modal */
-.modal {
-display: none;
-position: fixed;
-z-index: 1;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: rgba(0, 0, 0, 0.4);
-border-radius: 5px;
-}
+
 .mod-content {
   background-color: #fefefe;
   margin: 6% auto;
@@ -325,15 +347,7 @@ background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
 .crt{
 text-align: center;
 }
-/* Styles for the modal content */
-.mod-cont {
-background-color: #fff;
-padding: 20px;
-border-radius: 5px;
-max-width: 500px;
-margin: auto;
-margin-top: 100px;
-}
+
 
 /* Styles for the close button with class "close" */
 .clse {
@@ -357,40 +371,7 @@ color: #000
   text-decoration: none;
   cursor: pointer;
 }
-/* Styles for the heading within the modal */
-h2 {
-color: #333;
-}
 
-/* Styles for the unordered list with id "modal-cart-items" */
-#mod-cart-items {
-list-style-type: none;
-padding: 0;
-text-decoration: underline;
-text-align: left;
-}
-.plc{
-margin: auto;
-max-width:66%;
-}
-/* Styles for the total amount section */
-.total-amount {
-margin-top: 15px;
-font-weight: bold;
-text-align: end;
-}
-
-/* Styles for the button with onclick event "placeOrder()" */
-button {
-background-color: #4caf50;
-color: #fff;
-padding: 10px 20px;
-border: none;
-width: 300px;
-border-radius: 5px;
-cursor: pointer;
-margin: auto;
-}
 .food-card {
 display: flex;
 justify-content: space-between;
@@ -464,7 +445,18 @@ background-color: rgba(0, 0, 0, 0.7);
 z-index: 999;
 
 }
-
+.logo{
+  height: 325px;;
+  width: 325px;
+}
+@media (max-width: 600px) {
+  .logo {
+    height: 200px; 
+    width: 200px; 
+    margin-left: 85px;
+    margin-top:70px ;
+  }
+}
 /* Lightbox image styles */
 .lightbox img {
 display: block;

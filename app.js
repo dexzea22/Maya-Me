@@ -5,7 +5,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const paypal = require('paypal-rest-sdk');
-
 const app = express();
 
 const port = process.env.PORT || 8000;
@@ -18,8 +17,7 @@ var userinfoRouter = require('./routes/userinfo');
 var ordersRouter = require('./routes/orders');
 var dietaryRouter = require('./routes/dietaryPreferences');
 const profileRouter = require('./routes/profile');
-
-
+const cartRouter = require('./routes/cart');
 
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 8000 } = process.env;
 const base = 'https://api-m.sandbox.paypal.com';
@@ -85,6 +83,7 @@ app.use('/', userinfoRouter);
 app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
 app.use('/profile', profileRouter);
+app.use('/cart', cartRouter);
 const generateAccessToken = async () => {
   try {
     if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {

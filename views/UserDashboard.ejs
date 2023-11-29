@@ -27,16 +27,16 @@
       <a class="nav" href="/UserDashboard">Home</a>
       <a class="nav" href="/confirmoderinfo">Orders</a>
       <!-- The button or icon for opening the profile modal -->
-      <div class="nav" onclick="openProfileModal()" style="font-size: 20px; cursor:pointer; float: right; margin:1.3% 3% 0 0; color: #C69B68;">
+      <div class="nav" onclick="openProfileModal()" style="font-size: 22px; cursor:pointer; float: right; margin:1.3% 3% 0 0;color:#976b35;">
         <i class="fas fa-user-circle fa-2x"></i>
       </div>
       <!-- Profile Modal -->
       <div id="profileModal" class="pmod">
         <div class="modal-contents">
           <span class="close" onclick="closeProfileModal()">&times;</span>
-          <a class="prof" href="/profile">My Profile</a>
-          <a class="prof" href="/confirmoderinfo">Orders</a>
-          <a class="prof" href="/logout">Logout</a>
+          <a  style="font-size: 20px;" class="prof" href="/profile">My Profile</a>
+          <a  style="font-size: 20px;" class="prof" href="/confirmoderinfo">Orders</a>
+          <a  style="font-size: 20px;" class="prof" href="/logout">Logout</a>
         </div>
       </div>
   
@@ -45,7 +45,7 @@
      </a>      
      <%- include('dietaryPreferences.ejs') %>
       <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
-      <span class="nav welcome-message" style="font-size: 20px; cursor:pointer; float: right; margin:1.8% 0 0 0;color: #C69B68;"><%= welcomeMessage %></span>
+      <span class="nav welcome-message" style="font-size: 24px; cursor:pointer; float: right; margin:1.8% 0 0 0;color:#976b35;"><%= welcomeMessage %></span>
     </div>
     
   </div>
@@ -87,8 +87,8 @@
 <section class="feature-food">
   <div class="food-card">
     <div class="card" id="chkr">
-      <img id="chkr" style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
       <img src="images/f1.jpg" alt="Food 1" />
+      <img id="chkr" style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
       <h3>Chicken Roll (Tray)</h3>
       <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
       <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
@@ -127,8 +127,8 @@
 </div>
     </div>
     <div class="card" id="ff">
-      <img style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
       <img src="images/f5.jpg" alt="Food 2" />
+      <img style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
       <h3>Fried Fish Filet (Tray)</h3>
       <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
       <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
@@ -167,8 +167,9 @@
 </div>
     </div>
     <div class="card" id="ssg">
-      <img style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
       <img src="images/sisig.jpg" alt="Food 3" style="height: 262px;" />
+      <img style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
+
       <h3>Sisig (Tray)</h3>
       <p>Sizzle into satisfaction with our mouthwatering Pork Sisig! Experience a symphony of flavors as tender pork pieces are expertly seasoned and crisped to perfection.</p>
       <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
@@ -339,7 +340,6 @@
   <!-- Copyright -->
 </footer>
 </div>
-<script src="scripts/cart.js"></script>
 <script src="scripts/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   
