@@ -83,7 +83,7 @@ createStarRating('star-rating3', 5);
 
 
 
-function openCartModal() {
+function openCart() {
   window.location.href = '/cart';
 }
 

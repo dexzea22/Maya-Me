@@ -78,7 +78,7 @@ createStarRating('star25', 4);
 createStarRating('star26', 3);
 createStarRating('star27', 5);
 
-function openCartModal() {
+function openCart() {
   window.location.href = '/cart';
 }
 

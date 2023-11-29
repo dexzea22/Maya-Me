@@ -29,7 +29,7 @@ createStarRating('starmls3', 5);
 createStarRating('starmls4', 3);
 createStarRating('starmls5', 4);
 createStarRating('starmls6', 5);
-function openCartModal() {
+function openCart() {
   window.location.href = '/cart';
 }
 

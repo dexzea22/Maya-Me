@@ -54,6 +54,8 @@
         <span><img class="logo" src="images/maya.png" alt="" height="330px"></span>  
   </div>
   </div>
+  
+<form action="/pay" method="POST">
   <div class="card"  class="cart-mod">
     <div class="row">
         <div class="col-md-8 cart">
@@ -89,12 +91,18 @@
                 <div class="col">TOTAL PRICE</div>
                 <div style="color: black;" id="total-amount"></div>
             </div>
-            <button class="btn">CHECKOUT</button>
+            <input type="submit" value="CHECKOUT" id="checkoutButton" class="btn"></input>
+            <div id="paypal-button"></div>
         </div>
     </div>
 </div>
+</form>
+<script src="https://www.paypal.com/sdk/js?client-id=AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o&currency=PHP"></script>
 <script src="scripts/cart.js"></script>
 <script src="scripts/index.js"></script>
+<script src="scripts/payment.js"></script>
+
+
 
 </body>
 </html>
