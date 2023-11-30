@@ -4,7 +4,7 @@ const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const paypal = require('paypal-rest-sdk');
 const app = express();
 
 const port = process.env.PORT || 8000;
@@ -18,9 +18,16 @@ var ordersRouter = require('./routes/orders');
 var dietaryRouter = require('./routes/dietaryPreferences');
 const profileRouter = require('./routes/profile');
 const recommendationsRoute = require('./routes/recommendations');
+const cartRouter = require('./routes/cart');
 
 
 
+//paypal
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o',
+  'client_secret': 'EDx9Opa_MXiYn_Gi5ndrNPORMpStswHgSlc4gfCWs87JUSS1HamXSr169xX9Tg-80jkaVXZvyH8IHIob'
+});
 
 // Serve the "Menu" page
 app.get('/menu', (req, res) => {
@@ -43,9 +50,12 @@ app.get('/userTrays', (req, res) => {
 app.get('/userMeals', (req, res) => {
   res.render('userMeals'); // Render a view named "new-page.ejs"
 });
-// app.get('/profile', (req, res) => {
-//   res.render('profile'); // Render a view named "new-page.ejs"
-// });
+app.get('/aboutUs', (req, res) => {
+  res.render('aboutUs'); // Render a view named "new-page.ejs"
+});
+app.get('/cart', (req, res) => {
+  res.render('cart'); // Render a view named "new-page.ejs"
+});
 
 app.use(session({
   secret: 'secret-key',
@@ -59,6 +69,7 @@ app.use(session({
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -74,6 +85,9 @@ app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
 app.use('/profile', profileRouter);
 app.use('/', recommendationsRoute);
+app.use('/cart', cartRouter);
+
+
 
 
 // Catch 404 and forward to error handler

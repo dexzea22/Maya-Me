@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
-    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="stylesheets/menu.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="website icon" type="png" href="images/maya.png" />
+    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Rubik:400,700"/>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
+    <script src="https://kit.fontawesome.com/7f01a542af.js"crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="stylesheets/menu.css" />
     <title>Solo Meals</title>
-</head>
-<body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
+  </head>
+  <body style="background-image: url('images/standard-bg.png');background-size: cover;background-repeat: no-repeat;">
   <div class="topnav">
-        <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
-        <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
-  
-        <div class="menu">
-        <a class="nav" href="/index">Home</a>
-        <a class="nav" href="#news">News</a>
-        <a class="nav" href="#contact">Contact</a>
-        <a class="nav" href="#about">About</a>
-        <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
-      <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
-      </div>
-      <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-    </div>
-      <div class="dashboard">
-        <div class="dashboard-banner">
-          <img src="images/long.jpg" alt=""/>
-          <div class="banner-promo">
-              <span><img class="logo" src="images/maya.png" alt="" height="330px"></span>  
+    <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
+    <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
+
+    <div class="menu">
+    <a class="nav" href="/index">Home</a>
+    <a class="nav" href="#news">News</a>
+    <a class="nav" href="#contact">Contact</a>
+    <a class="nav" href="/aboutUs">About</a>
+    <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+  <a class="nav" href="/login" style="font-size: 19px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+  </div>
+  <div class="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+    <div class="dashboard">
+      <div class="dashboard-banner">
+        <img src="images/long.jpg" alt="" />
+        <div class="banner-promo">
+          <span
+            ><img class="logo" src="images/maya.png" alt="" height="330px"
+          /></span>
         </div>
         <div class="cont">
           <div class="log">
@@ -45,195 +51,310 @@
             <a class="fbtn" href="/trays">Party Trays</a>
             <a class="fbtn active" href="/meals">Solo Meals</a>
           </div>
-          </div>
         </div>
-        </div>
-        <div class="dashboard-content" id="container">
-          <div class="dashboard-card">
-            <img class="card-image" src="images/bac.jpg" alt="" />
-            <div class="card-detail">
-                <h4>Bacon (Rice Meal)</h4>
-                <p>Indulge in the sizzle and delight of our savory bacon rice meal, where crispy bacon and perfectly cooked rice come together in a symphony of flavor. A taste that's sure to make your day sizzle with satisfaction. Try it now and experience the irresistible fusion of smoky goodness and comforting grains.</p>
-                <div class="rat">
-                  <p>Rating:</p>
-                  <div class="star-rating" id="starmls">
-                    <!-- Star icons will be added here using JavaScript -->
-                  </div>
+      </div>
+    </div>
+    <div class="dashboard-content" id="container">
+      <div class="cards" style="height: 475px;" id="brm">
+        <img class="card-image" src="images/bac.jpg" alt="" />
+        <div class="card-detail">
+            <h4>Bacon </h4>
+            <div>
+              <input type="radio" name="size" value="With Egg-100">
+              <label for="">With Egg (₱100.00)</label><br>
+              <input type="radio" name="size" value="Without Egg-95">
+              <label for="">Without Egg (₱95.00)</label><br>
+            </div>
+              <div class="rat" style="margin-top: 9%;">
+                <p>Rating:</p>
+                <div class="star-rating" id="starmls">
+                  <!-- Star icons will be added here using JavaScript -->
                 </div>
-                <p class="card-time">
-                    <span class="fas fa-clock"></span>15-30 mins
-                </p>
-                  <button class="cbtn" onclick="Login()">Order</button>
-            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
-          </div>
-          <div class="dashboard-card">
-            <img class="card-image" src="images/tap.jpg" alt="" />
-            <div class="card-detail">
-                <h4>Beef Tapa (Rice Meal)</h4>
-                <p>Indulge in a mouthwatering symphony of flavors with our Beef Tapa Rice Meal. Juicy, tender beef strips marinated to perfection, served with garlic-fried rice, and topped with a perfectly fried sunny-side-up egg. It's a breakfast that packs a punch, but it's so good, you'll want it for lunch and dinner too. </p>
-                <div class="rat">
-                  <p>Rating:</p>
-                  <div class="star-rating" id="starmls1">
-                    <!-- Star icons will be added here using JavaScript -->
-                  </div>
-                </div>
-                <p class="card-time">
-                    <span class="fas fa-clock"></span>15-30 mins
-                </p>
-                  <button class="cbtn" onclick="Login()">Order</button>
-            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
-          </div>
-          <div class="dashboard-card">
-            <img class="card-image" src="images/cr.jpg" alt="" />
-            <div class="card-detail">
-            <h4>Chicken Roll (Rice Meal)</h4>
-            <p>Indulge in the perfect harmony of succulent chicken, flavorful spices, and tender rice all rolled up in one delightful meal. Try our Chicken Roll Rice Meal today and savor the taste of perfection with every bite. It's a culinary adventure you won't want to miss – the ultimate blend of taste and convenience.</p>
-            <div class="rat">
+              </div>
+            <p class="card-time" >
+                <span class="fas fa-clock"></span>15-30 mins
+            </p>
+            <div>
+              <button class="cbtn" onclick="Login()">Order</button>
+              <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+      </div> 
+      </div>
+      </div>
+      <div class="cards" style="height: 475px;" id="btrm">
+        <img class="card-image" src="images/tap.jpg" alt="" />
+        <div class="card-detail">
+            <h4>Beef Tapa </h4>
+            <div>
+              <input type="radio" name="size" value="With Egg-110">
+              <label for="">With Egg (₱110.00)</label><br>
+              <input type="radio" name="size" value="Without Egg-105">
+              <label for="">Without Egg (₱105.00)</label><br>
+            </div>
+            <div class="rat" style="margin-top: 9%;">
               <p>Rating:</p>
-              <div class="star-rating" id="starmls2">
+              <div class="star-rating" id="starmls1">
+                <!-- Star icons will be added here using JavaScript -->
+              </div>
+            </div>
+            <p class="card-time">
+                <span class="fas fa-clock"></span>15-30 mins
+            </p>
+            <button class="cbtn" onclick="Login()">Order</button>
+            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+      </div>
+      <div class="cards" style="height: 475px;" id="crrm">
+        <img class="card-image" src="images/cr.jpg" alt="" />
+        <div class="card-detail">
+        <h4>Chicken Roll </h4>
+        <div>
+          <input type="radio" name="size" value="With Egg-100">
+          <label for="">With Egg (₱100.00)</label><br>
+          <input type="radio" name="size" value="Without Egg-95">
+          <label for="">Without Egg (₱95.00)</label><br>
+        </div>
+        <div class="rat" style="margin-top: 9%;">
+          <p>Rating:</p>
+          <div class="star-rating" id="starmls2">
+            <!-- Star icons will be added here using JavaScript -->
+          </div>
+        </div>
+        <p class="card-time">
+          <span class="fas fa-clock"></span>15-30 mins
+        </p>
+        <button class="cbtn" onclick="Login()">Order</button>
+        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+        </div>
+        <div class="cards" id="hsrm" style="height: 475px;">
+          <img class="card-image" src="images/hs.jpg" alt="" />
+          <div class="card-detail">
+          <h4>Hungarian Sausage </h4> 
+          <div>
+            <input type="radio" name="size" value="With Egg-100">
+            <label for="">With Egg (₱85.00)</label><br>
+            <input type="radio" name="size" value="Without Egg-95">
+            <label for="">Without Egg (₱80.00)</label><br>
+            <input type="radio" name="size" value="Additional Sausage-115">
+            <label for="">Additional Sausage (₱115.00)</label><br>
+          </div>
+          <div class="rat">
+            <p>Rating:</p>
+            <div class="star-rating" id="starmls3">
+              <!-- Star icons will be added here using JavaScript -->
+            </div>
+          </div>
+          <p class="card-time">
+            <span class="fas fa-clock"></span>15-30 mins
+          </p>
+          <button class="cbtn" onclick="Login()">Order</button>
+          <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+          </div>
+      <div class="cards" style="height: 475px;" id="lrm">
+        <img class="card-image" src="images/lrm.jpg" alt=""/>
+        <div class="card-detail">
+        <h4>Longganisa</h4>
+        <div>
+          <input type="radio" name="size" value="With Egg-85">
+          <label for="">With Egg (₱85.00)</label><br>
+          <input type="radio" name="size" value="Without Egg-80">
+          <label for="">Without Egg (₱80.00)</label><br>
+        </div>
+        <div class="rat" style="margin-top: 9%;">
+          <p>Rating:</p>
+          <div class="star-rating" id="starmls5">
+            <!-- Star icons will be added here using JavaScript -->
+          </div>
+        </div>
+        <p class="card-time">
+          <span class="fas fa-clock"></span>15-30 mins
+        </p>
+        <button class="cbtn" onclick="Login()">Order</button>
+        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+        </div>
+        <div class="cards" style="height: 475px;" id="lsrm">
+          <img class="card-image" src="images/ls.jpg" alt="" />
+          <div class="card-detail">
+          <h4>Lumpiang Shanghai </h4>
+          <div>
+            <input type="radio" name="size" value="With Egg-100">
+            <label for="">With Egg (₱100.00)</label><br>
+            <input type="radio" name="size" value="Without Egg-95">
+            <label for="">Without Egg (₱95.00)</label><br>
+          </div>
+          <div class="rat" style="margin-top: 9%;">
+            <p>Rating:</p>
+            <div class="star-rating" id="starmls4">
+              <!-- Star icons will be added here using JavaScript -->
+            </div>
+          </div>
+          <p class="card-time">
+            <span class="fas fa-clock"></span>15-30 mins
+          </p>
+          <button class="cbtn" onclick="Login()">Order</button>
+          <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+          </div>
+          <div class="cards" style="height: 475px;" id="ptcrm">
+            <img class="card-image" src="images/ptcrm.jpg" alt="" />
+            <div class="card-detail">
+            <h4>Pork Tocino </h4>
+            <div>
+              <input type="radio" name="size" value="With Egg-90">
+              <label for="">With Egg (₱90.00)</label><br>
+              <input type="radio" name="size" value="Without Egg-85">
+              <label for="">Without Egg (₱85.00)</label><br>
+            </div>
+            <div class="rat" style="margin-top: 9%;">
+              <p>Rating:</p>
+              <div class="star-rating" id="starmls6">
                 <!-- Star icons will be added here using JavaScript -->
               </div>
             </div>
             <p class="card-time">
               <span class="fas fa-clock"></span>15-30 mins
             </p>
-              <button class="cbtn" onclick="Login()">Order</button>
-              <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+            <button class="cbtn" onclick="Login()">Order</button>
+            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
             </div>
-            <div class="dashboard-card">
-              <img class="card-image" src="images/hs.jpg" alt="" />
-              <div class="card-detail">
-              <h4>Hungarian Sausage (Rice Meal)</h4>
-              <p>Indulge in the rich and bold flavors of our Hungarian Sausage Rice Meal. Experience the perfect blend of succulent Hungarian sausages and perfectly cooked rice, seasoned to perfection. Every bite is a taste of Eastern European tradition.</p> 
-              <div class="rat">
-                <p>Rating:</p>
-                <div class="star-rating" id="starmls3">
-                  <!-- Star icons will be added here using JavaScript -->
-                </div>
-              </div>
-              <p class="card-time">
-                <span class="fas fa-clock"></span>15-30 mins
-              </p>
-                <button class="cbtn" onclick="Login()">Order</button>
-            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    </div>
-              </div>
-              <div class="dashboard-card">
-                <img class="card-image" src="images/ls.jpg" alt="" />
-                <div class="card-detail">
-                <h4>Lumpiang Shanghai (Rice Meal)</h4>
-                <p>A Symphony of Savory Delights! Savor the crispy perfection of golden-fried lumpia filled with flavorful ground meat and aromatic spices, all wrapped in a delicate rice paper. It's the ultimate Filipino comfort food, a delicious medley of taste and texture.</p>
-                <div class="rat">
-                  <p>Rating:</p>
-                  <div class="star-rating" id="starmls4">
-                    <!-- Star icons will be added here using JavaScript -->
-                  </div>
-                </div>
-                <p class="card-time">
-                  <span class="fas fa-clock"></span>15-30 mins
-                </p>
-                  <button class="cbtn" onclick="Login()">Order</button>
-        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>          </div>
-                </div>
+            </div>
+      </div>
+      <div id="cart-mod" class="mod">
+      <div class="mod-cont">
+      <span class="clse" onclick="closeCartModal()">&times;</span>
+      <h2 class="crt">My Cart</h2>
+      <ul id="mod-cart-items"></ul>
+      <div class="total-amount"><span id="total-amount">0</span></div>
+      <div class="plc"><button onclick="placeOrder()">Place Order</button></div>
+      </div>  
+      </div>
+    </div>
+    <div class="container">
+      <div class="lbl" style="margin-top: 5%">
+        <label class="fp" for="">Store Location</label>
+        <img
+          src="images/gltr.png"
+          style="margin: -10px 0 0 -600px; z-index: 1"
+          alt=""
+        />
+      </div>
+      <div class="card-map">
+        <div>
+          <img
+            style="float: left; margin-top: 2%"
+            src="images/mam.png"
+            alt=""
+          />
         </div>
-        <div class="container">
-          <div class="lbl" style="margin-top: 5%;">
-            <label for="">Store Location</label>
-           </div>
-          <div class="card-map">   
-              <div>
-                <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
-              </div>
-                <div style="float: left; margin:  0 0 0 6%;">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-                 </div>
-          </div>
+        <div style="float: left; margin: 0 0 0 6%">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph"width="600"height="400"style="border: 0"allowfullscreen=""loading="lazy"referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-<script src="scripts/meals.js"></script>
-</body>
-<div class="cntr">
+      </div>
+    </div>
+    <script src="scripts/meals.js"></script>
+  </body>
+  <div class="cntr">
+    <footer
+      class="text-white text-center text-lg-start"
+      style="background-color: #c69b68"
+    >
+      <!-- Grid container -->
+      <div class="p-5">
+        <!--Grid row-->
 
-  <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
-    <!-- Grid container -->
-    <div class="p-5">
-    
-    <!--Grid row-->
-    
-    <div class="row mt-4">
-      <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
-      <h5 class="text-uppercase mb-4">About company</h5>
-  
-      <label>
-        Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
-      </label>
-  
-      <div class="mt-4">
-        <!-- Facebook -->
-        <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
-        <!-- Dribbble -->
-        <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
-        <!-- Twitter -->
-        <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
-        <!-- Google + -->
-        <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
-        <!-- Linkedin -->
+        <div class="row mt-4">
+          <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4">About company</h5>
+
+            <label style="color: white">
+              Thank you for choosing Maya&Me Services for your food ordering
+              needs. We're here to satisfy your cravings, one delicious meal at
+              a time. Enjoy your meal and have a wonderful day!
+            </label>
+
+            <div class="mt-4">
+              <!-- Facebook -->
+              <a type="button" class="btn btn-floating btn-warning btn-lg"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <!-- Dribbble -->
+              <a type="button" class="btn btn-floating btn-warning btn-lg"
+                ><i class="fab fa-dribbble"></i
+              ></a>
+              <!-- Twitter -->
+              <a type="button" class="btn btn-floating btn-warning btn-lg"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <!-- Google + -->
+              <a type="button" class="btn btn-floating btn-warning btn-lg"
+                ><i class="fab fa-google-plus-g"></i
+              ></a>
+              <!-- Linkedin -->
+            </div>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
+
+            <ul class="fa-ul" style="margin-left: 1.65em">
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-home"></i></span
+                ><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
+              </li>
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-envelope"></i></span
+                ><span class="ms-2">mayaandme74@gmail.com</span>
+              </li>
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-phone"></i></span
+                ><span class="ms-2">09186506362</span>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4">Opening hours</h5>
+
+            <table class="table text-center text-white">
+              <tbody class="font-weight-normal">
+                <tr>
+                  <td>Mon - Thu:</td>
+                  <td>8am - 9pm</td>
+                </tr>
+                <tr>
+                  <td>Fri - Sat:</td>
+                  <td>8am - 1am</td>
+                </tr>
+                <tr>
+                  <td>Sunday:</td>
+                  <td>9am - 10pm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
       </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-3"
+        style="font-weight: bold; background-color: #ffefe4; color: #c69b68"
+      >
+        © 2023 Copyright:
+        <label style="color: #c69b68">Maya&Me Services</label>
       </div>
-      <!--Grid column-->
-  <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-      <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
-  
-      <ul class="fa-ul" style="margin-left: 1.65em;">
-        <li class="mb-3">
-        <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
-        </li>
-        <li class="mb-3">
-        <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">mayaandme74@gmail.com</span>
-        </li>
-        <li class="mb-3">
-        <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">09186506362</span>
-        </li>
-     
-      </ul>
-      </div>
-      <!--Grid column-->
-  
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-      <h5 class="text-uppercase mb-4">Opening hours</h5>
-  
-      <table class="table text-center text-white">
-        <tbody class="font-weight-normal">
-        <tr>
-          <td>Mon - Thu:</td>
-          <td>8am - 9pm</td>
-        </tr>
-        <tr>
-          <td>Fri - Sat:</td>
-          <td>8am - 1am</td>
-        </tr>
-        <tr>
-          <td>Sunday:</td>
-          <td>9am - 10pm</td>
-        </tr>
-        </tbody>
-      </table>
-      </div>
-      <!--Grid column-->
-    </div>
-    <!--Grid row-->
-    </div>
-    <!-- Grid container -->
-  
-    <!-- Copyright -->
-    <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
-    © 2023 Copyright:
-    <label >Maya&Me Services</label>
-    </div>
-    <!-- Copyright -->
-  </footer>
+      <!-- Copyright -->
+    </footer>
   </div>
 </html>

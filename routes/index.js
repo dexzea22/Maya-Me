@@ -246,8 +246,8 @@ router.get('/UserDashboard', authenticate, restrictAccess.bind(null, 'User'), as
     }
 
     let welcomeMessage = "Welcome!";
-    if (user && user.firstName && user.lastName) {
-      welcomeMessage = "Welcome " + user.firstName + " " + user.lastName + "!";
+    if (user && user.firstName) {
+      welcomeMessage = "Welcome " + user.firstName + "!";
     }
     
     return res.render('UserDashboard', { 

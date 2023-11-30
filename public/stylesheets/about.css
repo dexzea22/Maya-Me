@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  .menu-toggle {
+    display: none; /* Hide on larger screens */
+    cursor: pointer;
+    
+    }
+    .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    }
+    /* Show menu on smaller screens */
+    @media (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    
+    .menu.show {
+      display: flex;
+      background-color: rgba(255, 233, 146, 0.461);
+      margin-top: 29px;
+    }
+    .menu-toggle {
+      display: block;
+      max-width: 100%;
+      float: right;
+      margin: 25px 15px 0 0;
+    }
+    }
+  .topnav {
+    overflow: hidden;
+    background-color: rgba(53, 46, 46, 0.117);
+    }
+    @media (max-width: 768px) {
+.logo {
+  width: 5%;
+}
+}
+    .topnav a {
+      float: left;
+      color: #C69B68;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      position: relative; /* Add this line */
+    }
+    .nav:hover{
+      color: #000000;
+    }
+    .topnav .nav::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #000000;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .topnav a:hover::before {
+      width: 100%;
+      visibility: visible;
+    }
+    .nav{
+    margin-right: 50px;
+    margin-top: 18px;
+    font-weight: bold;
+    }
+    .topnav {
+    color: white;
+    }
+    .lbl{
+        font-family: Caveat, open-sans; 
+        font-size: 60px;
+        font-weight: bold;
+        color: #C69B68;
+        margin-top:50px;
+        position: relative;
+        z-index: 1;
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+
+    }
+    .card-map{
+        width: calc(100%);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.639);
+        background-color: white;
+        height: 450px;
+      }
+      .fp{
+        position: relative; 
+        z-index: 2; 
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+      }    

@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Menu</title>
+  <link rel="website icon" type="png" href="images/maya.png">
     <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="stylesheets/menu.css">
-    <title>Food Menu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="stylesheets/menu.css">
 </head>
 <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
   <div class="topnav">
-        <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
-        <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
-  
-        <div class="menu">
-        <a class="nav" href="#home">Home</a>
-        <a class="nav" href="#news">News</a>
-        <a class="nav" href="#contact">Contact</a>
-        <a class="nav" href="#about">About</a>
-        <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
-      <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
-      </div>
-      <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-    </div>
+    <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
+    <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
+
+    <div class="menu">
+    <a class="nav" href="/index">Home</a>
+    <a class="nav" href="#news">News</a>
+    <a class="nav" href="#contact">Contact</a>
+    <a class="nav" href="/aboutUs">About</a>
+    <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+  <a class="nav" href="/login" style="font-size: 19px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+  </div>
+  <div class="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
       <div class="dashboard">
         <div class="dashboard-banner">
           <img src="images/long.jpg" alt=""/>
@@ -47,27 +51,27 @@
           </div>
           </div>
         </div>
+          </div>
  <!-- main dashboard -->
  <div class="dashboard-content" id="container">
-  <div class="dashboard-card">
+  <div class="cards">
     <img class="card-image" src="images/afritada.jpg" alt="" />
     <div class="card-detail">
         <h4>Afritada (Tray)</h4>
-        <p>A classic Filipino dish featuring tender pork in a rich tomato-based sauce with a secret spice blend. It's complemented by colorful vegetables like bell peppers, potatoes, and carrots, offering an authentic taste of Filipino home cooking. Ideal for lunch or dinner, it's a heartwarming and satisfying choice.</p>
-        <div class="gallery">
+        <div class="gallery" style="margin-top: 11%;">
           <label>
-            <img src="images/Safrtda.jpg" alt="Image 1"><br>
-            <input type="radio" name="imageSelection">
+            <img src="images/sTray.png" alt="Image 1"><br>
+            <input type="radio" name="size" value="Small(10 to 12 pax)-570">
             S (₱570) (10-12 pax)
           </label>
           <label>
-            <img src="images/m4.jpg" alt="Image 2"><br>
-            <input type="radio" name="imageSelection">
+            <img src="images/mTray.png" alt="Image 2"><br>
+            <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
             M (₱1,350) (25-30 pax)
           </label>
           <label>
-            <img src="images/m2.jpg" alt="Image 3"><br>
-            <input type="radio" name="imageSelection">
+            <img src="images/lTray.png" alt="Image 3"><br>
+            <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
             L (₱2,600) (45-50 pax)
           </label>
         </div>
@@ -84,16 +88,21 @@
         <p class="card-time">
             <span class="fas fa-clock"></span>15-30 mins
         </p>
-          <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button> 
-   </div>
+        <button class="cbtn" onclick="Login()">Order</button>
+        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
-<div class="dashboard-card">
+</div>
+<div class="cards">
   <img class="card-image" src="images/bac.jpg" alt="" />
   <div class="card-detail">
       <h4>Bacon (Rice Meal)</h4>
-      <p>Indulge in the sizzle and delight of our savory bacon rice meal, where crispy bacon and perfectly cooked rice come together in a symphony of flavor. A taste that's sure to make your day sizzle with satisfaction. Try it now and experience the irresistible fusion of smoky goodness and comforting grains.</p>
-        <div class="rat" style="margin-top: 51%;">
+      <div style="margin-top: 11%;">
+        <input type="radio" name="size" value="With Egg-100">
+        <label for="">With Egg (₱100.00)</label><br>
+        <input type="radio" name="size" value="Without Egg-95">
+        <label for="">Without Egg (₱95.00)</label><br>
+      </div>
+        <div class="rat" style="margin-top:29%;">
           <p>Rating:</p>
           <div class="star-rating" id="star-rating5">
             <!-- Star icons will be added here using JavaScript -->
@@ -103,29 +112,30 @@
           <span class="fas fa-clock"></span>15-30 mins
       </p>
       <div>
-        <button class="cbtn" onclick="Login()" >Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button> </div> </div>
+        <button class="cbtn" onclick="Login()">Order</button>
+        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+</div> 
 </div>
-    <div class="dashboard-card">
+</div>
+    <div class="cards">
       <img class="card-image" src="images/bcd.jpg" alt="" />
       <div class="card-detail">
       <h4>Baked Cream Dory w/ Potatoes (Tray)</h4>
-      <p>An expertly crafted dish that combines perfectly baked Cream Dory fillet with tender roasted potatoes. Experience the freshness of the sea and the warmth of home in each delightful bite. Satisfy your cravings with this masterpiece today!</p>
       <div class="gallery">
         <label>
-          <img src="images/Safrtda.jpg" alt="Image 1"><br>
-          <input type="radio" name="imageSelection">
-          S (₱570) (10-12 pax)
+          <img src="images/sTray.png" alt="Image 1"><br>
+          <input type="radio" name="size" value="Small(10 to 12 pax)-350">
+          S (₱350) (10-12 pax)
         </label>
         <label>
-          <img src="images/m4.jpg" alt="Image 2"><br>
-          <input type="radio" name="imageSelection">
-          M
+          <img src="images/mTray.png" alt="Image 2"><br>
+          <input type="radio" name="size" value="Medium(10 to 12 pax)-950">
+          M (₱950) (25-30 pax)
         </label>
         <label>
-          <img src="images/m2.jpg" alt="Image 3"><br>
-      <input type="radio" name="imageSelection">
-      L
+          <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+      L (₱1,500) (45-50 pax)
     </label>
   </div>
      <!-- Lightbox (hidden by default) -->
@@ -141,29 +151,29 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+</div>
   </div>
-<div class="dashboard-card">
+<div class="cards" id="bc">
   <img class="card-image" src="images/caldereta.jpg" alt="" />
   <div class="card-detail">
       <h4>Beef Caldereta (Tray)</h4>
-      <p>Indulge in the rich, comforting embrace of our Beef Caldereta – a symphony of tender beef, luscious tomato sauce, and a chorus of vibrant spices. Savor the flavors of home with every bite, and let the warmth of our tradition fill your heart. Experience the true taste of comfort today!.</p>
-      <div class="gallery">
+      <div class="gallery" style="margin-top:11% ;">
         <label>
-          <img src="images/Safrtda.jpg" alt="Image 1"><br>
-          <input type="radio" name="imageSelection">
-          S (₱570) (10-12 pax)
+          <img src="images/sTray.png" alt="Image 1"><br>
+          <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+          S (₱700) (10-12 pax)
         </label>
         <label>
-          <img src="images/m4.jpg" alt="Image 2"><br>
-          <input type="radio" name="imageSelection">
-          M
+          <img src="images/mTray.png" alt="Image 2"><br>
+          <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+          M (₱1,800) (25-30 pax)
         </label>
         <label>
-          <img src="images/m2.jpg" alt="Image 3"><br>
-          <input type="radio" name="imageSelection">
-          L
+          <img src="images/lTray.png" alt="Image 3"><br>
+          <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+          L (₱3,500) (45-50 pax)
         </label>
       </div>
          <!-- Lightbox (hidden by default) -->
@@ -179,29 +189,29 @@
       <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+      <button class="cbtn" onclick="Login()">Order</button>
+      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+  </div>
 </div>
-<div class="dashboard-card">
+<div class="cards" id="bm">
   <img class="card-image" src="images/bm.jpg" alt="" />
   <div class="card-detail">
     <h4>Beef Mechado (Tray)</h4>
-    <p>Indulge in the rich, savory symphony of flavors with our Beef Mechado. Tender, succulent beef simmered to perfection in a tomato-based sauce, creating a dish that's a true masterpiece of Filipino cuisine. Taste the tradition, savor the excellence, and experience the joy of every bite today!</p>
-    <div class="gallery">
+    <div class="gallery" style="margin-top: 11%;">
       <label>
-        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-        <input type="radio" name="imageSelection">
-        S (₱570) (10-12 pax)
+        <img src="images/sTray.png" alt="Image 1"><br>
+        <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+        S (₱700) (10-12 pax)
       </label>
       <label>
-        <img src="images/m4.jpg" alt="Image 2"><br>
-        <input type="radio" name="imageSelection">
-        M
+        <img src="images/mTray.png" alt="Image 2"><br>
+        <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+        M (₱1,800) (25-30 pax)
       </label>
       <label>
-        <img src="images/m2.jpg" alt="Image 3"><br>
-        <input type="radio" name="imageSelection">
-        L
+        <img src="images/lTray.png" alt="Image 3"><br>
+        <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+        L (₱3,500) (45-50 pax)
       </label>
     </div>
        <!-- Lightbox (hidden by default) -->
@@ -217,15 +227,21 @@
     <p class="card-time">
         <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+    <button class="cbtn" onclick="Login()">Order</button>
+    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-<div class="dashboard-card">
+  </div>
+<div class="cards" id="btrm">
   <img class="card-image" src="images/tap.jpg" alt="" />
   <div class="card-detail">
       <h4>Beef Tapa (Rice Meal)</h4>
-      <p>Indulge in a mouthwatering symphony of flavors with our Beef Tapa Rice Meal. Juicy, tender beef strips marinated to perfection, served with garlic-fried rice, and topped with a perfectly fried sunny-side-up egg. It's a breakfast that packs a punch, but it's so good, you'll want it for lunch and dinner too. Satisfy your cravings and experience the ultimate comfort food. Bite into happiness with every forkful of our Beef Tapa Rice Meal – it's a taste of delight in every bite!</p>
-      <div class="rat" style="margin-top: 28%;">
+      <div>
+        <input type="radio" name="size" value="With Egg-110">
+        <label for="">With Egg (₱110.00)</label><br>
+        <input type="radio" name="size" value="Without Egg-105">
+        <label for="">Without Egg (₱105.00)</label><br>
+      </div>
+      <div class="rat" style="margin-top: 29%;">
         <p>Rating:</p>
         <div class="star-rating" id="star-rating9">
           <!-- Star icons will be added here using JavaScript -->
@@ -234,36 +250,36 @@
       <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+      <button class="cbtn" onclick="Login()">Order</button>
+      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+    </div>
 </div>
-<div class="dashboard-card">
+<div class="cards" id="bwb">
   <img class="card-image" src="images/bwb.jpg" alt="" />
   <div class="card-detail">
       <h4>Beef w/ Broccoli (Tray)</h4>
-      <p>Indulge in the savory symphony of tender beef and vibrant broccoli, coming together in a delightful dance of flavors. Our Beef with Broccoli is a culinary masterpiece that will tantalize your taste buds with every bite. Savor the richness, savor the freshness, savor the moment. Elevate your dining experience today!</p>
-      <div class="gallery">
+      <div class="gallery" style="margin-top: 11%;">
         <label>
-          <img src="images/Safrtda.jpg" alt="Image 1"><br>
-          <input type="radio" name="imageSelection">
-          S (₱570) (10-12 pax)
+          <img src="images/sTray.png" alt="Image 1"><br>
+          <input type="radio" name="size" value="Small(10 to 12 pax)-750">
+          S (₱750) (10-12 pax)
         </label>
         <label>
-          <img src="images/m4.jpg" alt="Image 2"><br>
-          <input type="radio" name="imageSelection">
-          M
+          <img src="images/mTray.png" alt="Image 2"><br>
+          <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+          M (₱1,800) (25-30 pax)
         </label>
         <label>
-          <img src="images/m2.jpg" alt="Image 3"><br>
-          <input type="radio" name="imageSelection">
-          L
+          <img src="images/lTray.png" alt="Image 3"><br>
+          <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+          L (₱3,500) (45-50 pax)
         </label>
       </div>
          <!-- Lightbox (hidden by default) -->
   <div class="lightbox" id="lightbox">
     <img src="" alt="Enlarged Image" class="lightbox-image">
   </div>
-  <div class="rat" style="margin-top: 5%;">
+    <div class="rat">
     <p>Rating:</p>
     <div class="star-rating" id="star-rating10">
       <!-- Star icons will be added here using JavaScript -->
@@ -272,37 +288,36 @@
       <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
+      <button class="cbtn" onclick="Login()">Order</button>
+      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
   </div>
-<div class="dashboard-card">
+<div class="cards" id="bs">
 <img class="card-image" src="images/bs.jpg" alt="" />
 <div class="card-detail">
 <h4>Beef Salpicao (Tray)</h4>
-<p>Experience the sizzle and savory perfection of our Beef Salpicao, where tender beef meets a symphony of garlic, spices, and pure delight. Indulge in the rich, bold flavors that will make every bite an unforgettable experience. Join us for a taste that's worth savoring, because when it comes to Beef Salpicao, we're raising the bar.</p>
-<div class="gallery">
+<div class="gallery" style="margin-top: 11%;">
   <label>
-    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-    <input type="radio" name="imageSelection">
-    S (₱570) (10-12 pax)
+    <img src="images/sTray.png" alt="Image 1"><br>
+    <input type="radio" name="size" value="Small(10 to 12 pax)-750">
+    S (₱750) (10-12 pax)
   </label>
   <label>
-    <img src="images/m4.jpg" alt="Image 2"><br>
-    <input type="radio" name="imageSelection">
-    M
+    <img src="images/mTray.png" alt="Image 2"><br>
+    <input type="radio" name="size" value="Medium(25 to 30 pax)-1850">
+    M (₱1,850) (25-30 pax)
   </label>
   <label>
-    <img src="images/m2.jpg" alt="Image 3"><br>
-    <input type="radio" name="imageSelection">
-    L
+    <img src="images/lTray.png" alt="Image 3"><br>
+    <input type="radio" name="size" value="Large(45 to 50 pax)-3650">
+    L (₱3,650) (45-50 pax)
   </label>
 </div>
    <!-- Lightbox (hidden by default) -->
    <div class="lightbox" id="lightbox">
     <img src="" alt="Enlarged Image" class="lightbox-image">
   </div>
-  <div class="rat" style="margin-top: 5%;">
+    <div class="rat">
     <p>Rating:</p>
     <div class="star-rating" id="star-rating11">
       <!-- Star icons will be added here using JavaScript -->
@@ -311,36 +326,36 @@
 <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn" onclick="Login()">Order</button>
+<button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
-<div class="dashboard-card">
+</div>
+<div class="cards" id="bcc">
 <img class="card-image" src="images/bcc.jpg" alt="" />
 <div class="card-detail">
 <h4>Buttered Carrots w/ Chicharo (Tray)</h4>
-<p>Indulge in the delightful flavors of our Buttered Carrots with Chicharo. Taste the perfect harmony of tender carrots and crispy chicharo, all lovingly coated in rich, creamy butter. It's a side dish that turns every meal into a gourmet experience.</p>
 <div class="gallery">
   <label>
-    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-    <input type="radio" name="imageSelection">
-    S (₱570) (10-12 pax)
+    <img src="images/sTray.png" alt="Image 1"><br>
+    <input type="radio" name="size" value="Small(10 to 12 pax)-420">
+    S (₱420) (10-12 pax)
   </label>
   <label>
-    <img src="images/m4.jpg" alt="Image 2"><br>
-    <input type="radio" name="imageSelection">
-    M
+    <img src="images/mTray.png" alt="Image 2"><br>
+    <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+    M (₱1,000) (25-30 pax)
   </label>
   <label>
-    <img src="images/m2.jpg" alt="Image 3"><br>
-    <input type="radio" name="imageSelection">
-    L
+    <img src="images/lTray.png" alt="Image 3"><br>
+    <input type="radio" name="size" value="Large(45 to 50 pax)-1850">
+    L (₱1,850) (45-50 pax)
   </label>
 </div>
    <!-- Lightbox (hidden by default) -->
    <div class="lightbox" id="lightbox">
     <img src="" alt="Enlarged Image" class="lightbox-image">
   </div>
-  <div class="rat"  style="margin-top: 5%;">
+  <div class="rat">
     <p>Rating:</p>
     <div class="star-rating" id="star-rating12">
       <!-- Star icons will be added here using JavaScript -->
@@ -349,36 +364,36 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn" onclick="Login()">Order</button>
+<button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
-<div class="dashboard-card">
+</div>
+<div class="cards" id="bpm">
   <img class="card-image" src="images/bpm.jpg" alt="" />
   <div class="card-detail">
   <h4>Buttered Potato Marbles (Tray)</h4>
-  <p>Experience pure indulgence with our delectable Buttered Potato Marbles. Each bite is a symphony of creamy, buttery goodness, wrapped around tender, golden potatoes. Elevate your dining experience and savor the richness of flavor in every bite. It's not just a dish; it's a culinary masterpiece.</p>
-  <div class="gallery">
+  <div class="gallery" style="margin-top: 11%;">
     <label>
-      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-      <input type="radio" name="imageSelection">
-      S (₱570) (10-12 pax)
+      <img src="images/sTray.png" alt="Image 1"><br>
+      <input type="radio" name="size" value="Small(10 to 12 pax)-450">
+      S (₱450) (10-12 pax)
     </label>
     <label>
-      <img src="images/m4.jpg" alt="Image 2"><br>
-      <input type="radio" name="imageSelection">
-      M
+      <img src="images/mTray.png" alt="Image 2"><br>
+      <input type="radio" name="size" value="Medium(25 to 30 pax)-950">
+      M (₱950) (25-30 pax)
     </label>
     <label>
-      <img src="images/m2.jpg" alt="Image 3"><br>
-      <input type="radio" name="imageSelection">
-      L
+      <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(45 to 50 pax)-1950">
+      L (₱1,950) (45-50 pax)
     </label>
   </div>
      <!-- Lightbox (hidden by default) -->
      <div class="lightbox" id="lightbox">
       <img src="" alt="Enlarged Image" class="lightbox-image">
     </div>
-    <div class="rat" style="margin-top: 5%;">
+      <div class="rat">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating13">
         <!-- Star icons will be added here using JavaScript -->
@@ -387,15 +402,15 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-<div class="dashboard-card">
+  </div>
+<div class="cards">
   <img class="card-image" src="images/cg.jpg" alt="" />
   <div class="card-detail">
   <h4>Canton Guisado (Short Order)</h4>
-  <p>Indulge in the rich flavors of tradition with Canton Guisado, where every bite tells a story of authentic taste and culinary heritage. Savor the perfect blend of premium ingredients and masterful seasoning, bringing the vibrant streets of Canton straight to your plate. Elevate your dining experience with the finest in Cantonese stir-fry, expertly crafted for those who appreciate the art of delicious simplicity. </p>
-  <div class="rat" style="margin-top: 43%;">
+  <div class="rat" style="margin-top: 50%;">
     <p>Rating:</p>
     <div class="star-rating" id="star-rating14">
       <!-- Star icons will be added here using JavaScript -->
@@ -404,36 +419,36 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-<div class="dashboard-card">
+  </div>
+<div class="cards" id="cldrt">
 <img class="card-image" src="images/pc.jpg" alt="" />
 <div class="card-detail">
 <h4>Caldereta (Tray)</h4>
-<p>Indulge in the rich and savory flavors of our Pork Caldereta - a symphony of tender pork, vibrant vegetables, and a medley of spices. Elevate your dining experience with every bite. Savor the taste of tradition, and let your taste buds dance with delight. Discover the essence of Filipino cuisine. Try our Pork Caldereta today!</p>
 <div class="gallery">
   <label>
-    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-    <input type="radio" name="imageSelection">
+    <img src="images/sTray.png" alt="Image 1"><br>
+    <input type="radio" name="size" value="Small(10 to 12 pax)-570">
     S (₱570) (10-12 pax)
   </label>
   <label>
-    <img src="images/m4.jpg" alt="Image 2"><br>
-    <input type="radio" name="imageSelection">
-    M
+    <img src="images/mTray.png" alt="Image 2"><br>
+    <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+    M (₱1,350) (25-30 pax)
   </label>
   <label>
-    <img src="images/m2.jpg" alt="Image 3"><br>
-    <input type="radio" name="imageSelection">
-    L
+    <img src="images/lTray.png" alt="Image 3"><br>
+    <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+    L (₱2,600) (45-50 pax)
   </label>
 </div>
    <!-- Lightbox (hidden by default) -->
    <div class="lightbox" id="lightbox">
     <img src="" alt="Enlarged Image" class="lightbox-image">
   </div>
-  <div class="rat" style="margin-top: 7%;">
+  <div class="rat">
     <p>Rating:</p>
     <div class="star-rating" id="star-rating15">
       <!-- Star icons will be added here using JavaScript -->
@@ -442,19 +457,19 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn" onclick="Login()">Order</button>
+<button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
-<div class="dashboard-card">
+</div>
+<div class="cards">
   <img class="card-image" src="images/chmi.jpg" alt="" />
   <div class="card-detail">
   <h4>Chami (Short Order)</h4>
-  <p>Savor the perfect blend of tradition and taste with Chami – where every grain of rice tells a story, and every bite is a journey into culinary delight. Elevate your dining experience with the rich flavors of Chami, where quality meets authenticity. Unleash the spirit of delicious moments.</p>
      <!-- Lightbox (hidden by default) -->
      <div class="lightbox" id="lightbox">
       <img src="" alt="Enlarged Image" class="lightbox-image">
     </div>
-    <div class="rat" style="margin-top: 60%;">
+    <div class="rat" style="margin-top: 50%;">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating16">
         <!-- Star icons will be added here using JavaScript -->
@@ -463,36 +478,36 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-  <div class="dashboard-card">
+  </div>
+  <div class="cards" id="cak">
   <img class="card-image" src="images/cak.jpg" alt="" />
   <div class="card-detail">
   <h4>Chicken Ala King (Tray)</h4>
-  <p>Indulge in the timeless elegance of our Chicken À la King. Tender pieces of succulent chicken, smothered in a velvety, creamy sauce, and kissed with a medley of colorful bell peppers and peas. It's a regal feast for your taste buds, fit for kings and queens of flavor. Experience the royalty of taste today!"</p>
   <div class="gallery">
     <label>
-      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-      <input type="radio" name="imageSelection">
-      S (₱570) (10-12 pax)
+      <img src="images/sTray.png" alt="Image 1"><br>
+      <input type="radio" name="size" value="Small(10 to 12 pax)-500">
+      S (₱500) (10-12 pax)
     </label>
     <label>
-      <img src="images/m4.jpg" alt="Image 2"><br>
-      <input type="radio" name="imageSelection">
-      M
+      <img src="images/mTray.png" alt="Image 2"><br>
+      <input type="radio" name="size" value="Medium(25 to 30 pax)-1200">
+      M (₱1,200) (25-30 pax)
     </label>
     <label>
-      <img src="images/m2.jpg" alt="Image 3"><br>
-      <input type="radio" name="imageSelection">
-      L
+      <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(45 to 50 pax)-2350">
+      L (₱2,350) (45-50 pax)
     </label>
   </div>
     <!-- Lightbox (hidden by default) -->
     <div class="lightbox" id="lightbox">
       <img src="" alt="Enlarged Image" class="lightbox-image">
     </div>
-    <div class="rat" style="margin-top: 7%;">
+    <div class="rat">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating17">
         <!-- Star icons will be added here using JavaScript -->
@@ -501,37 +516,36 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
   </div>
-  <div class="dashboard-card">
+  <div class="cards" id="ce">
   <img class="card-image" src="images/ce.jpg" alt="" />
   <div class="card-detail">
   <h4>Chicken Embotido (Tray)</h4>
-  <p>Indulge in the delicious world of flavors with our mouthwatering Chicken Embotido. Experience the perfect blend of savory chicken, herbs, and spices, all rolled into a delightful package of culinary perfection. Unwrap the goodness and savor every bite.</p><br>
   <div class="gallery">
     <label>
-      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-      <input type="radio" name="imageSelection">
-      S (₱570) (10-12 pax)
+      <img src="images/sTray.png" alt="Image 1"><br>
+      <input type="radio" name="size" value="Small(10 to 12 pax)-340">
+      S (₱340) (10-12 pax)
     </label>
     <label>
-      <img src="images/m4.jpg" alt="Image 2"><br>
-      <input type="radio" name="imageSelection">
-      M
+      <img src="images/mTray.png" alt="Image 2"><br>
+      <input type="radio" name="size" value="Medium(25 to 30 pax)-850">
+      M (₱850) (10-12)
     </label>
     <label>
-      <img src="images/m2.jpg" alt="Image 3"><br>
-      <input type="radio" name="imageSelection">
-      L
+      <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(45 to 50 pax)1200">
+      L (₱1,200) (45-50 pax)
     </label>
   </div>
     <!-- Lightbox (hidden by default) -->
     <div class="lightbox" id="lightbox">
       <img src="" alt="Enlarged Image" class="lightbox-image">
     </div>
-    <div class="rat" style="margin-top: 7%;">
+    <div class="rat">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating18">
         <!-- Star icons will be added here using JavaScript -->
@@ -540,15 +554,21 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-<div class="dashboard-card">
+  </div>
+<div class="cards" id="crrm">
 <img class="card-image" src="images/cr.jpg" alt="" />
 <div class="card-detail">
 <h4>Chicken Roll (Rice Meal)</h4>
-<p>Indulge in the perfect harmony of succulent chicken, flavorful spices, and tender rice all rolled up in one delightful meal. Try our Chicken Roll Rice Meal today and savor the taste of perfection with every bite. It's a culinary adventure you won't want to miss – the ultimate blend of taste and convenience in every roll</p>
-<div class="rat" style="margin-top: 55%;">
+<div>
+  <input type="radio" name="size" value="With Egg-100">
+  <label for="">With Egg (₱100.00)</label><br>
+  <input type="radio" name="size" value="Without Egg-95">
+  <label for="">Without Egg (₱95.00)</label><br>
+</div>
+<div class="rat" style="margin-top: 29%;">
   <p>Rating:</p>
   <div class="star-rating" id="star-rating19">
     <!-- Star icons will be added here using JavaScript -->
@@ -557,36 +577,36 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn" onclick="Login()">Order</button>
+<button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
-<div class="dashboard-card">
+</div>
+<div class="cards" id="chkr">
   <img class="card-image" src="images/f1.jpg" alt="" />
   <div class="card-detail">
-  <h4>Chicken  Roll (Tray)</h4>
-  <p>Indulge in a culinary adventure like no other with our mouthwatering Chicken Roll. Imagine sinking your teeth into tender, succulent chicken encased in a soft, warm wrap, complemented by a medley of fresh, crisp vegetables and a symphony of savory sauces. It's a taste experience that takes you on a journey from the very first bite</p>
-  <div class="gallery">
+  <h4>Chicken Roll (Tray)</h4>
+  <div class="gallery" style="margin-top: 11%;">
     <label>
-      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-      <input type="radio" name="imageSelection">
-      S (₱570) (10-12 pax)
+      <img src="images/sTray.png" alt="Image 1"><br>
+      <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+      S (₱400) (10-12 pax)
     </label>
     <label>
-      <img src="images/m4.jpg" alt="Image 2"><br>
-      <input type="radio" name="imageSelection">
-      M
+      <img src="images/mTray.png" alt="Image 2"><br>
+      <input type="radio" name="size" value="Medium(25 to 30 pax)1000">
+      M (₱1,000) (25-30 pax)
     </label>
     <label>
-      <img src="images/m2.jpg" alt="Image 3"><br>
-      <input type="radio" name="imageSelection">
-      L
+      <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+      L (₱1,500) (45-50 pax)
     </label>
   </div>
      <!-- Lightbox (hidden by default) -->
      <div class="lightbox" id="lightbox">
       <img src="" alt="Enlarged Image" class="lightbox-image">
     </div>
-    <div class="rat" style="margin-top: 5%;">
+      <div class="rat">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating20">
         <!-- Star icons will be added here using JavaScript -->
@@ -595,36 +615,36 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-<div class="dashboard-card">
+  </div>
+<div class="cards" id="cbm">
   <img class="card-image" src="images/cbm.jpg" alt="" />
   <div class="card-detail">
   <h4>Creamy Beef w/ Mushroom (Tray)</h4>
-  <p>Indulge in the richness of our Creamy Beef with Mushrooms, where tender beef meets the earthy allure of mushrooms in a harmonious symphony of flavors. Creamy, dreamy, and oh-so-satisfying – a taste that will transport your senses to culinary bliss. Elevate your dining with our mouthwatering creation today!</p>
   <div class="gallery">
     <label>
-      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-      <input type="radio" name="imageSelection">
-      S (₱570) (10-12 pax)
+      <img src="images/sTray.png" alt="Image 1"><br>
+      <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+      S (₱700) (10-12 pax)
     </label>
     <label>
-      <img src="images/m4.jpg" alt="Image 2"><br>
-      <input type="radio" name="imageSelection">
-      M
+      <img src="images/mTray.png" alt="Image 2"><br>
+      <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+      M (₱1,800) (25-30 pax)
     </label>
     <label>
-      <img src="images/m2.jpg" alt="Image 3"><br>
-      <input type="radio" name="imageSelection">
-      L
+      <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(455 to 50 pax)-3500">
+      L (₱3,500) (45-50 pax)
     </label>
   </div>
      <!-- Lightbox (hidden by default) -->
      <div class="lightbox" id="lightbox">
       <img src="" alt="Enlarged Image" class="lightbox-image">
     </div>
-    <div class="rat" style="margin-top: 5%;">
+      <div class="rat">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating21">
         <!-- Star icons will be added here using JavaScript -->
@@ -633,36 +653,36 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-<div class="dashboard-card">
+  </div>
+<div class="cards" id="embtdo">
   <img class="card-image" src="images/emb.jpg" alt="" />
   <div class="card-detail">
   <h4>Embotido (Tray)</h4>
-  <p>Indulge in the exquisite flavors of our signature Pork Embotido, a timeless Filipino classic that captures the essence of tradition and taste. Savor the perfect blend of succulent pork, a symphony of spices, and a hint of nostalgia, all wrapped up in every slice. Discover the delicious memories that bind us together. Experience the heart and soul of Filipino cuisine</p>
-  <div class="gallery">
+  <div class="gallery" style="margin-top: 11%;">
     <label>
-      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-      <input type="radio" name="imageSelection">
-      S (₱570) (10-12 pax)
+      <img src="images/sTray.png" alt="Image 1"><br>
+      <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+      S (₱400) (10-12 pax)
     </label>
     <label>
-      <img src="images/m4.jpg" alt="Image 2"><br>
-      <input type="radio" name="imageSelection">
-      M
+      <img src="images/mTray.png" alt="Image 2"><br>
+      <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+      M (₱1,000) (25-30 pax)
     </label>
     <label>
-      <img src="images/m2.jpg" alt="Image 3"><br>
-      <input type="radio" name="imageSelection">
-      L
+      <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+      L (₱1,500) (45-50 pax)
     </label>
   </div>
      <!-- Lightbox (hidden by default) -->
      <div class="lightbox" id="lightbox">
       <img src="" alt="Enlarged Image" class="lightbox-image">
     </div>
-    <div class="rat" style="margin-top: 5%;">
+      <div class="rat">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating22">
         <!-- Star icons will be added here using JavaScript -->
@@ -671,36 +691,36 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-  <div class="dashboard-card">
+  </div>
+  <div class="cards" id="flu">
     <img class="card-image" src="images/flu.jpg" alt="" />
     <div class="card-detail">
     <h4>Fresh Lumpiang Ubod<br>(Tray)</h4>
-    <p>Experience the crisp embrace of Fresh Lumpiang Ubod – where the freshness of heart palm, vibrant vegetables, and savory shrimp unite in a dance of flavors, wrapped in delicate rice paper. Elevate your senses with every bite today, celebrating the artistry of freshness in every roll.</p>
     <div class="gallery">
       <label>
-        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-        <input type="radio" name="imageSelection">
-        S (₱570) (10-12 pax)
+        <img src="images/sTray.png" alt="Image 1"><br>
+        <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+        S (₱400) (10-12 pax)
       </label>
       <label>
-        <img src="images/m4.jpg" alt="Image 2"><br>
-        <input type="radio" name="imageSelection">
-        M
+        <img src="images/mTray.png" alt="Image 2"><br>
+        <input type="radio" name="size" value="Medium(25 to 30 pax)-600">
+        M (₱600) (25-30 pax)
       </label>
       <label>
-        <img src="images/m2.jpg" alt="Image 3"><br>
-        <input type="radio" name="imageSelection">
-        L
+        <img src="images/lTray.png" alt="Image 3"><br>
+        <input type="radio" name="size" value="Large(45 to 50 pax)-1000">
+        L (₱1,000) (45-50 pax)
       </label>
     </div>
        <!-- Lightbox (hidden by default) -->
        <div class="lightbox" id="lightbox">
         <img src="" alt="Enlarged Image" class="lightbox-image">
       </div>
-      <div class="rat" style="margin-top: 5%;">
+        <div class="rat">
         <p>Rating:</p>
         <div class="star-rating" id="star-rating23">
           <!-- Star icons will be added here using JavaScript -->
@@ -709,29 +729,29 @@
     <p class="card-time">
       <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    </div>
+    <button class="cbtn" onclick="Login()">Order</button>
+    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
     </div>
-    <div class="dashboard-card">
+    </div>
+    <div class="cards" id="fcf">
       <img class="card-image" src="images/fcf.jpg" alt="" />
       <div class="card-detail">
       <h4>Fried Chicken Fingers<br>(Tray)</h4>
-      <p>Get ready to taste the crispy, golden perfection of our Fried Chicken Fingers. It's a finger-lickin' good time in every bite! Tender and juicy, with a crunchy, seasoned coating that's impossible to resist. When you're craving the ultimate comfort food, reach for our Fried Chicken Fingers – they're simply irresistible.</p>
       <div class="gallery">
         <label>
-          <img src="images/Safrtda.jpg" alt="Image 1"><br>
-          <input type="radio" name="imageSelection">
-          S (₱570) (10-12 pax)
+          <img src="images/sTray.png" alt="Image 1"><br>
+          <input type="radio" name="size" value="Small(10 to 12 pax)-500">
+          S (₱500) (10-12 pax)
         </label>
         <label>
-          <img src="images/m4.jpg" alt="Image 2"><br>
-          <input type="radio" name="imageSelection">
-          M
+          <img src="images/mTray.png" alt="Image 2"><br>
+          <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+          M (₱1,000) (25-30 pax)
         </label>
         <label>
-          <img src="images/m2.jpg" alt="Image 3"><br>
-          <input type="radio" name="imageSelection">
-          L
+          <img src="images/lTray.png" alt="Image 3"><br>
+          <input type="radio" name="size" value="Large(45 to 50 pax)-2350">
+          L (₱2,350) (45-50 pax)
         </label>
       </div>
          <!-- Lightbox (hidden by default) -->
@@ -747,29 +767,29 @@
       <p class="card-time">
         <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>      </div>
+      <button class="cbtn" onclick="Login()">Order</button>
+      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
       </div>
-<div class="dashboard-card">
+      </div>
+<div class="cards" id="fff">
 <img class="card-image" src="images/f5.jpg" alt="" />
 <div class="card-detail">
 <h4>Fried Fish Filet (Tray)</h4>
-<p>Indulge in the crispy perfection of our Fried Fish Fillet – a mouthwatering sensation that will hook your taste buds! Dive into the deep-fried delight and savor the irresistible flavor of our golden, flaky fish filet. Catch the taste of the ocean in every bite – it's a reel treat for seafood lovers. Try it today and discover why our Fried Fish Fillet is the catch of the day!</p>
-<div class="gallery">
+<div class="gallery" style="margin-top: 11%;">
   <label>
-    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-    <input type="radio" name="imageSelection">
-    S (₱570) (10-12 pax)
+    <img src="images/sTray.png" alt="Image 1"><br>
+    <input type="radio" name="size" value="Small(10 to 12 pax)-300">
+    S (₱300) (10-12 pax)
   </label>
   <label>
-    <img src="images/m4.jpg" alt="Image 2"><br>
-    <input type="radio" name="imageSelection">
-    M
+    <img src="images/mTray.png" alt="Image 2"><br>
+    <input type="radio" name="size" value="Medium(25  to 30 pax)-900">
+    M (₱900) (25-30 pax)
   </label>
   <label>
-    <img src="images/m2.jpg" alt="Image 3"><br>
-    <input type="radio" name="imageSelection">
-    L
+    <img src="images/lTray.png" alt="Image 3"><br>
+    <input type="radio" name="size" value="Large(45 to 50 pax)-1400">
+    L (₱1,400) (45-50 pax)
   </label>
 </div>
    <!-- Lightbox (hidden by default) -->
@@ -785,22 +805,32 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button></div>
+<button class="cbtn" onclick="Login()">Order</button>
+<button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
-<div class="dashboard-card">
+</div>
+<div class="cards" id="chk">
 <img class="card-image" src="images/gc.jpg" alt="" />
 <div class="card-detail">
 <h4>Glazed Chicken (Tray)</h4>
-<p>Indulge your taste buds in a symphony of flavors with our exquisite Glazed Chicken. Each succulent bite is a perfect balance of sweetness and savoriness, leaving you craving for more. Our secret glaze recipe, meticulously crafted to perfection, transforms ordinary chicken into a culinary masterpiece.</p>
-<div style="margin-top: 1%;">
-  <input type="radio" name="chk"> Cheesy Garlic Parmesan<br>
-  <input type="radio" name="chk"> Honey Garlic<br>
-  <input type="radio" name="chk"> Hot Buffalo<br>
-  <input type="radio" name="chk"> Sweet Chili<br>
-  <input type="radio" name="chk"> Sweet Soy
+<div class="gallery" style="margin-top: 11%;">
+  <label>
+    <img src="images/sTray.png" alt="Image 1"><br>
+    <input type="radio" name="size" value="Small(10 to 12 pax)-525">
+    S (₱525) (10-12 pax)
+  </label>
+  <label>
+    <img src="images/mTray.png" alt="Image 2"><br>
+    <input type="radio" name="size" value="Medium(25  to 30 pax)-1000">
+    M (₱1,000) (25-30 pax)
+  </label>
+  <label>
+    <img src="images/lTray.png" alt="Image 3"><br>
+    <input type="radio" name="size" value="Large(45 to 50 pax)-2500">
+    L (₱2,500) (45-50 pax)
+  </label>
 </div>
-<div class="rat" style="margin-top: 17%;">
+<div class="rat" >
   <p>Rating:</p>
   <div class="star-rating" id="star-rating26">
     <!-- Star icons will be added here using JavaScript -->
@@ -809,23 +839,32 @@
 <p class="card-time">
   <span class="fas fa-clock"></span>15-30 mins
 </p>
-  <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+<button class="cbtn" onclick="Login()">Order</button>
+<button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
 </div>
 </div>
-<div class="dashboard-card">
+<div class="cards" id="gff">
   <img class="card-image" src="images/gff.jpg" alt="" />
   <div class="card-detail">
   <h4>Glazed Fish Fillet (Tray)</h4>
-  <p>Experience the art of exquisite flavor with our Glazed Fish Filet. Every succulent bite is a masterpiece of taste, a symphony of sweetness and savory, perfectly harmonized to delight your senses. Indulge in the ultimate culinary masterpiece. Try our Glazed Fish Filet today, and let your taste buds dance with joy.</p>
-  <div>
-    <input type="radio" name="gff"> Cheesy Garlic Parmesan<br>
-    <input type="radio" name="gff"> Honey Garlic<br>
-    <input type="radio" name="gff"> Hot Buffalo<br>
-    <input type="radio" name="gff"> Sweet Chili<br>
-    <input type="radio" name="gff"> Sweet Soy
+  <div class="gllry" style="margin-top: 11%;">
+    <label>
+      <img src="images/sTray.png" alt="Image 1"><br>
+      <input type="radio" name="size" value="Small(10 to 12 pax)-300">
+      S (₱300) (10-12 pax)
+    </label>
+    <label>
+      <img src="images/mTray.png" alt="Image 2"><br>
+      <input type="radio" name="size" value="Medium(25  to 30 pax)-900">
+      M (₱900) (25-30 pax)
+    </label>
+    <label>
+      <img src="images/lTray.png" alt="Image 3"><br>
+      <input type="radio" name="size" value="Large(45 to 50 pax)-1400">
+      L (₱1,400) (45-50 pax)
+    </label>
   </div>
-  <div class="rat" style="margin-top: 17%;">
+  <div class="rat">
     <p>Rating:</p>
     <div class="star-rating" id="star-rating27">
       <!-- Star icons will be added here using JavaScript -->
@@ -834,29 +873,29 @@
   <p class="card-time">
     <span class="fas fa-clock"></span>15-30 mins
   </p>
-    <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  </div>
+  <button class="cbtn" onclick="Login()">Order</button>
+  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
   </div>
-  <div class="dashboard-card">
+  </div>
+  <div class="cards" id="hndo">
     <img class="card-image" src="images/hmdo.jpg" alt="" />
     <div class="card-detail">
     <h4>Hamonado (Tray)</h4>
-    <p>Indulge in the exquisite flavors of tradition with our Hamonado - a taste of heritage in every bite. Savor the sweetness of nostalgia, handcrafted with love and care. Make every meal a celebration with our time-honored Hamonado, where every slice is a piece of Filipino history.</p><br>
-    <div class="gallery">
+    <div class="gallery" style="margin-top: 11%;">
       <label>
-        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-        <input type="radio" name="imageSelection">
-        S (₱570) (10-12 pax)
+        <img src="images/sTray.png" alt="Image 1"><br>
+        <input type="radio" name="size" value="Small(10 to 12 pax)-600">
+        S (₱600) (10-12 pax)
       </label>
       <label>
-        <img src="images/m4.jpg" alt="Image 2"><br>
-        <input type="radio" name="imageSelection">
-        M
+        <img src="images/mTray.png" alt="Image 2"><br>
+        <input type="radio" name="size" value="Medium(25 to 30 pax)-1450">
+        M (₱1,450) (25 to 30 pax)
       </label>
       <label>
-        <img src="images/m2.jpg" alt="Image 3"><br>
-        <input type="radio" name="imageSelection">
-        L
+        <img src="images/lTray.png" alt="Image 3"><br>
+        <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
+        L (₱2,800) (45-50 pax)
       </label>
     </div>
        <!-- Lightbox (hidden by default) -->
@@ -872,16 +911,23 @@
     <p class="card-time">
       <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    
+    <button class="cbtn" onclick="Login()">Order</button>
+    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>   
 </div>
     </div>
-  <div class="dashboard-card">
+  <div class="cards" id="hsr">
     <img class="card-image" src="images/hs.jpg" alt="" />
     <div class="card-detail">
     <h4>Hungarian Sausage (Rice Meal)</h4>
-    <p>Indulge in the rich and bold flavors of our Hungarian Sausage Rice Meal. Experience the perfect blend of succulent Hungarian sausages and perfectly cooked rice, seasoned to perfection. Every bite is a taste of Eastern European tradition. Unleash your taste buds and savor the spice of Hungary in every mouthwatering bite.</p> 
-    <div class="rat" style="margin-top: 53%;">
+    <div>
+      <input type="radio" name="size" value="With Egg-100">
+      <label for="">With Egg (₱85.00)</label><br>
+      <input type="radio" name="size" value="Without Egg-95">
+      <label for="">Without Egg (₱80.00)</label><br>
+      <input type="radio" name="size" value="Additional Sausage-115">
+      <label for="">Additional Sausage (₱115.00)</label><br>
+    </div>
+    <div class="rat" style="margin-top: 19%;">
       <p>Rating:</p>
       <div class="star-rating" id="star-rating29">
         <!-- Star icons will be added here using JavaScript -->
@@ -890,36 +936,36 @@
     <p class="card-time">
       <span class="fas fa-clock"></span>15-30 mins
     </p>
-      <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>    </div>
+    <button class="cbtn" onclick="Login()">Order</button>
+    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
     </div>
-    <div class="dashboard-card">
+    </div>
+    <div class="cards" id="kk">
       <img class="card-image" src="images/kk.jpg" alt="" />
       <div class="card-detail">
       <h4>Kare-Kare (Tray)</h4>
-      <p>Indulge in the rich, savory delight of Kare-Kare - where tradition meets taste. Our secret blend of flavors will transport your senses to the heart of the Philippines. Discover the art of perfect Kare-Kare, where every bite tells a story. Savor the harmony of peanut sauce, tender meats, and crisp vegetables in every spoonful. Experience the taste of home; experience Kare-Kare. It's not just a dish; it's a journey.</p>
-      <div class="gallery">
+      <div class="gallery" style="margin-top: 11%;"> 
         <label>
-          <img src="images/Safrtda.jpg" alt="Image 1"><br>
-          <input type="radio" name="imageSelection">
+          <img src="images/sTray.png" alt="Image 1"><br>
+          <input type="radio" name="size" value="Small(10 to 12 pax)-570">
           S (₱570) (10-12 pax)
         </label>
         <label>
-          <img src="images/m4.jpg" alt="Image 2"><br>
-          <input type="radio" name="imageSelection">
-          M
+          <img src="images/mTray.png" alt="Image 2"><br>
+          <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+          M (₱1,350) (25 to 30 pax)
         </label>
         <label>
-          <img src="images/m2.jpg" alt="Image 3"><br>
-          <input type="radio" name="imageSelection">
-          L
+          <img src="images/lTray.png" alt="Image 3"><br>
+          <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
+          L (₱2,800) (45-50 pax)
         </label>
       </div>
          <!-- Lightbox (hidden by default) -->
          <div class="lightbox" id="lightbox">
           <img src="" alt="Enlarged Image" class="lightbox-image">
         </div>
-        <div class="rat" style="margin-top:4%;">
+        <div class="rat" >
           <p>Rating:</p>
           <div class="star-rating" id="star-rating30">
             <!-- Star icons will be added here using JavaScript -->
@@ -928,36 +974,36 @@
       <p class="card-time">
         <span class="fas fa-clock"></span>15-30 mins
       </p>
-        <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>      </div>
+      <button class="cbtn" onclick="Login()">Order</button>
+      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
       </div>
-      <div class="dashboard-card">
+      </div>
+      <div class="cards" id="kbs">
         <img class="card-image" src="images/kbs.jpg" alt="" />
         <div class="card-detail">
         <h4>Korean Beef Stew (Tray)</h4>
-        <p>Indulge in the perfect blend of Filipino and Korean flavors with our savory Beef Stew! Savor the rich, hearty taste of tender beef simmered in a delectable fusion of Filipino and Korean spices. A tantalizing symphony of tastes that will transport your taste buds on a culinary journey like no other. Try our Filipino-Korean Beef Stew today and experience a harmony of flavors that will leave you craving for more.</p>
-        <div class="gallery">
+        <div class="gallery" style="margin-top: 11%;">
           <label>
-            <img src="images/Safrtda.jpg" alt="Image 1"><br>
-            <input type="radio" name="imageSelection">
-            S (₱570) (10-12 pax)
+            <img src="images/sTray.png" alt="Image 1"><br>
+            <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+            S (₱700) (10-12 pax)
           </label>
           <label>
-            <img src="images/m4.jpg" alt="Image 2"><br>
-            <input type="radio" name="imageSelection">
-            M
+            <img src="images/mTray.png" alt="Image 2"><br>
+            <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+            M (₱1,800) (25-30 pax)
           </label>
           <label>
-            <img src="images/m2.jpg" alt="Image 3"><br>
-            <input type="radio" name="imageSelection">
-            L
+            <img src="images/lTray.png" alt="Image 3"><br>
+            <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+            L (₱3,500) (45-50 pax)
           </label>
         </div>
            <!-- Lightbox (hidden by default) -->
            <div class="lightbox" id="lightbox">
             <img src="" alt="Enlarged Image" class="lightbox-image">
           </div>
-          <div class="rat" style="margin-top:4%;">
+          <div class="rat" >
             <p>Rating:</p>
             <div class="star-rating" id="star-rating31">
               <!-- Star icons will be added here using JavaScript -->
@@ -966,16 +1012,44 @@
         <p class="card-time">
           <span class="fas fa-clock"></span>15-30 mins
         </p>
-          <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>        
+        <button class="cbtn" onclick="Login()">Order</button>
+        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>      
       </div>
         </div>
-        <div class="dashboard-card">
+        <div class="cards" id="lrm">
+          <img class="card-image" src="images/lrm.jpg" alt=""/>
+          <div class="card-detail">
+          <h4>Longganisa (Rice Meal)</h4>
+          <div style="margin-top: 11%;">
+            <input type="radio" name="size" value="With Egg-85">
+            <label for="">With Egg (₱85.00)</label><br>
+            <input type="radio" name="size" value="Without Egg-80">
+            <label for="">Without Egg (₱80.00)</label><br>
+          </div>
+          <div class="rat" style="margin-top: 28%;">
+            <p>Rating:</p>
+            <div class="star-rating" id="star-rating42">
+              <!-- Star icons will be added here using JavaScript -->
+            </div>
+          </div>
+          <p class="card-time">
+            <span class="fas fa-clock"></span>15-30 mins
+          </p>
+          <button class="cbtn" onclick="Login()">Order</button>
+          <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+          </div>
+        <div class="cards">
           <img class="card-image" src="images/ls.jpg" alt="" />
           <div class="card-detail">
           <h4>Lumpiang Shanghai (Rice Meal)</h4>
-          <p>A Symphony of Savory Delights! Savor the crispy perfection of golden-fried lumpia filled with flavorful ground meat and aromatic spices, all wrapped in a delicate rice paper. It's the ultimate Filipino comfort food, a delicious medley of taste and texture that will leave you craving for more. Bite into a taste of tradition with every roll. Experience Lumpiang Shanghai, the rice meal that dances on your taste buds!</p>
-          <div class="rat" style="margin-top:46%;">
+          <div>
+            <input type="radio" name="size" value="With Egg-100">
+            <label for="">With Egg (₱100.00)</label><br>
+            <input type="radio" name="size" value="Without Egg-95">
+            <label for="">Without Egg (₱95.00)</label><br>
+          </div>
+          <div class="rat" style="margin-top:28%;">
             <p>Rating:</p>
             <div class="star-rating" id="star-rating32">
               <!-- Star icons will be added here using JavaScript -->
@@ -984,36 +1058,36 @@
           <p class="card-time">
             <span class="fas fa-clock"></span>15-30 mins
           </p>
-            <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>          </div>
+          <button class="cbtn" onclick="Login()">Order</button>
+          <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
           </div>
-          <div class="dashboard-card">
+          </div>
+          <div class="cards" id="mnd">
             <img class="card-image" src="images/mn.jpg" alt="" />
             <div class="card-detail">
             <h4>Menudo (Tray)</h4>
-            <p>Discover the taste of tradition in every bite! Our Pork Menudo is a symphony of flavors that will transport your taste buds straight to the heart of the Philippines. Tender chunks of succulent pork, vibrant tomatoes, bell peppers, and a medley of spices simmered to perfection. It's a celebration on your plate! Taste the passion, taste the heritage - savor the richness of our Pork Menudo today!</p>
-            <div class="gallery">
+            <div class="gallery" style="margin-top: 11%;">
               <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="imageSelection">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="Small(10 to 12 pax)-570">
                 S (₱570) (10-12 pax)
               </label>
               <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="imageSelection">
-                M
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+                M (₱1,350) (25-30 pax)
               </label>
               <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="imageSelection">
-                L
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+                L (₱2,600) (45-50 pax)
               </label>
             </div>
                <!-- Lightbox (hidden by default) -->
                <div class="lightbox" id="lightbox">
                 <img src="" alt="Enlarged Image" class="lightbox-image">
               </div>
-              <div class="rat" style="margin-top:4%;">
+              <div class="rat">
                 <p>Rating:</p>
                 <div class="star-rating" id="star-rating33">
                   <!-- Star icons will be added here using JavaScript -->
@@ -1022,36 +1096,36 @@
             <p class="card-time">
               <span class="fas fa-clock"></span>15-30 mins
             </p>
-              <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>            </div>
+            <button class="cbtn" onclick="Login()">Order</button>
+            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+           </div>
             </div>
-            <div class="dashboard-card">
+            <div class="cards" id="mvc">
               <img class="card-image" src="images/cream.jpeg" alt="" />
               <div class="card-detail">
               <h4>Mixed Vegies in Cream (Tray)</h4>
-              <p>Indulge in the creamy goodness of our Mixed Veggies in Cream, a symphony of colors and flavors that will tantalize your taste buds with every bite. Experience the harmony of fresh, vibrant vegetables enveloped in our rich, velvety cream sauce. Discover a world of deliciousness that's both wholesome and comforting, all in one delectable dish.</p>
-              <div class="gallery">
+              <div class="gallery" style="margin-top: 11%;">
                 <label>
-                  <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                  <input type="radio" name="imageSelection">
-                  S (₱570) (10-12 pax)
+                  <img src="images/sTray.png" alt="Image 1"><br>
+                  <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                  S (₱400) (10-12 pax)
                 </label>
                 <label>
-                  <img src="images/m4.jpg" alt="Image 2"><br>
-                  <input type="radio" name="imageSelection">
-                  M
+                  <img src="images/mTray.png" alt="Image 2"><br>
+                  <input type="radio" name="size" value="Medium(25 to 30 pax)-900">
+                  M (₱900) (25-30 pax)
                 </label>
                 <label>
-                  <img src="images/m2.jpg" alt="Image 3"><br>
-                  <input type="radio" name="imageSelection">
-                  L
+                  <img src="images/lTray.png" alt="Image 3"><br>
+                  <input type="radio" name="size" value="Large(45 to 50 pax)-1850">
+                  L (₱1,850) (45-50 pax)
                 </label>
               </div>
                  <!-- Lightbox (hidden by default) -->
                  <div class="lightbox" id="lightbox">
                   <img src="" alt="Enlarged Image" class="lightbox-image">
                 </div>
-                <div class="rat" style="margin-top:2%;">
+                <div class="rat">
                   <p>Rating:</p>
                   <div class="star-rating" id="star-rating34">
                     <!-- Star icons will be added here using JavaScript -->
@@ -1060,36 +1134,36 @@
               <p class="card-time">
                 <span class="fas fa-clock"></span>15-30 mins
               </p>
-                <button class="cbtn" onclick="Login()">Order</button>
-  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>              </div>
+              <button class="cbtn" onclick="Login()">Order</button>
+              <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+             </div>
               </div>
-              <div class="dashboard-card">
+              <div class="cards" id="mb">
                 <img class="card-image" src="images/mong.jpg" alt="" />
                 <div class="card-detail">
                 <h4>Mongolian Beef (Tray)</h4>
-                <p>Experience the bold and savory flavors of the East with our Mongolian Beef! Succulent strips of tender beef, wok-seared to perfection, then bathed in a rich, mouthwatering sauce that's the perfect balance of sweet and savory. Each bite is an adventure for your taste buds, taking you on a journey to the heart of Mongolia without leaving your seat.</p>
-                <div class="gallery">
+                <div class="gallery" style="margin-top: 11%;">
                   <label>
-                    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                    <input type="radio" name="imageSelection">
-                    S (₱570) (10-12 pax)
+                    <img src="images/sTray.png" alt="Image 1"><br>
+                    <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+                    S (₱700) (10-12 pax)
                   </label>
                   <label>
-                    <img src="images/m4.jpg" alt="Image 2"><br>
-                    <input type="radio" name="imageSelection">
-                    M
+                    <img src="images/mTray.png" alt="Image 2"><br>
+                    <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+                    M (₱1,800)
                   </label>
                   <label>
-                    <img src="images/m2.jpg" alt="Image 3"><br>
-                    <input type="radio" name="imageSelection">
-                    L
+                    <img src="images/lTray.png" alt="Image 3"><br>
+                    <input type="radio" name="size" value="Large(45 to 50)-3500">
+                    L (₱3,500) (45 to 50 pax)
                   </label>
                 </div>
                    <!-- Lightbox (hidden by default) -->
                    <div class="lightbox" id="lightbox">
                     <img src="" alt="Enlarged Image" class="lightbox-image">
                   </div>
-                  <div class="rat" style="margin-top:2%;">
+                  <div class="rat">
                     <p>Rating:</p>
                     <div class="star-rating" id="star-rating35">
                       <!-- Star icons will be added here using JavaScript -->
@@ -1098,37 +1172,59 @@
                 <p class="card-time">
                   <span class="fas fa-clock"></span>15-30 mins
                 </p>
+                <button class="cbtn" onclick="Login()">Order</button>
+                <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>               
+                </div>
+                </div>
+                <div class="cards" id="ptcrm">
+                  <img class="card-image" src="images/ptcrm.jpg" alt="" />
+                  <div class="card-detail">
+                  <h4>Pork Tocino (Rice Meal) </h4>
+                  <div style="margin-top: 11%;">
+                    <input type="radio" name="size" value="With Egg-90">
+                    <label for="">With Egg (₱90.00)</label><br>
+                    <input type="radio" name="size" value="Without Egg-85">
+                    <label for="">Without Egg (₱85.00)</label><br>
+                  </div>
+                  <div class="rat" style="margin-top: 28%;">
+                    <p>Rating:</p>
+                    <div class="star-rating" id="star-rating43">
+                      <!-- Star icons will be added here using JavaScript -->
+                    </div>
+                  </div>
+                  <p class="card-time">
+                    <span class="fas fa-clock"></span>15-30 mins
+                  </p>
                   <button class="cbtn" onclick="Login()">Order</button>
-                  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                
-                </div>
-                </div>
-                <div class="dashboard-card">
+                  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
+                  </div>
+                  </div>
+                <div class="cards" id="pp">
                   <img class="card-image" src="images/pastel.jpg" alt="" />
                   <div class="card-detail">
                   <h4>Pork Pastel (Tray)</h4>
-                  <p>Indulge in the rich symphony of flavors with our exquisite Pork Pastel; a savory dance of succulent pork, bathed in a velvety cream sauce, and adorned with a medley of vibrant vegetables. Elevate your dining experience with a taste that whispers sophistication and sizzles with satisfaction. Unveil the magic of our Pork Pastel.</p>
-                  <div class="gallery">
+                  <div class="gallery" style="margin-top: 11%;">
                     <label>
-                      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                      <input type="radio" name="imageSelection">
+                      <img src="images/sTray.png" alt="Image 1"><br>
+                      <input type="radio" name="size" value="Small(10 to 12 pax)-570">
                       S (₱570) (10-12 pax)
                     </label>
                     <label>
-                      <img src="images/m4.jpg" alt="Image 2"><br>
-                      <input type="radio" name="imageSelection">
-                      M
+                      <img src="images/mTray.png" alt="Image 2"><br>
+                      <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+                      M (₱1,350) (25-30 pax)
                     </label>
                     <label>
-                      <img src="images/m2.jpg" alt="Image 3"><br>
-                      <input type="radio" name="imageSelection">
-                      L
+                      <img src="images/lTray.png" alt="Image 3"><br>
+                      <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+                      L (₱2,600) (45-50 pax)
                     </label>
                   </div>
                      <!-- Lightbox (hidden by default) -->
                      <div class="lightbox" id="lightbox">
                       <img src="" alt="Enlarged Image" class="lightbox-image">
                     </div>
-                    <div class="rat" style="margin-top:2%;">
+                    <div class="rat">
                       <p>Rating:</p>
                       <div class="star-rating" id="star-rating36">
                         <!-- Star icons will be added here using JavaScript -->
@@ -1137,30 +1233,29 @@
                   <p class="card-time">
                     <span class="fas fa-clock"></span>15-30 mins
                   </p>
-                    <button class="cbtn" onclick="Login()">Order</button>
-                    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                 
+                  <button class="cbtn" onclick="Login()">Order</button>
+                  <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                 
                   </div>
                   </div>
-                  <div class="dashboard-card">
+                  <div class="cards" id="sfvcgs">
                     <img class="card-image" src="images/fishveg.jpg" alt="" />
                     <div class="card-detail">
                     <h4>Sauted Fish and Veggies in Chili Garlic Sauce (Tray)</h4>
-                    <p>Spice up your day with our sizzling sautéed fish and vibrant veggies in a tantalizing chili garlic sauce! Heat, flavor, and freshness all in one bite – it's a mouthwatering adventure for your taste buds. Try it today and elevate your dining experience to a whole new level of delicious excitement!</p>
                     <div class="gallery">
                       <label>
-                        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                        <input type="radio" name="imageSelection">
-                        S (₱570) (10-12 pax)
+                        <img src="images/sTray.png" alt="Image 1"><br>
+                        <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                        S (₱400) (10-12 pax)
                       </label>
                       <label>
-                        <img src="images/m4.jpg" alt="Image 2"><br>
-                        <input type="radio" name="imageSelection">
-                        M
-                      </label>
+                        <img src="images/mTray.png" alt="Image 2"><br>
+                        <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+                        M (₱1,000) (25-30 pax)
+                      </label> 
                       <label>
-                        <img src="images/m2.jpg" alt="Image 3"><br>
-                        <input type="radio" name="imageSelection">
-                        L
+                        <img src="images/lTray.png" alt="Image 3"><br>
+                        <input type="radio" name="size" value="Large(45 to 50 pax)-1550">
+                        L (₱1,550) (45-50 pax)
                       </label>
                     </div>
                        <!-- Lightbox (hidden by default) -->
@@ -1176,30 +1271,29 @@
                     <p class="card-time">
                       <span class="fas fa-clock"></span>15-30 mins
                     </p>
-                      <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                    
+                    <button class="cbtn" onclick="Login()">Order</button>
+                    <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                    
                     </div>
                     </div>
-                    <div class="dashboard-card">
+                    <div class="cards" id="svos">
                       <img class="card-image" src="images/saute.jpg" alt="" />
                       <div class="card-detail">
                       <h4>Sauteed Veggies in Oyster Sauce (Tray)</h4>
-                      <p>Indulge your senses with the exquisite harmony of crisp, vibrant sautéed veggies bathed in the rich umami of oyster sauce. Elevate your culinary experience, where freshness meets flavor in every delightful bite. Dancing in symphony with the savory allure of oyster sauce.</p>
                       <div class="gallery">
                         <label>
-                          <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                          <input type="radio" name="imageSelection">
-                          S (₱570) (10-12 pax)
+                          <img src="images/sTray.png" alt="Image 1"><br>
+                          <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                          S (₱400) (10-12 pax)
                         </label>
                         <label>
-                          <img src="images/m4.jpg" alt="Image 2"><br>
-                          <input type="radio" name="imageSelection">
-                          M
+                          <img src="images/mTray.png" alt="Image 2"><br>
+                          <input type="radio" name="size" value="Medium(25 to 30 pax)-900">
+                          M (₱900) (25-30 pax)
                         </label>
                         <label>
-                          <img src="images/m2.jpg" alt="Image 3"><br>
-                          <input type="radio" name="imageSelection">
-                          L
+                          <img src="images/lTray.png" alt="Image 3"><br>
+                          <input type="radio" name="size" value="Large(45 to 50 pax)-1850">
+                          L (₱1,850) (45-50 pax)
                         </label>
                       </div>
                          <!-- Lightbox (hidden by default) -->
@@ -1215,36 +1309,36 @@
                       <p class="card-time">
                         <span class="fas fa-clock"></span>15-30 mins
                       </p>
-                        <button class="cbtn" onclick="Login()">Order</button>
-                        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                      </div>
+                      <button class="cbtn" onclick="Login()">Order</button>
+                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
                       </div>
-                      <div class="dashboard-card">
+                      </div>
+                      <div class="cards" id="ssg">
                         <img class="card-image" src="images/sisig.jpg" alt="" />
                         <div class="card-detail">
                         <h4>Sisig (Tray)</h4>
-                        <p>Sizzle into satisfaction with our mouthwatering Pork Sisig! Experience a symphony of flavors as tender pork pieces are expertly seasoned and crisped to perfection, all brought together with a zesty blend of spices. It's not just a meal; it's a masterpiece of taste waiting to ignite your palate!</p>
-                        <div class="gallery">
+                        <div class="gallery" style="margin-top: 11%;">
                           <label>
-                            <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                            <input type="radio" name="imageSelection">
-                            S (₱570) (10-12 pax)
+                            <img src="images/sTray.png" alt="Image 1"><br>
+                            <input type="radio" name="size" value="Small(10 to 12 pax)-600">
+                            S (₱600) (10-12 pax)
                           </label>
                           <label>
-                            <img src="images/m4.jpg" alt="Image 2"><br>
-                            <input type="radio" name="imageSelection">
-                            M
+                            <img src="images/mTray.png" alt="Image 2"><br>
+                            <input type="radio" name="size" value="Medium(25 to 30 pax)-1450">
+                            M (₱1,450) (25-30 pax)
                           </label>
                           <label>
-                            <img src="images/m2.jpg" alt="Image 3"><br>
-                            <input type="radio" name="imageSelection">
-                            L
+                            <img src="images/lTray.png" alt="Image 3"><br>
+                            <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
+                            L (₱2,800) (45-50 pax)
                           </label>
                         </div>
                            <!-- Lightbox (hidden by default) -->
                            <div class="lightbox" id="lightbox">
                             <img src="" alt="Enlarged Image" class="lightbox-image">
                           </div>
-                          <div class="rat" style="margin-top:2%;">
+                          <div class="rat">
                             <p>Rating:</p>
                             <div class="star-rating" id="star-rating39">
                               <!-- Star icons will be added here using JavaScript -->
@@ -1253,36 +1347,36 @@
                         <p class="card-time">
                           <span class="fas fa-clock"></span>15-30 mins
                         </p>
-                      <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                        </div>
+                        <button class="cbtn" onclick="Login()">Order</button>
+                        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
                       </div>
-                      <div class="dashboard-card">
+                      </div>
+                      <div class="cards" id="ssf">
                         <img class="card-image" src="images/ssf.jpg" alt="" />
                         <div class="card-detail">
                         <h4>Sweet and Sour Fish Fillet (Tray)</h4>
-                        <p>Experience the perfect harmony of flavors with our Sweet and Sour Fish Fillet – a tantalizing dance of crispy, golden fish fillets bathed in our exquisite sweet and tangy sauce. Every bite is a symphony for your taste buds, blending the crispy crunch with the zesty zing.</p>
                         <div class="gallery">
                           <label>
-                            <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                            <input type="radio" name="imageSelection">
-                            S (₱570) (10-12 pax)
+                            <img src="images/sTray.png" alt="Image 1"><br>
+                            <input type="radio" name="size" value="Small(10 to 12 pax)-300">
+                            S (₱300) (10-12 pax)
                           </label>
                           <label>
-                            <img src="images/m4.jpg" alt="Image 2"><br>
-                            <input type="radio" name="imageSelection">
-                            M
+                            <img src="images/mTray.png" alt="Image 2"><br>
+                            <input type="radio" name="size" value="Medium(25 to 30 pax)-950">
+                            M (₱950) (25-30)
                           </label>
                           <label>
-                            <img src="images/m2.jpg" alt="Image 3"><br>
-                            <input type="radio" name="imageSelection">
-                            L
+                            <img src="images/lTray.png" alt="Image 3"><br>
+                            <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+                            L (₱1,500) (45-50 pax)
                           </label>
                         </div>
                            <!-- Lightbox (hidden by default) -->
                            <div class="lightbox" id="lightbox">
                             <img src="" alt="Enlarged Image" class="lightbox-image">
                           </div>
-                          <div class="rat" style="margin-top:1%;">
+                          <div class="rat">
                             <p>Rating:</p>
                             <div class="star-rating" id="star-rating40">
                               <!-- Star icons will be added here using JavaScript -->
@@ -1291,36 +1385,36 @@
                         <p class="card-time">
                           <span class="fas fa-clock"></span>15-30 mins
                         </p>
-                          <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                        </div>
+                        <button class="cbtn" onclick="Login()">Order</button>
+                        <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>
                         </div>
-                        <div class="dashboard-card">
+                        </div>
+                        <div class="cards" id="ssp">
                           <img class="card-image" src="images/ssp.jpg" alt="" />
                           <div class="card-detail">
                           <h4>Sweet and Sour Pork (Tray)</h4>
-                          <p>Indulge in the perfect harmony of flavors with our Sweet and Sour Pork. Delight in the crispy, golden-brown goodness of tender pork, bathed in our exquisite, tangy-sweet sauce. It's a culinary symphony that will make your taste buds dance. Try it today, and experience the irresistible allure of our Sweet and Sour Pork!</p>
-                          <div class="gallery">
+                          <div class="gallery" style="margin-top: 11%;">
                             <label>
-                              <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                              <input type="radio" name="imageSelection">
+                              <img src="images/sTray.png" alt="Image 1"><br>
+                              <input type="radio" name="size" value="Small(10 to 12 pax)-570">
                               S (₱570) (10-12 pax)
                             </label>
                             <label>
-                              <img src="images/m4.jpg" alt="Image 2"><br>
-                              <input type="radio" name="imageSelection">
-                              M
+                              <img src="images/mTray.png" alt="Image 2"><br>
+                              <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+                              M (₱1,350) (10-12 pax)
                             </label>
                             <label>
-                              <img src="images/m2.jpg" alt="Image 3"><br>
-                              <input type="radio" name="imageSelection">
-                              L
+                              <img src="images/lTray.png" alt="Image 3"><br>
+                              <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+                              L (₱2,600) (45-50 pax)
                             </label>
                           </div>
                              <!-- Lightbox (hidden by default) -->
                              <div class="lightbox" id="lightbox">
                               <img src="" alt="Enlarged Image" class="lightbox-image">
                             </div>
-                            <div class="rat" style="margin-top:2%;">
+                            <div class="rat">
                               <p>Rating:</p>
                               <div class="star-rating" id="star-rating41">
                                 <!-- Star icons will be added here using JavaScript -->
@@ -1329,24 +1423,20 @@
                           <p class="card-time">
                             <span class="fas fa-clock"></span>15-30 mins
                           </p>
-                      <button class="cbtn" onclick="Login()">Order</button>
-                      <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                          
+                          <button class="cbtn" onclick="Login()">Order</button>
+                          <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                 
                           </div>
                           </div>
+                          <div id="cart-mod" class="mod">
+                            <div class="mod-cont">
+                            <span class="clse" onclick="closeCartModal()">&times;</span>
+                            <h2 class="crt">My Cart</h2>
+                            <ul id="mod-cart-items"></ul>
+                            <div class="total-amount"><span id="total-amount">0</span></div>
+                            <div class="plc"><button onclick="placeOrder()">Place Order</button></div>
+                            </div>  
+                            </div>
 </div>  
-<div class="container">
-  <div class="lbl" style="margin-top: 5%;">
-    <label for="">Store Location</label>
-   </div>
-  <div class="card-map">   
-      <div>
-        <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
-      </div>
-        <div style="float: left; margin:  0 0 0 6%;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-         </div>
-  </div>
-</div>
 <script src="scripts/menu.js"></script>
 </body>
 <div class="cntr">
@@ -1363,7 +1453,7 @@
       <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
       <h5 class="text-uppercase mb-4">About company</h5>
   
-      <label>
+      <label style="color: white;">
         Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
       </label>
   
@@ -1430,7 +1520,7 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
     © 2023 Copyright:
-    <label >Maya&Me Services</label>
+    <label style="color: #C69B68;">Maya&Me Services</label>
     </div>
     <!-- Copyright -->
   </footer>

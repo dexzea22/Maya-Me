@@ -15,7 +15,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="stylesheets/menu.css">
-
 <title>User Trays</title>
 </head>
 <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
@@ -26,10 +25,19 @@
     <div class="menu">
         <a class="nav" href="/UserDashboard">Home</a>
         <a class="nav" href="/confirmoderinfo">Orders</a>
-        <a href="/logout" class="nav" style="float:right;">Logout</a>
-        <a class="nav" onclick="openCartModal()"
-        style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;color: #C69B68;"><i
-        class="fas fa-shopping-cart fa-2x"></i></a>     
+        <div class="nav" onclick="openProfileModal()" style="font-size: 22px; cursor:pointer; float: right; margin:1.3% 3% 0 0;color:#976b35;">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </div>
+        <!-- Profile Modal -->
+        <div id="profileModal" class="pmod">
+          <div class="modal-contents">
+            <span class="close" onclick="closeProfileModal()">&times;</span>
+            <a style="font-size: 20px;" class="prof" href="/profile">My Profile</a>
+            <a style="font-size: 20px;" class="prof" href="/confirmoderinfo">Orders</a>
+            <a style="font-size: 20px;" class="prof" href="/logout">Logout</a>
+          </div>
+        </div>
+        <a class="nav" onclick="openCartModal()" style=" margin:0.8% 0 0 0; font-size: 19px; cursor:pointer;color:#976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span></a>
         <%- include('dietaryPreferences.ejs') %>
         <!-- <a class="nav" id="openDietaryModal" href="#">Dietary Preferences</a> -->
         <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
@@ -63,18 +71,18 @@
     <h4>Afritada (Tray)</h4>
     <div class="gallery" style="margin-top: 11%;">
         <label>
-        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-        <input type="radio" name="size" value="Small(10 to 12 pax)-570">
+        <img src="images/sTray.png" alt="Image 1"><br>
+        <input type="radio" name="size" value="(10 to 12 pax)-570">
         S (₱570) (10-12 pax)
         </label>
         <label>
-        <img src="images/m4.jpg" alt="Image 2"><br>
-        <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+        <img src="images/mTray.png" alt="Image 2"><br>
+        <input type="radio" name="size" value="(25 to 30 pax)-1350">
         M (₱1,350) (25-30 pax)
         </label>
         <label>
-        <img src="images/m2.jpg" alt="Image 3"><br>
-        <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+        <img src="images/lTray.png" alt="Image 3"><br>
+        <input type="radio" name="size" value="(45 to 50 pax)-2600">
         L (₱2,600) (45-50 pax)
         </label>
     </div>
@@ -101,18 +109,18 @@
 <h4>Baked Cream Dory w/ Potatoes (Tray)</h4>
 <div class="gallery">
     <label>
-    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-    <input type="radio" name="size" value="Small(10 to 12 pax)-350">
+    <img src="images/sTray.png" alt="Image 1"><br>
+    <input type="radio" name="size" value="(10 to 12 pax)-350">
     S (₱350) (10-12 pax)
     </label>
     <label>
-    <img src="images/m4.jpg" alt="Image 2"><br>
-    <input type="radio" name="size" value="Medium(10 to 12 pax)-950">
+    <img src="images/mTray.png" alt="Image 2"><br>
+    <input type="radio" name="size" value="(10 to 12 pax)-950">
     M (₱950) (25-30 pax)
     </label>
     <label>
-    <img src="images/m2.jpg" alt="Image 3"><br>
-<input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+    <img src="images/lTray.png" alt="Image 3"><br>
+<input type="radio" name="size" value="(45 to 50 pax)-1500">
 L (₱1,500) (45-50 pax)
 </label>
 </div>
@@ -139,18 +147,18 @@ L (₱1,500) (45-50 pax)
     <h4>Beef Caldereta (Tray)</h4>
     <div class="gallery" style="margin-top:11% ;">
         <label>
-        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-        <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+        <img src="images/sTray.png" alt="Image 1"><br>
+        <input type="radio" name="size" value="(10 to 12 pax)-700">
         S (₱700) (10-12 pax)
         </label>
         <label>
-        <img src="images/m4.jpg" alt="Image 2"><br>
-        <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+        <img src="images/mTray.png" alt="Image 2"><br>
+        <input type="radio" name="size" value="(25 to 30 pax)-1800">
         M (₱1,800) (25-30 pax)
         </label>
         <label>
-        <img src="images/m2.jpg" alt="Image 3"><br>
-        <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+        <img src="images/lTray.png" alt="Image 3"><br>
+        <input type="radio" name="size" value="(45 to 50 pax)-3500">
         L (₱3,500) (45-50 pax)
         </label>
     </div>
@@ -177,18 +185,18 @@ L (₱1,500) (45-50 pax)
     <h4>Beef Mechado (Tray)</h4>
     <div class="gallery" style="margin-top: 11%;">
     <label>
-        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-        <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+        <img src="images/sTray.png" alt="Image 1"><br>
+        <input type="radio" name="size" value="(10 to 12 pax)-700">
         S (₱700) (10-12 pax)
     </label>
     <label>
-        <img src="images/m4.jpg" alt="Image 2"><br>
-        <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+        <img src="images/mTray.png" alt="Image 2"><br>
+        <input type="radio" name="size" value="(25 to 30 pax)-1800">
         M (₱1,800) (25-30 pax)
     </label>
     <label>
-        <img src="images/m2.jpg" alt="Image 3"><br>
-        <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+        <img src="images/lTray.png" alt="Image 3"><br>
+        <input type="radio" name="size" value="(45 to 50 pax)-3500">
         L (₱3,500) (45-50 pax)
     </label>
     </div>
@@ -215,18 +223,18 @@ L (₱1,500) (45-50 pax)
         <h4>Beef w/ Broccoli (Tray)</h4>
         <div class="gallery" style="margin-top: 11%;">
             <label>
-            <img src="images/Safrtda.jpg" alt="Image 1"><br>
-            <input type="radio" name="size" value="Small(10 to 12 pax)-750">
+            <img src="images/sTray.png" alt="Image 1"><br>
+            <input type="radio" name="size" value="(10 to 12 pax)-750">
             S (₱750) (10-12 pax)
             </label>
             <label>
-            <img src="images/m4.jpg" alt="Image 2"><br>
-            <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+            <img src="images/mTray.png" alt="Image 2"><br>
+            <input type="radio" name="size" value="(25 to 30 pax)-1800">
             M (₱1,800) (25-30 pax)
             </label>
             <label>
-            <img src="images/m2.jpg" alt="Image 3"><br>
-            <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+            <img src="images/lTray.png" alt="Image 3"><br>
+            <input type="radio" name="size" value="(45 to 50 pax)-3500">
             L (₱3,500) (45-50 pax)
             </label>
         </div>
@@ -253,18 +261,18 @@ L (₱1,500) (45-50 pax)
 <h4>Beef Salpicao (Tray)</h4>
 <div class="gallery" style="margin-top: 11%;">
 <label>
-<img src="images/Safrtda.jpg" alt="Image 1"><br>
-<input type="radio" name="size" value="Small(10 to 12 pax)-750">
+<img src="images/sTray.png" alt="Image 1"><br>
+<input type="radio" name="size" value="(10 to 12 pax)-750">
 S (₱750) (10-12 pax)
 </label>
 <label>
-<img src="images/m4.jpg" alt="Image 2"><br>
-<input type="radio" name="size" value="Medium(25 to 30 pax)-1850">
+<img src="images/mTray.png" alt="Image 2"><br>
+<input type="radio" name="size" value="(25 to 30 pax)-1850">
 M (₱1,850) (25-30 pax)
 </label>
 <label>
-<img src="images/m2.jpg" alt="Image 3"><br>
-<input type="radio" name="size" value="Large(45 to 50 pax)-3650">
+<img src="images/lTray.png" alt="Image 3"><br>
+<input type="radio" name="size" value="(45 to 50 pax)-3650">
 L (₱3,650) (45-50 pax)
 </label>
 </div>
@@ -291,18 +299,18 @@ L (₱3,650) (45-50 pax)
 <h4>Buttered Carrots w/ Chicharo (Tray)</h4>
 <div class="gallery">
     <label>
-    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-    <input type="radio" name="size" value="Small(10 to 12 pax)-420">
+    <img src="images/sTray.png" alt="Image 1"><br>
+    <input type="radio" name="size" value="(10 to 12 pax)-420">
     S (₱420) (10-12 pax)
     </label>
     <label>
-    <img src="images/m4.jpg" alt="Image 2"><br>
-    <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+    <img src="images/mTray.png" alt="Image 2"><br>
+    <input type="radio" name="size" value="(25 to 30 pax)-1000">
     M (₱1,000) (25-30 pax)
     </label>
     <label>
-    <img src="images/m2.jpg" alt="Image 3"><br>
-    <input type="radio" name="size" value="Large(45 to 50 pax)-1850">
+    <img src="images/lTray.png" alt="Image 3"><br>
+    <input type="radio" name="size" value="(45 to 50 pax)-1850">
     L (₱1,850) (45-50 pax)
     </label>
 </div>
@@ -329,18 +337,18 @@ L (₱3,650) (45-50 pax)
     <h4>Buttered Potato Marbles (Tray)</h4>
     <div class="gallery" style="margin-top: 11%;">
         <label>
-        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-        <input type="radio" name="size" value="Small(10 to 12 pax)-450">
+        <img src="images/sTray.png" alt="Image 1"><br>
+        <input type="radio" name="size" value="(10 to 12 pax)-450">
         S (₱450) (10-12 pax)
         </label>
         <label>
-        <img src="images/m4.jpg" alt="Image 2"><br>
-        <input type="radio" name="size" value="Medium(25 to 30 pax)-950">
+        <img src="images/mTray.png" alt="Image 2"><br>
+        <input type="radio" name="size" value="(25 to 30 pax)-950">
         M (₱950) (25-30 pax)
         </label>
         <label>
-        <img src="images/m2.jpg" alt="Image 3"><br>
-        <input type="radio" name="size" value="Large(45 to 50 pax)-1950">
+        <img src="images/lTray.png" alt="Image 3"><br>
+        <input type="radio" name="size" value="(45 to 50 pax)-1950">
         L (₱1,950) (45-50 pax)
         </label>
     </div>
@@ -367,18 +375,18 @@ L (₱3,650) (45-50 pax)
         <h4>Caldereta (Tray)</h4>
         <div class="gallery">
             <label>
-            <img src="images/Safrtda.jpg" alt="Image 1"><br>
-            <input type="radio" name="size" value="Small(10 to 12 pax)-570">
+            <img src="images/sTray.png" alt="Image 1"><br>
+            <input type="radio" name="size" value="(10 to 12 pax)-570">
             S (₱570) (10-12 pax)
             </label>
             <label>
-            <img src="images/m4.jpg" alt="Image 2"><br>
-            <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+            <img src="images/mTray.png" alt="Image 2"><br>
+            <input type="radio" name="size" value="(25 to 30 pax)-1350">
             M (₱1,350) (25-30 pax)
             </label>
             <label>
-            <img src="images/m2.jpg" alt="Image 3"><br>
-            <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+            <img src="images/lTray.png" alt="Image 3"><br>
+            <input type="radio" name="size" value="(45 to 50 pax)-2600">
             L (₱2,600) (45-50 pax)
             </label>
         </div>
@@ -405,18 +413,18 @@ L (₱3,650) (45-50 pax)
             <h4>Chicken Ala King (Tray)</h4>
             <div class="gallery">
               <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-500">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-500">
                 S (₱500) (10-12 pax)
               </label>
               <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)-1200">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)-1200">
                 M (₱1,200) (25-30 pax)
               </label>
               <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(45 to 50 pax)-2350">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)-2350">
                 L (₱2,350) (45-50 pax)
               </label>
             </div>
@@ -443,18 +451,18 @@ L (₱3,650) (45-50 pax)
             <h4>Chicken Embotido (Tray)</h4>
             <div class="gallery">
               <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-340">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-340">
                 S (₱340) (10-12 pax)
               </label>
               <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)-850">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)-850">
                 M (₱850) (10-12)
               </label>
               <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(45 to 50 pax)1200">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)1200">
                 L (₱1,200) (45-50 pax)
               </label>
             </div>
@@ -481,18 +489,18 @@ L (₱3,650) (45-50 pax)
             <h4>Chicken Roll (Tray)</h4>
             <div class="gallery" style="margin-top: 11%;">
               <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-400">
                 S (₱400) (10-12 pax)
               </label>
               <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)1000">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)1000">
                 M (₱1,000) (25-30 pax)
               </label>
               <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)-1500">
                 L (₱1,500) (45-50 pax)
               </label>
             </div>
@@ -519,18 +527,18 @@ L (₱3,650) (45-50 pax)
             <h4>Creamy Beef w/ Mushroom (Tray)</h4>
             <div class="gallery">
               <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-700">
                 S (₱700) (10-12 pax)
               </label>
               <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)-1800">
                 M (₱1,800) (25-30 pax)
               </label>
               <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(455 to 50 pax)-3500">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(455 to 50 pax)-3500">
                 L (₱3,500) (45-50 pax)
               </label>
             </div>
@@ -557,18 +565,18 @@ L (₱3,650) (45-50 pax)
             <h4>Embotido (Tray)</h4>
             <div class="gallery" style="margin-top: 11%;">
               <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-400">
                 S (₱400) (10-12 pax)
               </label>
               <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)-1000">
                 M (₱1,000) (25-30 pax)
               </label>
               <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)-1500">
                 L (₱1,500) (45-50 pax)
               </label>
             </div>
@@ -595,18 +603,18 @@ L (₱3,650) (45-50 pax)
               <h4>Fresh Lumpiang Ubod<br>(Tray)</h4>
               <div class="gallery">
                 <label>
-                  <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                  <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                  <img src="images/sTray.png" alt="Image 1"><br>
+                  <input type="radio" name="size" value="(10 to 12 pax)-400">
                   S (₱400) (10-12 pax)
                 </label>
                 <label>
-                  <img src="images/m4.jpg" alt="Image 2"><br>
-                  <input type="radio" name="size" value="Medium(25 to 30 pax)-600">
+                  <img src="images/mTray.png" alt="Image 2"><br>
+                  <input type="radio" name="size" value="(25 to 30 pax)-600">
                   M (₱600) (25-30 pax)
                 </label>
                 <label>
-                  <img src="images/m2.jpg" alt="Image 3"><br>
-                  <input type="radio" name="size" value="Large(45 to 50 pax)-1000">
+                  <img src="images/lTray.png" alt="Image 3"><br>
+                  <input type="radio" name="size" value="(45 to 50 pax)-1000">
                   L (₱1,000) (45-50 pax)
                 </label>
               </div>
@@ -633,18 +641,18 @@ L (₱3,650) (45-50 pax)
                 <h4>Fried Chicken Fingers<br>(Tray)</h4>
                 <div class="gallery">
                   <label>
-                    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                    <input type="radio" name="size" value="Small(10 to 12 pax)-500">
+                    <img src="images/sTray.png" alt="Image 1"><br>
+                    <input type="radio" name="size" value="(10 to 12 pax)-500">
                     S (₱500) (10-12 pax)
                   </label>
                   <label>
-                    <img src="images/m4.jpg" alt="Image 2"><br>
-                    <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+                    <img src="images/mTray.png" alt="Image 2"><br>
+                    <input type="radio" name="size" value="(25 to 30 pax)-1000">
                     M (₱1,000) (25-30 pax)
                   </label>
                   <label>
-                    <img src="images/m2.jpg" alt="Image 3"><br>
-                    <input type="radio" name="size" value="Large(45 to 50 pax)-2350">
+                    <img src="images/lTray.png" alt="Image 3"><br>
+                    <input type="radio" name="size" value="(45 to 50 pax)-2350">
                     L (₱2,350) (45-50 pax)
                   </label>
                 </div>
@@ -671,18 +679,18 @@ L (₱3,650) (45-50 pax)
           <h4>Fried Fish Filet (Tray)</h4>
           <div class="gallery" style="margin-top: 11%;">
             <label>
-              <img src="images/Safrtda.jpg" alt="Image 1"><br>
-              <input type="radio" name="size" value="Small(10 to 12 pax)-300">
+              <img src="images/sTray.png" alt="Image 1"><br>
+              <input type="radio" name="size" value="(10 to 12 pax)-300">
               S (₱300) (10-12 pax)
             </label>
             <label>
-              <img src="images/m4.jpg" alt="Image 2"><br>
-              <input type="radio" name="size" value="Medium(25  to 30 pax)-900">
+              <img src="images/mTray.png" alt="Image 2"><br>
+              <input type="radio" name="size" value="(25  to 30 pax)-900">
               M (₱900) (25-30 pax)
             </label>
             <label>
-              <img src="images/m2.jpg" alt="Image 3"><br>
-              <input type="radio" name="size" value="Large(45 to 50 pax)-1400">
+              <img src="images/lTray.png" alt="Image 3"><br>
+              <input type="radio" name="size" value="(45 to 50 pax)-1400">
               L (₱1,400) (45-50 pax)
             </label>
           </div>
@@ -703,45 +711,30 @@ L (₱3,650) (45-50 pax)
           <button onclick="addToCart('Fried Fish Fillet','fff')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
           </div>
           </div>
-          <div class="cards">
-          <img class="card-image" src="images/gc.jpg" alt="" />
-          <div class="card-detail">
-          <h4>Glazed Chicken (Tray)</h4>
-          <div style="margin-top: 11%;">
-            <input type="radio" name="chk"> Cheesy Garlic Parmesan<br>
-            <input type="radio" name="chk"> Honey Garlic<br>
-            <input type="radio" name="chk"> Hot Buffalo<br>
-            <input type="radio" name="chk"> Sweet Chili<br>
-            <input type="radio" name="chk"> Sweet Soy
-          </div>
-          <div class="rat" style="margin-top: 12%;">
-            <p>Rating:</p>
-            <div class="star-rating" id="star14">
-              <!-- Star icons will be added here using JavaScript -->
-            </div>
-          </div>
-          <p class="card-time">
-            <span class="fas fa-clock"></span>15-30 mins
-          </p>
-          <button class="cbtn">Order</button>
-          <button onclick="addToCart('Afritada')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
-          
-          </div>
-          </div>
-          <div class="cards">
-            <img class="card-image" src="images/gff.jpg" alt="" />
+          <div class="cards" id="chk">
+            <img class="card-image" src="images/gc.jpg" alt="" />
             <div class="card-detail">
-            <h4>Glazed Fish Fillet (Tray)</h4>
-            <div style="margin-top: 11%;">
-              <input type="radio" name="gff"> Cheesy Garlic Parmesan<br>
-              <input type="radio" name="gff"> Honey Garlic<br>
-              <input type="radio" name="gff"> Hot Buffalo<br>
-              <input type="radio" name="gff"> Sweet Chili<br>
-              <input type="radio" name="gff"> Sweet Soy
+            <h4>Glazed Chicken (Tray)</h4>
+            <div class="gllry" style="margin-top: 11%;">
+              <label>
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-525">
+                S (₱525) (10-12 pax)
+              </label>
+              <label>
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25  to 30 pax)-1000">
+                M (₱1,000) (25-30 pax)
+              </label>
+              <label>
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)-2500">
+                L (₱2,500) (45-50 pax)
+              </label>
             </div>
-            <div class="rat" style="margin-top: 12%;">
+            <div class="rat" >
               <p>Rating:</p>
-              <div class="star-rating" id="star15">
+              <div class="star-rating" id="star14">
                 <!-- Star icons will be added here using JavaScript -->
               </div>
             </div>
@@ -749,27 +742,61 @@ L (₱3,650) (45-50 pax)
               <span class="fas fa-clock"></span>15-30 mins
             </p>
             <button class="cbtn">Order</button>
-            <button onclick="addToCart('Afritada')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+            <button onclick="addToCart('Glazed Chicken','chk')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
             </div>
             </div>
+            <div class="cards" id="gff">
+              <img class="card-image" src="images/gff.jpg" alt="" />
+              <div class="card-detail">
+              <h4>Glazed Fish Fillet (Tray)</h4>
+              <div class="gllry" style="margin-top: 11%;">
+                <label>
+                  <img src="images/sTray.png" alt="Image 1"><br>
+                  <input type="radio" name="size" value="(10 to 12 pax)-300">
+                  S (₱300) (10-12 pax)
+                </label>
+                <label>
+                  <img src="images/mTray.png" alt="Image 2"><br>
+                  <input type="radio" name="size" value="(25  to 30 pax)-900">
+                  M (₱900) (25-30 pax)
+                </label>
+                <label>
+                  <img src="images/lTray.png" alt="Image 3"><br>
+                  <input type="radio" name="size" value="(45 to 50 pax)-1400">
+                  L (₱1,400) (45-50 pax)
+                </label>
+              </div>
+              <div class="rat">
+                <p>Rating:</p>
+                <div class="star-rating" id="star15">
+                  <!-- Star icons will be added here using JavaScript -->
+                </div>
+              </div>
+              <p class="card-time">
+                <span class="fas fa-clock"></span>15-30 mins
+              </p>
+              <button class="cbtn">Order</button>
+              <button onclick="addToCart('Glaze Fish Fillet','gff')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+              </div>
+              </div>
             <div class="cards" id="hndo">
               <img class="card-image" src="images/hmdo.jpg" alt="" />
               <div class="card-detail">
               <h4>Hamonado (Tray)</h4>
               <div class="gallery" style="margin-top: 11%;">
                 <label>
-                  <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                  <input type="radio" name="size" value="Small(10 to 12 pax)-600">
+                  <img src="images/sTray.png" alt="Image 1"><br>
+                  <input type="radio" name="size" value="(10 to 12 pax)-600">
                   S (₱600) (10-12 pax)
                 </label>
                 <label>
-                  <img src="images/m4.jpg" alt="Image 2"><br>
-                  <input type="radio" name="size" value="Medium(25 to 30 pax)-1450">
+                  <img src="images/mTray.png" alt="Image 2"><br>
+                  <input type="radio" name="size" value="(25 to 30 pax)-1450">
                   M (₱1,450) (25 to 30 pax)
                 </label>
                 <label>
-                  <img src="images/m2.jpg" alt="Image 3"><br>
-                  <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
+                  <img src="images/lTray.png" alt="Image 3"><br>
+                  <input type="radio" name="size" value="(45 to 50 pax)-2800">
                   L (₱2,800) (45-50 pax)
                 </label>
               </div>
@@ -796,18 +823,18 @@ L (₱3,650) (45-50 pax)
                 <h4>Kare-Kare (Tray)</h4>
                 <div class="gallery">
                   <label>
-                    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                    <input type="radio" name="size" value="Small(10 to 12 pax)-570">
+                    <img src="images/sTray.png" alt="Image 1"><br>
+                    <input type="radio" name="size" value="(10 to 12 pax)-570">
                     S (₱570) (10-12 pax)
                   </label>
                   <label>
-                    <img src="images/m4.jpg" alt="Image 2"><br>
-                    <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+                    <img src="images/mTray.png" alt="Image 2"><br>
+                    <input type="radio" name="size" value="(25 to 30 pax)-1350">
                     M (₱1,350) (25 to 30 pax)
                   </label>
                   <label>
-                    <img src="images/m2.jpg" alt="Image 3"><br>
-                    <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
+                    <img src="images/lTray.png" alt="Image 3"><br>
+                    <input type="radio" name="size" value="(45 to 50 pax)-2800">
                     L (₱2,800) (45-50 pax)
                   </label>
                 </div>
@@ -834,18 +861,18 @@ L (₱3,650) (45-50 pax)
                   <h4>Korean Beef Stew (Tray)</h4>
                   <div class="gallery">
                     <label>
-                      <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                      <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+                      <img src="images/sTray.png" alt="Image 1"><br>
+                      <input type="radio" name="size" value="(10 to 12 pax)-700">
                       S (₱700) (10-12 pax)
                     </label>
                     <label>
-                      <img src="images/m4.jpg" alt="Image 2"><br>
-                      <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+                      <img src="images/mTray.png" alt="Image 2"><br>
+                      <input type="radio" name="size" value="(25 to 30 pax)-1800">
                       M (₱1,800) (25-30 pax)
                     </label>
                     <label>
-                      <img src="images/m2.jpg" alt="Image 3"><br>
-                      <input type="radio" name="size" value="Large(45 to 50 pax)-3500">
+                      <img src="images/lTray.png" alt="Image 3"><br>
+                      <input type="radio" name="size" value="(45 to 50 pax)-3500">
                       L (₱3,500) (45-50 pax)
                     </label>
                   </div>
@@ -872,18 +899,18 @@ L (₱3,650) (45-50 pax)
             <h4>Menudo (Tray)</h4>
             <div class="gallery">
               <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-570">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-570">
                 S (₱570) (10-12 pax)
               </label>
               <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)-1350">
                 M (₱1,350) (25-30 pax)
               </label>
               <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)-2600">
                 L (₱2,600) (45-50 pax)
               </label>
             </div>
@@ -910,18 +937,18 @@ L (₱3,650) (45-50 pax)
               <h4>Mixed Vegies in Cream (Tray)</h4>
               <div class="gallery" style="margin-top: 11%;">
                 <label>
-                  <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                  <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                  <img src="images/sTray.png" alt="Image 1"><br>
+                  <input type="radio" name="size" value="(10 to 12 pax)-400">
                   S (₱400) (10-12 pax)
                 </label>
                 <label>
-                  <img src="images/m4.jpg" alt="Image 2"><br>
-                  <input type="radio" name="size" value="Medium(25 to 30 pax)-900">
+                  <img src="images/mTray.png" alt="Image 2"><br>
+                  <input type="radio" name="size" value="(25 to 30 pax)-900">
                   M (₱900) (25-30 pax)
                 </label>
                 <label>
-                  <img src="images/m2.jpg" alt="Image 3"><br>
-                  <input type="radio" name="size" value="Large(45 to 50 pax)-1850">
+                  <img src="images/lTray.png" alt="Image 3"><br>
+                  <input type="radio" name="size" value="(45 to 50 pax)-1850">
                   L (₱1,850) (45-50 pax)
                 </label>
               </div>
@@ -948,18 +975,18 @@ L (₱3,650) (45-50 pax)
         <h4>Mongolian Beef (Tray)</h4>
         <div class="gallery" style="margin-top: 11%;">
             <label>
-            <img src="images/Safrtda.jpg" alt="Image 1"><br>
-            <input type="radio" name="size" value="Small(10 to 12 pax)-700">
+            <img src="images/sTray.png" alt="Image 1"><br>
+            <input type="radio" name="size" value="(10 to 12 pax)-700">
             S (₱700) (10-12 pax)
             </label>
             <label>
-            <img src="images/m4.jpg" alt="Image 2"><br>
-            <input type="radio" name="size" value="Medium(25 to 30 pax)-1800">
+            <img src="images/mTray.png" alt="Image 2"><br>
+            <input type="radio" name="size" value="(25 to 30 pax)-1800">
             M (₱1,800)
             </label>
             <label>
-            <img src="images/m2.jpg" alt="Image 3"><br>
-            <input type="radio" name="size" value="Large(45 to 50)-3500">
+            <img src="images/lTray.png" alt="Image 3"><br>
+            <input type="radio" name="size" value="(45 to 50)-3500">
             L (₱3,500) (45 to 50 pax)
             </label>
         </div>
@@ -986,18 +1013,18 @@ L (₱3,650) (45-50 pax)
             <h4>Pork Pastel (Tray)</h4>
             <div class="gallery" style="margin-top: 11%;">
             <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-570">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-570">
                 S (₱570) (10-12 pax)
             </label>
             <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)-1350">
                 M (₱1,350) (25-30 pax)
             </label>
             <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)-2600">
                 L (₱2,600) (45-50 pax)
             </label>
             </div>
@@ -1024,18 +1051,18 @@ L (₱3,650) (45-50 pax)
             <h4>Sauted Fish and Veggies in Chili Garlic Sauce (Tray)</h4>
             <div class="gallery">
                 <label>
-                <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                <img src="images/sTray.png" alt="Image 1"><br>
+                <input type="radio" name="size" value="(10 to 12 pax)-400">
                 S (₱400) (10-12 pax)
                 </label>
                 <label>
-                <img src="images/m4.jpg" alt="Image 2"><br>
-                <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
+                <img src="images/mTray.png" alt="Image 2"><br>
+                <input type="radio" name="size" value="(25 to 30 pax)-1000">
                 M (₱1,000) (25-30 pax)
                 </label> 
                 <label>
-                <img src="images/m2.jpg" alt="Image 3"><br>
-                <input type="radio" name="size" value="Large(45 to 50 pax)-1550">
+                <img src="images/lTray.png" alt="Image 3"><br>
+                <input type="radio" name="size" value="(45 to 50 pax)-1550">
                 L (₱1,550) (45-50 pax)
                 </label>
             </div>
@@ -1053,27 +1080,27 @@ L (₱3,650) (45-50 pax)
                 <span class="fas fa-clock"></span>15-30 mins
             </p>
             <button class="cbtn">Order</button>
-            <button onclick="addToCart('Sauted Fish and Veggies','sfvcgs')" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                    
+            <button onclick="addToCart('Sauted Fish & Veggies','sfvcgs')" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                    
             </div>
             </div>
             <div class="cards" id="svos">
                 <img class="card-image" src="images/saute.jpg" alt="" />
                 <div class="card-detail">
-                <h4>Sauteed Veggies in Oyster Sauce (Tray)</h4>
+                <h4>Sauted Veggies in Oyster Sauce (Tray)</h4>
                 <div class="gallery">
                 <label>
-                    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                    <input type="radio" name="size" value="Small(10 to 12 pax)-400">
+                    <img src="images/sTray.png" alt="Image 1"><br>
+                    <input type="radio" name="size" value="(10 to 12 pax)-400">
                     S (₱400) (10-12 pax)
                 </label>
                 <label>
-                    <img src="images/m4.jpg" alt="Image 2"><br>
-                    <input type="radio" name="size" value="Medium(25 to 30 pax)-900">
+                    <img src="images/mTray.png" alt="Image 2"><br>
+                    <input type="radio" name="size" value="(25 to 30 pax)-900">
                     M (₱900) (25-30 pax)
                 </label>
                 <label>
-                    <img src="images/m2.jpg" alt="Image 3"><br>
-                    <input type="radio" name="size" value="Large(45 to 50 pax)-1850">
+                    <img src="images/lTray.png" alt="Image 3"><br>
+                    <input type="radio" name="size" value="(45 to 50 pax)-1850">
                     L (₱1,850) (45-50 pax)
                 </label>
                 </div>
@@ -1091,7 +1118,7 @@ L (₱3,650) (45-50 pax)
                 <span class="fas fa-clock"></span>15-30 mins
                 </p>
                 <button class="cbtn">Order</button>
-                <button onclick="addToCart('Sauteed Veggies in Oyster','svos')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+                <button onclick="addToCart('Sauted Veggies Oyster','svos')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
                 </div>
                 </div>
                 <div class="cards" id="ssg">
@@ -1100,18 +1127,18 @@ L (₱3,650) (45-50 pax)
                 <h4>Sisig (Tray)</h4>
                 <div class="gallery" style="margin-top: 11%;">
                     <label>
-                    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                    <input type="radio" name="size" value="Small(10 to 12 pax)-600">
+                    <img src="images/sTray.png" alt="Image 1"><br>
+                    <input type="radio" name="size" value="(10 to 12 pax)-600">
                     S (₱600) (10-12 pax)
                     </label>
                     <label>
-                    <img src="images/m4.jpg" alt="Image 2"><br>
-                    <input type="radio" name="size" value="Medium(25 to 30 pax)-1450">
+                    <img src="images/mTray.png" alt="Image 2"><br>
+                    <input type="radio" name="size" value="(25 to 30 pax)-1450">
                     M (₱1,450) (25-30 pax)
                     </label>
                     <label>
-                    <img src="images/m2.jpg" alt="Image 3"><br>
-                    <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
+                    <img src="images/lTray.png" alt="Image 3"><br>
+                    <input type="radio" name="size" value="(45 to 50 pax)-2800">
                     L (₱2,800) (45-50 pax)
                     </label>
                 </div>
@@ -1138,18 +1165,18 @@ L (₱3,650) (45-50 pax)
                 <h4>Sweet and Sour Fish Fillet (Tray)</h4>
                 <div class="gallery">
                     <label>
-                    <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                    <input type="radio" name="size" value="Small(10 to 12 pax)-300">
+                    <img src="images/sTray.png" alt="Image 1"><br>
+                    <input type="radio" name="size" value="(10 to 12 pax)-300">
                     S (₱300) (10-12 pax)
                     </label>
                     <label>
-                    <img src="images/m4.jpg" alt="Image 2"><br>
-                    <input type="radio" name="size" value="Medium(25 to 30 pax)-950">
+                    <img src="images/mTray.png" alt="Image 2"><br>
+                    <input type="radio" name="size" value="(25 to 30 pax)-950">
                     M (₱950) (25-30)
                     </label>
                     <label>
-                    <img src="images/m2.jpg" alt="Image 3"><br>
-                    <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
+                    <img src="images/lTray.png" alt="Image 3"><br>
+                    <input type="radio" name="size" value="(45 to 50 pax)-1500">
                     L (₱1,500) (45-50 pax)
                     </label>
                 </div>
@@ -1167,7 +1194,7 @@ L (₱3,650) (45-50 pax)
                     <span class="fas fa-clock"></span>15-30 mins
                 </p>
                 <button class="cbtn">Order</button>
-                <button onclick="addToCart('Sweet and Sour Fish Fillet','ssf')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
+                <button onclick="addToCart('Sweet/Sour Fish Fillet','ssf')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
                 </div>
                 </div>
                 <div class="cards" id="ssp">
@@ -1176,18 +1203,18 @@ L (₱3,650) (45-50 pax)
                     <h4>Sweet and Sour Pork (Tray)</h4>
                     <div class="gallery" style="margin-top: 11%;">
                     <label>
-                        <img src="images/Safrtda.jpg" alt="Image 1"><br>
-                        <input type="radio" name="size" value="Small(10 to 12 pax)-570">
+                        <img src="images/sTray.png" alt="Image 1"><br>
+                        <input type="radio" name="size" value="(10 to 12 pax)-570">
                         S (₱570) (10-12 pax)
                     </label>
                     <label>
-                        <img src="images/m4.jpg" alt="Image 2"><br>
-                        <input type="radio" name="size" value="Medium(25 to 30 pax)-1350">
+                        <img src="images/mTray.png" alt="Image 2"><br>
+                        <input type="radio" name="size" value="(25 to 30 pax)-1350">
                         M (₱1,350) (10-12 pax)
                     </label>
                     <label>
-                        <img src="images/m2.jpg" alt="Image 3"><br>
-                        <input type="radio" name="size" value="Large(45 to 50 pax)-2600">
+                        <img src="images/lTray.png" alt="Image 3"><br>
+                        <input type="radio" name="size" value="(45 to 50 pax)-2600">
                         L (₱2,600) (45-50 pax)
                     </label>
                     </div>
@@ -1208,33 +1235,19 @@ L (₱3,650) (45-50 pax)
                     <button onclick="addToCart('Sweet and Sour Pork','ssp')" class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>                     
                     </div>
                     </div>
-                    <div id="cart-mod" class="mod">
-                    <div class="mod-cont">
-                    <span class="clse" onclick="closeCartModal()">&times;</span>
-                    <h2 class="crt">My Cart</h2>
-                    <ul id="mod-cart-items"></ul>
-                    <div class="total-amount"><span id="total-amount">0</span></div>
-                    <div class="plc"><button onclick="placeOrder()">Place Order</button></div>
-                    </div>  
-                    </div>
     </div>
-    <div class="container">
-        <div class="lbl" style="margin-top: 5%;">
-          <label class="fp" for="">Store Location</label>
-          <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
-         </div>
-        <div class="card-map">   
-            <div>
-              <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
-            </div>
-              <div style="float: left; margin:  0 0 0 6%;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-               </div>
-        </div>
+    <div id="cart-mod" class="mod">
+      <div class="mod-cont">
+      <span class="clse" onclick="closeCartModal()">&times;</span>
+      <h2 class="crt">My Cart</h2>
+      <ul id="mod-cart-items"></ul>
+      <div class="total-amount"><span id="total-amount">0</span></div>
+      <div class="plc"><button onclick="placeOrder()">Place Order</button></div>
+      </div>  
       </div>
       <script src="scripts/trays.js"></script>
     </body>
-<div class="cntr">
+<div class="cntr" style="margin-top: 100px;">
 
 <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
 <!-- Grid container -->

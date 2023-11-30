@@ -5,16 +5,20 @@ menuToggle.addEventListener('click', () => {
   menu.classList.toggle('show');
 });
 
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
+const togglePassword = document.querySelectorAll('#togglePassword, #toggleCpassword');
+const password = document.querySelectorAll('#password, #confirmPassword');
 
-togglePassword.addEventListener('click', function (e) {
-// toggle the type attribute
-const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-password.setAttribute('type', type);
-// toggle the eye slash icon
-this.classList.toggle('fa-eye-slash');
+togglePassword.forEach(function (button, index) {
+  button.addEventListener('click', function () {
+    // toggle the type attribute
+    const type = password[index].getAttribute('type') === 'password' ? 'text' : 'password';
+    password[index].setAttribute('type', type);
+    
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
   });
+});
+
 
 const passwordField = document.querySelector('#password');
 const confirmPasswordField = document.querySelector('#confirmPassword');
