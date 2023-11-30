@@ -172,7 +172,6 @@ updateCartCounter();
 updateItemCounter();
 }
 
-// Function to decrement the quantity of a specific item
 function decrementItem(index) {
 if (cartItems[index].quantity > 1) {
   cartItems[index].quantity -= 1;

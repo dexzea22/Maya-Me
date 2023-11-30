@@ -1,4 +1,4 @@
-
+// Function to open the payment modal
 function openPaymentModal() {
     var modal = document.getElementById("payment-mod");
     modal.style.display = "block";
@@ -11,12 +11,8 @@ function closePaymentModal() {
 }
 
 // Function to initialize the PayPal button
-// payment.js
-
-// Function to initialize the PayPal button
-// Function to initialize the PayPal button
 function initializePayPalButton() {
-    var totalPrice = calculateTotalPrice(); // Call the calculateTotalPrice function from meals.js
+    var totalPrice = getTotalPriceFromCart();
 
     paypal.Buttons({
         createOrder: function (data, actions) {
@@ -44,9 +40,16 @@ function initializePayPalButton() {
     }).render('#paypal-button');
 }
 
+function getTotalPriceFromCart() {
+    var totalAmountElement = document.getElementById("total-amount");
+    var totalAmount = parseFloat(totalAmountElement.dataset.totalAmount);
+    return totalAmount;
+}
 
-
-// Call the initialization function when the window is loaded
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
     initializePayPalButton();
-};
+});
+
+document.getElementById("checkoutButton").addEventListener("click", function () {
+    openPaymentModal();
+});
