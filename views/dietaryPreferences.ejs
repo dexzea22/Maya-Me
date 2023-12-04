@@ -105,8 +105,9 @@
     function closeDietaryModal() {
       modal.style.display = "none";
     }
-  
-    async function handleSubmit(event) {
+  // ...other code...
+
+  async function handleSubmit(event) {
   event.preventDefault();
   const errorDisplay = document.getElementById("errorDisplay");
 
@@ -115,7 +116,6 @@
   errorDisplay.textContent = "";
 
   const form = document.getElementById("dietaryForm");
-
   const dietaryPreferences = {
     vegetarian: form['vegetarian'].checked,
     vegan: form['vegan'].checked,
@@ -130,43 +130,58 @@
 
   // Check if at least one dietary choice is selected
   const isAnyChoiceSelected = Object.values(dietaryPreferences).some(choice => choice);
-
   if (!isAnyChoiceSelected) {
     errorDisplay.textContent = "Please select at least one dietary preference.";
     errorDisplay.style.display = "block";
     return; // Don't proceed with the submission
   }
 
+  // Proceed with submission
   try {
-    const response = await fetch('/submit-dietary-preferences', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(dietaryPreferences),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    if (data.success) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Success!',
-        text: 'Your dietary preferences have been submitted successfully!',
-        showConfirmButton: true,
+      const response = await fetch('/submit-dietary-preferences', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dietaryPreferences),
       });
-    } else {
-      throw new Error(data.message || 'An error occurred.');
+
+      if (response.ok) {
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+          const data = await response.json();
+          if (data.success) {
+            // Show the success message using SweetAlert
+            Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: 'Your dietary preferences have been submitted successfully!',
+              showConfirmButton: true,
+            }).then(() => {
+              window.location.href = '/recommendations';
+            });
+          } else {
+            throw new Error(data.message || 'An error occurred.');
+          }
+        } else {
+          throw new Error('Received non-JSON response from server');
+        }
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      errorDisplay.textContent = error.message;
+      errorDisplay.style.display = "block";
     }
-  } catch (error) {
-    errorDisplay.textContent = error.message;
-    errorDisplay.style.display = "block";
+  }
+
+
+function displayRecommendations(recommendations) {
+  const recommendationsContainer = document.getElementById('recommendations-container');
+  if (recommendationsContainer) {
+    recommendationsContainer.innerHTML = recommendations.map(rec => `<li>${rec}</li>`).join('');
   }
 }
-
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

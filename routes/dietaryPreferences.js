@@ -1,14 +1,8 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const generateRecommendations = require('../utils/generateRecommendations');
 const router = express.Router();
-
-// Placeholder for TensorFlow recommendation logic
-async function generateRecommendations(userId, dietaryData) {
-  // Implement TensorFlow logic here to generate recommendations
-  // This is a mock-up for demonstration purposes
-  return ['Recommended Food 1', 'Recommended Food 2', 'Recommended Food 3'];
-}
+const prisma = new PrismaClient();
 
 router.post('/submit-dietary-preferences', async (req, res) => {
   if (!req.session || !req.session.userId) {
@@ -18,14 +12,14 @@ router.post('/submit-dietary-preferences', async (req, res) => {
 
   const userId = req.session.userId;
   const dietaryData = {
-    vegetarian: req.body.vegetarian || false,
-    vegan: req.body.vegan || false,
-    omnivore: req.body.omnivore || false,
-    halal: req.body.halal || false,
-    kosher: req.body.kosher || false,
-    lactoseFree: req.body.lactoseFree || false,
-    glutenFree: req.body.glutenFree || false,
-    nutAllergy: req.body.nutAllergy || false,
+    vegetarian: req.body.vegetarian === 'true',
+    vegan: req.body.vegan === 'true',
+    omnivore: req.body.omnivore === 'true',
+    halal: req.body.halal === 'true',
+    kosher: req.body.kosher === 'true',
+    lactoseFree: req.body.lactoseFree === 'true',
+    glutenFree: req.body.glutenFree === 'true',
+    nutAllergy: req.body.nutAllergy === 'true',
     otherRestrictions: req.body.otherRestrictions || ''
   };
 
@@ -39,12 +33,14 @@ router.post('/submit-dietary-preferences', async (req, res) => {
       dietaryPreference = await prisma.dietaryPreference.create({ data: { userId, ...dietaryData } });
     }
 
-    const recommendations = await generateRecommendations(userId, dietaryData);
+    // Generate recommendations based on the dietaryData
+    const recommendations = await generateRecommendations(dietaryData);
 
-    res.json({ success: true, dietaryPreference, recommendations });
+    // Respond with the recommendations in a JSON format
+    res.status(200).json({ success: true, recommendations });
   } catch (error) {
     console.error('Error in submitting dietary preferences:', error);
-    res.status(500).json({ success: false, message: error.message || 'An error occurred.' });
+    res.status(500).json({ success: false, message: 'An error occurred while submitting dietary preferences.' });
   }
 });
 

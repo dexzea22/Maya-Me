@@ -1,3 +1,6 @@
+require('dotenv').config(); // This should be at the very top
+const openai = require('openai-api');
+
 var createError = require('http-errors');
 const express = require('express');
 const session = require('express-session');
@@ -9,6 +12,8 @@ const app = express();
 
 const port = process.env.PORT || 8000;
 
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Now you can access the API key
+const openaiApi = new openai(OPENAI_API_KEY);
 
 var loginRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
@@ -22,6 +27,15 @@ const cartRouter = require('./routes/cart');
 
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 8000 } = process.env;
 const base = 'https://api-m.sandbox.paypal.com';
+
+
+// Correct usage with 'app'
+app.get('/', (req, res) => {
+  // Assume we have a function that gets recommendations.
+  const recommendations = getRecommendationsForUser();
+  res.render('recommendations', { recommendations });
+});
+
 
 paypal.configure({
   mode: 'sandbox', // or 'live' for production
@@ -95,7 +109,7 @@ app.use('/', userinfoRouter);
 app.use('/orders', ordersRouter);
 app.use('/', dietaryRouter); // Use the dietary routes
 app.use('/profile', profileRouter);
-app.use('/', recommendationsRoute);
+app.use('/recommendations', recommendationsRoute);
 app.use('/cart', cartRouter);
 const generateAccessToken = async () => {
   try {
@@ -273,6 +287,11 @@ app.use(function(err, req, res, next) {
   // Render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).json({ success: false, message: 'Internal server error.' });
 });
 
 // Start the server
