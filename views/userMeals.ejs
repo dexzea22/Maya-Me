@@ -79,18 +79,8 @@
             <a style="font-size: 20px" class="prof" href="/logout">Logout</a>
           </div>
         </div>
-        <a
-          class="nav"
-          onclick="openCart()"
-          style="
-            margin: 0.8% 0 0 0;
-            font-size: 17px;
-            cursor: pointer;
-            color: #c69b68;
-            float: right;
-          "
-          ><i class="fas fa-shopping-cart fa-2x"></i
-        ></a>
+        <a class="nav" onclick="openCartModal()" style="margin: 0.8% 0 0 0;font-size: 19px;cursor: pointer;color: #976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span>
+        </a>
         <%- include('dietaryPreferences.ejs') %>
         <!-- <a class="nav" id="openDietaryModal" href="#">Dietary Preferences</a> -->
         <a
@@ -121,6 +111,7 @@
             <a class="fbtn" href="/userMenu">Food Menu</a>
             <a class="fbtn" href="/userTrays">Party Trays</a>
             <a class="fbtn active" href="/userMeals">Solo Meals</a>
+            <a class="fbtn" href="/recommendation">Recommended</a>
           </div>
         </div>
       </div>

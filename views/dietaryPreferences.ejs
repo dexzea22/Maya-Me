@@ -10,22 +10,18 @@
   h2 {
     color: black;
   }
-
   /* Style for the form */
   #dietaryForm {
     display: flex;
     flex-direction: column;
   }
-
   /* Style for form labels and checkboxes */
   label {
     margin-bottom: 5px;
   }
-
   input[type="checkbox"] {
     margin-right: 5px;
   }
-
   /* Style for the error display */
   #errorDisplay {
     color: red;
@@ -43,12 +39,7 @@
   
       <!-- Start of the Dietary Preferences Form -->
       <div class="container">
-        <form
-          id="dietaryForm"
-          action="/submit-dietary-preferences"
-          method="POST"
-          onsubmit="return handleSubmit(event);"
-        >
+        <form id="dietaryForm" action="/submit-dietary-preferences" method="POST" onsubmit="return handleSubmit(event);">
           <!-- Diet Type -->
           <div>
             <label for="vegetarian">Vegetarian</label>

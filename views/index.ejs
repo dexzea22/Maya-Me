@@ -1,6 +1,8 @@
+<!DOCTYPE html>
   <html lang="en" >
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="website icon" type="png" href="images/maya.png">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
@@ -13,30 +15,34 @@
 </head>
   <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
     <div class="topnav">
-    
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
       <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
-
       <div class="menu">
       <a class="nav" href="/index">Home</a>
-      <a class="nav" href="#news">News</a>
-      <a class="nav" href="#contact">Contact</a>
+      <a class="nav" href="/contactUs">Contact</a>
       <a class="nav" href="/aboutUs">About</a>
       <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
       <a class="nav" href="/login" style="font-size: 19px; cursor:pointer; float: right; margin:0.8% 0 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
     </div>
-    <div class="menu-toggle">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+    <div class="side-menu">
+      <a href="/UserDashboard">Home</a>
+      <a href="#">Contact</a>
+      <a href="/aboutUs">About</a>
+      <a style="color: #000000;"href="/login">My Cart</i></a>
+      <a href="/login">Login</a>
     </div>
     </div>
     <div class="login-form">
   <div class="img">
-      <img class="logo" src="images/logo.png" alt="" style="margin-left:60px;">
+      <img class="logo" src="images/logo.png" alt="">
       <div>
-        <p style="margin-top: 45px;">We Deliver Good Food</p>
+        <p class="del">We Deliver Good Food</p>
       </div>  
     </div>
     <form action="/login" method="post">
@@ -70,7 +76,7 @@
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                   <input type="password" placeholder="Enter Password . . . . ." id="password" name="password" class="formc" required>
-                  <span toggle="#password" id="togglePassword" class="fa-fw fa-eye far toggle-password"></span>
+                  <span><span toggle="#password" id="togglePassword" class="fa-fw fa-eye far toggle-password"></span></span>
                 </div>
                 <script>
                   const togglePassword = document.querySelector('#togglePassword');
@@ -88,9 +94,9 @@
           <div class="action" accesskey="">
           <button class="btns">Login</button>
         </div>
-                <div style="margin-top:150px ;">
+                <div>
                   <!-- Simple link -->
-                <label>Don't Have An Account?</label> <a href="/register"> Register here!</a>
+                <label class="dha">Don't Have An Account?</label> <a href="/register"> Register here!</a>
                 </div>
     
               </form>

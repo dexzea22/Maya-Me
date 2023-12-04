@@ -5,10 +5,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  body {
-background: #FFF3EB;
-}
-
 .error {
     text-align: center;
     font-size: 15px;
@@ -16,7 +12,7 @@ background: #FFF3EB;
   
   .topnav {
     overflow: hidden; 
-    background-color: rgb(255, 244, 202);
+    background-color: rgb(239, 232, 202);
     position: sticky;
     top: 0;
     width: 100%;
@@ -53,21 +49,13 @@ background: #FFF3EB;
     }
     .nav{
     margin-right: 50px;
-    margin-top: 18px;
+    margin-top: 15px;
     font-weight: bold;
     }
     .topnav {
     color: white;
     }
-.sticky {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-text-shadow: #000000 1px 2px;
-background-color: #ffffffae; /* Set your background color here */
-z-index: 100; /* Ensure it appears above other page content */
-}
+
 .far {
 margin-left: -25px;
 margin-top: 25px;
@@ -78,10 +66,22 @@ z-index: 2;
 .img{
 float: left;
 }
-
+.del{
+  margin-top: 45px;
+}
+.logo{
+  margin-left: 60px;
+}
 @media (max-width: 768px) {
 .logo {
-  width: 80%;
+  width: 50%;
+  margin-left: 90px;
+  margin-top: 30px;
+}
+.del{
+  font-size:30px ;
+  margin-left:30px;
+  margin-top: 0;
 }
 }
 p {
@@ -100,11 +100,10 @@ font-weight: bold;
 font-size: 50px;
 }
 @media (max-width: 768px) {
-label{
-  font-size: 15px;
+.lbl{
+  font-size: 40px;
+  margin: auto;
 }
-}
-@media (max-width: 768px) {
 p{
   font-size: 40px;
 }
@@ -117,7 +116,7 @@ cursor: pointer;
 .bar {
 width: 30px;
 height: 3px;
-background-color: white;
+background-color: rgb(0, 0, 0);
 margin: 5px 0;
 }
 /* Show menu on smaller screens */
@@ -132,7 +131,14 @@ margin: 5px 0;
   width: 100%;
   z-index: 1;
 }
-
+.side-menu a {
+  display: block;
+  padding: 15px;
+  color: rgb(0, 0, 0);
+  margin-right: 50px;
+  margin-top: 15px;
+  font-weight: bold;
+}
 .menu.show {
   display: flex;
   background-color: rgba(53, 46, 46, 0.204);
@@ -141,8 +147,8 @@ margin: 5px 0;
 .menu-toggle {
   display: block;
   max-width: 100%;
-  float: right;
-  margin: 25px 15px 0 0;
+  float: left;
+  margin: 25px 15px 0 15px;
 }
 }
 
@@ -160,10 +166,22 @@ margin: 5px 0;
         border-bottom-left-radius: 0.5rem;
       }
     }
+.dha{
+  margin-top: 150px;
+}
 .card{
 margin: auto;
 margin-top: 110px;
-max-width:60%;
+width:60%;
+}
+@media(max-width:900px){
+  .card{
+    width: 350px;
+    height: 400px;
+  }
+  .dha{
+    margin-top: 40px;
+  }
 }
 .formc{
 width: 95%;
@@ -178,6 +196,40 @@ padding: 10	;
   color: #C69B68;
   font-weight:600;
   font-size: 20px;
+}
+.side-menu {
+  display: none; /* Hide the side menu by default */
+  position: fixed;
+  top: 88px;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: rgba(239, 232, 202, 0.663);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 998; /* Ensure it's below the menu toggle */
+}
+/* Underline animation */
+.side-menu a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  transition: width 0.3s ease-in-out;
+}
+
+.side-menu a:hover {
+  color: #000000;
+}
+
+.side-menu a:hover::before {
+  width: 100%;
+}
+/* Show the side menu when the .show class is added */
+.side-menu.show {
+  display: block;
 }
 .cntr{
   margin-top: 200px;	
