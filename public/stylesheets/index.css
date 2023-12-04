@@ -18,6 +18,12 @@ body{
     height: 100%;
     z-index: 0;
   }
+  @media(max-width:900px){
+    .jumbotron{
+      max-width: 100%;
+      max-height: 250px;
+    }
+  }
   
   /* Show menu on smaller screens */
 @media (max-width: 768px) {
@@ -43,10 +49,10 @@ body{
   margin-top: 28px;
   }
   .menu-toggle {
-  display: block;
-  max-width: 100%;
-  float: right;
-  margin: 25px 15px 0 0;
+    display: block;
+    max-width: 100%;
+    float: left;
+    margin: 25px 0 0 15px;
   }
   }
  
@@ -127,7 +133,7 @@ body{
     }
     .nav{
     margin-right: 50px;
-    margin-top: 18px;
+    margin-top: 15px;
     font-weight: bold;
     }
     .topnav {
@@ -170,12 +176,11 @@ body{
     }
 
   
-.log{
-padding: 0 0 0 20%;
-}
 @media (max-width: 50%) {
   .log {
     max-width: 50%; /* Adjust the logo size for smaller screens */
+    padding: 0;
+    justify-content: left;
   }
 }
 @media (max-width: 768px) {
@@ -197,6 +202,18 @@ padding: 0 0 0 20%;
   transition: all 0.3s ease; 
   position: relative;
 }
+
+  
+  @media (max-width: 900px) {
+  
+    .fbtn {
+      margin-bottom: 100px;
+      width: 8px;
+      font-size: 7px;
+      height: 20px;
+      text-align: center;
+    }
+  }
 .fbtn:hover{
   background-color:rgb(243, 185, 113);
   color: rgb(0, 0, 0);
@@ -236,6 +253,7 @@ padding: 0 0 0 20%;
   z-index: 999;
 
 }
+
 .card-time {
   color: var(--darkGray);
   font-size: 0.8rem;
@@ -243,11 +261,18 @@ padding: 0 0 0 20%;
 /* Lightbox image styles */
 .lightbox img {
   display: block;
-  max-width: 30%;
-  max-height: 90%;
+  width: 30%;
+  height: 90%;
   margin: auto;
   margin-top: 2%;
 }
+@media(max-width:900px){
+  .lightbox img{
+    width: 300px;
+    height: 400px;
+  }
+}
+
 .fbtn:active,
 .fbtn:focus {
   border: none;  /* This removes the border when clicked or focused */

@@ -56,7 +56,15 @@ app.get('/aboutUs', (req, res) => {
 app.get('/cart', (req, res) => {
   res.render('cart'); // Render a view named "new-page.ejs"
 });
-
+app.get('/recommendation', (req, res) => {
+  res.render('recommendation'); // Render a view named "new-page.ejs"
+});
+app.get('/about', (req, res) => {
+  res.render('about'); // Render a view named "new-page.ejs"
+});
+app.get('/contactUs', (req, res) => {
+  res.render('contactUs'); // Render a view named "new-page.ejs"
+});
 app.use(session({
   secret: 'secret-key',
   resave: false,

@@ -27,12 +27,7 @@
       width: 100%;
       z-index: 1;
     }
-    
-    .menu.show {
-      display: flex;
-      background-color: rgba(255, 233, 146, 0.461);
-      margin-top: 29px;
-    }
+
     .menu-toggle {
       display: block;
       max-width: 100%;
@@ -40,9 +35,36 @@
       margin: 25px 15px 0 0;
     }
     }
+    .side-menu {
+      display: none; /* Hide the side menu by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      background-color: #333;
+      padding-top: 60px; /* Adjust based on your top navigation height */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 998; /* Ensure it's below the menu toggle */
+    }
+    
+    .side-menu a {
+      display: block;
+      padding: 15px;
+      color: white;
+      text-decoration: none;
+    }
+    
+    /* Show the side menu when the .show class is added */
+    .side-menu.show {
+      display: block;
+    }
   .topnav {
     overflow: hidden;
     background-color: rgba(53, 46, 46, 0.117);
+    position: sticky;
+    top: 0;
+    z-index: 100;
     }
     @media (max-width: 768px) {
 .logo {
@@ -94,7 +116,6 @@
         position: relative;
         z-index: 1;
         text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-
     }
     .card-map{
         width: calc(100%);

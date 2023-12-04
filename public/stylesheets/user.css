@@ -35,7 +35,7 @@
   }
   .nav{
   margin-right: 50px;
-  margin-top: 18px;
+  margin-top: 15px;
   font-weight: bold;
   }
   .navc{
@@ -110,12 +110,15 @@ tr:nth-child(even) {
   object-fit: cover;
   border-radius: 30px;
 }
+.cont {
+  display: flex;
+  justify-content: center;
+ 
+  }
+
 @media (max-width: 900px) {
 .logo {
-width: 60%;
-height: 60%;
-margin-top: 14%;
-margin-left: 6%;
+width: 27%;
 }
 }
 .banner-promo {
@@ -192,7 +195,13 @@ margin-left: 6%;
   max-height:  800px; /* Set the desired height for the search result container */
   overflow-y: auto; /* Enable vertical scrolling if the content exceeds the container height */
 }
-.card-map{
+.card-detail {
+  padding: 10px;
+  }
+  .cards:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+.card-maps{
   width: calc(100%);
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -202,33 +211,61 @@ margin-left: 6%;
   background-color: white;
   height: 450px;
 }
-@media (max-width: 768px) {
-  .logo {
-    max-width: 50%; /* Adjust the logo size for smaller screens */
-  }}
-  .fbtn:active,
-.fbtn:focus {
+@media(max-width:999px){
+  .card-maps{
+    height: 180px;
+  }
+}
+  .fbtns:active,
+.fbtns:focus {
   border: none;  /* This removes the border when clicked or focused */
 }
-.fbtn{
+.fbtns{
+  margin: 0 10px 0 10px;
   background-color:#C69B68;
   border: none;
   border-radius: 5px;
-  width:12%;
-  margin-left:50px;
-  padding: 20px;
+  padding:15px;
+  margin-left: 50px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: white;
   transition: all 0.3s ease; 
   position: relative;
-
+  text-decoration: none;
+  text-align: center;
 }
-.fbtn:hover{
+@media (max-width: 900px) {
+  
+  .log {
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 3%;
+  }
+
+  .fbtns {
+    margin-left: 5px;
+    padding: 10px 10px 10px 10px;
+    font-size: 9px;
+    width: 100px;
+    text-align: center;
+  }
+}
+.fbtns:hover{
   background-color:rgb(243, 185, 113);
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+.ban{
+  width: 100%;
+  height: 150px;
+}
+@media(max-width:500px){
+  .ban{
+    max-width: 100%;
+    max-height: 60px;
+  }
 }
 /* Styles for the modal container with id "cart-modal" */
 #cart-mod {
@@ -292,7 +329,7 @@ button {
   cursor: pointer;
   margin: auto;
 }
-.lbl{
+.lbls{
   font-family: Caveat, open-sans; 
   font-size: 85px;
   font-weight: bold;
@@ -300,7 +337,79 @@ button {
   position: relative;
   z-index: 1;
 }
-.fp{
+@media(max-width:900px){
+.lbls{
+  font-size: 50px;
+}
+}
+.cards {
+  background-color:rgba(255, 255, 255, 0.497);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 15px;
+  position: relative;
+  max-width:500px;
+  cursor: pointer;
+  max-height: 800px; /* Set the desired height for the search result container */
+  overflow-y: auto; /* Enable vertical scrolling if the content exceeds the container height */
+  }
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    }
+    .dashboard-content {
+      display: grid;
+      margin-top: 3%;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 0.5rem 1rem 1rem 1rem;
+      }
+.food-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+ }
+.gallerys,.gallry {
+  display: grid;
+  grid-template-columns: repeat(3,1fr); 
+  gap:10px;
+  }
+  .map-img{
+    float: left; 
+    margin-top: 2%;
+  }
+  @media(max-width:500px){
+    .map-img{
+      height: 120px;
+    }
+  }
+  .gmap{
+   
+    width: 650px;
+    height:400px
+  }
+  @media(max-width:900px){
+    .gmap{
+      width:169px;
+      max-height: 125px;
+    }
+  }
+  .gallerys img, .gllry img {
+    max-width: 75%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+    align-items: center;
+    margin: auto;
+    width: 950px;
+    }
+    /* Hover effect on images */
+    .gallery img:hover, .gllry img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+    }
+  
+.fpu{
   color: #C69B68;
   position: relative; 
   z-index: 2; 
@@ -423,11 +532,12 @@ button {
 .menu-toggle {
 display: none; /* Hide on larger screens */
 cursor: pointer;
+
 }
-.bar {
+.bars {
 width: 30px;
 height: 3px;
-background-color: white;
+background-color: rgb(0, 0, 0);
 margin: 5px 0;
 }
 /* Show menu on smaller screens */
@@ -442,17 +552,24 @@ left: 0;
 width: 100%;
 z-index: 1;
 }
-
+.side-menu a {
+  display: block;
+  padding: 15px;
+  color: rgb(0, 0, 0);
+  margin-right: 50px;
+  margin-top: 15px;
+  font-weight: bold;
+}
 .menu.show {
 display: flex;
 background-color: rgba(53, 46, 46, 0.204);
 margin-top: 29px;
 }
 .menu-toggle {
-display: block;
-max-width: 100%;
-float: right;
-margin: 25px 15px 0 0;
+  display: block;
+  max-width: 100%;
+  float: left;
+  margin: 25px 0 0 15px;
 }
 }
 
@@ -573,4 +690,37 @@ margin: 25px 15px 0 0;
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+.side-menu {
+  display: none; /* Hide the side menu by default */
+  position: fixed;
+  top: 88px;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: rgba(239, 232, 202, 0.663);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 998; /* Ensure it's below the menu toggle */
+}
+/* Underline animation */
+.side-menu a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  transition: width 0.3s ease-in-out;
+}
+
+.side-menu a:hover {
+  color: #000000;
+}
+
+.side-menu a:hover::before {
+  width: 100%;
+}
+.side-menu.show {
+  display: block;
 }

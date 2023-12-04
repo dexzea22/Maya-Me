@@ -4,7 +4,29 @@ const menuToggle = document.querySelector('.menu-toggle');
   menuToggle.addEventListener('click', () => {
     menu.classList.toggle('show');
   });
-
+  document.addEventListener("DOMContentLoaded", function() {
+    var menuToggle = document.querySelector(".menu-toggle");
+    var sideMenu = document.querySelector(".side-menu");
+  
+    if (menuToggle) {
+      menuToggle.addEventListener("click", function() {
+        sideMenu.classList.toggle("show");
+      });
+    }
+  
+    // Check screen size on initial load and hide the menu if the screen is big
+    checkScreenSize();
+    
+    // Check screen size when the window is resized
+    window.addEventListener('resize', checkScreenSize);
+  
+    function checkScreenSize() {
+      if (window.innerWidth > 768) {
+        sideMenu.classList.remove("show");
+      }
+    }
+  });
+  
  // JavaScript function to create a star rating
  function createStarRating(containerId, rating) {
   const container = document.getElementById(containerId);
