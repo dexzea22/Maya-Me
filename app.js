@@ -65,6 +65,9 @@ app.get('/about', (req, res) => {
 app.get('/contactUs', (req, res) => {
   res.render('contactUs'); // Render a view named "new-page.ejs"
 });
+app.get('/contact', (req, res) => {
+  res.render('contact'); // Render a view named "new-page.ejs"
+});
 app.use(session({
   secret: 'secret-key',
   resave: false,

@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Logs</title>
-  <!-- Add Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGS</title>
+  <link rel="website icon" type="png" href="images/maya.png">
+  <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/kreon" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="stylesheets/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand">Admin</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/adminDashboard">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/adminUserTable">Users</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logs">Logs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/studentinfo">Form</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a href="/logout" class="btn btn-danger">Logout</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
   <div class="container">
-    <h1>Logs</h1>
+    <div class="sidenav">
+      <a href="/adminDashboard">Dashboard</a>
+      <a href="/adminUserTable">User Table</a>
+      <a href="/logs">Logs</a>
+      <a href="/logout">Logout</a>
+    </div>
+    <h1 style="font-family: kreon,open-sans;font-weight: bold;font-size: 50px;color: black;">Logs</h1>
     <table class="table table-striped">
       <thead>
         <tr>

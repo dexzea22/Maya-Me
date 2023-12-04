@@ -43,7 +43,14 @@
       background-repeat: no-repeat;
     "
   >
+  
     <div class="topnav">
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <a href="/UserDashBoard"
         ><img src="images/logo.png" height="60px" width="60px"
       /></a>
@@ -76,12 +83,18 @@
           onclick="openDietaryModal()"
           >Dietary Preferences</a
         >
+        <a class="nav" href="/contact">Contact Us</a>
+      <a class="nav" href="/about">About Us</a>
       </div>
-      <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+      <div class="side-menu">
+        <a href="/UserDashboard">Home</a>
+        <a href="/confirmorderinfo">Orders</a>
+        <a href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary</a>
+        <a href="#">Contact</a>
+        <a href="/about">About</a>
+        <a class="nav" style="color: #000000;" onclick="openCartModal()">My Cart</i></a>
+        <a href="/profile">My Profile</a>
+        <a href="/logout">Logout</a>
       </div>
     </div>
     <div class="dashboard">
@@ -1567,37 +1580,6 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="lbl" style="margin-top: 5%">
-        <label class="fp" for="">Store Location</label>
-        <img
-          src="images/gltr.png"
-          style="margin: -10px 0 0 -600px; z-index: 1"
-          alt=""
-        />
-      </div>
-      <div class="card-map">
-        <div>
-          <img
-            style="float: left; margin-top: 2%"
-            src="images/mam.png"
-            alt=""
-          />
-        </div>
-        <div style="float: left; margin: 0 0 0 6%">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph"
-            width="600"
-            height="400"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-    </div>
-    <script src="scripts/cart.js"></script>
     <script src="scripts/trays.js"></script>
   </body>
   <div class="cntr">

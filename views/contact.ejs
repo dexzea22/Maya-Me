@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="website icon" type="png" href="images/maya.png">
+    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="stylesheets/contactUs.css">
+    </head>
+<body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
+    <div class="topnav"> 
+        <div class="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <a href="/UserDashboard"><img src="images/logo.png" height="60px" width="60px"/></a>
+        <a href="/UserDashboard"><img src="images/mayame.png" height="60px" width="190px"/></a>
+        <div class="menu">
+          <a class="nav" href="/UserDashboard">Home</a>
+          <a class="nav" href="/confirmoderinfo">Orders</a>
+        <div class="nav" onclick="openProfileModal()" style="font-size: 22px;cursor: pointer;float: right;margin: 1.3% 3% 0 0;color: #976b35;"> <i class="fas fa-user-circle fa-2x"></i>
+        </div>
+          <!-- Profile Modal -->
+          <div id="profileModal" class="pmod">
+            <div class="modal-contents">
+              <span class="close" onclick="closeProfileModal()">&times;</span>
+              <a style="font-size: 20px" class="prof" href="/profile">My Profile</a>
+              <a style="font-size: 20px" class="prof" href="/confirmoderinfo">Orders</a>
+              <a style="font-size: 20px" class="prof" href="/logout">Logout</a>
+            </div>
+          </div>
+          <a class="nav" onclick="openCartModal()" style="margin: 0.8% 0 0 0;font-size: 19px;cursor: pointer;color: #976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span>
+          </a>
+          <%- include('dietaryPreferences.ejs') %>
+          <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
+          <a class="nav" href="/contact">Contact Us</a>
+        <a class="nav" href="/about">About Us</a>
+        </div>
+         <div class="side-menu">
+          <a href="/UserDashboard">Home</a>
+          <a href="/confirmorderinfo">Orders</a>
+          <a href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary</a>
+          <a href="#">Contact</a>
+          <a href="/about">About</a>
+          <a class="nav" style="color: #000000;" onclick="openCartModal()">My Cart</i></a>
+          <a href="/profile">My Profile</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div> 
+    <div class="dashboard">
+      <div class="dashboard-banner">
+        <img src="images/long.jpg" alt=""/>
+        <div class="banner-promo">
+            <span><img class="logo" src="images/maya.png" alt="" height="330px"></span>  
+      </div>
+      <div class="cont">
+        <div class="log">
+          <a class="fbtns" href="/menu">Food Menu</a>
+          <a class="fbtns" href="/trays">Party Trays</a>
+          <a class="fbtns" href="/meals">Solo Meals</a>
+        </div>
+        </div>
+      </div>
+        </div>
+      <!-- Contact 4 - Bootstrap Brain Component -->
+<section class="py-3 py-md-5" style="margin-top: 150px;background-image: url('images/cont.jpg'); background-size: cover;background-repeat: no-repeat;">
+  <div class="container" >
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+        <h3 class="fs-6 text-dark mb-2 text-uppercase text-center">Get in Touch With Us</h3>
+        <h2 class="display-5 mb-4 mb-md-5 text-center">We're always on the lookout to work with our customers.</h2>
+        <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row gy-3 gy-md-4 gy-lg-0 align-items-xl-center">
+      <div class="col-12 col-lg-6">
+          <iframe class="gmap" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15473.095439622592!2d121.50914925672969!3d14.178731599845047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDEwJzU1LjkiTiAxMjHCsDMwJzM2LjAiRQ!5e0!3m2!1sen!2sus!4v1701578225488!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+        </div>
+      <div class="col-12 col-lg-6" >
+        <div class="row justify-content-xl-center" >
+          <div class="col-12 col-xl-11">
+            <div class="ctnct border rounded shadow-sm overflow-hidden">
+
+              <form action="#!">
+                <div class="row gy-4 gy-xl-5 p-4 p-xl-5" >
+                  <div class="col-12">
+                    <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                        </svg>
+                      </span>
+                      <input type="email" class="form-control" id="email" name="email" value="" required>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <div class="input-group">
+                      <span class="input-group-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>
+                      </span>
+                      <input type="tel" class="form-control" id="phone" name="phone" value="">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="subject" name="subject" value="" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-grid">
+                      <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      <div class="lbls" style="margin:3% 0 0 1%;">
+        <label class="fpu" for="">Menu and Prices</label>
+       </div>
+  <div>
+  <div class="gallery">
+    <img src="images/m1.jpg" alt="Image 1">
+    <img src="images/m4.jpg" alt="Image 1">
+    <img src="images/m2.jpg" alt="Image 1">
+    <img src="images/m5.jpg" alt="Image 1">
+    <img src="images/m3.jpg" alt="Image 1">
+    <!-- Add more images as needed -->
+  </div>
+
+  <!-- Lightbox (hidden by default) -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Image" id="lightbox-image">
+  </div>
+</div>
+    <div class="cntr" style="margin-top: 100px;">
+
+      <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
+        <!-- Grid container -->
+        <div class="p-5">
+        
+        <!--Grid row-->
+        
+        <div class="row mt-4">
+          <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">About company</h5>
+      
+          <label style="color: white;">
+            Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
+          </label>
+      
+          <div class="mt-4">
+            <!-- Facebook -->
+            <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
+            <!-- Dribbble -->
+            <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
+            <!-- Twitter -->
+            <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
+            <!-- Google + -->
+            <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
+            <!-- Linkedin -->
+          </div>
+          </div>
+          <!--Grid column-->
+      <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
+      
+          <ul class="fa-ul" style="margin-left: 1.65em;">
+            <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
+            </li>
+            <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">mayaandme74@gmail.com</span>
+            </li>
+            <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">09186506362</span>
+            </li>
+         
+          </ul>
+          </div>
+          <!--Grid column-->
+      
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">Opening hours</h5>
+      
+          <table class="table text-center text-white">
+            <tbody class="font-weight-normal">
+            <tr>
+              <td>Mon - Thu:</td>
+              <td>8am - 9pm</td>
+            </tr>
+            <tr style="background-color: #C69B68;">
+              <td>Fri - Sat:</td>
+              <td>8am - 1am</td>
+            </tr>
+            <tr>
+              <td>Sunday:</td>
+              <td>9am - 10pm</td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
+        © 2023 Copyright:
+        <label style="color:#976b35;" >Maya&Me Services</label>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      </div>
+      <script src="scripts/cart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+</html>

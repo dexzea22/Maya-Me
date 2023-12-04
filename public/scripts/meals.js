@@ -26,7 +26,10 @@ const menuToggle = document.querySelector('.menu-toggle');
       }
     }
   });
-  
+  function Login() {
+    // You can set the login page URL here
+    window.location.href = "/login"; // Replace "login.html" with the actual URL of your login page
+  }
  // JavaScript function to create a star rating
  function createStarRating(containerId, rating) {
   const container = document.getElementById(containerId);

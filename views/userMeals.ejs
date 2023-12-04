@@ -43,6 +43,12 @@
     "
   >
     <div class="topnav">
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <a href="/UserDashBoard"
         ><img src="images/logo.png" height="60px" width="60px"
       /></a>
@@ -90,12 +96,18 @@
           onclick="openDietaryModal()"
           >Dietary Preferences</a
         >
+        <a class="nav" href="/contact">Contact Us</a>
+      <a class="nav" href="/about">About Us</a>
       </div>
-      <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+      <div class="side-menu">
+        <a href="/UserDashboard">Home</a>
+        <a href="/confirmorderinfo">Orders</a>
+        <a href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary</a>
+        <a href="#">Contact</a>
+        <a href="/about">About</a>
+        <a class="nav" style="color: #000000;" onclick="openCartModal()">My Cart</i></a>
+        <a href="/profile">My Profile</a>
+        <a href="/logout">Logout</a>
       </div>
     </div>
     <div class="dashboard">
