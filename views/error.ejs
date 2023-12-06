@@ -1,252 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Maya & Me</title>
-    <link rel="website icon" type="png" href="images/maya.png">
-    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/7f01a542af.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="stylesheets/index.css">
-  </head>
- 
-  <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
-    <!-- Navigation Bar -->
-    <div class="topnav">
-      <a href="/index"><img href="/index" src="images/logo.png" height="60px" width="60px"></a>
-      <a href="/index"><img href="/index" src="images/mayame.png" height="60px" width="190px"></a>
-      <div class="menu">
-      <a class="nav" href="/index">Home</a>
-      <a class="nav" href="#news">News</a>
-      <a class="nav" href="#contact">Contact</a>
-      <a class="nav" href="/aboutUs">About</a>
-      <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
-      <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error</title>
+  <!-- Include your stylesheet here if you have one -->
+</head>
+<body>
+  <h1>Oops! Something went wrong...</h1>
+  <!-- Display the error message -->
+  <% if (error) { %>
+    <div class="error-message">
+      <p><%= error.message ? error.message : "An unexpected error occurred." %></p>
     </div>
-    <div class="menu-toggle">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+  <% } else { %>
+    <div class="error-message">
+      <p>An unexpected error occurred and no further information is available.</p>
     </div>
-    </div>
-        <!-- End Navigation Bar -->
-      
-    </nav>
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-      <div class="slideshow-container">
+  <% } %>
 
-        <!-- Slides will be added here dynamically -->
-      </div>
-    </div>
-    <img src="images/nav-bg.png" style="width: 100%; height: 150PX;"  alt="">
-  <div class="cont">
-  <div class="log">
-    <img class="logo" src="images/logo.png" alt="">
-    <a class="fbtn" href="/menu">Food Menu</a>
-    <a class="fbtn" href="/trays">Party Trays</a>
-    <a class="fbtn" href="/meals">Solo Meals</a>
-  </div>
-  <img  src="images/nav-bg-footer.png" style="width: 100%; height: 180px;" alt="">
-  </div>
-   <!-- Features Section -->
-   <div>
-  <div class="container">
-  <div class="lbl">
-    <label class="fp" for="">Featured Products</label>
-    <img style="margin: -280px 0 0 -100px; z-index: 1;" src="images/gltr.png" alt="">
-   </div>
-    <!-- End Jumbotron -->
-    <section class="feature-food">
-      <div class="food-card">
-        <div class="card">
-          <img class="flm" src="images/flm.png" alt="">
-          <img src="images/f1.jpg" alt="Food 1" />
-          <h3>Chicken Roll</h3>
-          <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
-          <div class="bar">
-            <p>Rating:</p>
-            <div class="star-rating" id="star-rating">
-              <!-- Star icons will be added here using JavaScript -->
-            </div>
-          </div>
-          <div>
-            <p class="card-time">
-              <span class="fas fa-clock"></span>15-30 mins
-          </p>            
-          <a href="/login" class="order-button">Order Now</a>
-            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
-          </div>
-        </div>
-        <div class="card">
-          <img class="flm" src="images/flm.png" alt="">
-          <img src="images/f5.jpg" alt="Food 2" />
-          <h3>Fried Fish Filet</h3>
-          <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
-          <div class="bar">
-            <p>Rating:</p>
-            <div class="star-rating" id="star-rating2">
-              <!-- Star icons will be added here using JavaScript -->
-            </div>
-          </div>
-          <div>
-            <p class="card-time">
-              <span class="fas fa-clock"></span>15-30 mins
-          </p>            <a href="/login" class="order-button">Order Now</a>
-            <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
-          </div>
-        </div>
-        <div class="card">
-          <img class="flm" src="images/flm.png" alt="">
-          <img src="images/sisig.jpg" alt="Food 3" style="height: 262px;" />
-          <h3>Sisig (Tray)</h3>
-          <p>Sizzle into satisfaction with our mouthwatering Pork Sisig! Experience a symphony of flavors as tender pork pieces are expertly seasoned and crisped to perfection.</p>
-          <div class="bar">
-              <p>Rating:</p>
-              <div class="star-rating" id="star-rating3">
-                  <!-- Star icons will be added here using JavaScript -->
-              </div>
-          </div>
-          <div>
-            <p class="card-time">
-              <span class="fas fa-clock"></span>15-30 mins
-          </p>              <a href="/login" class="order-button">Order Now</a>
-              <button class="cbtn" onclick="Login()"><i class="fas fa-shopping-cart"></i></button>  
-          </div>
-      </div>
-      
-      </div>
-    </section>
-  </div>
-</div>
-  <div class="lbl" style="margin:3% 0 0 1%;">
-    <label class="fp" for="">Menu and Prices</label>
-    <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
-   </div>
-<div>
-  <div class="gallery">
-    <img src="images/m1.jpg" alt="Image 1">
-    <img src="images/m4.jpg" alt="Image 1">
-    <img src="images/m2.jpg" alt="Image 1">
-    <img src="images/m5.jpg" alt="Image 1">
-    <img src="images/m3.jpg" alt="Image 1">
-    <!-- Add more images as needed -->
-  </div>
+  <!-- You can include a link back to the homepage or dashboard -->
+  <a href="/">Go back to the homepage</a>
 
-  <!-- Lightbox (hidden by default) -->
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Enlarged Image" id="lightbox-image">
-  </div>
-</div>
-  <div class="container">
-    <div class="lbl" style="margin-top: 5%;">
-      <label class="fp" for="">Store Location</label>
-      <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
-     </div>
-    <div class="card-map">   
-        <div>
-          <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
-        </div>
-          <div style="float: left; margin:  0 0 0 6%;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-           </div>
-    </div>
-  </div>
-  <script src="scripts/index.js"></script>
-  </body>
-  <div class="cntr">
-
-    <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
-      <!-- Grid container -->
-      <div class="p-5">
-      
-      <!--Grid row-->
-      
-      <div class="row mt-4">
-        <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">About company</h5>
-    
-        <label>
-          Thank you for choosing Maya&Me Services for your food ordering needs. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!
-        </label>
-    
-        <div class="mt-4">
-          <!-- Facebook -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
-          <!-- Dribbble -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
-          <!-- Twitter -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
-          <!-- Google + -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
-          <!-- Linkedin -->
-        </div>
-        </div>
-        <!--Grid column-->
-    <div class="col-lg-1 col-md-6 mb-4 mb-md-0"></div>
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
-    
-        <ul class="fa-ul" style="margin-left: 1.65em;">
-          <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
-          </li>
-          <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">mayaandme74@gmail.com</span>
-          </li>
-          <li class="mb-3">
-          <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">09186506362</span>
-          </li>
-       
-        </ul>
-        </div>
-        <!--Grid column-->
-    
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">Opening hours</h5>
-    
-        <table class="table text-center text-white">
-          <tbody class="font-weight-normal">
-          <tr>
-            <td>Mon - Thu:</td>
-            <td>8am - 9pm</td>
-          </tr>
-          <tr>
-            <td>Fri - Sat:</td>
-            <td>8am - 1am</td>
-          </tr>
-          <tr>
-            <td>Sunday:</td>
-            <td>9am - 10pm</td>
-          </tr>
-          </tbody>
-        </table>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-      </div>
-      <!-- Grid container -->
-    
-      <!-- Copyright -->
-      <div class="text-center p-3" style="font-weight: bold; background-color: #ffefe4; color: #C69B68;">
-      © 2023 Copyright:
-      <label >Maya&Me Services</label>
-      </div>
-      <!-- Copyright -->
-    </footer>
-    </div>
+  <script>
+    // Here you could include some JavaScript to handle the error, if needed.
+  </script>
+</body>
 </html>

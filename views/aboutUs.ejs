@@ -14,35 +14,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="stylesheets/about.css">
+    <link rel="stylesheet" href="stylesheets/menu.css">
 </head>
 <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
   <div class="topnav">
-    
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
     <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
     <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
 
     <div class="menu">
-    <a class="nav" href="/index">Home</a>
-    <a class="nav" href="#news">News</a>
-    <a class="nav" href="#contact">Contact</a>
-    <a class="nav" href="/aboutUs">About</a>
-    <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
-    <a class="nav" href="/login" style="font-size: 14px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+      <a class="nav" href="/index">Home</a>
+      <a class="nav" href="/contactUs">Contact</a>
+      <a class="nav" href="/aboutUs">About</a>
+      <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+      <a class="nav" href="/login"style="font-size: 19px; cursor:pointer; float: right; margin:0.8% 0 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+    </div>
+  
+    <div class="side-menu">
+      <a href="/index">Home</a>
+      <a href="/contactUs">Contact</a>
+      <a href="/aboutUs">About</a>
+      <a href="/login">Login</a>
+      <a href="/login">My Cart</i></a>
+    </div>
+</div>
+<div class="cont">
+  <div class="log" style="margin-top: 100px;">
+    <a class="fbtns" href="/menu">Food Menu</a>
+    <a class="fbtns" href="/trays">Party Trays</a>
+    <a class="fbtns" href="/meals">Solo Meals</a>
   </div>
-  <div class="menu-toggle">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-  </div>
-      
+</div>  
       <div style="background-color:rgba(255, 255, 255, 0.439); margin-top: 100px;">
         <div class="container py-5">
           <div class="row h-100 align-items-center py-5">
             <div class="col-lg-6">
-              <h1 class="lbl">Maya & Me Food Orders</h1>
+              <h1 class="lbls">Maya & Me Food Orders</h1>
               <p class="lead text-muted mb-0">Maya & Me Food Orders is a culinary venture that emerged during the 2020 pandemic, founded by Maya and a dedicated team. Born out of a passion for creating comforting and flavorful dishes, Maya & Me is committed to delivering a dining experience that goes beyond mere meals. The business values community, resilience, and supporting local producers. With a diverse menu inspired by Maya's cultural background, the venture invites customers to join a culinary journey that brings joy and connection through delicious food.</p>
             </div>
             <div class="col-lg-6 d-none d-lg-block"><img src="images/logo.png" alt="" class="img-fluid"></div>
@@ -53,7 +65,7 @@
         <div class="container py-5">
           <div class="row mb-4">
             <div class="col-lg-5">
-              <h2 class="lbl" style="font-size:85px ;">Our team</h2>
+              <h2 class="lbls" style="font-size:85px ;">Our team</h2>
               <p class="font-italic text-muted">Meet Our Talented Team of Developers
                 At the core of our innovative system is a team of dedicated and skilled developers who bring expertise, creativity, and passion to every line of code. Together, we form a dynamic group committed to pushing the boundaries of technology to deliver a robust user experience.</p>
             </div>
@@ -119,6 +131,7 @@
           </div>
         </div>
       </div>
+      
       <div class="cntr">
 
         <footer class="text-white text-center text-lg-start" style="background-color: #C69B68;">
@@ -206,6 +219,7 @@
         </footer>
         </div>
           <!-- End of .container -->
+          
       <script src="scripts/menu.js"></script>
 </body>
 </html>

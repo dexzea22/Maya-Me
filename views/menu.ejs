@@ -19,23 +19,30 @@
 </head>
 <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
   <div class="topnav">
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
     <a href="/index"><img src="images/logo.png" height="60px" width="60px"></a>
     <a href="/index"><img src="images/mayame.png" height="60px" width="190px"></a>
 
     <div class="menu">
-    <a class="nav" href="/index">Home</a>
-    <a class="nav" href="#news">News</a>
-    <a class="nav" href="#contact">Contact</a>
-    <a class="nav" href="/aboutUs">About</a>
-    <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
-  <a class="nav" href="/login" style="font-size: 19px; cursor:pointer; float: right; margin:1% 15px 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
-  </div>
-  <div class="menu-toggle">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
+      <a class="nav" href="/index">Home</a>
+      <a class="nav" href="/contactUs">Contact</a>
+      <a class="nav" href="/aboutUs">About</a>
+      <a href="/login" class="nav" style="float:right; margin-right: 5%;">Login</a>
+      <a class="nav" href="/login"style="font-size: 19px; cursor:pointer; float: right; margin:0.8% 0 0 0;"><i class="fas fa-shopping-cart fa-2x"></i> </a>
+    </div>
+  
+    <div class="side-menu">
+      <a href="/UserDashboard">Home</a>
+      <a href="/contactUs">Contact Us</a>
+      <a href="/aboutUs">About</a>
+      <a href="/login">My Cart</i></a>
+      <a href="/login">Login</a>
+    </div>
 </div>
       <div class="dashboard">
         <div class="dashboard-banner">
@@ -45,9 +52,9 @@
         </div>
         <div class="cont">
           <div class="log">
-            <a class="fbtn active" href="/menu">Food Menu</a>
-            <a class="fbtn" href="/trays">Party Trays</a>
-            <a class="fbtn" href="/meals">Solo Meals</a>
+            <a class="fbtns active" href="/menu">Food Menu</a>
+            <a class="fbtns" href="/trays">Party Trays</a>
+            <a class="fbtns" href="/meals">Solo Meals</a>
           </div>
           </div>
         </div>
@@ -1437,6 +1444,7 @@
                             </div>  
                             </div>
 </div>  
+
 <script src="scripts/menu.js"></script>
 </body>
 <div class="cntr">

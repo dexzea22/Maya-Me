@@ -36,49 +36,85 @@ visibility: visible;
 }
 .nav{
 margin-right: 50px;
-margin-top: 18px;
+margin-top: 15px;
 font-weight: bold;
 }
 .topnav {
 color: white;
 }
 .menu-toggle {
-display: none; /* Hide on larger screens */
-cursor: pointer;
+  display: none; /* Hide on larger screens */
+  cursor: pointer;
+  float: left;
+  }
+  .bar {
+  width: 30px;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  margin: 5px 0;
+  }
+  /* Show menu on smaller screens */
+  @media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  .side-menu a {
+    display: block;
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    margin-right: 50px;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  .menu-toggle {
+    display: block;
+    max-width: 100%;
+    float: left;
+    margin: 25px 0 0 15px;
+  }
+}
 
+.side-menu {
+  display: none; /* Hide the side menu by default */
+  position: fixed;
+  top: 88px;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: rgba(239, 232, 202, 0.663);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 998; /* Ensure it's below the menu toggle */
 }
-.bar {
-width: 30px;
-height: 3px;
-background-color: rgb(0, 0, 0);
-margin: 5px 0;
-}
-/* Show menu on smaller screens */
-@media (max-width: 768px) {
-.menu {
-display: none;
-flex-direction: column;
-background-color: #333;
-position: absolute;
-top: 60px;
-left: 0;
-width: 100%;
-z-index: 1;
-}
-
-.menu.show {
-display: flex;
-background-color: rgba(53, 46, 46, 0.204);
-margin-top: 29px;
-}
-.menu-toggle {
-display: block;
-max-width: 100%;
-float: right;
-margin: 25px 15px 0 0;
-}
+/* Underline animation */
+.side-menu a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  transition: width 0.3s ease-in-out;
 }
 
+.side-menu a:hover {
+  color: #000000;
+}
+
+.side-menu a:hover::before {
+  width: 100%;
+}
+/* Show the side menu when the .show class is added */
+.side-menu.show {
+  display: block;
+}
 #cart-counter {
   color: #000000;
   padding: 4px 8px;
@@ -110,7 +146,7 @@ width: 100%;
 width: 100%;
 height: 400px;
 position: relative;
-padding: 1rem;
+
 border-radius: 30px;
 cursor: pointer;
 }
@@ -187,7 +223,6 @@ margin: 0 10px 0 10px;
 background-color:#C69B68;
 border: none;
 border-radius: 5px;
-width:12%;
 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-size: 20px;
 font-weight: bold;
@@ -195,19 +230,31 @@ color: white;
 transition: all 0.3s ease; 
 position: relative;
 text-decoration: none;
+text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .log {
     flex-direction: row;
-    align-items: center;
+    justify-content: left;
   }
 
   .fbtn {
     margin-bottom: 100px;
-    width: 97px;
-    font-size: 11px;
+    width: 82px;
+    font-size: 7px;
+    height: 30px;
+    text-align: center;
   }
+  .fbtns {
+    margin-bottom: 113px;
+    width: 100px;
+    font-size: 9px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
 }
 .fbtn:hover{
 background-color:rgb(243, 185, 113);
@@ -226,6 +273,25 @@ text-decoration: none;
   background-color:#C69B68;
   border-radius: 5px;
 }
+.fbtns:hover{
+  background-color:rgb(243, 185, 113);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  }
+  .fbtns.active{
+  background-color:rgb(243, 185, 113);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  }
+  .fbtns {
+    padding: 10px 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    background-color:#C69B68;
+    border-radius: 5px;
+    font-weight: bold;
+  }
 
 .dashboard-content {
 display: grid;
@@ -289,6 +355,7 @@ margin: 10px 0;
 padding: 10px;
 
 }
+
 .dashboard-order {
 width: 340px;
 min-height: 100%;
@@ -397,12 +464,21 @@ margin-top:50px;
 position: relative;
 z-index: 1;
 }
+.lbls{
+  font-family: Caveat, open-sans; 
+  font-size: 60px;
+  font-weight: bold;
+  color: #C69B68;
+  margin-top:50px;
+  position: relative;
+  z-index: 1;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
 .ftr{
 font-size: 1vw;
 color: #FFF3EB;
 font-weight: bold;
 }
-
 .flm {
 position: absolute;
 margin-top: 510px;

@@ -21,6 +21,12 @@
 <body style="background-image: url('images/standard-bg.png'); background-size: cover;background-repeat: no-repeat;">
 
   <div class="topnav">
+    <div class="menu-toggle">
+      <div class="bars"></div>
+      <div class="bars"></div>
+      <div class="bars"></div>
+      <div class="bars"></div>
+      </div>
     <a href="/UserDashboard"><img src="images/logo.png" height="60px" width="60px"></a>
     <a href="/UserDashboard"><img src="images/mayame.png" height="60px" width="190px"></a>
     <div class="menu">
@@ -45,19 +51,23 @@
       <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
       <span class="nav welcome-message" style="font-size: 24px; cursor:pointer; float: right; margin:1.8% 0 0 0;color:#976b35;"><%= welcomeMessage %></span>
     </div>
-    
+    <div class="side-menu">
+      <a style="color: black;" href="/UserDashboard">Home</a>
+      <a style="color: black;" href="/confirmorderinfo">Orders</a>
+      <a style="color: black;" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary</a>
+      <a style="color: black;" href="#">Contact</a>
+      <a style="color: black;" href="/about">About</a>
+      <a style="color: black;"class="nav" onclick="openCartModal()">My Cart</i></a>
+      <a style="color: black;" href="/profile">My Profile</a>
+      <a style="color: black;" href="/logout">Logout</a>
+    </div>
   </div>
   <!-- Add your JavaScript for modal and other script tags at the end of the body or in external JS files -->
   
 
 
 <!-- Mobile Menu Toggle -->
-<div class="menu-toggle">
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-</div>
+
 </div>
 <div class="jumbotron">
   <div class="slideshow-container">
@@ -65,147 +75,143 @@
     <!-- Slides will be added here dynamically -->
   </div>
 </div>
-<img src="images/nav-bg.png" style="width: 100%; height: 190PX;"  alt="">
+<img class="ban" src="images/nav-bg.png" alt="">
 <div class="cont">
 <div class="log">
 <img class="logo" src="images/logo.png" alt="">
-<a class="fbtn" href="/userMenu">Food Menu</a>
-<a class="fbtn" href="/userTrays">Party Trays</a>
-<a class="fbtn" href="/userMeals">Solo Meals</a>
+<a class="fbtns" href="/userMenu">Food Menu</a>
+<a class="fbtns" href="/userTrays">Party Trays</a>
+<a class="fbtns" href="/userMeals">Solo Meals</a>
+<a class="fbtn" href="/recommendations">Recommend for You</a>
 </div>
-<img  src="images/nav-bg-footer.png" style="width: 100%; height: 180px;" alt="">
 </div>
+<img class="ban"  src="images/nav-bg-footer.png" alt="">
+
 <!-- Features Section -->
 <div class="container">
-<div class="lbl">
-<label class="fp" for="">Featured Products</label>
-<img style="margin: -280px 0 0 -100px; z-index: 1;" src="images/gltr.png" alt="">
+<div class="lbls">
+<label class="fpu" for="">Featured Products</label>
 </div>
 <!-- End Jumbotron -->
 <section class="feature-food">
-  <div class="food-card">
-    <div class="card" id="chkr">
-      <img src="images/f1.jpg" alt="Food 1" />
-      <img id="chkr" style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
-      <h3>Chicken Roll (Tray)</h3>
-      <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
-      <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
-        <label>
-          <img src="images/sTray.png" alt="Image 1">
-          <input type="radio" name="size" value="Small(10 to 12 pax)-400">
-          S (₱400) (10-12 pax)
-        </label>
-        <label>
-          <img src="images/mTray.png" style="height: 118px;" alt="Image 2">
-          <input type="radio" name="size" value="Medium(25 to 30 pax)-1000">
-          M (₱1,000) (25-30 pax)
-        </label>
-        <label>
-          <img src="images/lTray.png" style="height: 118px;" alt="Image 3">
-          <input type="radio" name="size" value="Large(45 to 50 pax)-1500">
-          L (₱1,500) (45-50 pax)
-        </label>
-      </div>
-       <!-- Lightbox (hidden by default) -->
-<div class="lightbox" id="lightbox">
-  <img src="" alt="Enlarged Image" class="lightbox-image">
-</div>
-      <div class="bar">
-        <p>Rating:</p>
-        <div class="star-rating" id="star-rating">
-          <!-- Star icons will be added here using JavaScript -->
+  <div class="dashboard-content">
+    <div class="cards" id="chkr">
+      <img class="card-image" src="images/f1.jpg" alt="" />
+      <div class="card-detail">
+        <h4>Chicken Roll (Tray)</h4>
+        <p> Delectable and savory dish that combines the flavors of tender chicken, smoky ham, and creamy cheese into a mouthwatering culinary masterpiece. </p>
+        <div class="gallerys" style="margin-top: 11%">
+          <label>
+            <img src="images/sTray.png" alt="Image 1" /><br />
+            <input type="radio" name="size" value="(10 to 12 pax)-400" />
+            S (₱400) (10-12 pax)
+          </label>
+          <label>
+            <img src="images/mTray.png" alt="Image 2" /><br />
+            <input type="radio" name="size" value="(25 to 30 pax)1000" />
+            M (₱1,000) (25-30 pax)
+          </label>
+          <label>
+            <img src="images/lTray.png" alt="Image 3" /><br />
+            <input type="radio" name="size" value="(45 to 50 pax)-1500" />
+            L (₱1,500) (45-50 pax)
+          </label>
         </div>
-      </div>
-      <p class="card-time">
-        <span class="fas fa-clock"></span>15-30 mins
-    </p>
-      <div>
-         <button class="cbtn">Order</button>
- <button onclick="addToCart('Chicken Roll','chkr')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
-</div>
-    </div>
-    <div class="card" id="ff">
-      <img src="images/f5.jpg" alt="Food 2" />
-      <img style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
-      <h3>Fried Fish Filet (Tray)</h3>
-      <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
-      <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
-        <label>
-          <img src="images/sTray.png" alt="Image 1">
-          <input type="radio" name="size" value="Small(10 to 12 pax)-300">
-          S (₱300) (10-12 pax)
-        </label>
-        <label>
-          <img src="images/mTray.png" style="height: 118px;" alt="Image 2">
-          <input type="radio" name="size" value="Medium(25 to 30 pax)-900">
-          M (₱900) (25-30 pax)
-        </label>
-        <label>
-          <img src="images/lTray.png" style="height: 118px;" alt="Image 3">
-          <input type="radio" name="size" value="Large(45 to 50 pax)-1400">
-          L (₱1,400) (45-50 pax)
-        </label>
-      </div>
-       <!-- Lightbox (hidden by default) -->
-<div class="lightbox" id="lightbox">
-  <img src="" alt="Enlarged Image" class="lightbox-image">
-</div>
-      <div class="bar">
-        <p>Rating:</p>
-        <div class="star-rating" id="star-rating2">
-          <!-- Star icons will be added here using JavaScript -->
+        <!-- Lightbox (hidden by default) -->
+        <div class="lightbox" id="lightbox">
+          <img src="" alt="Enlarged Image" class="lightbox-image" />
         </div>
+        <div class="rat">
+          <p>Rating:</p>
+          <div class="star-rating" id="star-rating">
+            <!-- Star icons will be added here using JavaScript -->
+          </div>
+        </div>
+        <p class="card-time"><span class="fas fa-clock"></span>15-30 mins</p>
+        <button class="cbtn">Order</button>
+        <button onclick="addToCart('Chicken Roll','chkr')" class="cbtn">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
       </div>
-      <p class="card-time">
-        <span class="fas fa-clock"></span>15-30 mins
-    </p>
-      <div>
-          <button class="cbtn">Order</button>
-  <button onclick="addToCart('Fried Fish Fillet','ff')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
-</div>
     </div>
-    <div class="card" id="ssg">
-      <img src="images/sisig.jpg" alt="Food 3" style="height: 262px;" />
-      <img style="position: absolute;margin-top: 646px;z-index: 1;" src="images/flm.png" alt="">
-
-      <h3>Sisig (Tray)</h3>
-      <p>Sizzle into satisfaction with our mouthwatering Pork Sisig! Experience a symphony of flavors as tender pork pieces are expertly seasoned and crisped to perfection.</p>
-      <div class="gallery" style="grid-template-columns: repeat(3,1fr);gap:10px; margin-left: 15px;">
-        <label>
-          <img src="images/sTray.png" alt="Image 1">
-          <input type="radio" name="size" value="Small(10 to 12 pax)-600">
-          S (₱600) (10-12 pax)
-        </label>
-        <label>
-          <img src="images/mTray.png" style="height: 118px;" alt="Image 2">
-          <input type="radio" name="size" value="Medium(25 to 30 pax)-1450">
-          M (₱1,450) (25-30 pax)
-        </label>
-        <label>
-          <img src="images/lTray.png" style="height: 118px;" alt="Image 3">
-          <input type="radio" name="size" value="Large(45 to 50 pax)-2800">
-          L (₱2,800) (45-50 pax)
-        </label>
+    <div class="cards" id="fff">
+      <img class="card-image" src="images/f5.jpg" alt="" />
+      <div class="card-detail">
+        <h4>Fried Fish Filet (Tray)</h4>
+        <p>Our "Fried Fish Filet" is a culinary masterpiece. Each fillet is meticulously seasoned with a blend of aromatic herbs and spices, ensuring a burst of taste with every bite.</p>
+        <div class="gallerys" style="margin-top: 11%">
+          <label>
+            <img src="images/sTray.png" alt="Image 1" /><br />
+            <input type="radio" name="size" value="(10 to 12 pax)-300" />
+            S (₱300) (10-12 pax)
+          </label>
+          <label>
+            <img src="images/mTray.png" alt="Image 2" /><br />
+            <input type="radio" name="size" value="(25  to 30 pax)-900" />
+            M (₱900) (25-30 pax)
+          </label>
+          <label>
+            <img src="images/lTray.png" alt="Image 3" /><br />
+            <input type="radio" name="size" value="(45 to 50 pax)-1400" />
+            L (₱1,400) (45-50 pax)
+          </label>
+        </div>
+        <!-- Lightbox (hidden by default) -->
+        <div class="lightbox" id="lightbox">
+          <img src="" alt="Enlarged Image" class="lightbox-image" />
+        </div>
+        <div class="rat">
+          <p>Rating:</p>
+          <div class="star-rating" id="star-rating2">
+            <!-- Star icons will be added here using JavaScript -->
+          </div>
+        </div>
+        <p class="card-time"><span class="fas fa-clock"></span>15-30 mins</p>
+        <button class="cbtn">Order</button>
+        <button onclick="addToCart('Fried Fish Fillet','fff')" class="cbtn">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
       </div>
-       <!-- Lightbox (hidden by default) -->
-<div class="lightbox" id="lightbox">
-  <img src="" alt="Enlarged Image" class="lightbox-image">
-</div>
-      <div class="bar">
+    </div>
+    <div class="cards" id="ssg">
+      <img class="card-image" src="images/sisig.jpg" alt="" />
+      <div class="card-detail">
+        <h4>Sisig (Tray)</h4>
+        <p>Savor the sizzle, indulge in the flavor. Our sisig is not just a dish; it's a culinary masterpiece that elevates your taste buds to new heights.</p>
+        <div class="gallerys" style="margin-top: 11%">
+          <label>
+            <img src="images/sTray.png" alt="Image 1" /><br />
+            <input type="radio" name="size" value="(10 to 12 pax)-600" />
+            S (₱600) (10-12 pax)
+          </label>
+          <label>
+            <img src="images/mTray.png" alt="Image 2" /><br />
+            <input type="radio" name="size" value="(25 to 30 pax)-1450" />
+            M (₱1,450) (25-30 pax)
+          </label>
+          <label>
+            <img src="images/lTray.png" alt="Image 3" /><br />
+            <input type="radio" name="size" value="(45 to 50 pax)-2800" />
+            L (₱2,800) (45-50 pax)
+          </label>
+        </div>
+        <!-- Lightbox (hidden by default) -->
+        <div class="lightbox" id="lightbox">
+          <img src="" alt="Enlarged Image" class="lightbox-image" />
+        </div>
+        <div class="rat">
           <p>Rating:</p>
           <div class="star-rating" id="star-rating3">
-              <!-- Star icons will be added here using JavaScript -->
+            <!-- Star icons will be added here using JavaScript -->
           </div>
+        </div>
+        <p class="card-time"><span class="fas fa-clock"></span>15-30 mins</p>
+        <button class="cbtn">Order</button>
+        <button onclick="addToCart('Sisig','ssg')" class="cbtn">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
       </div>
-      <p class="card-time">
-        <span class="fas fa-clock"></span>15-30 mins
-    </p>
-      <div>
-            <button class="cbtn" >Order</button>
-  <button onclick="addToCart('Sisig','ssg')" class="cbtn"><i class="fas fa-shopping-cart"></i></button>
-      </div>
-  </div>
-  
+    </div>
   </div>
 </section>
 </div>
@@ -219,9 +225,8 @@
   </div>  
   </div>
   <div class="cntr">
-<div class="lbl" style="margin:3% 0 0 1%;">
-<label class="fp" for="">Menu and Prices</label>
-<img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
+<div class="lbls" style="margin:3% 0 0 1%;">
+<label class="fpu" for="">Menu and Prices</label>
 </div>
 <div>
 <div class="gallery">
@@ -238,17 +243,17 @@
   <img src="" alt="Enlarged Image" class="lightbox-image">
 </div>
 </div>
+</div>
 <div class="container">
-<div class="lbl" style="margin-top: 5%;">
-  <label class="fp" for="">Store Location</label>
-  <img src="images/gltr.png" style="margin: -10px 0 0 -600px; z-index: 1;" alt="">
+<div class="lbls" style="margin-top: 5%;">
+  <label class="fpu" for="">Store Location</label>
  </div>
-<div class="card-map">   
+<div class="card-maps">   
     <div>
-      <img style="float: left; margin-top: 2%;" src="images/mam.png" alt="">
+      <img class="map-img"  src="images/mam.png" alt="">
     </div>
-      <div style="float: left; margin:  0 0 0 6%;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15472.867843019703!2d121.5175007991047!3d14.182067032989185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd560d1ac71ceb%3A0x708ef8288bc6c6fd!2sSan%20Isidro%2C%20Luisiana%2C%20Laguna!5e0!3m2!1sen!2sph!4v1696657468374!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+      <div>
+          <iframe class="gmap" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15473.095439622592!2d121.50914925672969!3d14.178731599845047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDEwJzU1LjkiTiAxMjHCsDMwJzM2LjAiRQ!5e0!3m2!1sen!2sus!4v1701578225488!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
        </div>
 </div>
 </div>
