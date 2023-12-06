@@ -81,16 +81,18 @@
         </div>
         <a
           class="nav"
-          onclick="openCart()"
+          onclick="openCartModal()"
           style="
             margin: 0.8% 0 0 0;
-            font-size: 17px;
+            font-size: 19px;
             cursor: pointer;
-            color: #c69b68;
+            color: #976b35;
             float: right;
           "
           ><i class="fas fa-shopping-cart fa-2x"></i
-        ></a>
+          ><span id="cart-counter">0</span></a
+        >
+
         <%- include('dietaryPreferences.ejs') %>
         <!-- <a class="nav" id="openDietaryModal" href="#">Dietary Preferences</a> -->
         <a

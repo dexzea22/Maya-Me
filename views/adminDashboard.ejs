@@ -8,6 +8,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o"></script>
     <style>
       .sidenav {
         height: 100%;
@@ -87,6 +88,24 @@
           height="480"
           src="https://charts.mongodb.com/charts-project-0-ldxpe/embed/charts?id=64a858ee-810f-4501-82f0-3e040f517891&maxDataAge=1800&theme=light&autoRefresh=true"
         ></iframe>
+        <div>
+          <h2>PayPal Transactions</h2>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Transaction ID</th>
+                <th>Amount</th>
+                <!-- Add more headers based on your data -->
+              </tr>
+            </thead>
+            <tbody id="transactionTableBody">
+              <!-- Transaction data will be inserted here dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <!-- Display the PayPal transaction data on your admin dashboard -->
+
         <div class="chart-container">
           <div class="chart-wrapper">
             <canvas id="barChart"></canvas>
@@ -449,5 +468,6 @@
         </script>
       </div>
     </div>
+    <script src="scripts/charts.js"></script>
   </body>
 </html>

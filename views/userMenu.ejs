@@ -7,6 +7,7 @@
     <link rel="website icon" type="png" href="images/maya.png" />
     <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Rubik:400,700"
@@ -89,10 +90,9 @@
             color: #976b35;
             float: right;
           "
+          ><i class="fas fa-shopping-cart fa-2x"></i
+          ><span id="cart-counter">0</span></a
         >
-          <i class="fas fa-shopping-cart fa-2x"></i
-          ><span id="cart-counter">0</span>
-        </a>
         <%- include('dietaryPreferences.ejs') %>
         <a
           class="nav"
@@ -229,6 +229,7 @@
           </button>
         </div>
       </div>
+      <div style="color: black" id="total-amounthidden" hidden></div>
       <div class="cards" id="bc">
         <img class="card-image" src="images/caldereta.jpg" alt="" />
         <div class="card-detail">
@@ -1557,8 +1558,8 @@
         </div>
       </div>
     </div>
-    <script src="scripts/cart.js"></script>
   </body>
+  <script src="scripts/cart.js"></script>
   <div class="cntr" style="margin-top: 100px">
     <footer
       class="text-white text-center text-lg-start"

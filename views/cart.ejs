@@ -99,21 +99,24 @@
           <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
               <div class="col" style="font-weight: bold; color: black;">TOTAL PRICE</div>
               <div style="color: black;" id="total-amount"></div>
+              <div style="color: black;" id="total-amounthidden" hidden></div>
           </div>  
           <div style="color: rgb(255, 0, 0);font-weight: bold; ">**SHIPPING FEE IS FREE AROUND LUISIANA LAGUNA**</div>
-
-                <button class="btn">CHECKOUT</button>
             </form>
+            <input type="submit" value="CHECKOUT" id="checkoutButton" class="btn"></input>
+            <div id="payment-mod" class="modal-container">
+              <div id="paypal-button"></div>
+          </div>
         </div>
     </div>
 </div>
-</form>
-<script src="https://www.paypal.com/sdk/js?client-id=AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o&currency=PHP"></script>
-<script src="scripts/cart.js"></script>
+
+
+
+<script   src="scripts/cart.js"></script>
 <script src="scripts/index.js"></script>
-<script src="scripts/payment.js"></script>
-
-
+<script src="https://www.paypal.com/sdk/js?client-id=AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o&currency=PHP"></script>
+<script  src="scripts/payment.js"></script>
 
 </body>
 </html>

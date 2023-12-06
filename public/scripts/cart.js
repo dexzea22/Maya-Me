@@ -49,6 +49,7 @@ function updateCartCounter() {
 }
 
 function addToCart(itemName, cardId) {
+
   var selectedSize = document.querySelector(`#${cardId} input[name="size"]:checked`);
   // Get the image URL based on the cardId
   var imageUrl = document.querySelector(`#${cardId} img[src^="images/"]`).getAttribute('src');
@@ -65,8 +66,9 @@ function addToCart(itemName, cardId) {
       quantity: 1,  // Default quantity is set to 1
     };
 
-
+    console.log(cartItems);
     cartItems.push(item);
+    console.log(cartItems);
     updateCartDisplay();
     saveCartItemsToStorage(cartItems);
 
@@ -94,9 +96,14 @@ function addToCart(itemName, cardId) {
 function updateCartDisplay() {
   var cartList = document.getElementById("mod-cart-items");
   var totalAmount = document.getElementById("total-amount");
+  var hiddentotal= document.getElementById("total-amounthidden");
   cartList.innerHTML = "";
-
   var totalPrice = 0;
+
+  console.log("cartList:", cartList);
+  console.log("totalAmount:", totalAmount);
+  console.log("hiddentotal:", hiddentotal);
+  
 
   for (var i = 0; i < cartItems.length; i++) {
     var div = document.createElement("div");
@@ -133,7 +140,11 @@ function updateCartDisplay() {
     totalPrice += cartItems[i].price * (cartItems[i].quantity || 1);
   }
 
-  totalAmount.innerHTML = "<strong>₱" + totalPrice.toLocaleString() + "</strong>" ;
+  totalAmount.innerHTML = "<strong>₱" + totalPrice.toLocaleString() + "</strong>";
+  totalAmount.setAttribute('data-numeric-value', totalPrice);
+  
+  hiddentotal.innerHTML = totalPrice;
+  console.log(hiddentotal.innerHTML);
   updateCartCounter();
   updateItemCounter();
 }

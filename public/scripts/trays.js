@@ -99,6 +99,7 @@ function updateCartCounter() {
 }
 
 function addToCart(itemName, cardId) {
+  console.log(cartItems);
   var selectedSize = document.querySelector(`#${cardId} input[name="size"]:checked`);
   // Get the image URL based on the cardId
   var imageUrl = document.querySelector(`#${cardId} img[src^="images/"]`).getAttribute('src');
@@ -286,7 +287,7 @@ function saveCartItemsToStorage(items) {
 
 function getCartItemsFromStorage() {
   var storedItems = localStorage.getItem("cartItems");
-  return storedItems ? JSON.parse(storedItems) : [];
+  return storedItems !== null ? JSON.parse(storedItems) : [];
 }
 
 function displayStoredItems() {
