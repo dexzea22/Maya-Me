@@ -45,7 +45,7 @@
         </div>
       </div>
   
-      <a class="nav" onclick="openCartModal()" style="margin: 0.8% 0 0 0;font-size: 19px;cursor: pointer;color: #976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span>
+      <a class="nav" onclick="openCart()" style="margin: 0.8% 0 0 0;font-size: 19px;cursor: pointer;color: #976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span>
       </a>     
      <%- include('dietaryPreferences.ejs') %>
       <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
@@ -60,15 +60,12 @@
       <a style="color: black;" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary</a>
       <a style="color: black;" href="#">Contact Us</a>
       <a style="color: black;" href="/about">About Us</a>
-      <a style="color: black;"class="nav" onclick="openCartModal()">My Cart</i></a>
+      <a style="color: black;"class="nav" onclick="openCart()">My Cart</i></a>
       <a style="color: black;" href="/profile">My Profile</a>
       <a style="color: black;" href="/logout">Logout</a>
     </div>
   </div>
-  <!-- Add your JavaScript for modal and other script tags at the end of the body or in external JS files -->
   
-
-
 <!-- Mobile Menu Toggle -->
 
 </div>

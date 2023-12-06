@@ -63,6 +63,15 @@
           <a class="prof" href="/recommendations">Recommended</a>
           <a class="prof" href="/logout">Logout</a>
         </div>
+        <%- include('dietaryPreferences.ejs') %>
+        <!-- <a class="nav" id="openDietaryModal" href="#">Dietary Preferences</a> -->
+        <a
+          class="nav"
+          href="#"
+          id="dietaryPreferencesNav"
+          onclick="openDietaryModal()"
+          >Dietary Preferences</a
+        >
       </div>
       <a class="nav" onclick="openCartModal()" style="margin: 0.8% 0 0 0;font-size: 19px;cursor: pointer;color: #976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span>
       </a>
