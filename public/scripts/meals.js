@@ -26,7 +26,10 @@ const menuToggle = document.querySelector('.menu-toggle');
       }
     }
   });
-  
+  function Login() {
+    // You can set the login page URL here
+    window.location.href = "/login"; // Replace "login.html" with the actual URL of your login page
+  }
  // JavaScript function to create a star rating
  function createStarRating(containerId, rating) {
   const container = document.getElementById(containerId);
@@ -290,7 +293,7 @@ function openCartModal() {
     Swal.fire({
       icon: 'warning',
       title: 'Your cart is empty!',
-      text: 'Please add items to your cart first.',
+      text: 'Please add food to your cart first.',
       showConfirmButton: true,
     }); 
   }

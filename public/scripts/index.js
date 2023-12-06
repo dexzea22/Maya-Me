@@ -333,7 +333,7 @@ window.onload = function () {
   updateCartCounter(); // Update the cart counter
   updateItemCounter(); // Update the item counter
 };
-function openCartModal() {
+function openCart() {
   var cartItems = getCartItemsFromStorage() || [];
   console.log("Cart Items:", cartItems);
 
@@ -345,7 +345,7 @@ function openCartModal() {
     Swal.fire({
       icon: 'warning',
       title: 'Your cart is empty!',
-      text: 'Please add items to your cart first.',
+      text: 'Please add food to your cart first.',
       showConfirmButton: true,
     }); 
   }
