@@ -42,92 +42,64 @@
       background-repeat: no-repeat;
     "
   >
-    <div class="topnav">
-      <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <a href="/UserDashBoard"
-        ><img src="images/logo.png" height="60px" width="60px"
-      /></a>
-      <a href="/UserDashBoard"
-        ><img src="images/mayame.png" height="60px" width="190px"
-      /></a>
-
-      <div class="menu">
-        <a class="nav" href="/UserDashboard">Home</a>
-        <a class="nav" href="/confirmoderinfo">Orders</a>
-        <div
-          class="nav"
-          onclick="openProfileModal()"
-          style="
-            font-size: 22px;
-            cursor: pointer;
-            float: right;
-            margin: 1.3% 3% 0 0;
-            color: #976b35;
-          "
-        >
-          <i class="fas fa-user-circle fa-2x"></i>
-        </div>
-        <!-- Profile Modal -->
-        <div id="profileModal" class="pmod">
-          <div class="modal-contents">
-            <span class="close" onclick="closeProfileModal()">&times;</span>
-            <a style="font-size: 20px" class="prof" href="/profile"
-              >My Profile</a
-            >
-            <a style="font-size: 20px" class="prof" href="/confirmoderinfo"
-              >Orders</a
-            >
-            <a style="font-size: 20px" class="prof" href="/logout">Logout</a>
-          </div>
-        </div>
-        <a class="nav" onclick="openCartModal()" style="margin: 0.8% 0 0 0;font-size: 19px;cursor: pointer;color: #976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span>
-        </a>
-        <%- include('dietaryPreferences.ejs') %>
-        <!-- <a class="nav" id="openDietaryModal" href="#">Dietary Preferences</a> -->
-        <a
-          class="nav"
-          href="#"
-          id="dietaryPreferencesNav"
-          onclick="openDietaryModal()"
-          >Dietary Preferences</a
-        >
-        <a class="nav" href="/contact">Contact Us</a>
-      <a class="nav" href="/about">About Us</a>
-      </div>
-      <div class="side-menu">
-        <a href="/UserDashboard">Home</a>
-        <a href="/confirmorderinfo">Orders</a>
-        <a href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary</a>
-        <a href="#">Contact</a>
-        <a href="/about">About</a>
-        <a class="nav" style="color: #000000;" onclick="openCartModal()">My Cart</i></a>
-        <a href="/profile">My Profile</a>
-        <a href="/logout">Logout</a>
-      </div>
+  <div class="topnav"> 
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
-    <div class="dashboard">
-      <div class="dashboard-banner">
-        <img src="images/long.jpg" alt="" />
-        <div class="banner-promo">
-          <span
-            ><img class="logo" src="images/maya.png" alt="" height="330px"
-          /></span>
+    <a href="/UserDashboard"><img src="images/logo.png" height="60px" width="60px"/></a>
+    <a href="/UserDashboard"><img src="images/mayame.png" height="60px" width="190px"/></a>
+    <div class="menu">
+      <a class="nav" href="/UserDashboard">Home</a>
+    <div class="nav" onclick="openProfileModal()" style="font-size: 22px;cursor: pointer;float: right;margin: 1.3% 3% 0 0;color: #976b35;"> <i class="fas fa-user-circle fa-2x"></i>
+    </div>
+      <!-- Profile Modal -->
+      <div id="profileModal" class="pmod">
+        <div class="modal-contents">
+          <span class="close" onclick="closeProfileModal()">&times;</span>
+          <a class="prof" href="/profile">My Profile</a>
+          <a class="prof" href="/recommendations">Recommended</a>
+          <a class="prof" href="/logout">Logout</a>
         </div>
-        <div class="cont">
-          <div class="log">
-            <a class="fbtn" href="/userMenu">Food Menu</a>
-            <a class="fbtn" href="/userTrays">Party Trays</a>
-            <a class="fbtn active" href="/userMeals">Solo Meals</a>
-            <a class="fbtn" href="/recommendations">Recommend for You</a>
-          </div>
+      </div>
+      <a class="nav" onclick="openCartModal()" style="margin: 0.8% 0 0 0;font-size: 19px;cursor: pointer;color: #976b35;float: right;"><i class="fas fa-shopping-cart fa-2x"></i><span id="cart-counter">0</span>
+      </a>
+      <%- include('dietaryPreferences.ejs') %>
+      <a class="nav" href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary Preferences</a>
+      <a class="nav" href="/recommendations">Recommended</a>
+      <a class="nav" href="/contact">Contact Us</a>
+    <a class="nav" href="/about">About Us</a>
+    </div>
+     <div class="side-menu">
+      <a href="/UserDashboard">Home</a>
+      <a href="/confirmorderinfo">Orders</a>
+      <a href="#" id="dietaryPreferencesNav" onclick="openDietaryModal()">Dietary</a>
+      <a href="#">Contact</a>
+      <a href="/about">About</a>
+      <a class="nav" style="color: #000000;" onclick="openCartModal()">My Cart</i></a>
+      <a href="/profile">My Profile</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+  <div class="dashboard">
+    <div class="dashboard-banner">
+      <img src="images/long.jpg" alt="" />
+      <div class="banner-promo">
+        <span
+          ><img class="logo" src="images/maya.png" alt="" height="330px"
+        /></span>
+      </div>
+      <div class="cont">
+        <div class="log">
+          <a class="fbtns" href="/userMenu">Food Menu</a>
+          <a class="fbtns" href="/userTrays">Party Trays</a>
+          <a class="fbtns active" href="/userMeals">Solo Meals</a>           
         </div>
       </div>
     </div>
+  </div>
     <div class="dashboard-content" id="container">
       <div class="cards" style="height: 475px" id="brm">
         <img class="card-image" src="images/bac.jpg" alt="" />

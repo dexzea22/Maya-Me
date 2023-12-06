@@ -68,7 +68,7 @@ router.post('/', async (req, res) => {
       data: updateData,
     });
 
-    res.send('Profile updated successfully.');
+    res.redirect('/profile?alert=success');
   } catch (error) {
     res.status(500).send('An error occurred while updating the profile.');
   }

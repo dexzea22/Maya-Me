@@ -232,48 +232,6 @@ position: relative;
 text-decoration: none;
 text-align: center;
 }
-
-@media (max-width: 900px) {
-  .log {
-    flex-direction: row;
-    justify-content: left;
-  }
-
-  .fbtn {
-    margin-bottom: 110px;
-    width: 70px;
-    font-size: 5px;
-    font-weight: bold;
-    height: 25px;
-    text-align: center;
-  }
-  .fbtns {
-    margin-bottom: 113px;
-    width: 100px;
-    font-size: 9px;
-    height: 30px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-}
-.fbtn:hover{
-background-color:rgb(243, 185, 113);
-color: rgb(0, 0, 0);
-text-decoration: none;
-}
-.fbtn.active{
-background-color:rgb(243, 185, 113);
-color: rgb(0, 0, 0);
-text-decoration: none;
-}
-.fbtn {
-  padding: 10px 20px;
-  text-decoration: none;
-  color: white;
-  background-color:#C69B68;
-  border-radius: 5px;
-}
 .fbtns:hover{
   background-color:rgb(243, 185, 113);
   color: rgb(0, 0, 0);
@@ -286,13 +244,44 @@ text-decoration: none;
   }
   .fbtns {
     padding: 10px 20px;
-    margin-left: 20px;
-    text-decoration: none;
-    color: white;
-    background-color:#C69B68;
-    border-radius: 5px;
-    font-weight: bold;
+        margin: 0 10px 0 10px;
+        text-decoration: none;
+        color: white;
+        background-color:#C69B68;
+        border-radius: 5px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
   }
+@media (max-width: 900px) {
+  .log {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .fbtn, .fbtns  {
+    margin-bottom: 110px;
+    width: 100px;
+    font-size: 11px;
+    font-weight: bold;
+    height: 35px;
+    text-align: center;
+  }
+
+  
+}
+.fbtn:hover{
+background-color:rgb(243, 185, 113);
+color: rgb(0, 0, 0);
+text-decoration: none;
+}
+.fbtn.active{
+background-color:rgb(243, 185, 113);
+color: rgb(0, 0, 0);
+text-decoration: none;
+}
+
+
 
 .dashboard-content {
 display: grid;
@@ -311,15 +300,7 @@ cursor: pointer;
 max-height: 800px; /* Set the desired height for the search result container */
 overflow-y: auto; /* Enable vertical scrolling if the content exceeds the container height */
 }
-@media(max-width:500px){
-  .cards{
-    width: 200px;
-    height: 250px;
-  }
-  .card-image{
-    width:50px;
-  }
-}
+
 .card-image {
 width: 100%;
 height: 200px;
@@ -508,6 +489,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 display: grid;
 grid-template-columns: repeat(3,1fr); 
 gap:10px;
+margin-left:15px;
 }
 /* Individual image styles */
 .gallery img, .gllry img {
@@ -544,7 +526,7 @@ z-index: 999;
   .logo {
     height: 200px; 
     width: 200px; 
-    margin-left: 70px;
+    margin-left: 85px;
     margin-top:70px ;
   }
 }
@@ -593,7 +575,7 @@ color: #ccc; /* Color of empty stars */
   .modal-contents {
     background-color: #fefefe;
     margin: 4.5% auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #888;
     width: 10%;
     height:220px;
@@ -604,7 +586,9 @@ color: #ccc; /* Color of empty stars */
     text-decoration: none;
     color:#C69B68; /* Set the default text color */
     position: relative;
-  
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
   }
   
   .modal-contents a.prof::before {
@@ -639,5 +623,20 @@ color: #ccc; /* Color of empty stars */
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+  .search-input {
+    position: relative;
+  }
+
+ 
+
+  .search-input .fa-search {
+    position: absolute;
+    right: 10px; /* Adjust the position of the icon */
+    top: 60%;
+    transform: translateY(-50%);
+    font-size: 18px; /* Adjust the font size of the icon */
+    color: #000000; /* Adjust the color of the icon */
+    pointer-events: none; /* Make sure the icon doesn't interfere with text input */
   }
 
