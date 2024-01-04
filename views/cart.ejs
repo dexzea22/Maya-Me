@@ -115,20 +115,75 @@
           </div>  
           <div style="color: rgb(255, 0, 0);font-weight: bold; ">**SHIPPING FEE IS FREE AROUND LUISIANA LAGUNA**</div>
             </form>
-            <input type="submit" value="CHECKOUT" id="checkoutButton" class="btn"></input>
-            <div id="payment-mod" class="modal-container">
-              <div id="paypal-button"></div>
+            <!-- Checkout Button -->
+            <input type="submit" value="CHECKOUT" id="checkoutButton" class="btn">
+
+            <!-- Payment Modal Container -->
+            <div id="payment-modal" class="modal-container" style="display:none;">
+              <!-- Modal Content -->
+              <div class="modal-content">
+              <span class="close-button">&times;</span>
+                <h2>Select Your Payment Method</h2>
+                  <!-- Payment Methods Here -->
+                
+                    <input class="cod" type="button" value="Cash On Delivery">
+                  
+                  <div id="paypal-button"></div>
+                  
+              </div>
           </div>
+
         </div>
     </div>
 </div>
 </form>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Get the modal
+    var modal = document.getElementById("payment-modal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("checkoutButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close-button")[0];
+
+    if (btn && modal && span) {
+        // When the user clicks the button, open the modal 
+        btn.onclick = function(event) {
+            event.preventDefault();  // Prevent any default button action
+            modal.style.display = "block";
+        }
+
+     // When the user clicks on <span> (x), close the modal
+span.onclick = function(event) {
+    event.preventDefault();  // Prevent any default span action
+    modal.style.display = "none";
+};
+
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                event.preventDefault();  // Prevent any default window action
+                modal.style.display = "none";
+            }
+        }
+
+        // Prevent events inside the modal from closing it and stop propagation
+        modal.children[0].onclick = function(event) {
+            event.stopPropagation();
+            event.preventDefault();  // Prevent any default action inside the modal
+        }
+    } else {
+        console.error("Elements not found. Please check the IDs and class names.");
+    }
+});
+
+</script>
 <script src="https://www.paypal.com/sdk/js?client-id=AVu3WborcTvCGiCezIWmlpoZl8aV3sREwYVeBrZAWl8Dej6WlLIY9mnfD527IwI4a6UbEIvWhlV4p8_o&currency=PHP"></script>
 <script src="scripts/cart.js"></script>
 <script src="scripts/index.js"></script>
 <script src="scripts/payment.js"></script>
-
-
-
 </body>
 </html>

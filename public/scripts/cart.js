@@ -70,10 +70,10 @@ function updateCartCounter() {
 }
 
 function addToCart(itemName, cardId) {
-
   var selectedSize = document.querySelector(`#${cardId} input[name="size"]:checked`);
   // Get the image URL based on the cardId
   var imageUrl = document.querySelector(`#${cardId} img[src^="images/"]`).getAttribute('src');
+
   if (selectedSize) {
     var selectedSizeValue = selectedSize.value;
     var [size, price] = selectedSizeValue.split('-');
@@ -87,9 +87,20 @@ function addToCart(itemName, cardId) {
       quantity: 1,  // Default quantity is set to 1
     };
 
-    console.log(cartItems);
+    // Check if the addition of the new item exceeds the total price limit
+    var currentTotalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    if (currentTotalPrice + numericPrice > 10000) {
+      // Alert the user that the total price limit will be exceeded
+      Swal.fire({
+        icon: 'error',
+        title: 'Limit Exceeded',
+        text: 'Adding this item will exceed the total cart limit of ₱10,000.',
+        showConfirmButton: true,
+      });
+      return; // Prevent adding the item to the cart
+    }
+
     cartItems.push(item);
-    console.log(cartItems);
     updateCartDisplay();
     saveCartItemsToStorage(cartItems);
 
@@ -113,6 +124,7 @@ function addToCart(itemName, cardId) {
   updateCartCounter();
   updateItemCounter();
 }
+
 
 function updateCartDisplay() {
   var cartList = document.getElementById("mod-cart-items");
@@ -196,13 +208,35 @@ function createDecrementButton(index) {
 }
 // Function to increment the quantity of a specific item
 function incrementItem(index) {
-cartItems[index].quantity = (cartItems[index].quantity || 1) + 1;
-cartItems[index].totalPrice = cartItems[index].quantity * cartItems[index].price; // Update total price
-updateCartDisplay();
-saveCartItemsToStorage(cartItems);
-updateCartCounter();
-updateItemCounter();
+  // Calculate what the new total price would be if the item is incremented
+  var potentialNewTotalPrice = (cartItems[index].quantity + 1) * cartItems[index].price;
+  var currentTotalPrice = cartItems.reduce((total, item, currentIndex) => {
+    return total + (currentIndex === index ? potentialNewTotalPrice : item.quantity * item.price);
+  }, 0);
+
+  // Check if the potential new total price exceeds 15,000
+  if (currentTotalPrice > 10000) {
+    // Alert the user that they cannot add more of this item
+    Swal.fire({
+      icon: 'error',
+      title: 'Limit Reached',
+      text: `Adding another ${cartItems[index].name} would exceed the total cart limit of ₱10,000.`,
+      showConfirmButton: true,
+    });
+    return; // Stop the function here to prevent adding more
+  }
+
+  // If the limit is not reached, increment the quantity and update the total price
+  cartItems[index].quantity += 1;
+  cartItems[index].totalPrice = cartItems[index].quantity * cartItems[index].price; // Update total price
+
+  // Update the cart display and save the new cart state
+  updateCartDisplay();
+  saveCartItemsToStorage(cartItems);
+  updateCartCounter();
+  updateItemCounter();
 }
+
 
 function decrementItem(index) {
 if (cartItems[index].quantity > 1) {

@@ -6,34 +6,15 @@
     <link rel="website icon" type="png" href="images/maya.png" />
     <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Rubik:400,700"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script
-      src="https://kit.fontawesome.com/7f01a542af.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://kit.fontawesome.com/7f01a542af.js"crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="stylesheets/menu.css" />
-
     <title>User Trays</title>
   </head>
   <body
@@ -72,6 +53,12 @@
       <a class="nav" href="/recommendations">Recommended</a>
       <a class="nav" href="/contact">Contact Us</a>
     <a class="nav" href="/about">About Us</a>
+    <div class="nav" style="float: right;">
+      <div class="search-input">
+        <i class="fas fa-search"></i>
+        <input type="text" class="form-control" style="margin-top: 12px;" placeholder="Search menu items" id="menuSearchInput">
+      </div>
+    </div>
     </div>
      <div class="side-menu">
       <a href="/UserDashboard">Home</a>
@@ -1566,6 +1553,34 @@
         </div>
       </div>
     </div>
+    <script>
+      // Get the cards initially
+      var cards = document.querySelectorAll('.cards');
+    
+      // Add event listener for keydown event
+      document.getElementById('menuSearchInput').addEventListener('keydown', function(event) {
+        // Check if Enter key is pressed (key code 13)
+        if (event.keyCode === 13) {
+          performSearch();
+        }
+      });
+    
+      function performSearch() {
+        // Get the value from the search input
+        var searchQuery = document.getElementById('menuSearchInput').value.toLowerCase();
+    
+        // Perform your search logic here
+        // For demonstration, you can hide/show cards based on the search query
+        cards.forEach(function(card) {
+          var cardTitle = card.querySelector('h4').innerText.toLowerCase();
+          if (cardTitle.includes(searchQuery)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    </script>
     <script src="scripts/trays.js"></script>
   </body>
   <div class="cntr">
