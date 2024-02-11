@@ -374,6 +374,7 @@ button {
   display: grid;
   grid-template-columns: repeat(3,1fr); 
   gap:10px;
+  margin-left:15px;
   }
   .map-img{
     float: left; 
@@ -391,7 +392,7 @@ button {
   }
   @media(max-width:900px){
     .gmap{
-      width:169px;
+      width:200px;
       max-height: 125px;
     }
   }
@@ -644,7 +645,7 @@ margin-top: 29px;
 .modal-contents {
   background-color: #fefefe;
   margin: 4.5% auto;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #888;
   width: 10%;
   height:220px;
@@ -655,7 +656,9 @@ margin-top: 29px;
   text-decoration: none;
   color:#C69B68; /* Set the default text color */
   position: relative;
-
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
 }
 
 .modal-contents a.prof::before {

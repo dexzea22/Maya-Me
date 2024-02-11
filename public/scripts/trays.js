@@ -124,6 +124,7 @@ function addToCart(itemName, cardId) {
   var selectedSize = document.querySelector(`#${cardId} input[name="size"]:checked`);
   // Get the image URL based on the cardId
   var imageUrl = document.querySelector(`#${cardId} img[src^="images/"]`).getAttribute('src');
+
   if (selectedSize) {
     var selectedSizeValue = selectedSize.value;
     var [size, price] = selectedSizeValue.split('-');
@@ -137,6 +138,18 @@ function addToCart(itemName, cardId) {
       quantity: 1,  // Default quantity is set to 1
     };
 
+    // Check if the addition of the new item exceeds the total price limit
+    var currentTotalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    if (currentTotalPrice + numericPrice > 10000) {
+      // Alert the user that the total price limit will be exceeded
+      Swal.fire({
+        icon: 'error',
+        title: 'Limit Exceeded',
+        text: 'Adding this item will exceed the total cart limit of ₱10,000.',
+        showConfirmButton: true,
+      });
+      return; // Prevent adding the item to the cart
+    }
 
     cartItems.push(item);
     updateCartDisplay();
@@ -162,6 +175,7 @@ function addToCart(itemName, cardId) {
   updateCartCounter();
   updateItemCounter();
 }
+
 
 function updateCartDisplay() {
   var cartList = document.getElementById("mod-cart-items");
@@ -308,7 +322,7 @@ function saveCartItemsToStorage(items) {
 
 function getCartItemsFromStorage() {
   var storedItems = localStorage.getItem("cartItems");
-  return storedItems ? JSON.parse(storedItems) : [];
+  return storedItems !== null ? JSON.parse(storedItems) : [];
 }
 
 function displayStoredItems() {
@@ -326,7 +340,7 @@ window.onload = function () {
   updateCartCounter(); // Update the cart counter
   updateItemCounter(); // Update the item counter
 };
-function openCartModal() {
+function openCart() {
   var cartItems = getCartItemsFromStorage() || [];
   console.log("Cart Items:", cartItems);
 
@@ -338,7 +352,7 @@ function openCartModal() {
     Swal.fire({
       icon: 'warning',
       title: 'Your cart is empty!',
-      text: 'Please add items to your cart first.',
+      text: 'Please add food to your cart first.',
       showConfirmButton: true,
     }); 
   }

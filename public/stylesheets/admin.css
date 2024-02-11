@@ -1,0 +1,188 @@
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(239, 232, 202, 0.663);
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s;
+  }
+  .sidenav a {
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display:block;
+    font-family: Kreon, open-sans;
+    font-weight: bold;
+    position: relative;
+    margin-left: 20px;
+  }
+  
+  .sidenav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .sidenav a:hover::after {
+    width: 50%;
+  }
+  .menu-toggle {
+    display: none; /* Hide on larger screens */
+    cursor: pointer;
+    float: left;
+    }
+    .bar {
+    width: 30px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    margin: 5px 0;
+    }
+    /* Show menu on smaller screens */
+    @media (max-width: 768px) {
+    #menu {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    .side-menu a {
+      display: block;
+      padding: 15px;
+      color: rgb(0, 0, 0);
+      margin-right: 50px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .menu-toggle {
+      display: block;
+      max-width: 100%;
+      float: left;
+      margin: 25px 0 0 15px;
+    }
+  }
+  
+  .side-menu {
+    display: none; /* Hide the side menu by default */
+    position: fixed;
+    top: 88px;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: rgba(239, 232, 202, 0.663);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 998; /* Ensure it's below the menu toggle */
+  }
+  /* Underline animation */
+  .side-menu a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .side-menu a:hover {
+    color: #000000;
+  }
+  
+  .side-menu a:hover::before {
+    width: 100%;
+  }
+  /* Show the side menu when the .show class is added */
+  .side-menu.show {
+    display: block;
+  }
+  .admn{
+    font-family: kreon,open-sans;
+    font-weight: bold;
+    font-size: 50px;
+    color: black;
+  }
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  .adChrt{
+    margin-right: 5%;
+    background: #ffffff;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
+  }
+  @media(max-width:900px){
+    .main-content{
+        margin: 0;
+    }
+    .admn{
+        font-size: 35px;
+        margin-left: 50px;
+    }
+  }
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .chart-wrapper {
+    margin: auto;
+    width: 40%;
+  }
+  
+  #donutChartWrapper {
+    flex: 0 0 30%; /* Adjust the width of the donut chart wrapper */
+  }
+  #pieChartWrapper {
+    flex: 0 0 30%; /* Adjust the width of the donut chart wrapper */
+  }
+   /* Style the table */
+   table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    text-align: center;
+    padding: 8px;
+  }
+  .action-th {
+    text-align: center;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  /* Style the action buttons */
+  .view-btn {
+    background-color: #007bff;
+    color: white;
+    margin-right: 8px;
+  }
+  .update-btn {
+    background-color: #ffc107;
+    color: white;
+    margin-right: 8px;
+  }
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    margin-right: 8px;
+  }
+  .btn-group {
+    float: center;
+  }

@@ -9,6 +9,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const paypal = require('paypal-rest-sdk');
 const app = express();
+const axios = require('axios');
+const cors = require('cors');
+
 
 const port = process.env.PORT || 8000;
 
@@ -79,6 +82,9 @@ app.get('/about', (req, res) => {
 app.get('/contactUs', (req, res) => {
   res.render('contactUs'); // Render a view named "new-page.ejs"
 });
+app.get('/contact', (req, res) => {
+  res.render('contact'); // Render a view named "new-page.ejs"
+});
 app.use(session({
   secret: 'secret-key',
   resave: false,
@@ -98,6 +104,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({
+  origin: 'http://localhost:8000',
+}));
 
 app.use('/', loginRouter);
 app.use('/', registerRouter);
@@ -145,7 +154,7 @@ const createOrder = async (accessToken) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${accessToken}`,
+   
       },
       body: JSON.stringify({
         intent: 'CAPTURE',
@@ -266,6 +275,31 @@ app.post('/capture/:orderID', async (req, res) => {
   } catch (error) {
     console.error('Failed to capture PayPal order:', error);
     res.status(500).json({ error: 'Failed to capture PayPal order.' });
+  }
+});
+
+//fetching Paypal activity
+app.get('/adminserver', async (req, res) => {
+  try {
+    const accessToken = access_token$sandbox$xg86hwpmj9syfv6g$21a653745a7ffc3cce86f2797b84a28c; // Replace with your actual access token
+
+    const fromDate = req.query.fromDate || '2023-01-01';
+    const toDate = req.query.toDate || '2023-12-31';
+
+    const response = await axios.get('https://api-m.sandbox.paypal.com/v1/reporting/transactions', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      params: {
+        start_date: fromDate,
+        end_date: toDate,
+        // Include any necessary parameters for your specific reporting needs
+      },
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('PayPal reporting request failed:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

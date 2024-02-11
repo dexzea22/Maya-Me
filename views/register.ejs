@@ -16,7 +16,13 @@
     <link rel="stylesheet" href="stylesheets/register.css" />
     
   </head>
-  <body style="background-image: url('images/standard-bg.png');background-size: cover;background-repeat: no-repeat;">
+  <body
+    style="
+      background-image: url('images/standard-bg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+    "
+  >
     <div class="topnav">
       <div class="menu-toggle">
         <div class="bar"></div>
@@ -49,7 +55,15 @@
               <div class="card card-registration my-4">
                 <div class="row g-0">
                   <div class="col-xl-6 d-none d-xl-block">
-            <img src="images/reg.jpg"alt="Sample photo" class="img-fluid" style="border-top-left-radius: 0.25rem;border-bottom-left-radius:0.25rem;"/>
+                    <img
+                      src="images/reg.jpg"
+                      alt="Sample photo"
+                      class="img-fluid"
+                      style="
+                        border-top-left-radius: 0.25rem;
+                        border-bottom-left-radius: 0.25rem;
+                      "
+                    />
                   </div>
                   <div class="col-xl-6">
                     <div class="card-body p-md-5 text-black">
@@ -68,12 +82,24 @@
                       <div class="row">
                         <div class="col-md-6 mb-3">
                           <div class="form-outline">
-                            <input type="text" id="firstName" name="firstName" placeholder="Firstname . . ." class="form-control form-control-lg" />
+                            <input
+                              type="text"
+                              id="firstName"
+                              name="firstName"
+                              placeholder="Firstname . . ."
+                              class="form-control form-control-lg"
+                            />
                           </div>
                         </div>
                         <div class="col-md-6 mb-3">
                           <div class="form-outline">
-                            <input type="text" id="lastName" name="lastName" placeholder="Lastname . . ." class="form-control form-control-lg" />
+                            <input
+                              type="text"
+                              id="lastName"
+                              name="lastName"
+                              placeholder="Lastname . . ."
+                              class="form-control form-control-lg"
+                            />
                           </div>
                         </div>
                       </div>
@@ -81,7 +107,14 @@
                       <div class="row">
                         <div class="col-md-12 mb-3">
                           <div class="form-outline">
-                            <input type="text" id="email" name="email" placeholder="Email Address . . ." class="form-control form-control-lg" required />
+                            <input
+                              type="text"
+                              id="email"
+                              name="email"
+                              placeholder="Email Address . . ."
+                              class="form-control form-control-lg"
+                              required
+                            />
                           </div>
                         </div>
                       </div>
@@ -95,7 +128,6 @@
                                   <span id="togglePassword" class="fa-fw fa-eye far toggle-password"></span>
                               </span>
                           </div>
-                          
                           </div>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -105,41 +137,83 @@
                               <span>
                                   <span id="toggleCpassword" class="fa-fw fa-eye far toggle-password"></span>
                               </span>
-                          </div>
-                          
+                            </div>
                           </div>
                         </div>
                       </div>
                       <!-- Gender -->
-                      <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+                      <div
+                        class="d-md-flex justify-content-start align-items-center mb-4 py-2"
+                      >
                         <h6 style="color: #c69b68" class="mb-0 me-3">
                           Gender: &emsp;
                         </h6>
                         <div class="form-check form-check-inline mb-0 me-3">
-                          <input class="form-check-input"type="radio"name="gender"id="femaleGender"value="Female"/>
-                          <label class="form-check-label" for="femaleGender">Female</label>
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="gender"
+                            id="femaleGender"
+                            value="Female"
+                          />
+                          <label class="form-check-label" for="femaleGender"
+                            >Female</label
+                          >
                         </div>
                         <div class="form-check form-check-inline mb-0 me-3">
-                          <input class="form-check-input"type="radio"name="gender"id="maleGender"value="Male"/>
-                          <label class="form-check-label" for="maleGender">Male</label>
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="gender"
+                            id="maleGender"
+                            value="Male"
+                          />
+                          <label class="form-check-label" for="maleGender"
+                            >Male</label
+                          >
                         </div>
                         <div class="form-check form-check-inline mb-0">
-                          <input class="form-check-input"type="radio"name="gender"id="otherGender"value="Other"/>
-                          <label class="form-check-label" for="otherGender">Other</label>
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="gender"
+                            id="otherGender"
+                            value="Other"
+                          />
+                          <label class="form-check-label" for="otherGender"
+                            >Other</label
+                          >
                         </div>
                       </div>
                       <!-- Address -->
                       <div class="form-outline mb-3">
-                        <input type="text" id="address" name="address" placeholder="Address . . ." class="form-control form-control-lg" />
+                        <input
+                          type="text"
+                          id="address"
+                          name="address"
+                          placeholder="Address . . ."
+                          class="form-control form-control-lg"
+                        />
                       </div>
                       <!-- Date of Birth -->
                       <div class="row">
                         <div class="col-md-6 mb-3 mb-4">
-                          <input type="date" id="dateOfBirth" name="dateOfBirth" class="date form-control form-control-lg" />
+                          <input
+                            type="date"
+                            id="dateOfBirth"
+                            name="dateOfBirth"
+                            class="date form-control form-control-lg"
+                          />
                         </div>
                         <!-- Phone Number -->
                         <div class="col-md-6 mb-3 mb-4">
-                          <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone number +63" class="form-control form-control-lg" />
+                          <input
+                            type="tel"
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            placeholder="Phone number +63"
+                            class="form-control form-control-lg"
+                          />
                         </div>
                       </div>
                       <!-- User Type -->
@@ -147,7 +221,7 @@
                         <label for="usertype">Choose User Type:</label>
                         <select name="usertype">
                           <!-- <option value="Admin">Admin</option>
-          <option value="Manager">Manager</option> -->
+                          <option value="Manager">Manager</option> -->
                           <option value="User">User</option>
                         </select>
                       </div>
@@ -181,7 +255,11 @@
           <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase mb-4">About company</h5>
 
-            <label>Thank you for choosing Maya&Me Services for your food orderingneeds. We're here to satisfy your cravings, one delicious meal at a time. Enjoy your meal and have a wonderful day!</label>
+            <label
+              >Thank you for choosing Maya&Me Services for your food
+              orderingneeds. We're here to satisfy your cravings, one delicious
+              meal at a time. Enjoy your meal and have a wonderful day!</label
+            >
             <div class="mt-4">
               <!-- Facebook -->
               <a type="button" class="btn btn-floating btn-warning btn-lg"
@@ -210,7 +288,8 @@
 
             <ul class="fa-ul" style="margin-left: 1.65em">
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
+                <span class="fa-li"><i class="fas fa-home"></i></span
+                ><span class="ms-2">Brgy San Isidro Luisiana,Laguna</span>
               </li>
               <li class="mb-3">
                 <span class="fa-li"><i class="fas fa-envelope"></i></span

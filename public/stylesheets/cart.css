@@ -34,7 +34,7 @@
     }
     .nav{
     margin-right: 50px;
-    margin-top: 18px;
+    margin-top: 15px;
     font-weight: bold;
     }
     .navc{
@@ -85,17 +85,155 @@
         }
         }
         /* Profile Modal (Centered in the viewport) */
-.pmod {
-    margin: auto;
-    display: none; 
-    position: fixed; 
-    z-index: 10000; 
+        .pmod {
+          margin: auto;
+          display: none; 
+          position: fixed; 
+          z-index: 10000; 
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%; 
+          overflow: auto; 
+          background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-contents {
+          background-color: #fefefe;
+          margin: 4.5% auto;
+          padding: 10px;
+          border: 1px solid #888;
+          width: 10%;
+          height:220px;
+          border-radius: 5px;
+          float: right;
+        }
+        .modal-contents a.prof {
+          text-decoration: none;
+          color:#C69B68; /* Set the default text color */
+          position: relative;
+          font-weight: bold;
+          font-size: 20px;
+          margin-top: 5px;
+        }
+        
+        .modal-contents a.prof::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px; /* Adjust the thickness of the underline */
+          bottom: 0;
+          left: 0;
+          background-color: transparent; /* Set the initial color of the underline */
+          transform: scaleX(0); /* Start with no width */
+          transform-origin: bottom left;
+          transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+        }
+        
+        .modal-contents a.prof:hover::before {
+          transform: scaleX(1); /* Expand the underline to full width on hover */
+          background-color: black; /* Change the color of the underline on hover */
+        }
+        
+        
+        .close {
+          margin:auto;
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+  .logo{
+    height: 325px;;
+    width: 325px;
+  }
+  @media (max-width: 900px) {
+    .logo {
+      height: 200px; 
+      width: 500px; 
+      margin-left: 0px;
+  
+    }
+  }
+  .menu-toggle {
+    display: none; /* Hide on larger screens */
+    cursor: pointer;
+    float: left;
+    }
+    .bar {
+    width: 30px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    margin: 5px 0;
+    }
+    /* Show menu on smaller screens */
+    @media (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    .side-menu a {
+      display: block;
+      padding: 15px;
+      color: rgb(0, 0, 0);
+      margin-right: 50px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .menu-toggle {
+      display: block;
+      max-width: 100%;
+      float: left;
+      margin: 25px 0 0 15px;
+    }
+  }
+  
+  .side-menu {
+    display: none; /* Hide the side menu by default */
+    position: fixed;
+    top: 88px;
     left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4);
+    height: 100%;
+    width: 250px;
+    background-color: rgba(239, 232, 202, 0.663);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 5000; /* Ensure it's below the menu toggle */
+  }
+  /* Underline animation */
+  .side-menu a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .side-menu a:hover {
+    color: #000000;
+  }
+  
+  .side-menu a:hover::before {
+    width: 100%;
+  }
+  /* Show the side menu when the .show class is added */
+  .side-menu.show {
+    display: block;
   }
   #cart-counter {
     color: #000000;
@@ -105,45 +243,11 @@
     top: 0;
     right: 0;
   }
-  .modal-contents {
-    background-color: #fefefe;
-    margin: 4.5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 10%;
-    height:220px;
-    border-radius: 5px;
-    float: right;
-  }
-  .modal-contents a.prof {
-    text-decoration: none;
-    color:#C69B68; /* Set the default text color */
-    position: relative;
-  
-  }
-  
-  .modal-contents a.prof::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px; /* Adjust the thickness of the underline */
-    bottom: 0;
-    left: 0;
-    background-color: transparent; /* Set the initial color of the underline */
-    transform: scaleX(0); /* Start with no width */
-    transform-origin: bottom left;
-    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
-  }
-  
-  .modal-contents a.prof:hover::before {
-    transform: scaleX(1); /* Expand the underline to full width on hover */
-    background-color: black; /* Change the color of the underline on hover */
-  }
+ 
   .dashboard-banner {
     width: 100%;
     height: 400px;
     position: relative;
-    padding: 1rem;
     border-radius: 30px;
     cursor: pointer;
     }
@@ -169,13 +273,13 @@
     }
     .card{
         margin: auto;
+        margin-top: 150px;
         max-width: 1350px;
         width: 100%;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 1rem;
         border: transparent;
         margin-bottom: 100px;
-        margin-top: 100px;
     }
     .inc{
         font-size: 16px;
@@ -215,7 +319,7 @@
             border-top-right-radius: 1rem;
         }
         .card{
-            margin: 3vh auto;
+            margin-top:60px;
         }
     }
     .summary .col-2{
@@ -241,23 +345,7 @@
     a{
         padding: 0 1vh;
     }
-    .clos{
-        margin-left: auto;
-        font-size: 0.7rem;
-    }
-    .close-button {
-      color: #aaaaaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    
-    .close-button:hover,
-    .close-button:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
+ 
     .back-to-shop{
         margin-top: 3.5rem;
         font-weight: bold;
@@ -335,18 +423,18 @@
         border-radius:5px;
       }
 .fbtn{
-    margin: 0 10px 0 10px;
-    background-color:#C69B68;
-    border: none;
-    border-radius: 5px;
-    width:12%;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    transition: all 0.3s ease; 
-    position: relative;
-    text-decoration: none;
+  margin: 0 10px 0 10px;
+background-color:#C69B68;
+border: none;
+border-radius: 5px;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 20px;
+font-weight: bold;
+color: white;
+transition: all 0.3s ease; 
+position: relative;
+text-decoration: none;
+text-align: center;
     }
     .log {
         display: flex;
@@ -359,7 +447,7 @@
     @media (max-width: 600px) {
       .log {
         flex-direction: row;
-        align-items: center;
+        justify-content: center;
       }
       .logo {
         height: 200px; 
@@ -368,9 +456,13 @@
         margin-top:70px ;
       }
       .fbtn {
-        margin-bottom: 115px;
-        width: 97px;
+        padding: 10px 10px 10px 10px;
+        margin-bottom: 90px;
+        width: 100px;
         font-size: 11px;
+        font-weight: bold;
+        height: 35px;
+        text-align: center;
       }
     }
     .fbtn:hover{
@@ -391,6 +483,46 @@
         align-items: center;
         height: 150px;
         }
+/* Style for the modal background */
+.modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* Style for the modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 100px;
+  width: 500px; /* Adjust as needed */
+}
+
+/* Button to close the modal */
+.close-button {
+  float: left;
+  cursor: pointer;
+  font-size: 30px;
+}
+.cod{
+  padding: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border: none;
+  font-family: Caveat, open-sans; 
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  border-radius: 3px;
+  background-color: rgb(47, 255, 71);
+}
 
   

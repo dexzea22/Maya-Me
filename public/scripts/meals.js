@@ -26,7 +26,10 @@ const menuToggle = document.querySelector('.menu-toggle');
       }
     }
   });
-  
+  function Login() {
+    // You can set the login page URL here
+    window.location.href = "/login"; // Replace "login.html" with the actual URL of your login page
+  }
  // JavaScript function to create a star rating
  function createStarRating(containerId, rating) {
   const container = document.getElementById(containerId);
@@ -76,6 +79,7 @@ function addToCart(itemName, cardId) {
   var selectedSize = document.querySelector(`#${cardId} input[name="size"]:checked`);
   // Get the image URL based on the cardId
   var imageUrl = document.querySelector(`#${cardId} img[src^="images/"]`).getAttribute('src');
+
   if (selectedSize) {
     var selectedSizeValue = selectedSize.value;
     var [size, price] = selectedSizeValue.split('-');
@@ -89,6 +93,18 @@ function addToCart(itemName, cardId) {
       quantity: 1,  // Default quantity is set to 1
     };
 
+    // Check if the addition of the new item exceeds the total price limit
+    var currentTotalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    if (currentTotalPrice + numericPrice > 10000) {
+      // Alert the user that the total price limit will be exceeded
+      Swal.fire({
+        icon: 'error',
+        title: 'Limit Exceeded',
+        text: 'Adding this item will exceed the total cart limit of ₱10,000.',
+        showConfirmButton: true,
+      });
+      return; // Prevent adding the item to the cart
+    }
 
     cartItems.push(item);
     updateCartDisplay();
@@ -114,6 +130,7 @@ function addToCart(itemName, cardId) {
   updateCartCounter();
   updateItemCounter();
 }
+
 
 function updateCartDisplay() {
   var cartList = document.getElementById("mod-cart-items");
@@ -290,7 +307,7 @@ function openCartModal() {
     Swal.fire({
       icon: 'warning',
       title: 'Your cart is empty!',
-      text: 'Please add items to your cart first.',
+      text: 'Please add food to your cart first.',
       showConfirmButton: true,
     }); 
   }
