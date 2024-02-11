@@ -17,14 +17,16 @@
             <% if(recommendations && recommendations.length > 0) { %>
                 <ul class="list-group">
                     <!-- Iterate over each recommendation and display it as a list item -->
-                    <% recommendations.forEach(function(rec) { %>
-                        <li class="list-group-item"><%= rec %></li>
+                    <% recommendations.forEach(function(rec, index) { %>
+                        <% if (index < 5) { %>
+                            <li class="list-group-item"><%= rec %></li>
+                        <% } %>
                     <% }); %>
                 </ul>
             <% } else { %>
                 <!-- Message displayed if there are no recommendations -->
                 <div class="alert alert-info" role="alert">
-                    No recommendations available.
+                    No recommendations available. Please adjust your dietary preferences.
                 </div>
             <% } %>
         </div>

@@ -8,63 +8,86 @@ datasource db {
 }
 
 model User {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  email            String   @unique
-  password         String?
-  usertype         String?
-  firstName        String?
-  lastName         String?
-  gender           String?
-  address          String?
-  dateOfBirth      DateTime?
-  phoneNumber      String?
-  confirmOrderInfo ConfirmOrderInfo?
-  orders           Order[]
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  email             String              @unique
+  password          String?
+  usertype          String?
+  firstName         String?
+  lastName          String?
+  gender            String?
+  address           String?
+  dateOfBirth       DateTime?
+  phoneNumber       String?
+  confirmOrderInfo  ConfirmOrderInfo?
+  orders            Order[]
   dietaryPreference DietaryPreference?
 }
 
 model ConfirmOrderInfo {
-  id              String    @id @map("_id") @db.ObjectId
-  userId          String    @unique
-  firstname       String?
-  middlename      String?
-  lastname        String?
-  gender          String?
-  birthdate       DateTime
-  foodChoice      String[]
-  deliveryAddress String
-  specialRequests String?
-  createdAt       DateTime  @default(now())
-  user            User?     @relation(fields: [userId], references: [id])
+  id               String    @id @map("_id") @db.ObjectId
+  userId           String    @unique
+  firstname        String?
+  middlename       String?
+  lastname         String?
+  gender           String?
+  birthdate        DateTime
+  foodChoice       String[]  // Presumably IDs of FoodItems
+  deliveryAddress  String
+  specialRequests  String?
+  createdAt        DateTime  @default(now())
+  user             User?     @relation(fields: [userId], references: [id])
 }
 
 model Order {
-  id        String    @id @map("_id") @db.ObjectId
-  userId    String
-  products  Json
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  user      User      @relation(fields: [userId], references: [id])
+  id         String    @id @map("_id") @db.ObjectId
+  userId     String
+  products   Json      // This could be an array of product IDs or similar
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  user       User      @relation(fields: [userId], references: [id])
 }
 
 model Log {
-  id         String   @id @map("_id") @db.ObjectId
-  action     String
-  email      String
-  timestamp  DateTime @default(now())
+  id        String   @id @map("_id") @db.ObjectId
+  action    String
+  email     String
+  timestamp DateTime @default(now())
 }
 
 model DietaryPreference {
-  id                 String      @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String      @unique
-  vegetarian         Boolean     @default(false)
-  vegan              Boolean     @default(false)
-  omnivore           Boolean     @default(false)
-  halal              Boolean     @default(false)
-  kosher             Boolean     @default(false)
-  glutenFree         Boolean     @default(false)
-  lactoseFree        Boolean     @default(false)
-  nutAllergy         Boolean     @default(false)
-  otherRestrictions  String?     // optional string for other restrictions
-  user               User        @relation(fields: [userId], references: [id])
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String   @unique
+  vegetarian        Boolean  @default(false)
+  vegan             Boolean  @default(false)
+  omnivore          Boolean  @default(false)
+  halal             Boolean  @default(false)
+  kosher            Boolean  @default(false)
+  glutenFree        Boolean  @default(false)
+  lactoseFree       Boolean  @default(false)
+  nutAllergy        Boolean  @default(false)
+  otherRestrictions String?  // Optional string for other restrictions
+  user              User     @relation(fields: [userId], references: [id])
+}
+
+model FoodItem {
+  id                  String     @id @default(auto()) @map("_id") @db.ObjectId
+  name                String
+  description         String?
+  price               Float
+  category            Category?  @relation(fields: [categoryId], references: [id])
+  categoryId          String?
+  dietaryRestrictions String[]   // Array of DietaryRestriction IDs
+  imageUrl            String?
+}
+
+model Category {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  name      String     @unique
+  foodItems FoodItem[]
+}
+
+model DietaryRestriction {
+  id    String   @id @default(auto()) @map("_id") @db.ObjectId
+  name  String   @unique
+  // No need to reference FoodItems here, as the relation is stored in FoodItem
 }
