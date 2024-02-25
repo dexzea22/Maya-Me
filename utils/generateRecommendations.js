@@ -1,17 +1,18 @@
-const openai = require('openai-api');
+const openai = require("openai-api");
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const openaiApi = new openai(OPENAI_API_KEY);
 
 const generateRecommendations = async (dietaryData) => {
-    // Convert dietaryData object into a string of dietary preferences
-    const dietaryPreferences = Object.entries(dietaryData)
-        .filter(([_, value]) => value)
-        .map(([key, _]) => key).join(', ');
+  // Convert dietaryData object into a string of dietary preferences
+  const dietaryPreferences = Object.entries(dietaryData)
+    .filter(([_, value]) => value)
+    .map(([key, _]) => key)
+    .join(", ");
 
-    // Define your menu items with their dietary categorizations
-    // ... (existing menuDescription)
-    // Define your menu items with their dietary categorizations
-    const menuDescription = `1. Afritada (Tray): Chicken stew with vegetables [Omnivore, Gluten-Free, Nut-Free]
+  // Define your menu items with their dietary categorizations
+  // ... (existing menuDescription)
+  // Define your menu items with their dietary categorizations
+  const menuDescription = `1. Afritada (Tray): Chicken stew with vegetables [Omnivore, Gluten-Free, Nut-Free]
     2. Bacon (Rice Meal): Crispy bacon strips, option with or without egg [Omnivore, Lactose-Free, Gluten-Free]
     3. Baked Cream Dory w/ Potatoes (Tray): Creamy fish and potato bake [Pescatarian, Gluten-Free, Nut-Free]
     4. Beef Caldereta (Tray): Spicy beef stew with vegetables [Omnivore, Gluten-Free, Nut-Free]
@@ -52,43 +53,48 @@ const generateRecommendations = async (dietaryData) => {
     39. Sweet and Sour Fish Fillet (Tray): Fish fillet in sweet and sour sauce [Pescatarian, Nut-Free]
     41. Sweet and Sour Pork (Tray): Pork in sweet and sour sauce [Omnivore, Nut-Free] `; // Add all your menu items in this format
 
-    const prompt = `Given a customer's dietary preferences, suggest suitable menu options from the following list of dishes:
+  const prompt = `Given a customer's dietary preferences, suggest suitable menu options from the following list of dishes:
     ${menuDescription}
 
     The customer's dietary preferences are: ${dietaryPreferences}. Please provide recommendations for each dietary preference based on the dishes listed.`;
 
- // Check if the prompt is not too long for the API limits
- console.log(`Prompt length in tokens: ${prompt.split(' ').length}`);
+  // Check if the prompt is not too long for the API limits
+  console.log(`Prompt length in tokens: ${prompt.split(" ").length}`);
 
- try {
+  try {
     const gptResponse = await openaiApi.complete({
-        engine: 'gpt-3.5-turbo-instruct', // Updated engine name
-        prompt: prompt,
-        maxTokens: 100,
-        temperature: 0.5,
-        n: 1,
-        stop: ["\n", " Human:"]
+      engine: "gpt-3.5-turbo-instruct", // Updated engine name
+      prompt: prompt,
+      maxTokens: 100,
+      temperature: 0.5,
+      n: 1,
+      stop: ["\n", " Human:"],
     });
 
-     let recommendations = gptResponse.data.choices[0].text.trim().split('\n').filter(item => item);
-     recommendations = recommendations.slice(0, 5); // Adjust the number of recommendations as needed
+    let recommendations = gptResponse.data.choices[0].text
+      .trim()
+      .split("\n")
+      .filter((item) => item);
+    recommendations = recommendations.slice(0, 5); // Adjust the number of recommendations as needed
 
-     return recommendations;
- } catch (error) {
-     console.error('Error calling OpenAI API:', error.message);
-     console.error('Error stack:', error.stack);
+    return recommendations;
+  } catch (error) {
+    console.error("Error calling OpenAI API:", error.message);
+    console.error("Error stack:", error.stack);
 
-     if (error.response) {
-         console.error('Response status:', error.response.status);
-         console.error('Response data:', error.response.data);
-     } else if (error.request) {
-         console.error('No response received:', error.request);
-     } else {
-         console.error('Error setting up the request:', error.message);
-     }
+    if (error.response) {
+      console.error("Response status:", error.response.status);
+      console.error("Response data:", error.response.data);
+    } else if (error.request) {
+      console.error("No response received:", error.request);
+    } else {
+      console.error("Error setting up the request:", error.message);
+    }
 
-     return ["An error occurred while generating recommendations. Please try again later."];
- }
+    return [
+      "An error occurred while generating recommendations. Please try again later.",
+    ];
+  }
 };
 
 module.exports = generateRecommendations;

@@ -1,46 +1,83 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const openai = require('openai-api');
+const openai = require("openai-api");
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const openaiApi = new openai(OPENAI_API_KEY);
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
+const {
+  revised_generated_recommendation,
+  extractValues,
+} = require("../utils/revisedGenerateRecommendation");
 
 // Endpoint to display the recommendations page
-router.get('/', (req, res) => {
-    res.render('recommendations', { recommendations: [] });
+router.get("/", async (req, res) => {
+  const userId = req.session.userId;
+
+  try {
+    const existingPreference = await prisma.dietaryPreference.findUnique({
+      where: { userId },
+    });
+
+    const gptResponse = await revised_generated_recommendation({
+      vegetarian: existingPreference.vegetarian,
+      vegan: existingPreference.vegan,
+      omnivore: existingPreference.omnivore,
+      halal: existingPreference.halal,
+      kosher: existingPreference.kosher,
+      glutenFree: existingPreference.glutenFree,
+      lactoseFree: existingPreference.lactoseFree,
+      nutAllergy: existingPreference.nutAllergy,
+      otherRestrictions: existingPreference.otherRestrictions,
+    });
+
+    // Generate recommendations based on the dietaryData
+    console.log("CALL 10: ", gptResponse);
+    res.render("recommendations", {
+      recommendations: [...extractValues(gptResponse)],
+    });
+  } catch (error) {
+    console.error("Error in submitting dietary preferences:", error);
+    res.render("recommendations", { recommendations: [] });
+  }
 });
 
 // Endpoint to handle generating recommendations based on dietary preferences
-router.post('/generate-recommendations', async (req, res) => {
-    try {
-        // Extract dietary preferences from the request body
-        const dietaryPreferences = req.body;
+router.post("/generate-recommendations", async (req, res) => {
+  try {
+    // Extract dietary preferences from the request body
+    const dietaryPreferences = req.body;
 
-        // Log the dietary preferences to verify the structure
-        console.log('Dietary Preferences Received:', dietaryPreferences);
+    // Log the dietary preferences to verify the structure
+    console.log("Dietary Preferences Received:", dietaryPreferences);
 
-        // Generate recommendations
-        const recommendations = await generateRecommendations(dietaryPreferences);
+    // Generate recommendations
+    const recommendations = await generateRecommendations(dietaryPreferences);
 
-        // Log the generated recommendations to verify the output
-        console.log('Generated Recommendations:', recommendations);
-        
-        // Send the recommendations in the response
-        res.json({ success: true, recommendations });
-    } catch (error) {
-        console.error('Error in /generate-recommendations:', error);
-        res.status(500).json({ success: false, message: error.message });
-    }
+    // Log the generated recommendations to verify the output
+    console.log("Generated Recommendations:", extractValues(recommendations));
+
+    // Send the recommendations in the response
+    res.json({
+      success: true,
+      recommendations: extractValues(recommendations),
+    });
+  } catch (error) {
+    console.error("Error in /generate-recommendations:", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
 });
 
 // Updated utility function to generate recommendations
 const generateRecommendations = async (preferences) => {
-    // Convert dietary preferences into a string
-    const dietaryRestrictions = Object.entries(preferences)
-        .filter(([_, value]) => value)
-        .map(([key, _]) => key).join(', ');
+  // Convert dietary preferences into a string
+  const dietaryRestrictions = Object.entries(preferences)
+    .filter(([_, value]) => value)
+    .map(([key, _]) => key)
+    .join(", ");
 
-    // Include your menu items here
-    const menuDescription = `1. Afritada (Tray): Chicken stew with vegetables [Omnivore, Gluten-Free, Nut-Free]
+  // Include your menu items here
+  const menuDescription = `1. Afritada (Tray): Chicken stew with vegetables [Omnivore, Gluten-Free, Nut-Free]
     2. Bacon (Rice Meal): Crispy bacon strips, option with or without egg [Omnivore, Lactose-Free, Gluten-Free]
     3. Baked Cream Dory w/ Potatoes (Tray): Creamy fish and potato bake [Pescatarian, Gluten-Free, Nut-Free]
     4. Beef Caldereta (Tray): Spicy beef stew with vegetables [Omnivore, Gluten-Free, Nut-Free]
@@ -81,24 +118,27 @@ const generateRecommendations = async (preferences) => {
     39. Sweet and Sour Fish Fillet (Tray): Fish fillet in sweet and sour sauce [Pescatarian, Nut-Free]
     41. Sweet and Sour Pork (Tray): Pork in sweet and sour sauce [Omnivore, Nut-Free] `; // Add the menu description as before
 
-    const prompt = `Given a customer's dietary preferences, suggest suitable menu options from the following list of dishes:
+  const prompt = `Given a customer's dietary preferences, suggest suitable menu options from the following list of dishes:
     ${menuDescription}
 
     The customer's dietary preferences are: ${dietaryRestrictions}. Please provide recommendations for each dietary preference based on the dishes listed.`;
 
-    try {
-        const gptResponse = await openaiApi.complete({
-            engine: 'davinci',
-            prompt: prompt,
-            maxTokens: 100
-        });
+  try {
+    const gptResponse = await openaiApi.complete({
+      engine: "davinci",
+      prompt: prompt,
+      maxTokens: 100,
+    });
 
-        const recommendations = gptResponse.data.choices[0].text.trim().split('\n').filter(item => item);
-        return recommendations.length > 0 ? recommendations : [];
-    } catch (error) {
-        console.error('Error calling OpenAI API:', error);
-        throw error; // Proper error handling
-    }
+    const recommendations = gptResponse.data.choices[0].text
+      .trim()
+      .split("\n")
+      .filter((item) => item);
+    return recommendations.length > 0 ? recommendations : [];
+  } catch (error) {
+    console.error("Error calling OpenAI API:", error);
+    throw error; // Proper error handling
+  }
 };
 
 module.exports = router;
